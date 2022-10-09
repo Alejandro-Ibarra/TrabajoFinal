@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5C647036-6A5A-4E6F-8A2D-132A20749E82}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TrabajoFinal</RootNamespace>
+    <AssemblyName>TrabajoFinal</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GUI-Admin\GUI-AdminBebidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminBebidas.Designer.cs">
+      <DependentUpon>GUI-AdminBebidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminEventos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminEventos.Designer.cs">
+      <DependentUpon>GUI-AdminEventos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminExtras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminExtras.Designer.cs">
+      <DependentUpon>GUI-AdminExtras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminIngredientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminIngredientes.Designer.cs">
+      <DependentUpon>GUI-AdminIngredientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminPersonal.Designer.cs">
+      <DependentUpon>GUI-AdminPersonal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminTurnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminTurnos.Designer.cs">
+      <DependentUpon>GUI-AdminTurnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminPlatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminPlatos.Designer.cs">
+      <DependentUpon>GUI-AdminPlatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminMesas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Admin\GUI-AdminMesas.Designer.cs">
+      <DependentUpon>GUI-AdminMesas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Cliente\GUI-Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Cliente\GUI-Cliente.Designer.cs">
+      <DependentUpon>GUI-Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Inicio.Designer.cs">
+      <DependentUpon>GUI-Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Login.Designer.cs">
+      <DependentUpon>GUI-Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-UsrAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-UsrAdmin.Designer.cs">
+      <DependentUpon>GUI-UsrAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-UsrCocina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-UsrCocina.Designer.cs">
+      <DependentUpon>GUI-UsrCocina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-UsrMozo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-UsrMozo.Designer.cs">
+      <DependentUpon>GUI-UsrMozo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Encriptar.cs" />
+    <Compile Include="UserControl\UC_ValCod.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControl\UC_ValDNI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControl\UC_ValNombApe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="GUI-Admin\GUI-AdminPersonal.resx">
+      <DependentUpon>GUI-AdminPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Inicio.resx">
+      <DependentUpon>GUI-Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Login.resx">
+      <DependentUpon>GUI-Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Usuarios\GUI-UsrAdmin.resx">
+      <DependentUpon>GUI-UsrAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Usuarios\GUI-UsrCocina.resx">
+      <DependentUpon>GUI-UsrCocina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Usuarios\GUI-UsrMozo.resx">
+      <DependentUpon>GUI-UsrMozo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BussinesEntity\BussinesEntity.csproj">
+      <Project>{1953b4e7-abe1-4bb3-8d4e-a6a7705d01d1}</Project>
+      <Name>BussinesEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BussinesLogic\BussinesLogic.csproj">
+      <Project>{e8d5943b-3c20-4100-8d83-2c4b6ccb963f}</Project>
+      <Name>BussinesLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mapper\Mapper.csproj">
+      <Project>{f173db1f-a5d4-4921-a0f3-22f4ea0e8ac8}</Project>
+      <Name>Mapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceEntity\ServiceEntity.csproj">
+      <Project>{a03d6db3-743b-413f-8d2e-1ffab00675bd}</Project>
+      <Name>ServiceEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceLogic\ServiceLogic.csproj">
+      <Project>{cf6288c8-9def-447f-9c28-ec42120b9807}</Project>
+      <Name>ServiceLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
