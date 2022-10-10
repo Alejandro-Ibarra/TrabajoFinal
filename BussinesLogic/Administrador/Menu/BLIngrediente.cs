@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace BussinesLogic
 {
-    public class BLIngrediente : IGestorABM<BEIngrediente>, IGestorConsulta<string>
+    public class BLIngrediente : IGestorABM<BEIngrediente>, IGestorConsulta<BEIngrediente>
     {
         public bool Baja(BEIngrediente oBEIngredientes)
         {
             throw new NotImplementedException();
         }
 
-        public bool Existe(string obj)
+        public bool Existe(BEIngrediente oBEIngredientes)
         {
             throw new NotImplementedException();
         }

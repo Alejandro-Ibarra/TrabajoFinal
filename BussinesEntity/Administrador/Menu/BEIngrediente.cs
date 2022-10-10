@@ -13,6 +13,6 @@ namespace BussinesEntity
         public string Tipo { get; set; }
         public bool Refrigeracion { get; set; }
         public int Stock { get; set; }
-        public string proveedor { get; set; }
+        public string Proveedor { get; set; }
     }
 }

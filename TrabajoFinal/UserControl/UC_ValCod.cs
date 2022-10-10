@@ -12,7 +12,7 @@ namespace TrabajoFinal.UserControl
     {
         public Boolean validar()
         {
-            if (Regex.IsMatch(base.Text, @"^[0-9]"))
+            if (Regex.IsMatch(base.Text, @"^[0-9]") && base.Text != null)
             {
                 return true;
             }

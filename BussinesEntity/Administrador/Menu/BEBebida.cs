@@ -12,14 +12,9 @@ namespace BussinesEntity
         public string Nombre { get; set; }
         public string TipoEnvase { get; set; }
         public string Marca { get; set; }
-        public string Proveedor { get; set; }
         public int GraduacionAlc { get; set; }
         public int Stock { get; set; }
         public int Precio { get; set; }
-
-
-
-
 
     }
 }

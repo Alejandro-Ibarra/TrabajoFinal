@@ -45,7 +45,7 @@ namespace BussinesLogic
 
         public bool Modificar(BECocinero Objeto)
         {
-            throw new NotImplementedException();
+            return oMCocinero.Modificar(Objeto);
         }
     }
 }

@@ -5,24 +5,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mapper;
 
 namespace BussinesLogic
 {
     public class BLMozo : IGestorABM<BEMozo>, IGestorConsulta<int>
     {
-        public bool Baja(BEMozo oBEMozo)
+        public BLMozo()
         {
-            throw new NotImplementedException();
+            oMMozo = new MMozo();
         }
 
-        public bool Existe(int obj)
+        MMozo oMMozo;
+
+        public bool Baja(BEMozo oBEMozo)
         {
-            throw new NotImplementedException();
+            return oMMozo.Baja(oBEMozo);
+        }
+
+        public bool Existe(int oBEMozo)
+        {
+            return oMMozo.Existe(oBEMozo);
         }
 
         public bool Guardar(BEMozo oBEMozo)
         {
-            throw new NotImplementedException();
+            return oMMozo.Guardar(oBEMozo);
         }
 
         public BEMozo ListarObjeto(BEMozo oBEMozo)
@@ -32,12 +40,12 @@ namespace BussinesLogic
 
         public List<BEMozo> ListarTodo()
         {
-            throw new NotImplementedException();
+            return oMMozo.ListarTodo();
         }
 
-        public bool Modificar(BEMozo Objeto)
+        public bool Modificar(BEMozo oBEMozo)
         {
-            throw new NotImplementedException();
+            return oMMozo.Modificar(oBEMozo);
         }
     }
 }

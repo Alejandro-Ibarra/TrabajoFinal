@@ -33,9 +33,9 @@ namespace TrabajoFinal
 
         private void Pruebas_Click(object sender, EventArgs e)
         {
-            GUI_Administrar_Personal oGUI_Adm = new GUI_Administrar_Personal();
+            GUI_AdminBebidas oGUI_Beb = new GUI_AdminBebidas();
             this.Hide();
-            oGUI_Adm.Show();
+            oGUI_Beb.Show();
         }
     }
 }

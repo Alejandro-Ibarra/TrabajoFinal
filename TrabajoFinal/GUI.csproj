@@ -142,6 +142,12 @@
     <Compile Include="UserControl\UC_ValNombApe.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="GUI-Admin\GUI-AdminBebidas.resx">
+      <DependentUpon>GUI-AdminBebidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Admin\GUI-AdminIngredientes.resx">
+      <DependentUpon>GUI-AdminIngredientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI-Admin\GUI-AdminPersonal.resx">
       <DependentUpon>GUI-AdminPersonal.cs</DependentUpon>
     </EmbeddedResource>

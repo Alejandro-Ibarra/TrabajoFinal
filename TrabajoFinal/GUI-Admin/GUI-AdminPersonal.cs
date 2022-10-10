@@ -28,6 +28,11 @@ namespace TrabajoFinal
         BEMozo oBEMozo;
         BLMozo oBLMozo;
 
+        private void GUI_Administrar_Personal_Load(object sender, EventArgs e)
+        {
+            CargarGrillaCocinero();
+            CargarGrillaMozo();
+        }
 
         private void Boton_Alta_Click(object sender, EventArgs e)
         {
@@ -37,7 +42,7 @@ namespace TrabajoFinal
                 {
                     if (!oBLCocinero.Existe(int.Parse(UC_ValDNI.Text)))
                     {
-                        if (AsignarCocinero() == true)
+                        if (AsignarCocinero())
                         {
                             oBECocinero.Turno = AsignarTurno();
                             oBECocinero.CantPedidos = 0;
@@ -53,9 +58,11 @@ namespace TrabajoFinal
                 }
                 else
                 {
-                    if (AsignarMozo() == true)
+                    if (AsignarMozo())
                     {
-                        
+                        oBEMozo.Turno = AsignarTurno();
+                        oBEMozo.Ranking = 0;
+                        oBEMozo.Password = ServiceLogic.Encriptar.Encrypt(textBox_Pass.Text.Trim(), null);
                         oBLMozo.Guardar(oBEMozo);
                         AsignarMozoAControles(oBEMozo);
                         CargarGrillaMozo();
@@ -102,9 +109,9 @@ namespace TrabajoFinal
             {
                 if (RadioButton_Cocinero.Checked)
                 {
-                    if (AsignarCocinero() == true)
+                    if (AsignarCocinero())
                     {
-                        oBLCocinero.Guardar(oBECocinero);
+                        oBLCocinero.Modificar(oBECocinero);
                         AsignarCocineroAControles(oBECocinero);
                         CargarGrillaCocinero();
                     }
@@ -114,7 +121,7 @@ namespace TrabajoFinal
                 }
                 else
                 {
-                    if (AsignarMozo() == true)
+                    if (AsignarMozo())
                     {
                         oBLMozo.Guardar(oBEMozo);
                         AsignarMozoAControles(oBEMozo);
@@ -132,16 +139,16 @@ namespace TrabajoFinal
         {
             try
             {
-                if (UC_ValDNI.validar() && UC_ValDNI.Text != "" )
+                if (UC_ValDNI.validar())
                 {
                     oBECocinero.DNI = int.Parse(UC_ValDNI.Text);
-                    if (UC_ValNomb.validar() && UC_ValNomb.Text != "")
+                    if (UC_ValNomb.validar())
                     {
                         oBECocinero.Nombre = UC_ValNomb.Text;
-                        if (UC_ValApe.validar() && UC_ValApe.Text != "")
+                        if (UC_ValApe.validar())
                         {
                             oBECocinero.Apellido = UC_ValApe.Text;
-                            if (UC_ValCod.validar() && UC_ValCod.Text != "")
+                            if (UC_ValCod.validar())
                             {
                                 oBECocinero.Codigo = int.Parse(UC_ValCod.Text);
                                 return true;
@@ -162,18 +169,18 @@ namespace TrabajoFinal
         {
             try
             {
-                if (UC_ValCod.validar())
+                if (UC_ValDNI.validar() && UC_ValDNI.Text != "")
                 {
-                    oBEMozo.Codigo = int.Parse(UC_ValCod.Text);
-                    if (UC_ValNomb.validar())
+                    oBEMozo.DNI = int.Parse(UC_ValDNI.Text);
+                    if (UC_ValNomb.validar() && UC_ValNomb.Text != "")
                     {
                         oBEMozo.Nombre = UC_ValNomb.Text;
-                        if (UC_ValApe.validar())
+                        if (UC_ValApe.validar() && UC_ValApe.Text != "")
                         {
                             oBEMozo.Apellido = UC_ValApe.Text;
-                            if (UC_ValDNI.validar())
+                            if (UC_ValCod.validar() && UC_ValCod.Text != "")
                             {
-                                oBEMozo.DNI = int.Parse(UC_ValDNI.Text);
+                                oBEMozo.Codigo = int.Parse(UC_ValCod.Text);
                                 return true;
                             }
                             else { return false; }
@@ -288,11 +295,6 @@ namespace TrabajoFinal
                 oBEMozo = (BEMozo)Grilla_Mozos.CurrentRow.DataBoundItem;
                 AsignarMozoAControles(oBEMozo);
             }
-        }
-
-        private void GUI_Administrar_Personal_Load(object sender, EventArgs e)
-        {
-            CargarGrillaCocinero();
         }
     }
 }

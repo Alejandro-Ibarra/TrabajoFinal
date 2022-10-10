@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mapper.Administrador.Menu
 {
-    internal class MIngredientes : IGestorABM<BEIngrediente>, IGestorConsulta<string>
+    public class MIngredientes : IGestorABM<BEIngrediente>, IGestorConsulta<string>
     {
         public bool Baja(BEIngrediente Objeto)
         {
