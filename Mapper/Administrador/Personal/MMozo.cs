@@ -32,5 +32,10 @@ namespace Mapper
         {
             throw new NotImplementedException();
         }
+
+        public bool Modificar(BEMozo Objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

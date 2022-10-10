@@ -26,5 +26,10 @@ namespace Mapper.Contble
         {
             throw new NotImplementedException();
         }
+
+        public bool Modificar(BEPago Objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

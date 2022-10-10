@@ -30,27 +30,32 @@ namespace TrabajoFinal
 
 
         private void Boton_Alta_Click(object sender, EventArgs e)
-         {
+        {
             try
             {
                 if (RadioButton_Cocinero.Checked)
                 {
-                    if (AsignarCocinero() == true)
+                    if (!oBLCocinero.Existe(int.Parse(UC_ValDNI.Text)))
                     {
-                        oBECocinero.Codigo = 0;
-                        oBLCocinero.Guardar(oBECocinero);
-                        AsignarCocineroAControles(oBECocinero);
-                        CargarGrillaCocinero();
+                        if (AsignarCocinero() == true)
+                        {
+                            oBECocinero.Turno = AsignarTurno();
+                            oBECocinero.CantPedidos = 0;
+                            oBECocinero.Password = ServiceLogic.Encriptar.Encrypt(textBox_Pass.Text.Trim(), null);
+                            oBLCocinero.Guardar(oBECocinero);
+                            CargarGrillaCocinero();
+                        }
+                        else
+                        { MessageBox.Show("Ingrese los datos de forma correcta"); }
                     }
                     else
-                    { MessageBox.Show("Ingrese los datos de forma correcta"); }
-
+                    { MessageBox.Show("Ya existe un cocinero con ese DNI"); }
                 }
                 else
                 {
                     if (AsignarMozo() == true)
                     {
-                        oBEMozo.Codigo = 0;
+                        
                         oBLMozo.Guardar(oBEMozo);
                         AsignarMozoAControles(oBEMozo);
                         CargarGrillaMozo();
@@ -127,26 +132,21 @@ namespace TrabajoFinal
         {
             try
             {
-                if (UC_ValDNI.validar())
+                if (UC_ValDNI.validar() && UC_ValDNI.Text != "" )
                 {
                     oBECocinero.DNI = int.Parse(UC_ValDNI.Text);
-                    if (UC_ValNomb.validar())
+                    if (UC_ValNomb.validar() && UC_ValNomb.Text != "")
                     {
                         oBECocinero.Nombre = UC_ValNomb.Text;
-                        if (UC_ValApe.validar())
+                        if (UC_ValApe.validar() && UC_ValApe.Text != "")
                         {
                             oBECocinero.Apellido = UC_ValApe.Text;
-                            if (UC_ValCod.Text != "")
+                            if (UC_ValCod.validar() && UC_ValCod.Text != "")
                             {
                                 oBECocinero.Codigo = int.Parse(UC_ValCod.Text);
                                 return true;
                             }
-                            else
-                            {
-                                oBEMozo.Ranking = 0;
-                                oBEMozo.Password = ServiceLogic.Encriptar.Encrypt(textBox_Pass.Text.Trim(), null);
-                                return true;
-                            }
+                            else { return false; }
                         }
                         else { return false; }
                     }
@@ -186,6 +186,23 @@ namespace TrabajoFinal
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); return false; }
+        }
+
+        private string AsignarTurno()
+        {
+            if (RadioButton_Mañana.Checked)
+            {
+                return "Mañana";
+            }
+            else if (RadioButton_Tarde.Checked)
+            {
+                return "Tarde";
+            }
+            else
+            {
+                return "Noche";
+            }
+
         }
 
         void AsignarCocineroAControles(BECocinero oBECocinero)
@@ -273,6 +290,9 @@ namespace TrabajoFinal
             }
         }
 
-
+        private void GUI_Administrar_Personal_Load(object sender, EventArgs e)
+        {
+            CargarGrillaCocinero();
+        }
     }
 }

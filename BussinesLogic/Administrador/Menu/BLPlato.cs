@@ -34,5 +34,10 @@ namespace BussinesLogic
         {
             throw new NotImplementedException();
         }
+
+        public bool Modificar(BEPlato Objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

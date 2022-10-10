@@ -12,6 +12,8 @@ namespace Abstraction
 
         bool Baja(T Objeto);
 
+        bool Modificar(T Objeto);
+
         List<T> ListarTodo();
 
         T ListarObjeto(T Objeto);

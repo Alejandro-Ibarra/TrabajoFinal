@@ -12,13 +12,13 @@ namespace TrabajoFinal.UserControl
     {
         public Boolean validar()
         {
-            if (Regex.IsMatch(base.Text, @"^[0-9]{8}$"))
+            if (Regex.IsMatch(base.Text, @"^[0-9]"))
             {
                 return true;
             }
             else
             {
-                MessageBox.Show("Formato de DNI incorrecto, debe contener 8 numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Formato de codigo incorrecto, debe contener numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

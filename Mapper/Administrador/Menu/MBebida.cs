@@ -34,5 +34,10 @@ namespace Mapper.Administrador.Menu
         {
             throw new NotImplementedException();
         }
+
+        public bool Modificar(BEBebida Objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

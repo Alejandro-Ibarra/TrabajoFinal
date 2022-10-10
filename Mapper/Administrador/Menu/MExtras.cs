@@ -32,5 +32,10 @@ namespace Mapper.Administrador.Menu
         {
             throw new NotImplementedException();
         }
+
+        public bool Modificar(BEExtras Objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

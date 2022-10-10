@@ -29,5 +29,10 @@ namespace BussinesLogic
         {
             throw new NotImplementedException();
         }
+
+        public bool Modificar(BEMesa Objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -35,5 +35,10 @@ namespace BussinesLogic
         {
             throw new NotImplementedException();
         }
+
+        public bool Modificar(BEBebida Objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

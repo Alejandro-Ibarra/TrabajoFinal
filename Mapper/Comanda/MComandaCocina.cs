@@ -29,5 +29,10 @@ namespace Mapper.Comanda
         {
             throw new NotImplementedException();
         }
+
+        public bool Modificar(BEComandaCocina Objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

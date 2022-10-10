@@ -26,5 +26,10 @@ namespace Mapper.Administrador.Salon
         {
             throw new NotImplementedException();
         }
+
+        public bool Modificar(BETurno Objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

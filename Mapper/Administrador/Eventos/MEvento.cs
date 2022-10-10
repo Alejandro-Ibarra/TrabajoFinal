@@ -34,5 +34,10 @@ namespace Mapper.Administrador.Eventos
         {
             throw new NotImplementedException();
         }
+
+        public bool Modificar(BEEvento Objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

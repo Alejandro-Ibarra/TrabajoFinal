@@ -15,6 +15,11 @@ namespace BussinesLogic
             throw new NotImplementedException();
         }
 
+        public bool Modificar(BEEvento Objeto)
+        {
+            throw new NotImplementedException();
+        }
+
         bool IGestorABM<BEEvento>.Baja(BEEvento oBEEvento)
         {
             throw new NotImplementedException();

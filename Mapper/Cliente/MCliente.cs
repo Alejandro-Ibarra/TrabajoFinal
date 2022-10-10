@@ -26,5 +26,10 @@ namespace Mapper.Cliente
         {
             throw new NotImplementedException();
         }
+
+        public bool Modificar(BEPedidoCliente Objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

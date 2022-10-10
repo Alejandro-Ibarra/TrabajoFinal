@@ -29,5 +29,10 @@ namespace BussinesLogic
         {
             throw new NotImplementedException();
         }
+
+        public bool Modificar(BEComandaMozo Objeto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
