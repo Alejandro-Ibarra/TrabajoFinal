@@ -16,5 +16,10 @@ namespace TrabajoFinal
         {
             InitializeComponent();
         }
+
+        private void Button_CrearMesa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

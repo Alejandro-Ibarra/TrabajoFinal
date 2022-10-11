@@ -48,7 +48,6 @@
     <Compile Include="Administrador\Menu\MPlato.cs" />
     <Compile Include="Administrador\Personal\MCocinero.cs" />
     <Compile Include="Administrador\Salon\MMesas.cs" />
-    <Compile Include="Administrador\Salon\MTurnos.cs" />
     <Compile Include="Cliente\MCliente.cs" />
     <Compile Include="Comanda\MComandaCocina.cs" />
     <Compile Include="Comanda\MComandaMozo.cs" />

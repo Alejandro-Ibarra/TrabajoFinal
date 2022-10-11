@@ -76,12 +76,6 @@
     <Compile Include="GUI-Admin\GUI-AdminPersonal.Designer.cs">
       <DependentUpon>GUI-AdminPersonal.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminTurnos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminTurnos.Designer.cs">
-      <DependentUpon>GUI-AdminTurnos.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI-Admin\GUI-AdminPlatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Admin\GUI-AdminIngredientes.resx">
       <DependentUpon>GUI-AdminIngredientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Admin\GUI-AdminMesas.resx">
+      <DependentUpon>GUI-AdminMesas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Admin\GUI-AdminPersonal.resx">
       <DependentUpon>GUI-AdminPersonal.cs</DependentUpon>

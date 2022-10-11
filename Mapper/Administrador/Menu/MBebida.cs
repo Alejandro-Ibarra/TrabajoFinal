@@ -126,7 +126,6 @@ namespace BussinesLogic
                     EModifcar.Element("Graduacion_Alcoholica").Value = oBEBebida.GraduacionAlc.ToString().Trim();
                     EModifcar.Element("Stock").Value = oBEBebida.Stock.ToString().Trim();
                     EModifcar.Element("Precio").Value = oBEBebida.Precio.ToString().Trim();
-
                 }
                 xmlDocument.Save("Restaurante.xml");
                 return true;

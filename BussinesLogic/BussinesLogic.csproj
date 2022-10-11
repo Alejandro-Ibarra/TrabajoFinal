@@ -54,7 +54,6 @@
     <Compile Include="Comanda\BLComandaCocina.cs" />
     <Compile Include="Comanda\BLComandaMozo.cs" />
     <Compile Include="Administrador\Menu\BLPlato.cs" />
-    <Compile Include="Administrador\Salon\BLTurno.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

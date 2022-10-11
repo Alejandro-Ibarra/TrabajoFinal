@@ -57,7 +57,6 @@
     <Compile Include="Comanda\BEComandaCocina.cs" />
     <Compile Include="Comanda\BEComandaMozo.cs" />
     <Compile Include="Administrador\Menu\BEPlato.cs" />
-    <Compile Include="Administrador\Salon\BETurno.cs" />
     <Compile Include="Cliente\BECliente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
