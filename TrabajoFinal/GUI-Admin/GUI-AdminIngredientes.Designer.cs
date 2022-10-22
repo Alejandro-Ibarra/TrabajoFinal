@@ -29,14 +29,14 @@ namespace TrabajoFinal
         /// </summary>
         private void InitializeComponent()
         {
-            this.UC_ValCod = new TrabajoFinal.UserControl.UC_ValCod();
+            this.UC_ValCod = new TrabajoFinal.UC_ValCod();
             this.label2 = new System.Windows.Forms.Label();
             this.ComboBox_Proveedor = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.UC_ValStock = new TrabajoFinal.UserControl.UC_ValCod();
+            this.UC_ValStock = new TrabajoFinal.UC_ValCod();
             this.label1 = new System.Windows.Forms.Label();
             this.Nombre = new System.Windows.Forms.Label();
-            this.UC_ValNomb = new TrabajoFinal.UserControl.UC_ValNombApe();
+            this.UC_ValNomb = new TrabajoFinal.UC_ValNombApe();
             this.Boton_Modificar = new System.Windows.Forms.Button();
             this.Boton_Baja = new System.Windows.Forms.Button();
             this.Boton_Alta = new System.Windows.Forms.Button();
@@ -234,14 +234,14 @@ namespace TrabajoFinal
 
         #endregion
 
-        private UserControl.UC_ValCod UC_ValCod;
+        private UC_ValCod UC_ValCod;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox ComboBox_Proveedor;
         private System.Windows.Forms.Label label6;
-        private UserControl.UC_ValCod UC_ValStock;
+        private UC_ValCod UC_ValStock;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Nombre;
-        private UserControl.UC_ValNombApe UC_ValNomb;
+        private UC_ValNombApe UC_ValNomb;
         private System.Windows.Forms.Button Boton_Modificar;
         private System.Windows.Forms.Button Boton_Baja;
         private System.Windows.Forms.Button Boton_Alta;

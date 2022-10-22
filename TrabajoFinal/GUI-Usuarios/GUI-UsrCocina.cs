@@ -19,6 +19,7 @@ namespace TrabajoFinal
         {
             InitializeComponent();
             oBECocinero = new BECocinero();
+            oBLCocinero = new BLCocinero();
             CargarDatosDeCocinero(DNI);
 
         }
@@ -58,8 +59,7 @@ namespace TrabajoFinal
         {
             try
             {
-                TextBox_Apellido.Text = oBECocinero.Apellido;
-                TextBox_Nombre.Text = oBECocinero.Nombre;
+                oBLCocinero.Guardar(oBECocinero); //BORRAR solo era para evitar warning
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

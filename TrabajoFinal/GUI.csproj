@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -88,10 +89,10 @@
     <Compile Include="GUI-Admin\GUI-AdminMesas.Designer.cs">
       <DependentUpon>GUI-AdminMesas.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Cliente\GUI-Cliente.cs">
+    <Compile Include="GUI-Usuarios\GUI-Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Cliente\GUI-Cliente.Designer.cs">
+    <Compile Include="GUI-Usuarios\GUI-Cliente.Designer.cs">
       <DependentUpon>GUI-Cliente.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-Inicio.cs">
@@ -106,11 +107,11 @@
     <Compile Include="GUI-Login.Designer.cs">
       <DependentUpon>GUI-Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Usuarios\GUI-UsrAdmin.cs">
+    <Compile Include="GUI-MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Usuarios\GUI-UsrAdmin.Designer.cs">
-      <DependentUpon>GUI-UsrAdmin.cs</DependentUpon>
+    <Compile Include="GUI-MenuPrincipal.Designer.cs">
+      <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-Usuarios\GUI-UsrCocina.cs">
       <SubType>Form</SubType>
@@ -126,18 +127,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Encriptar.cs" />
-    <Compile Include="UserControl\UC_ValCod.cs">
+    <Compile Include="FoldeUserControls\UC_Mesas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoldeUserControls\UC_Mesas.Designer.cs">
+      <DependentUpon>UC_Mesas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoldeUserControls\UC_ValCod.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UserControl\UC_ValDNI.cs">
+    <Compile Include="FoldeUserControls\UC_ValDNI.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UserControl\UC_ValNombApe.cs">
+    <Compile Include="FoldeUserControls\UC_ValNombApe.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="FoldeUserControls\UC_Mesas.resx">
+      <DependentUpon>UC_Mesas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI-Admin\GUI-AdminBebidas.resx">
       <DependentUpon>GUI-AdminBebidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Admin\GUI-AdminExtras.resx">
+      <DependentUpon>GUI-AdminExtras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Admin\GUI-AdminIngredientes.resx">
       <DependentUpon>GUI-AdminIngredientes.cs</DependentUpon>
@@ -154,8 +166,8 @@
     <EmbeddedResource Include="GUI-Login.resx">
       <DependentUpon>GUI-Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Usuarios\GUI-UsrAdmin.resx">
-      <DependentUpon>GUI-UsrAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-MenuPrincipal.resx">
+      <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Usuarios\GUI-UsrCocina.resx">
       <DependentUpon>GUI-UsrCocina.cs</DependentUpon>

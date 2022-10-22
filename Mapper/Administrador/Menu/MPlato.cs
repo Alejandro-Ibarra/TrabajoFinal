@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mapper.Administrador.Menu
+namespace Mapper
 {
     internal class MPlato : IGestorABM<BEPlato>, IGestorConsulta<string>
     {

@@ -5,39 +5,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mapper;
 
 namespace BussinesLogic
 {
-    public class BLExtras : IGestorABM<BEExtras>, IGestorConsulta<string>
+    public class BLExtras : IGestorABM<BEExtras>, IGestorConsulta<BEExtras>
     {
-        public bool Baja(BEExtras Objeto)
+
+        public BLExtras()
         {
-            throw new NotImplementedException();
+            oMExtras = new MExtras();
         }
 
-        public bool Existe(string obj)
+        MExtras oMExtras;
+
+        public bool Baja(BEExtras oBExtras)
         {
-            throw new NotImplementedException();
+            return oMExtras.Baja(oBExtras);
         }
 
-        public bool Guardar(BEExtras Objeto)
+        public bool Existe(BEExtras oBExtras)
         {
-            throw new NotImplementedException();
+            return oMExtras.Existe(oBExtras);
         }
 
-        public BEExtras ListarObjeto(BEExtras Objeto)
+        public bool Guardar(BEExtras oBExtras)
+        {
+            return oMExtras.Guardar(oBExtras);
+        }
+
+        public BEExtras ListarObjeto(BEExtras oBExtras)
         {
             throw new NotImplementedException();
         }
 
         public List<BEExtras> ListarTodo()
         {
-            throw new NotImplementedException();
+            return oMExtras.ListarTodo();
         }
 
-        public bool Modificar(BEExtras Objeto)
+        public bool Modificar(BEExtras oBExtras)
         {
-            throw new NotImplementedException();
+            return oMExtras.Modificar(oBExtras);
         }
     }
 }

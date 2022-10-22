@@ -30,7 +30,6 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TextBox_DNI = new System.Windows.Forms.TextBox();
             this.TextBox_Pass = new System.Windows.Forms.TextBox();
             this.Button_Aceptar = new System.Windows.Forms.Button();
             this.Button_Cancelar = new System.Windows.Forms.Button();
@@ -38,7 +37,7 @@
             this.RadioButton_Mozo = new System.Windows.Forms.RadioButton();
             this.RadioButton_Cocina = new System.Windows.Forms.RadioButton();
             this.RadioButton_Admin = new System.Windows.Forms.RadioButton();
-            this.UC_ValDNI = new TrabajoFinal.UserControl.UC_ValDNI();
+            this.TextBox_DNI = new TrabajoFinal.UC_ValDNI();
             this.SuspendLayout();
             // 
             // label3
@@ -58,13 +57,6 @@
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 36;
             this.label2.Text = "DNI";
-            // 
-            // TextBox_DNI
-            // 
-            this.TextBox_DNI.Location = new System.Drawing.Point(67, 25);
-            this.TextBox_DNI.Name = "TextBox_DNI";
-            this.TextBox_DNI.Size = new System.Drawing.Size(100, 20);
-            this.TextBox_DNI.TabIndex = 38;
             // 
             // TextBox_Pass
             // 
@@ -135,19 +127,19 @@
             this.RadioButton_Admin.Text = "Admin";
             this.RadioButton_Admin.UseVisualStyleBackColor = true;
             // 
-            // UC_ValDNI
+            // TextBox_DNI
             // 
-            this.UC_ValDNI.Location = new System.Drawing.Point(175, 25);
-            this.UC_ValDNI.Name = "UC_ValDNI";
-            this.UC_ValDNI.Size = new System.Drawing.Size(100, 20);
-            this.UC_ValDNI.TabIndex = 46;
+            this.TextBox_DNI.Location = new System.Drawing.Point(67, 26);
+            this.TextBox_DNI.Name = "TextBox_DNI";
+            this.TextBox_DNI.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_DNI.TabIndex = 46;
             // 
             // GUI_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(285, 228);
-            this.Controls.Add(this.UC_ValDNI);
+            this.Controls.Add(this.TextBox_DNI);
             this.Controls.Add(this.RadioButton_Admin);
             this.Controls.Add(this.RadioButton_Cocina);
             this.Controls.Add(this.RadioButton_Mozo);
@@ -155,7 +147,6 @@
             this.Controls.Add(this.Button_Cancelar);
             this.Controls.Add(this.Button_Aceptar);
             this.Controls.Add(this.TextBox_Pass);
-            this.Controls.Add(this.TextBox_DNI);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "GUI_Login";
@@ -168,7 +159,6 @@
         #endregion
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TextBox_DNI;
         private System.Windows.Forms.TextBox TextBox_Pass;
         private System.Windows.Forms.Button Button_Aceptar;
         private System.Windows.Forms.Button Button_Cancelar;
@@ -176,6 +166,6 @@
         private System.Windows.Forms.RadioButton RadioButton_Mozo;
         private System.Windows.Forms.RadioButton RadioButton_Cocina;
         private System.Windows.Forms.RadioButton RadioButton_Admin;
-        private UserControl.UC_ValDNI UC_ValDNI;
+        private UC_ValDNI TextBox_DNI;
     }
 }

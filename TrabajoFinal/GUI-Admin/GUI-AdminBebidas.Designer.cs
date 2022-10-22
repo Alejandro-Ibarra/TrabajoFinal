@@ -41,11 +41,11 @@ namespace TrabajoFinal
             this.label5 = new System.Windows.Forms.Label();
             this.ComboBox_Marca = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.UC_ValPrecio = new TrabajoFinal.UserControl.UC_ValCod();
-            this.UC_ValStock = new TrabajoFinal.UserControl.UC_ValCod();
-            this.UC_ValGraduacion = new TrabajoFinal.UserControl.UC_ValCod();
-            this.UC_ValNomb = new TrabajoFinal.UserControl.UC_ValNombApe();
-            this.UC_ValCod = new TrabajoFinal.UserControl.UC_ValCod();
+            this.UC_ValPrecio = new TrabajoFinal.UC_ValCod();
+            this.UC_ValStock = new TrabajoFinal.UC_ValCod();
+            this.UC_ValGraduacion = new TrabajoFinal.UC_ValCod();
+            this.UC_ValNomb = new TrabajoFinal.UC_ValNombApe();
+            this.UC_ValCod = new TrabajoFinal.UC_ValCod();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Bebidas)).BeginInit();
             this.SuspendLayout();
@@ -242,18 +242,18 @@ namespace TrabajoFinal
         private System.Windows.Forms.Button Boton_Baja;
         private System.Windows.Forms.Button Boton_Alta;
         private System.Windows.Forms.Label Nombre;
-        private UserControl.UC_ValNombApe UC_ValNomb;
+        private UC_ValNombApe UC_ValNomb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private UserControl.UC_ValCod UC_ValGraduacion;
-        private UserControl.UC_ValCod UC_ValStock;
-        private UserControl.UC_ValCod UC_ValPrecio;
+        private UC_ValCod UC_ValGraduacion;
+        private UC_ValCod UC_ValStock;
+        private UC_ValCod UC_ValPrecio;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox ComboBox_Envases;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox ComboBox_Marca;
         private System.Windows.Forms.Label label6;
-        private UserControl.UC_ValCod UC_ValCod;
+        private UC_ValCod UC_ValCod;
         private System.Windows.Forms.Label label2;
     }
 }

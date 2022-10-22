@@ -47,10 +47,10 @@ namespace TrabajoFinal
             this.RadioButton_Tarde = new System.Windows.Forms.RadioButton();
             this.RadioButton_Mañana = new System.Windows.Forms.RadioButton();
             this.RadioButton_Noche = new System.Windows.Forms.RadioButton();
-            this.UC_ValDNI = new TrabajoFinal.UserControl.UC_ValDNI();
-            this.UC_ValCod = new TrabajoFinal.UserControl.UC_ValCod();
-            this.UC_ValNomb = new TrabajoFinal.UserControl.UC_ValNombApe();
-            this.UC_ValApe = new TrabajoFinal.UserControl.UC_ValNombApe();
+            this.UC_ValDNI = new TrabajoFinal.UC_ValDNI();
+            this.UC_ValCod = new TrabajoFinal.UC_ValCod();
+            this.UC_ValNomb = new TrabajoFinal.UC_ValNombApe();
+            this.UC_ValApe = new TrabajoFinal.UC_ValNombApe();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Cocineros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Mozos)).BeginInit();
             this.GroupBox_Role.SuspendLayout();
@@ -300,12 +300,12 @@ namespace TrabajoFinal
 
         #endregion
 
-        private UserControl.UC_ValNombApe UC_ValApe;
-        private UserControl.UC_ValNombApe UC_ValNomb;
+        private UC_ValNombApe UC_ValApe;
+        private UC_ValNombApe UC_ValNomb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Nombre;
-        private UserControl.UC_ValCod UC_ValCod;
-        private UserControl.UC_ValDNI UC_ValDNI;
+        private UC_ValCod UC_ValCod;
+        private UC_ValDNI UC_ValDNI;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

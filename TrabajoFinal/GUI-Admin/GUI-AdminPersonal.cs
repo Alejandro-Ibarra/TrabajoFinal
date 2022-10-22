@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinesEntity;
 using BussinesLogic;
+using ServiceLogic;
 
 namespace TrabajoFinal
 {
@@ -46,7 +47,7 @@ namespace TrabajoFinal
                         {
                             oBECocinero.Turno = AsignarTurno();
                             oBECocinero.CantPedidos = 0;
-                            oBECocinero.Password = ServiceLogic.Encriptar.Encrypt(textBox_Pass.Text.Trim(), null);
+                            oBECocinero.Password = Encriptacion.Encrypt(textBox_Pass.Text.Trim(), null);
                             oBLCocinero.Guardar(oBECocinero);
                             CargarGrillaCocinero();
                         }
@@ -62,7 +63,7 @@ namespace TrabajoFinal
                     {
                         oBEMozo.Turno = AsignarTurno();
                         oBEMozo.Ranking = 0;
-                        oBEMozo.Password = ServiceLogic.Encriptar.Encrypt(textBox_Pass.Text.Trim(), null);
+                        oBEMozo.Password = Encriptacion.Encrypt(textBox_Pass.Text.Trim(), null);
                         oBLMozo.Guardar(oBEMozo);
                         AsignarMozoAControles(oBEMozo);
                         CargarGrillaMozo();

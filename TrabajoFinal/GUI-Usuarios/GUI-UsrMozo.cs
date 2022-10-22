@@ -19,6 +19,7 @@ namespace TrabajoFinal
         {
             InitializeComponent();
             oBEMozo = new BEMozo();
+            oBLMozo = new BLMozo();
             CargarDatosDeMozo(DNI);
         }
 

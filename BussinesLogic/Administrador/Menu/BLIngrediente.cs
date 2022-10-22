@@ -5,24 +5,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mapper;
 
 namespace BussinesLogic
 {
     public class BLIngrediente : IGestorABM<BEIngrediente>, IGestorConsulta<BEIngrediente>
     {
+        public BLIngrediente()
+        {
+            oMIngredientes = new MIngredientes();
+        }
+
+        MIngredientes oMIngredientes;
+
         public bool Baja(BEIngrediente oBEIngredientes)
         {
-            throw new NotImplementedException();
+            return oMIngredientes.Baja(oBEIngredientes);
         }
 
         public bool Existe(BEIngrediente oBEIngredientes)
         {
-            throw new NotImplementedException();
+            return oMIngredientes.Existe(oBEIngredientes);
         }
 
         public bool Guardar(BEIngrediente oBEIngredientes)
         {
-            throw new NotImplementedException();
+            return oMIngredientes.Guardar(oBEIngredientes);
         }
 
         public BEIngrediente ListarObjeto(BEIngrediente oBEIngredientes)
@@ -32,12 +40,12 @@ namespace BussinesLogic
 
         public List<BEIngrediente> ListarTodo()
         {
-            throw new NotImplementedException();
+            return oMIngredientes.ListarTodo();
         }
 
-        public bool Modificar(BEIngrediente Objeto)
+        public bool Modificar(BEIngrediente oBEIngredientes)
         {
-            throw new NotImplementedException();
+            return oMIngredientes.Modificar(oBEIngredientes);
         }
     }
 }

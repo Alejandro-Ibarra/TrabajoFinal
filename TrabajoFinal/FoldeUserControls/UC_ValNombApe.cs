@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TrabajoFinal.UserControl
+namespace TrabajoFinal
 {
     internal class UC_ValNombApe : TextBox
     {

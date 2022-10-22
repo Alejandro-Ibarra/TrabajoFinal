@@ -29,10 +29,10 @@ namespace TrabajoFinal
         {
             if (RadioButton_Admin.Checked || RadioButton_Cocina.Checked || RadioButton_Mozo.Checked)
             {
-                if (UC_ValDNI.validar() == true)
+                if (TextBox_DNI.validar() == true)
                 {
-                    oSELogin.DNI = Convert.ToInt32(UC_ValDNI.Text);
-                    oSELogin.Password = Encriptar.Encrypt(TextBox_Pass.Text, null);
+                    oSELogin.DNI = Convert.ToInt32(TextBox_DNI.Text);
+                    oSELogin.Password = Encriptacion.Encrypt(TextBox_Pass.Text, null);
                     if (RadioButton_Admin.Checked)
                     {
                         if (oSLLogin.VerificarUsuarioAdmin(oSELogin))
@@ -90,5 +90,6 @@ namespace TrabajoFinal
         {
             Application.Exit();
         }
+
     }
 }

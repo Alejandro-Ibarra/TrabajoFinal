@@ -9,6 +9,9 @@ namespace BussinesEntity
 {
     public class BEExtras : BEEntity
     {
-        public string Nombre { get ; set; }
+        public string Nombre { get; set; }
+        public string Tipo { get; set; }
+        public int Stock { get; set; }
+        public string Proveedor { get; set; }
     }
 }

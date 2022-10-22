@@ -6,21 +6,22 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TrabajoFinal.UserControl
+namespace TrabajoFinal
 {
-    internal class UC_ValDNI : TextBox
+    public class UC_ValCod : TextBox
     {
         public Boolean validar()
         {
-            if (Regex.IsMatch(base.Text, @"^[0-9]{8}$") && base.Text != null)
+            if (Regex.IsMatch(base.Text, @"^[0-9]") && base.Text != null)
             {
                 return true;
             }
             else
             {
-                MessageBox.Show("Formato de DNI incorrecto, debe contener 8 numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Formato de codigo incorrecto, debe contener numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
     }
+
 }
