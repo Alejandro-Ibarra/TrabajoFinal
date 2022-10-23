@@ -25,67 +25,25 @@ namespace TrabajoFinal
         }
         SELogin oSELogin;
         SLLogin oSLLogin;
+
         private void Button_Aceptar_Click(object sender, EventArgs e)
         {
-            if (RadioButton_Admin.Checked || RadioButton_Cocina.Checked || RadioButton_Mozo.Checked)
+          
+            if (TextBox_DNI.validar() == true)
             {
-                if (TextBox_DNI.validar() == true)
+                oSELogin.DNI = Convert.ToInt32(TextBox_DNI.Text);
+                oSELogin.Password = Encriptacion.Encrypt(TextBox_Pass.Text, null);
+
+                if (oSLLogin.VerificarUsuario(oSELogin) != false)
                 {
-                    oSELogin.DNI = Convert.ToInt32(TextBox_DNI.Text);
-                    oSELogin.Password = Encriptacion.Encrypt(TextBox_Pass.Text, null);
-                    if (RadioButton_Admin.Checked)
-                    {
-                        if (oSLLogin.VerificarUsuarioAdmin(oSELogin))
-                        {
-                            GUI_UsrAdmin oGUI_UsrAdmin = new GUI_UsrAdmin();
-                            this.Hide();
-                            oGUI_UsrAdmin.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("No existe un admin con los parametros ingresados");
-                        }
-                    }
-                    else if (RadioButton_Cocina.Checked)
-                    {
-                        if (oSLLogin.VerificarUsuarioCocinero(oSELogin))
-                        {
-                            GUI_UsrCocina oGUI_UsrCocina = new GUI_UsrCocina(oSELogin.DNI);
-                            this.Hide();
-                            oGUI_UsrCocina.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("No existe un cocinero con los parametros ingresados");
-                        }
-                    }
-                    else if (RadioButton_Mozo.Checked)
-                    {
-                        if (oSLLogin.VerificarUsuarioMozo(oSELogin))
-                        {
-                            GUI_UsrMozo oGUI_UsrMozo = new GUI_UsrMozo(oSELogin.DNI);
-                            this.Hide();
-                            oGUI_UsrMozo.Show();
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("No existe un mozo con los parametros ingresados");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Seleccione el tipo de usuario");
-                    }
+                    GUI_MenuPrincipal oGUI_MenuPrincipal = new GUI_MenuPrincipal();
+                    oGUI_MenuPrincipal.dniUsr = oSELogin.DNI;
+                    this.Hide();
+                    oGUI_MenuPrincipal.Show();
                 }
+                else {MessageBox.Show("Usuario o contraseña incorrectos");}
             }
-            else
-            {
-                MessageBox.Show("Seleccione el tipo de cuenta");
-            }
-
         }
-
         private void Button_Cancelar_Click(object sender, EventArgs e)
         {
             Application.Exit();

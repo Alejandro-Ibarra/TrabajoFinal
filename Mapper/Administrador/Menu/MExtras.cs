@@ -56,13 +56,12 @@ namespace Mapper
             {
 
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-                xmlDocument.Element("Restaurante").Add(new XElement("Extras",
-                                                        new XElement("Extra",
-                                                            new XAttribute("Codigo", oBEExtras.Codigo.ToString().Trim()),
-                                                            new XElement("Nombre", oBEExtras.Nombre.Trim()),
-                                                            new XElement("Tipo", oBEExtras.Tipo.Trim()),
-                                                            new XElement("Stock", oBEExtras.Stock.ToString().Trim()),
-                                                            new XElement("Proveedor", oBEExtras.Proveedor.ToString().Trim()))));
+                xmlDocument.Element("Restaurante").Element("Extras").Add(new XElement("Extra",
+                                                                                new XAttribute("Codigo", oBEExtras.Codigo.ToString().Trim()),
+                                                                                new XElement("Nombre", oBEExtras.Nombre.Trim()),
+                                                                                new XElement("Tipo", oBEExtras.Tipo.Trim()),
+                                                                                new XElement("Stock", oBEExtras.Stock.ToString().Trim()),
+                                                                                new XElement("Proveedor", oBEExtras.Proveedor.ToString().Trim())));
 
                 xmlDocument.Save("Restaurante.xml");
                 return true;

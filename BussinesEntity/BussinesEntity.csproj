@@ -43,7 +43,10 @@
   <ItemGroup>
     <Compile Include="Administrador\Menu\BEBebida.cs" />
     <Compile Include="Administrador\Personal\BECocinero.cs" />
+    <Compile Include="Administrador\Personal\BEPermisos.cs" />
     <Compile Include="Administrador\Personal\BEPersonal.cs" />
+    <Compile Include="Administrador\Personal\BERoles.cs" />
+    <Compile Include="Administrador\Personal\BEAdmin.cs" />
     <Compile Include="Comanda\BEComanda.cs" />
     <Compile Include="BEEntity.cs" />
     <Compile Include="Administrador\Eventos\BEEvento.cs" />

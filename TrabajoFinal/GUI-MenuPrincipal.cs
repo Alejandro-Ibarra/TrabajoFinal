@@ -7,19 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ServiceEntity;
 
 namespace TrabajoFinal
 {
     public partial class GUI_MenuPrincipal : Form
     {
+        public int dniUsr { get; set; }
+        
         public GUI_MenuPrincipal()
         {
             InitializeComponent();
         }
 
-        private void realizarPedidoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
+
+        private void MostrarComponentes()
+        {
+            
         }
 
         private void personalToolStripMenuItem_Click(object sender, EventArgs e)

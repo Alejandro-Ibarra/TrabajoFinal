@@ -56,15 +56,14 @@ namespace Mapper
             {
                 
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-                xmlDocument.Element("Restaurante").Add(new XElement("Bebidas",
-                                                        new XElement("Bebida",
-                                                            new XAttribute("Codigo", oBEBebida.Codigo.ToString().Trim()),
-                                                            new XElement("Nombre", oBEBebida.Nombre.Trim()),
-                                                            new XElement("Envase", oBEBebida.TipoEnvase.Trim()),
-                                                            new XElement("Marca", oBEBebida.Marca.Trim()),
-                                                            new XElement("Graduacion_Alcoholica", oBEBebida.GraduacionAlc.ToString().Trim()),
-                                                            new XElement("Stock", oBEBebida.Stock.ToString().Trim()),
-                                                            new XElement("Precio", oBEBebida.Precio.ToString().Trim()))));
+                xmlDocument.Element("Restaurante").Element("Bebidas").Add(new XElement("Bebida",
+                                                                            new XAttribute("Codigo", oBEBebida.Codigo.ToString().Trim()),
+                                                                            new XElement("Nombre", oBEBebida.Nombre.Trim()),
+                                                                            new XElement("Envase", oBEBebida.TipoEnvase.Trim()),
+                                                                            new XElement("Marca", oBEBebida.Marca.Trim()),
+                                                                            new XElement("Graduacion_Alcoholica", oBEBebida.GraduacionAlc.ToString().Trim()),
+                                                                            new XElement("Stock", oBEBebida.Stock.ToString().Trim()),
+                                                                            new XElement("Precio", oBEBebida.Precio.ToString().Trim())));
 
                 xmlDocument.Save("Restaurante.xml");
                 return true;

@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace BussinesEntity
 {
-    public class BECocinero : BEPersonal
+    public class BEAdmin : BEPersonal
     {
-        public int CantPedidos { get; set; }
     }
 }

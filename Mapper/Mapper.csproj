@@ -53,8 +53,11 @@
     <Compile Include="Comanda\MComandaMozo.cs" />
     <Compile Include="Contble\MMetodoPago.cs" />
     <Compile Include="Contble\MPago.cs" />
+    <Compile Include="Administrador\Personal\MAdmin.cs" />
     <Compile Include="MLogin.cs" />
     <Compile Include="Administrador\Personal\MMozo.cs" />
+    <Compile Include="Administrador\Personal\MPermisos.cs" />
+    <Compile Include="Administrador\Personal\MRoles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

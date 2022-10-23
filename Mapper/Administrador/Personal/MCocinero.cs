@@ -70,15 +70,16 @@ namespace Mapper
                 if (Existe(oBECocinero.DNI) == false)
                 {
                     XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-                    xmlDocument.Element("Restaurante").Add(new XElement("Cocineros",
-                                                            new XElement("Cocinero",
-                                                                new XAttribute("Codigo", oBECocinero.Codigo.ToString().Trim()),
-                                                                new XElement("Nombre", oBECocinero.Nombre.Trim()),
-                                                                new XElement("Apellido", oBECocinero.Apellido.Trim()),
-                                                                new XElement("Password", oBECocinero.Password.ToString().Trim()),
-                                                                new XElement("Turno", oBECocinero.Turno.Trim()),
-                                                                new XElement("Cantidad_Pedidos", oBECocinero.CantPedidos.ToString().Trim()),
-                                                                new XElement("Dni", oBECocinero.DNI.ToString().Trim()))));
+                    xmlDocument.Element("Restaurante").Element("Empleados").Add(new XElement("Cocineros",
+                                                                                    new XElement("Cocinero",
+                                                                                        new XAttribute("Codigo", oBECocinero.Codigo.ToString().Trim()),
+                                                                                        new XElement("Rol", "Cocinero"),
+                                                                                        new XElement("Nombre", oBECocinero.Nombre.Trim()),
+                                                                                        new XElement("Apellido", oBECocinero.Apellido.Trim()),
+                                                                                        new XElement("Password", oBECocinero.Password.ToString().Trim()),
+                                                                                        new XElement("Turno", oBECocinero.Turno.Trim()),
+                                                                                        new XElement("Cantidad_Pedidos", oBECocinero.CantPedidos.ToString().Trim()),
+                                                                                        new XElement("Dni", oBECocinero.DNI.ToString().Trim()))));
 
 
                     xmlDocument.Save("Restaurante.xml");
@@ -101,7 +102,7 @@ namespace Mapper
             try
             {
                 var consulta =
-                from Cocinero in XElement.Load("Restaurante.xml").Elements("Cocineros").Elements("Cocinero")
+                from Cocinero in XElement.Load("Restaurante.xml").Elements("Empleados").Elements("Cocineros").Elements("Cocinero")
                 select new BECocinero
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(Cocinero.Attribute("Codigo").Value).Trim()),

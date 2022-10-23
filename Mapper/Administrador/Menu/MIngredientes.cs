@@ -56,14 +56,13 @@ namespace Mapper
             {
 
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-                xmlDocument.Element("Restaurante").Add(new XElement("Ingredientes",
-                                                        new XElement("Ingrediente",
-                                                            new XAttribute("Codigo", oBEingrediente.Codigo.ToString().Trim()),
-                                                            new XElement("Nombre", oBEingrediente.Nombre.Trim()),
-                                                            new XElement("Tipo", oBEingrediente.Tipo.Trim()),
-                                                            new XElement("Refrigeracion", oBEingrediente.Refrigeracion.ToString().Trim()),
-                                                            new XElement("Stock", oBEingrediente.Stock.ToString().Trim()),
-                                                            new XElement("Proveedor", oBEingrediente.Proveedor.ToString().Trim()))));
+                xmlDocument.Element("Restaurante").Element("Ingredientes").Add(new XElement("Ingrediente",
+                                                                                    new XAttribute("Codigo", oBEingrediente.Codigo.ToString().Trim()),
+                                                                                    new XElement("Nombre", oBEingrediente.Nombre.Trim()),
+                                                                                    new XElement("Tipo", oBEingrediente.Tipo.Trim()),
+                                                                                    new XElement("Refrigeracion", oBEingrediente.Refrigeracion.ToString().Trim()),
+                                                                                    new XElement("Stock", oBEingrediente.Stock.ToString().Trim()),
+                                                                                    new XElement("Proveedor", oBEingrediente.Proveedor.ToString().Trim())));
 
                 xmlDocument.Save("Restaurante.xml");
                 return true;

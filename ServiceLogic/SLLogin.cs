@@ -9,7 +9,7 @@ using Abstraction;
 
 namespace ServiceLogic
 {
-    public class SLLogin : IGestorConsulta<SELogin>
+    public class SLLogin 
     {
         public SLLogin ()
         {
@@ -17,25 +17,9 @@ namespace ServiceLogic
         }
         MLogin oMLogin;
 
-
-        public bool Existe(SELogin oSELogin)
+        public bool VerificarUsuario(SELogin oSELogin)
         {
-            return oMLogin.Existe(oSELogin);
-        }
-
-        public bool VerificarUsuarioAdmin(SELogin oSELogin)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool VerificarUsuarioCocinero(SELogin oSELogin)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool VerificarUsuarioMozo(SELogin oSELogin)
-        {
-            throw new NotImplementedException();
+            return oMLogin.VerificarUsuario(oSELogin);
         }
     }
 }

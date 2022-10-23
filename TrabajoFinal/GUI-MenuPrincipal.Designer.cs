@@ -63,7 +63,6 @@ namespace TrabajoFinal
             this.realizarPedidoToolStripMenuItem.Name = "realizarPedidoToolStripMenuItem";
             this.realizarPedidoToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
             this.realizarPedidoToolStripMenuItem.Text = "Realizar Pedido";
-            this.realizarPedidoToolStripMenuItem.Click += new System.EventHandler(this.realizarPedidoToolStripMenuItem_Click);
             // 
             // adminToolStripMenuItem
             // 
