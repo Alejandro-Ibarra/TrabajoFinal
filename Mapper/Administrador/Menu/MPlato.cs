@@ -24,7 +24,7 @@ namespace Mapper
         {
             throw new NotImplementedException();
         }
-        public BEPlato ListarObjeto(BEPlato Objeto)
+        public BEPlato ListarObjeto(int Objeto)
         {
             throw new NotImplementedException();
         }

@@ -20,7 +20,7 @@ namespace BussinesLogic
             throw new NotImplementedException();
         }
 
-        public BEMetodoPago ListarObjeto(BEMetodoPago oBEMetodoPago)
+        public BEMetodoPago ListarObjeto(int oBEMetodoPago)
         {
             throw new NotImplementedException();
         }

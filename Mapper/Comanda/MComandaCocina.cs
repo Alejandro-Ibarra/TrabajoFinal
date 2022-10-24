@@ -20,7 +20,7 @@ namespace Mapper.Comanda
             throw new NotImplementedException();
         }
 
-        public BEComandaCocina ListarObjeto(BEComandaCocina Objeto)
+        public BEComandaCocina ListarObjeto(int Objeto)
         {
             throw new NotImplementedException();
         }

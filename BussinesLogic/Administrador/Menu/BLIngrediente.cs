@@ -33,7 +33,7 @@ namespace BussinesLogic
             return oMIngredientes.Guardar(oBEIngredientes);
         }
 
-        public BEIngrediente ListarObjeto(BEIngrediente oBEIngredientes)
+        public BEIngrediente ListarObjeto(int oBEIngredientes)
         {
             throw new NotImplementedException();
         }

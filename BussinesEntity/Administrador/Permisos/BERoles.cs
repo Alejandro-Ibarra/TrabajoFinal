@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BussinesEntity
 {
-    public class BEPermisos : BEEntity
+    public class BERoles : BEEntity
     {
-        public int ID { get; set; }
-        public string Descripcion { get; set; }
-
+        public List<BEPermisos> Permisos { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace Mapper.Contble
         {
             throw new NotImplementedException();
         }
-        public BEPago ListarObjeto(BEPago Objeto)
+        public BEPago ListarObjeto(int Objeto)
         {
             throw new NotImplementedException();
         }

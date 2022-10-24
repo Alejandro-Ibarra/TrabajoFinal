@@ -20,7 +20,7 @@ namespace BussinesLogic
             throw new NotImplementedException();
         }
 
-        public BEMesa ListarObjeto(BEMesa oBEmesa)
+        public BEMesa ListarObjeto(int oBEmesa)
         {
             throw new NotImplementedException();
         }

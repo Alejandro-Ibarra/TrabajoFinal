@@ -25,7 +25,7 @@ namespace Mapper.Administrador.Eventos
             throw new NotImplementedException();
         }
 
-        public BEEvento ListarObjeto(BEEvento Objeto)
+        public BEEvento ListarObjeto(int Objeto)
         {
             throw new NotImplementedException();
         }

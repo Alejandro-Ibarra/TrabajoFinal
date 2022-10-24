@@ -48,8 +48,8 @@
     <Compile Include="Administrador\Personal\BLCocinero.cs" />
     <Compile Include="Administrador\Eventos\BLEvento.cs" />
     <Compile Include="Administrador\Menu\BLIngrediente.cs" />
-    <Compile Include="Administrador\Personal\BLPermisos.cs" />
-    <Compile Include="Administrador\Personal\BLRoles.cs" />
+    <Compile Include="Administrador\Permisos\BLPermisos.cs" />
+    <Compile Include="Administrador\Permisos\BLRoles.cs" />
     <Compile Include="Administrador\Salon\BLMesa.cs" />
     <Compile Include="Administrador\Personal\BLAdmin.cs" />
     <Compile Include="Contable\BLMetodoPago.cs" />

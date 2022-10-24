@@ -30,7 +30,7 @@ namespace BussinesLogic
             throw new NotImplementedException();
         }
 
-        BEEvento IGestorABM<BEEvento>.ListarObjeto(BEEvento oBEEvento)
+        BEEvento IGestorABM<BEEvento>.ListarObjeto(int oBEEvento)
         {
             throw new NotImplementedException();
         }

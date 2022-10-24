@@ -44,17 +44,19 @@ namespace TrabajoFinal
             this.Boton_Modificar = new System.Windows.Forms.Button();
             this.GroupBox_Role = new System.Windows.Forms.GroupBox();
             this.GroupBox_Turno = new System.Windows.Forms.GroupBox();
+            this.RadioButton_Noche = new System.Windows.Forms.RadioButton();
             this.RadioButton_Tarde = new System.Windows.Forms.RadioButton();
             this.RadioButton_Mañana = new System.Windows.Forms.RadioButton();
-            this.RadioButton_Noche = new System.Windows.Forms.RadioButton();
             this.UC_ValDNI = new TrabajoFinal.UC_ValDNI();
             this.UC_ValCod = new TrabajoFinal.UC_ValCod();
             this.UC_ValNomb = new TrabajoFinal.UC_ValNombApe();
             this.UC_ValApe = new TrabajoFinal.UC_ValNombApe();
+            this.Grilla_Permisos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Cocineros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Mozos)).BeginInit();
             this.GroupBox_Role.SuspendLayout();
             this.GroupBox_Turno.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla_Permisos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -202,6 +204,16 @@ namespace TrabajoFinal
             this.GroupBox_Turno.TabStop = false;
             this.GroupBox_Turno.Text = "Turno";
             // 
+            // RadioButton_Noche
+            // 
+            this.RadioButton_Noche.AutoSize = true;
+            this.RadioButton_Noche.Location = new System.Drawing.Point(16, 67);
+            this.RadioButton_Noche.Name = "RadioButton_Noche";
+            this.RadioButton_Noche.Size = new System.Drawing.Size(57, 17);
+            this.RadioButton_Noche.TabIndex = 13;
+            this.RadioButton_Noche.Text = "Noche";
+            this.RadioButton_Noche.UseVisualStyleBackColor = true;
+            // 
             // RadioButton_Tarde
             // 
             this.RadioButton_Tarde.AutoSize = true;
@@ -223,16 +235,6 @@ namespace TrabajoFinal
             this.RadioButton_Mañana.TabStop = true;
             this.RadioButton_Mañana.Text = "Mañana";
             this.RadioButton_Mañana.UseVisualStyleBackColor = true;
-            // 
-            // RadioButton_Noche
-            // 
-            this.RadioButton_Noche.AutoSize = true;
-            this.RadioButton_Noche.Location = new System.Drawing.Point(16, 67);
-            this.RadioButton_Noche.Name = "RadioButton_Noche";
-            this.RadioButton_Noche.Size = new System.Drawing.Size(57, 17);
-            this.RadioButton_Noche.TabIndex = 13;
-            this.RadioButton_Noche.Text = "Noche";
-            this.RadioButton_Noche.UseVisualStyleBackColor = true;
             // 
             // UC_ValDNI
             // 
@@ -262,11 +264,20 @@ namespace TrabajoFinal
             this.UC_ValApe.Size = new System.Drawing.Size(100, 20);
             this.UC_ValApe.TabIndex = 0;
             // 
+            // Grilla_Permisos
+            // 
+            this.Grilla_Permisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla_Permisos.Location = new System.Drawing.Point(683, 254);
+            this.Grilla_Permisos.Name = "Grilla_Permisos";
+            this.Grilla_Permisos.Size = new System.Drawing.Size(465, 162);
+            this.Grilla_Permisos.TabIndex = 20;
+            // 
             // GUI_Administrar_Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1160, 467);
+            this.Controls.Add(this.Grilla_Permisos);
             this.Controls.Add(this.GroupBox_Turno);
             this.Controls.Add(this.GroupBox_Role);
             this.Controls.Add(this.Boton_Modificar);
@@ -293,6 +304,7 @@ namespace TrabajoFinal
             this.GroupBox_Role.PerformLayout();
             this.GroupBox_Turno.ResumeLayout(false);
             this.GroupBox_Turno.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla_Permisos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,5 +334,6 @@ namespace TrabajoFinal
         private System.Windows.Forms.RadioButton RadioButton_Noche;
         private System.Windows.Forms.RadioButton RadioButton_Tarde;
         private System.Windows.Forms.RadioButton RadioButton_Mañana;
+        private System.Windows.Forms.DataGridView Grilla_Permisos;
     }
 }

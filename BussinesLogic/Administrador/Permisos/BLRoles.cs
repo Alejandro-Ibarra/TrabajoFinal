@@ -38,9 +38,9 @@ namespace BussinesLogic
             return oMroles.ListarTodo();
         }
 
-        public BERoles ListarObjeto(BERoles Objeto)
+        public BERoles ListarObjeto(int cod)
         {
-            return oMroles.ListarObjeto(Objeto);
+            return oMroles.ListarObjeto(cod);
         }
     }
 }

@@ -73,7 +73,7 @@ namespace Mapper
             catch (Exception ex)
             { throw ex; }
         }
-        public BEExtras ListarObjeto(BEExtras oBEExtras)
+        public BEExtras ListarObjeto(int oBEExtras)
         {
             throw new NotImplementedException();
         }

@@ -15,45 +15,18 @@ namespace TrabajoFinal
 {
     public partial class GUI_UsrCocina : Form
     {
-        public GUI_UsrCocina(int DNI)
+        public GUI_UsrCocina(BECocinero Cocinero)
         {
             InitializeComponent();
-            oBECocinero = new BECocinero();
+            oBECocinero = Cocinero;
             oBLCocinero = new BLCocinero();
-            CargarDatosDeCocinero(DNI);
+            AsignarAControles(oBECocinero);
 
         }
 
         BECocinero oBECocinero;
         BLCocinero oBLCocinero;
 
-        private void CargarDatosDeCocinero(int DNI)
-        {
-            try
-            {
-                oBECocinero = RecuperarCocineroPorDNI(DNI);
-                AsignarAControles(oBECocinero);
-
-            }
-            catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
-
-        }
-
-        private BECocinero RecuperarCocineroPorDNI(int oDNI)
-        {
-            try
-            {
-                BECocinero oBEUsrAux;
-                oBECocinero.DNI = oDNI;
-                oBEUsrAux = oBLCocinero.ListarObjeto(oBECocinero);
-                oBEUsrAux.DNI = oDNI;
-                return oBEUsrAux;
-            }
-            catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
-            return null;
-        }
 
         void AsignarAControles(BECocinero oBECocinero)
         {

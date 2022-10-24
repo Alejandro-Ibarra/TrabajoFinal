@@ -93,10 +93,61 @@ namespace Mapper
             catch (Exception ex)
             { throw ex; }
         }
-        public BECocinero ListarObjeto(BECocinero Objeto)
+        public BECocinero ListarObjeto(int dni)
         {
-            throw new NotImplementedException();
+            try
+            {
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                List<BERoles> listaRoles = new List<BERoles>();
+                var consulta = 
+                    from Cocinero in xmlDocument.Descendants("Cocinero")
+                    where Cocinero.Element("Dni").Value == dni.ToString()
+                    select new BECocinero
+                    {
+                        Codigo = Convert.ToInt32(Convert.ToString(Cocinero.Attribute("Codigo").Value).Trim()),
+                        Nombre = Convert.ToString(Cocinero.Element("Nombre").Value).Trim(),
+                        Apellido = Convert.ToString(Cocinero.Element("Apellido").Value).Trim(),
+                        Password = Convert.ToString(Cocinero.Element("Password").Value).Trim(),
+                        Turno = Convert.ToString(Cocinero.Element("Turno").Value).Trim(),
+                        CantPedidos = Convert.ToInt32(Convert.ToString(Cocinero.Element("Cantidad_Pedidos").Value).Trim()),
+                        DNI = Convert.ToInt32(Convert.ToString(Cocinero.Element("Dni").Value).Trim()),
+                        Roles = (
+                                from rol in Cocinero.Elements("Roles").Elements("Rol")
+                                 select new BERoles
+                                 {
+                                 Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value.Trim())),
+                                 Permisos = (from permisos in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                                             where permisos.Attribute("ID").Value.ToString() == Convert.ToString(rol.Attribute("ID").Value.Trim())
+                                             select new BEPermisos
+                                             {
+                                                 Codigo = Convert.ToInt32(Convert.ToString(permisos.Element("Permisos").Element("Permiso").Attribute("ID").Value.Trim())),
+                                                 Descripcion = (from pDesc in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
+                                                                where (string)pDesc.Attribute("ID") == Convert.ToString(permisos.Element("Permisos").Element("Permiso").Attribute("ID").Value.Trim())
+                                                                select pDesc
+                                                           
+                                                                )
+
+
+
+                                             }).ToList<BEPermisos>()
+                                 }).ToList<BERoles>()
+                    };
+                
+                string pepe = "lala";
+ 
+
+                BECocinero oBECocinero = (BECocinero)consulta;
+                return oBECocinero; 
+
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
+
+
         public List<BECocinero> ListarTodo()
         {
             try

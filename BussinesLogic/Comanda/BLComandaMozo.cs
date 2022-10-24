@@ -20,7 +20,7 @@ namespace BussinesLogic
             throw new NotImplementedException();
         }
 
-        public BEComandaMozo ListarObjeto(BEComandaMozo oBEComandaMozo)
+        public BEComandaMozo ListarObjeto(int oBEComandaMozo)
         {
             throw new NotImplementedException();
         }

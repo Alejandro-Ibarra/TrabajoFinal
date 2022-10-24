@@ -124,7 +124,7 @@ namespace TrabajoFinal
                 {
                     if (AsignarMozo())
                     {
-                        oBLMozo.Guardar(oBEMozo);
+                        oBLMozo.Modificar(oBEMozo);
                         AsignarMozoAControles(oBEMozo);
                         CargarGrillaMozo();
                     }
@@ -243,6 +243,16 @@ namespace TrabajoFinal
             { MessageBox.Show(ex.Message); }
         }
 
+        void CargarGrillaPermisos(BECocinero Cocinero)
+        {
+            Grilla_Permisos.DataSource = null;
+            BECocinero AuxCocinero = oBLCocinero.ListarObjeto(Cocinero.DNI);
+            
+            Grilla_Permisos.DataSource = AuxCocinero.Roles;
+
+
+        }
+
         void CargarGrillaCocinero()
         {
             try
@@ -286,6 +296,7 @@ namespace TrabajoFinal
             {
                 oBECocinero = (BECocinero)Grilla_Cocineros.CurrentRow.DataBoundItem;
                 AsignarCocineroAControles(oBECocinero);
+                CargarGrillaPermisos(oBECocinero);
             }
         }
 

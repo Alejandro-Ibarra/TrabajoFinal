@@ -20,7 +20,7 @@ namespace Mapper.Comanda
             throw new NotImplementedException();
         }
 
-        public BEComandaMozo ListarObjeto(BEComandaMozo Objeto)
+        public BEComandaMozo ListarObjeto(int Objeto)
         {
             throw new NotImplementedException();
         }

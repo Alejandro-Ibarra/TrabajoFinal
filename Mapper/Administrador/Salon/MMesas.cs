@@ -18,7 +18,7 @@ namespace Mapper.Administrador.Salon
         {
             throw new NotImplementedException();
         }
-        public BEMesa ListarObjeto(BEMesa Objeto)
+        public BEMesa ListarObjeto(int Objeto)
         {
             throw new NotImplementedException();
         }

@@ -33,9 +33,9 @@ namespace BussinesLogic
             return oMMozo.Guardar(oBEMozo);
         }
 
-        public BEMozo ListarObjeto(BEMozo oBEMozo)
+        public BEMozo ListarObjeto(int dni)
         {
-            throw new NotImplementedException();
+            return oMMozo.ListarObjeto(dni);
         }
 
         public List<BEMozo> ListarTodo()

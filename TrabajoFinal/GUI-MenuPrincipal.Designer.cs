@@ -30,7 +30,6 @@ namespace TrabajoFinal
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.realizarPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,16 +38,15 @@ namespace TrabajoFinal
             this.platosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mesasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cocineroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mozoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mesasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.realizarPedidoToolStripMenuItem,
             this.adminToolStripMenuItem,
             this.cocineroToolStripMenuItem,
             this.mozoToolStripMenuItem});
@@ -57,12 +55,6 @@ namespace TrabajoFinal
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // realizarPedidoToolStripMenuItem
-            // 
-            this.realizarPedidoToolStripMenuItem.Name = "realizarPedidoToolStripMenuItem";
-            this.realizarPedidoToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
-            this.realizarPedidoToolStripMenuItem.Text = "Realizar Pedido";
             // 
             // adminToolStripMenuItem
             // 
@@ -96,19 +88,19 @@ namespace TrabajoFinal
             // ingredientesToolStripMenuItem
             // 
             this.ingredientesToolStripMenuItem.Name = "ingredientesToolStripMenuItem";
-            this.ingredientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ingredientesToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.ingredientesToolStripMenuItem.Text = "Ingredientes";
             // 
             // bebidasToolStripMenuItem
             // 
             this.bebidasToolStripMenuItem.Name = "bebidasToolStripMenuItem";
-            this.bebidasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bebidasToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.bebidasToolStripMenuItem.Text = "Bebidas";
             // 
             // platosToolStripMenuItem
             // 
             this.platosToolStripMenuItem.Name = "platosToolStripMenuItem";
-            this.platosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.platosToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.platosToolStripMenuItem.Text = "Platos";
             // 
             // eventosToolStripMenuItem
@@ -123,6 +115,12 @@ namespace TrabajoFinal
             this.extrasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.extrasToolStripMenuItem.Text = "Extras";
             // 
+            // mesasToolStripMenuItem
+            // 
+            this.mesasToolStripMenuItem.Name = "mesasToolStripMenuItem";
+            this.mesasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mesasToolStripMenuItem.Text = "Mesas";
+            // 
             // cocineroToolStripMenuItem
             // 
             this.cocineroToolStripMenuItem.Name = "cocineroToolStripMenuItem";
@@ -134,12 +132,6 @@ namespace TrabajoFinal
             this.mozoToolStripMenuItem.Name = "mozoToolStripMenuItem";
             this.mozoToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.mozoToolStripMenuItem.Text = "Mozo";
-            // 
-            // mesasToolStripMenuItem
-            // 
-            this.mesasToolStripMenuItem.Name = "mesasToolStripMenuItem";
-            this.mesasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.mesasToolStripMenuItem.Text = "Mesas";
             // 
             // GUI_MenuPrincipal
             // 
@@ -160,7 +152,6 @@ namespace TrabajoFinal
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem realizarPedidoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem personalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;

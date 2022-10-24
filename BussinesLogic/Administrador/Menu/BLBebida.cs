@@ -34,7 +34,7 @@ namespace BussinesLogic
             return oMBebida.Guardar(oBEBebida);
         }
 
-        public BEBebida ListarObjeto(BEBebida oBEBebida)
+        public BEBebida ListarObjeto(int oBEBebida)
         {
             throw new NotImplementedException();
         }

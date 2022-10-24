@@ -20,7 +20,7 @@ namespace BussinesLogic
             throw new NotImplementedException();
         }
 
-        public BEComandaCocina ListarObjeto(BEComandaCocina oBEComandaCocina)
+        public BEComandaCocina ListarObjeto(int oBEComandaCocina)
         {
             throw new NotImplementedException();
         }

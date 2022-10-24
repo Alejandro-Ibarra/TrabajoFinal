@@ -75,7 +75,7 @@ namespace Mapper
             { throw ex; }
         }
 
-        public BEIngrediente ListarObjeto(BEIngrediente Objeto)
+        public BEIngrediente ListarObjeto(int Objeto)
         {
             throw new NotImplementedException();
         }

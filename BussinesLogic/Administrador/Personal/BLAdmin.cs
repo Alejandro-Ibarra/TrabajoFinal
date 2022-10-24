@@ -43,9 +43,9 @@ namespace BussinesLogic
             throw new NotImplementedException();
         }
 
-        public BEAdmin ListarObjeto(BEAdmin Objeto)
+        public BEAdmin ListarObjeto(int dni)
         {
-            return oMadmin.ListarObjeto(Objeto);
+            return oMadmin.ListarObjeto(dni);
         }
     }
 }

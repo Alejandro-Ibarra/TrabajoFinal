@@ -117,10 +117,47 @@ namespace Mapper
         }
 
 
-        public BEMozo ListarObjeto(BEMozo Objeto)
+        public BEMozo ListarObjeto(int dni)
         {
-            throw new NotImplementedException();
+            try
+            {
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta = 
+                    from Mozo in xmlDocument.Descendants("Mozo")
+                    where Mozo.Element("Dni").Value == dni.ToString()
+                    select new BEMozo
+                    {
+                        Codigo = Convert.ToInt32(Convert.ToString(Mozo.Attribute("Codigo").Value).Trim()),
+                        Nombre = Convert.ToString(Mozo.Element("Nombre").Value).Trim(),
+                        Apellido = Convert.ToString(Mozo.Element("Apellido").Value).Trim(),
+                        Password = Convert.ToString(Mozo.Element("Password").Value).Trim(),
+                        Turno = Convert.ToString(Mozo.Element("Turno").Value).Trim(),
+                        Ranking = Convert.ToInt32(Convert.ToString(Mozo.Element("Ranking").Value).Trim()),
+                        DNI = Convert.ToInt32(Convert.ToString(Mozo.Element("Dni").Value).Trim()),
+                        Roles = (from rol in Mozo.Elements("Roles").Elements("Rol")
+                                 select new BERoles
+                                 {
+                                     Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value.Trim())),
+                                     Permisos = (from permisos in xmlDocument.Descendants("Rol")
+                                                 where permisos.Attribute("ID").Value.ToString() == Convert.ToString(rol.Attribute("ID").Value.Trim())
+                                                 select new BEPermisos
+                                                 {
+                                                     Codigo = Convert.ToInt32(Convert.ToString(permisos.Attribute("ID").Value.Trim())),
+                                                     Descripcion = Convert.ToString(permisos.Element("Descripcion").Value).Trim(),
+                                                 }).ToList()
+                                 }).ToList()
+                    };
+                BEMozo oBEMozo = (BEMozo)consulta;
+                return oBEMozo;
+
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
+
         public List<BEMozo> ListarTodo()
         {
             try

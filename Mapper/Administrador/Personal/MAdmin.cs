@@ -26,9 +26,44 @@ namespace Mapper
             throw new NotImplementedException();
         }
 
-        public BEAdmin ListarObjeto(BEAdmin Objeto)
+        public BEAdmin ListarObjeto(int dni)
         {
-            throw new NotImplementedException();
+            try
+            {
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta =
+                    from Admin in xmlDocument.Descendants("Admin")
+                    where Admin.Element("Dni").Value == dni.ToString()
+                    select new BEAdmin
+                    {
+                        Codigo = Convert.ToInt32(Convert.ToString(Admin.Attribute("Codigo").Value).Trim()),
+                        Nombre = Convert.ToString(Admin.Element("Nombre").Value).Trim(),
+                        Apellido = Convert.ToString(Admin.Element("Apellido").Value).Trim(),
+                        Password = Convert.ToString(Admin.Element("Password").Value).Trim(),
+                        Turno = Convert.ToString(Admin.Element("Turno").Value).Trim(),
+                        DNI = Convert.ToInt32(Convert.ToString(Admin.Element("Dni").Value).Trim()),
+                        Roles = (from rol in Admin.Elements("Roles").Elements("Rol")
+                                 select new BERoles
+                                 {
+                                    Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value.Trim())),
+                                    Permisos = (from permisos in xmlDocument.Descendants("Rol")
+                                                where permisos.Attribute("ID").Value.ToString() == Convert.ToString(rol.Attribute("ID").Value.Trim())
+                                                select new BEPermisos
+                                                {
+                                                    Codigo = Convert.ToInt32(Convert.ToString(permisos.Attribute("ID").Value.Trim())),
+                                                    Descripcion = Convert.ToString(permisos.Element("Descripcion").Value).Trim(),
+                                                }).ToList()
+                                 }).ToList()
+                    };
+                BEAdmin oBEAdmin = (BEAdmin)consulta;
+                return oBEAdmin;
+
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public List<BEAdmin> ListarTodo()

@@ -33,9 +33,9 @@ namespace BussinesLogic
             return oMCocinero.Guardar(Objeto);
         }
 
-        public BECocinero ListarObjeto(BECocinero Objeto)
+        public BECocinero ListarObjeto(int dni)
         {
-            throw new NotImplementedException();
+            return oMCocinero.ListarObjeto(dni);
         }
 
         public List<BECocinero> ListarTodo()

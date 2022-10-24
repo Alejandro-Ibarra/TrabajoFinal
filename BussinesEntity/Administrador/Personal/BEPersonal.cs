@@ -13,7 +13,6 @@ namespace BussinesEntity
         public string Apellido { get; set; }
         public string Turno { get; set; }
         public string Password { get; set; }
-        public string Rol { get; set; }
-        private List<BEPermisos> permisos { get; set; }
+        public List<BERoles> Roles { get; set; }
     }
 }

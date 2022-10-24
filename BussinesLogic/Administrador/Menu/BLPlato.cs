@@ -25,7 +25,7 @@ namespace BussinesLogic
             throw new NotImplementedException();
         }
 
-        public BEPlato ListarObjeto(BEPlato oBEPlato)
+        public BEPlato ListarObjeto(int oBEPlato)
         {
             throw new NotImplementedException();
         }

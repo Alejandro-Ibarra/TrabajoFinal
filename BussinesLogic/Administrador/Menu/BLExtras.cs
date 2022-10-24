@@ -34,7 +34,7 @@ namespace BussinesLogic
             return oMExtras.Guardar(oBExtras);
         }
 
-        public BEExtras ListarObjeto(BEExtras oBExtras)
+        public BEExtras ListarObjeto(int oBExtras)
         {
             throw new NotImplementedException();
         }

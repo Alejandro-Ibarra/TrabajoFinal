@@ -21,7 +21,7 @@ namespace Mapper
             throw new NotImplementedException();
         }
 
-        public BEPermisos ListarObjeto(BEPermisos Objeto)
+        public BEPermisos ListarObjeto(int cod)
         {
             throw new NotImplementedException();
         }

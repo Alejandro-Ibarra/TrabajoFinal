@@ -56,8 +56,8 @@
     <Compile Include="Administrador\Personal\MAdmin.cs" />
     <Compile Include="MLogin.cs" />
     <Compile Include="Administrador\Personal\MMozo.cs" />
-    <Compile Include="Administrador\Personal\MPermisos.cs" />
-    <Compile Include="Administrador\Personal\MRoles.cs" />
+    <Compile Include="Administrador\Permisos\MPermisos.cs" />
+    <Compile Include="Administrador\Permisos\MRoles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

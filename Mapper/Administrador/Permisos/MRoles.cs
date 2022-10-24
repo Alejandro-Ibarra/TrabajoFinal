@@ -21,7 +21,7 @@ namespace Mapper
             throw new NotImplementedException();
         }
 
-        public BERoles ListarObjeto(BERoles Objeto)
+        public BERoles ListarObjeto(int Cod)
         {
             throw new NotImplementedException();
         }

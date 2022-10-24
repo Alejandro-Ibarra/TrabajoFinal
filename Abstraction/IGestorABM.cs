@@ -16,6 +16,6 @@ namespace Abstraction
 
         List<T> ListarTodo();
 
-        T ListarObjeto(T Objeto);
+        T ListarObjeto(int Dni);
     }
 }

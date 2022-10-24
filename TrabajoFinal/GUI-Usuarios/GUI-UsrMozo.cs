@@ -15,44 +15,16 @@ namespace TrabajoFinal
 {
     public partial class GUI_UsrMozo : Form
     {
-        public GUI_UsrMozo(int DNI)
+        public GUI_UsrMozo(BEMozo Mozo)
         {
             InitializeComponent();
-            oBEMozo = new BEMozo();
+            oBEMozo = Mozo;
             oBLMozo = new BLMozo();
-            CargarDatosDeMozo(DNI);
+            AsignarAControles(oBEMozo);
         }
 
         BEMozo oBEMozo;
         BLMozo oBLMozo;
-
-        private void CargarDatosDeMozo(int DNI)
-        {
-            try
-            {
-                oBEMozo = RecuperarMozoPorDNI(DNI);
-                AsignarAControles(oBEMozo);
-            }
-            catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
-        }
-
-
-
-        private BEMozo RecuperarMozoPorDNI(int oDNI)
-        {
-            try
-            {
-                BEMozo oBEUsrAux;
-                oBEMozo.DNI = oDNI;
-                oBEUsrAux = oBLMozo.ListarObjeto(oBEMozo);
-                oBEUsrAux.DNI = oDNI;
-                return oBEUsrAux;
-            }
-            catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
-            return null;
-        }
 
         private void AsignarAControles(BEMozo oBEMozo)
         {

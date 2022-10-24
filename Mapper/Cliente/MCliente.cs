@@ -18,7 +18,7 @@ namespace Mapper.Cliente
         {
             throw new NotImplementedException();
         }
-        public BEPedidoCliente ListarObjeto(BEPedidoCliente Objeto)
+        public BEPedidoCliente ListarObjeto(int Objeto)
         {
             throw new NotImplementedException();
         }

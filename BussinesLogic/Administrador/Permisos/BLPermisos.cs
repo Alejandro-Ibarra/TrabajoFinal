@@ -39,9 +39,9 @@ namespace BussinesLogic
             return oMpermisos.ListarTodo();
         }
 
-        public BEPermisos ListarObjeto(BEPermisos Objeto)
+        public BEPermisos ListarObjeto(int cod)
         {
-            return oMpermisos.ListarObjeto(Objeto);
+            return oMpermisos.ListarObjeto(cod);
         }
     }
     
