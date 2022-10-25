@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TrabajoFinal
 {
-    public partial class GUI_AdminMesas : Form
+    public partial class GUI_Gerente_Mesas : Form
     {
-        public GUI_AdminMesas()
+        public GUI_Gerente_Mesas()
         {
             InitializeComponent();
             cont = 0;

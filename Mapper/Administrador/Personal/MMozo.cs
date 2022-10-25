@@ -18,7 +18,7 @@ namespace Mapper
                 if (Existe(oBEMozo.DNI) == false)
                 {
                     XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-                    xmlDocument.Element("Restaurante").Element("Empleados").Add(new XElement("Mozos",
+                    xmlDocument.Element("Restaurante").Element("Usuarios").Add(new XElement("Mozos",
                                                                                     new XElement("Mozo",
                                                                                         new XAttribute("Codigo", oBEMozo.Codigo.ToString().Trim()),
                                                                                         new XElement("Rol", "Mozo"),
@@ -163,7 +163,7 @@ namespace Mapper
             try
             {
                 var consulta =
-                from Mozo in XElement.Load("Restaurante.xml").Elements("Empleados").Elements("Mozos").Elements("Mozo")
+                from Mozo in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Mozos").Elements("Mozo")
                 select new BEMozo
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(Mozo.Attribute("Codigo").Value).Trim()),

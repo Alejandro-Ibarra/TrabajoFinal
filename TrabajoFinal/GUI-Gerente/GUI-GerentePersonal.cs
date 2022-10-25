@@ -13,9 +13,9 @@ using ServiceLogic;
 
 namespace TrabajoFinal
 {
-    public partial class GUI_Administrar_Personal : Form
+    public partial class GUI_Gerente_Personal : Form
     {
-        public GUI_Administrar_Personal()
+        public GUI_Gerente_Personal()
         {
             InitializeComponent();
             oBECocinero = new BECocinero();
@@ -308,5 +308,7 @@ namespace TrabajoFinal
                 AsignarMozoAControles(oBEMozo);
             }
         }
+
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace TrabajoFinal
 {
-    partial class GUI_AdminPlatos
+    partial class GUI_Gerente_Platos
     {
         /// <summary>
         /// Required designer variable.

@@ -70,7 +70,7 @@ namespace Mapper
                 if (Existe(oBECocinero.DNI) == false)
                 {
                     XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-                    xmlDocument.Element("Restaurante").Element("Empleados").Add(new XElement("Cocineros",
+                    xmlDocument.Element("Restaurante").Element("Usuarios").Add(new XElement("Cocineros",
                                                                                     new XElement("Cocinero",
                                                                                         new XAttribute("Codigo", oBECocinero.Codigo.ToString().Trim()),
                                                                                         new XElement("Rol", "Cocinero"),
@@ -125,19 +125,14 @@ namespace Mapper
                                                  Descripcion = (from pDesc in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
                                                                 where (string)pDesc.Attribute("ID") == Convert.ToString(permisos.Element("Permisos").Element("Permiso").Attribute("ID").Value.Trim())
                                                                 select pDesc
-                                                           
-                                                                )
+                                                                ).FirstOrDefault().Element("Descripcion").Value.ToString()
 
 
 
                                              }).ToList<BEPermisos>()
                                  }).ToList<BERoles>()
                     };
-                
-                string pepe = "lala";
- 
-
-                BECocinero oBECocinero = (BECocinero)consulta;
+                BECocinero oBECocinero = consulta.FirstOrDefault();
                 return oBECocinero; 
 
             }
@@ -153,7 +148,7 @@ namespace Mapper
             try
             {
                 var consulta =
-                from Cocinero in XElement.Load("Restaurante.xml").Elements("Empleados").Elements("Cocineros").Elements("Cocinero")
+                from Cocinero in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Cocineros").Elements("Cocinero")
                 select new BECocinero
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(Cocinero.Attribute("Codigo").Value).Trim()),

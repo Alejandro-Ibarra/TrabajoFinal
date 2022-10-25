@@ -1,7 +1,7 @@
 ﻿
 namespace TrabajoFinal
 {
-    partial class GUI_AdminEventos
+    partial class GUI_Gerente_Eventos
     {
         /// <summary>
         /// Required designer variable.

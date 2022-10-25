@@ -14,5 +14,6 @@ namespace BussinesEntity
         public string Turno { get; set; }
         public string Password { get; set; }
         public List<BERoles> Roles { get; set; }
+
     }
 }

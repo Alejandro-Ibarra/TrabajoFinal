@@ -1,7 +1,7 @@
 ﻿
 namespace TrabajoFinal
 {
-    partial class GUI_AdminBebidas
+    partial class GUI_Gerente_Bebidas
     {
         /// <summary>
         /// Required designer variable.

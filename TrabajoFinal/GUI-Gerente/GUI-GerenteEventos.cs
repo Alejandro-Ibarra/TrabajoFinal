@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TrabajoFinal
 {
-    public partial class GUI_AdminEventos : Form
+    public partial class GUI_Gerente_Eventos : Form
     {
-        public GUI_AdminEventos()
+        public GUI_Gerente_Eventos()
         {
             InitializeComponent();
         }

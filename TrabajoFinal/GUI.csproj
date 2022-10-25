@@ -47,47 +47,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI-Admin\GUI-AdminBebidas.cs">
+    <Compile Include="GUI-Gerente\GUI-GerenteBebidas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminBebidas.Designer.cs">
-      <DependentUpon>GUI-AdminBebidas.cs</DependentUpon>
+    <Compile Include="GUI-Gerente\GUI-GerenteBebidas.Designer.cs">
+      <DependentUpon>GUI-GerenteBebidas.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminEventos.cs">
+    <Compile Include="GUI-Gerente\GUI-GerenteEventos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminEventos.Designer.cs">
-      <DependentUpon>GUI-AdminEventos.cs</DependentUpon>
+    <Compile Include="GUI-Gerente\GUI-GerenteEventos.Designer.cs">
+      <DependentUpon>GUI-GerenteEventos.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminExtras.cs">
+    <Compile Include="GUI-Gerente\GUI-GerenteExtras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminExtras.Designer.cs">
-      <DependentUpon>GUI-AdminExtras.cs</DependentUpon>
+    <Compile Include="GUI-Gerente\GUI-GerenteExtras.Designer.cs">
+      <DependentUpon>GUI-GerenteExtras.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminIngredientes.cs">
+    <Compile Include="GUI-Gerente\GUI-GerenteIngredientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminIngredientes.Designer.cs">
-      <DependentUpon>GUI-AdminIngredientes.cs</DependentUpon>
+    <Compile Include="GUI-Gerente\GUI-GerenteIngredientes.Designer.cs">
+      <DependentUpon>GUI-GerenteIngredientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminPersonal.cs">
+    <Compile Include="GUI-Gerente\GUI-GerentePersonal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminPersonal.Designer.cs">
-      <DependentUpon>GUI-AdminPersonal.cs</DependentUpon>
+    <Compile Include="GUI-Gerente\GUI-GerentePersonal.Designer.cs">
+      <DependentUpon>GUI-GerentePersonal.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminPlatos.cs">
+    <Compile Include="GUI-Gerente\GUI-GerentePlatos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminPlatos.Designer.cs">
-      <DependentUpon>GUI-AdminPlatos.cs</DependentUpon>
+    <Compile Include="GUI-Gerente\GUI-GerentePlatos.Designer.cs">
+      <DependentUpon>GUI-GerentePlatos.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminMesas.cs">
+    <Compile Include="GUI-Gerente\GUI-GerenteMesas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Admin\GUI-AdminMesas.Designer.cs">
-      <DependentUpon>GUI-AdminMesas.cs</DependentUpon>
+    <Compile Include="GUI-Gerente\GUI-GerenteMesas.Designer.cs">
+      <DependentUpon>GUI-GerenteMesas.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-Usuarios\GUI-Cliente.cs">
       <SubType>Form</SubType>
@@ -145,20 +145,20 @@
     <EmbeddedResource Include="FoldeUserControls\UC_Mesas.resx">
       <DependentUpon>UC_Mesas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Admin\GUI-AdminBebidas.resx">
-      <DependentUpon>GUI-AdminBebidas.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-Gerente\GUI-GerenteBebidas.resx">
+      <DependentUpon>GUI-GerenteBebidas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Admin\GUI-AdminExtras.resx">
-      <DependentUpon>GUI-AdminExtras.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-Gerente\GUI-GerenteExtras.resx">
+      <DependentUpon>GUI-GerenteExtras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Admin\GUI-AdminIngredientes.resx">
-      <DependentUpon>GUI-AdminIngredientes.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-Gerente\GUI-GerenteIngredientes.resx">
+      <DependentUpon>GUI-GerenteIngredientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Admin\GUI-AdminMesas.resx">
-      <DependentUpon>GUI-AdminMesas.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-Gerente\GUI-GerenteMesas.resx">
+      <DependentUpon>GUI-GerenteMesas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Admin\GUI-AdminPersonal.resx">
-      <DependentUpon>GUI-AdminPersonal.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-Gerente\GUI-GerentePersonal.resx">
+      <DependentUpon>GUI-GerentePersonal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Inicio.resx">
       <DependentUpon>GUI-Inicio.cs</DependentUpon>

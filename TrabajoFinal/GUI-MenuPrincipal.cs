@@ -55,7 +55,7 @@ namespace TrabajoFinal
 
         private void personalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUI_Administrar_Personal oGUI_Administrar_Personal = new GUI_Administrar_Personal();
+            GUI_Gerente_Personal oGUI_Administrar_Personal = new GUI_Gerente_Personal();
             oGUI_Administrar_Personal.MdiParent = this;
             oGUI_Administrar_Personal.Show();
         }

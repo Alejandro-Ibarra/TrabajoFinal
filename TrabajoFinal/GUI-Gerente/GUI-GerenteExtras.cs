@@ -12,9 +12,9 @@ using BussinesLogic;
 
 namespace TrabajoFinal
 {
-    public partial class GUI_AdminExtras : Form
+    public partial class GUI_Gerente_Extras : Form
     {
-        public GUI_AdminExtras()
+        public GUI_Gerente_Extras()
         {
             InitializeComponent();
             oBLExtras = new BLExtras();

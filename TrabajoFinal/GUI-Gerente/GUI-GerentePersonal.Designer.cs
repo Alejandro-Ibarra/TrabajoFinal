@@ -1,7 +1,7 @@
 ﻿
 namespace TrabajoFinal
 {
-    partial class GUI_Administrar_Personal
+    partial class GUI_Gerente_Personal
     {
         /// <summary>
         /// Required designer variable.
@@ -52,6 +52,7 @@ namespace TrabajoFinal
             this.UC_ValNomb = new TrabajoFinal.UC_ValNombApe();
             this.UC_ValApe = new TrabajoFinal.UC_ValNombApe();
             this.Grilla_Permisos = new System.Windows.Forms.DataGridView();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Cocineros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Mozos)).BeginInit();
             this.GroupBox_Role.SuspendLayout();
@@ -272,11 +273,19 @@ namespace TrabajoFinal
             this.Grilla_Permisos.Size = new System.Drawing.Size(465, 162);
             this.Grilla_Permisos.TabIndex = 20;
             // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(771, 37);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(121, 97);
+            this.treeView1.TabIndex = 21;
+            // 
             // GUI_Administrar_Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1160, 467);
+            this.Controls.Add(this.treeView1);
             this.Controls.Add(this.Grilla_Permisos);
             this.Controls.Add(this.GroupBox_Turno);
             this.Controls.Add(this.GroupBox_Role);
@@ -335,5 +344,6 @@ namespace TrabajoFinal
         private System.Windows.Forms.RadioButton RadioButton_Tarde;
         private System.Windows.Forms.RadioButton RadioButton_Mañana;
         private System.Windows.Forms.DataGridView Grilla_Permisos;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }

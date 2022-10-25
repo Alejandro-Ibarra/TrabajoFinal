@@ -12,9 +12,9 @@ using BussinesLogic;
 
 namespace TrabajoFinal
 {
-    public partial class GUI_AdminBebidas : Form
+    public partial class GUI_Gerente_Bebidas : Form
     {
-        public GUI_AdminBebidas()
+        public GUI_Gerente_Bebidas()
         {
             InitializeComponent();
             oBEBebida = new BEBebida();

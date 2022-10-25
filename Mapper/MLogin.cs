@@ -17,13 +17,12 @@ namespace Mapper
             {
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
-                var consulta = from Usuario in xmlDocument.Descendants("Empleados")
+                var consulta = from Usuario in xmlDocument.Descendants("Usuarios")
                                where Usuario.Element("Dni").Value == oSELogin.DNI.ToString() && Usuario.Element("Password").Value == oSELogin.Password
                                select Usuario.Element("Rol");
 
                 if (consulta.Any()) {return true;}
                 else { return false; }
-
             }
             catch (System.Xml.XmlException ex)
             { throw ex; }
