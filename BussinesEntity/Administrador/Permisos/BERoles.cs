@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BussinesEntity
 {
-    public class BERoles : BEEntity
+    public class BERoles : BEPermisos
     {
         public List<BEPermisos> Permisos { get; set; }
     }

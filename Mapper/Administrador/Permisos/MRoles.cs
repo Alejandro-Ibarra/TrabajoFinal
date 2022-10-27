@@ -28,7 +28,33 @@ namespace Mapper
 
         public List<BERoles> ListarTodo()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var consulta =
+                from rol in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                select new BERoles
+                {
+                    Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value).Trim()),
+                    Descripcion = Convert.ToString(rol.Element("Descripcion").Value).Trim(),
+                    Permisos = (from permisos in rol.Elements("Permisos").Elements("Permiso")
+                                select new BEPermisos
+                                        {
+                                         Codigo = Convert.ToInt32(permisos.Attribute("ID").Value.Trim()),
+                                         //Descripcion = (from desc in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
+                                         //              where Convert.ToInt32(permisos.Attribute("ID").Value.Trim()) == Convert.ToInt32(desc.Attribute("ID").Value.Trim())
+                                         //              select Convert.ToString(desc.Elements("Descripcion").FirstOrDefault().Value.Trim())
+                                         //              ).ToString()
+
+
+                                        }).ToList<BEPermisos>()
+                };
+                List<BERoles> Lista = consulta.ToList<BERoles>();
+                return Lista;
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public bool Modificar(BERoles Objeto)

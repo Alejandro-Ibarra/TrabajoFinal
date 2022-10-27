@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI-Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Admin.Designer.cs">
+      <DependentUpon>GUI-Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI-Gerente\GUI-GerenteBebidas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </Compile>
     <EmbeddedResource Include="FoldeUserControls\UC_Mesas.resx">
       <DependentUpon>UC_Mesas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Admin.resx">
+      <DependentUpon>GUI-Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Gerente\GUI-GerenteBebidas.resx">
       <DependentUpon>GUI-GerenteBebidas.cs</DependentUpon>

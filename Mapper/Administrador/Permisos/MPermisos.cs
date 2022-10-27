@@ -28,7 +28,23 @@ namespace Mapper
 
         public List<BEPermisos> ListarTodo()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var consulta =
+                from Permisos in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
+                select new BEPermisos
+                {
+                    Codigo = Convert.ToInt32(Convert.ToString(Permisos.Attribute("ID").Value).Trim()),
+                    Descripcion = Convert.ToString(Permisos.Element("Descripcion").Value).Trim(),
+                    
+                };
+                List<BEPermisos> Lista = consulta.ToList<BEPermisos>();
+                return Lista;
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public bool Modificar(BEPermisos Objeto)
