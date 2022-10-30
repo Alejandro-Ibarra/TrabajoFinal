@@ -44,16 +44,16 @@ namespace TrabajoFinal
             this.RadioButton_Noche = new System.Windows.Forms.RadioButton();
             this.RadioButton_Tarde = new System.Windows.Forms.RadioButton();
             this.RadioButton_Mañana = new System.Windows.Forms.RadioButton();
+            this.Grilla_RolesNoAsignados = new System.Windows.Forms.DataGridView();
+            this.Boton_Agregar = new System.Windows.Forms.Button();
+            this.Boton_Quitar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.UC_ValDNI = new TrabajoFinal.UC_ValDNI();
             this.UC_ValCod = new TrabajoFinal.UC_ValCod();
             this.UC_ValNomb = new TrabajoFinal.UC_ValNombApe();
             this.UC_ValApe = new TrabajoFinal.UC_ValNombApe();
-            this.Grilla_RolesNoAsignados = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Usuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_RolesAsignados)).BeginInit();
             this.GroupBox_Turno.SuspendLayout();
@@ -117,9 +117,9 @@ namespace TrabajoFinal
             this.Grilla_Usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_Usuarios.Location = new System.Drawing.Point(12, 170);
             this.Grilla_Usuarios.Name = "Grilla_Usuarios";
-            this.Grilla_Usuarios.Size = new System.Drawing.Size(613, 193);
+            this.Grilla_Usuarios.Size = new System.Drawing.Size(613, 172);
             this.Grilla_Usuarios.TabIndex = 13;
-            this.Grilla_Usuarios.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_Cocineros_MouseClick);
+            this.Grilla_Usuarios.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_Usuarios_MouseClick);
             // 
             // Grilla_RolesAsignados
             // 
@@ -128,7 +128,7 @@ namespace TrabajoFinal
             this.Grilla_RolesAsignados.Name = "Grilla_RolesAsignados";
             this.Grilla_RolesAsignados.Size = new System.Drawing.Size(179, 119);
             this.Grilla_RolesAsignados.TabIndex = 14;
-            this.Grilla_RolesAsignados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_Mozos_MouseClick);
+            this.Grilla_RolesAsignados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_RolesAsignados_MouseClick);
             // 
             // Boton_Alta
             // 
@@ -204,34 +204,6 @@ namespace TrabajoFinal
             this.RadioButton_Mañana.Text = "Mañana";
             this.RadioButton_Mañana.UseVisualStyleBackColor = true;
             // 
-            // UC_ValDNI
-            // 
-            this.UC_ValDNI.Location = new System.Drawing.Point(12, 105);
-            this.UC_ValDNI.Name = "UC_ValDNI";
-            this.UC_ValDNI.Size = new System.Drawing.Size(100, 20);
-            this.UC_ValDNI.TabIndex = 5;
-            // 
-            // UC_ValCod
-            // 
-            this.UC_ValCod.Location = new System.Drawing.Point(12, 48);
-            this.UC_ValCod.Name = "UC_ValCod";
-            this.UC_ValCod.Size = new System.Drawing.Size(100, 20);
-            this.UC_ValCod.TabIndex = 4;
-            // 
-            // UC_ValNomb
-            // 
-            this.UC_ValNomb.Location = new System.Drawing.Point(274, 48);
-            this.UC_ValNomb.Name = "UC_ValNomb";
-            this.UC_ValNomb.Size = new System.Drawing.Size(100, 20);
-            this.UC_ValNomb.TabIndex = 1;
-            // 
-            // UC_ValApe
-            // 
-            this.UC_ValApe.Location = new System.Drawing.Point(144, 48);
-            this.UC_ValApe.Name = "UC_ValApe";
-            this.UC_ValApe.Size = new System.Drawing.Size(100, 20);
-            this.UC_ValApe.TabIndex = 0;
-            // 
             // Grilla_RolesNoAsignados
             // 
             this.Grilla_RolesNoAsignados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -239,24 +211,25 @@ namespace TrabajoFinal
             this.Grilla_RolesNoAsignados.Name = "Grilla_RolesNoAsignados";
             this.Grilla_RolesNoAsignados.Size = new System.Drawing.Size(179, 119);
             this.Grilla_RolesNoAsignados.TabIndex = 20;
+            this.Grilla_RolesNoAsignados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_RolesNoAsignados_MouseClick);
             // 
-            // button1
+            // Boton_Agregar
             // 
-            this.button1.Location = new System.Drawing.Point(274, 422);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Boton_Agregar.Location = new System.Drawing.Point(274, 422);
+            this.Boton_Agregar.Name = "Boton_Agregar";
+            this.Boton_Agregar.Size = new System.Drawing.Size(65, 23);
+            this.Boton_Agregar.TabIndex = 21;
+            this.Boton_Agregar.Text = "Agregar";
+            this.Boton_Agregar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // Boton_Quitar
             // 
-            this.button2.Location = new System.Drawing.Point(274, 451);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 23);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Boton_Quitar.Location = new System.Drawing.Point(274, 451);
+            this.Boton_Quitar.Name = "Boton_Quitar";
+            this.Boton_Quitar.Size = new System.Drawing.Size(65, 23);
+            this.Boton_Quitar.TabIndex = 22;
+            this.Boton_Quitar.Text = "Quitar";
+            this.Boton_Quitar.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -285,16 +258,44 @@ namespace TrabajoFinal
             this.label7.TabIndex = 29;
             this.label7.Text = "Roles Asignados";
             // 
+            // UC_ValDNI
+            // 
+            this.UC_ValDNI.Location = new System.Drawing.Point(12, 105);
+            this.UC_ValDNI.Name = "UC_ValDNI";
+            this.UC_ValDNI.Size = new System.Drawing.Size(100, 20);
+            this.UC_ValDNI.TabIndex = 5;
+            // 
+            // UC_ValCod
+            // 
+            this.UC_ValCod.Location = new System.Drawing.Point(12, 48);
+            this.UC_ValCod.Name = "UC_ValCod";
+            this.UC_ValCod.Size = new System.Drawing.Size(100, 20);
+            this.UC_ValCod.TabIndex = 4;
+            // 
+            // UC_ValNomb
+            // 
+            this.UC_ValNomb.Location = new System.Drawing.Point(274, 48);
+            this.UC_ValNomb.Name = "UC_ValNomb";
+            this.UC_ValNomb.Size = new System.Drawing.Size(100, 20);
+            this.UC_ValNomb.TabIndex = 1;
+            // 
+            // UC_ValApe
+            // 
+            this.UC_ValApe.Location = new System.Drawing.Point(144, 48);
+            this.UC_ValApe.Name = "UC_ValApe";
+            this.UC_ValApe.Size = new System.Drawing.Size(100, 20);
+            this.UC_ValApe.TabIndex = 0;
+            // 
             // GUI_Gerente_Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 518);
+            this.ClientSize = new System.Drawing.Size(671, 523);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Boton_Quitar);
+            this.Controls.Add(this.Boton_Agregar);
             this.Controls.Add(this.Grilla_RolesNoAsignados);
             this.Controls.Add(this.GroupBox_Turno);
             this.Controls.Add(this.Boton_Modificar);
@@ -347,8 +348,8 @@ namespace TrabajoFinal
         private System.Windows.Forms.RadioButton RadioButton_Tarde;
         private System.Windows.Forms.RadioButton RadioButton_Mañana;
         private System.Windows.Forms.DataGridView Grilla_RolesNoAsignados;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Boton_Agregar;
+        private System.Windows.Forms.Button Boton_Quitar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

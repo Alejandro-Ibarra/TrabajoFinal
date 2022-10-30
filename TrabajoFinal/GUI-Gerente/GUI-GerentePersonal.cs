@@ -22,8 +22,12 @@ namespace TrabajoFinal
             oBLCocinero = new BLCocinero();
             oBEMozo = new BEMozo();
             oBLMozo = new BLMozo();
+            oBERoles = new BERoles();
+            oBLRoles = new BLRoles();
         }
 
+        BERoles oBERoles;
+        BLRoles oBLRoles;
         BECocinero oBECocinero;
         BLCocinero oBLCocinero;
         BEMozo oBEMozo;
@@ -31,16 +35,14 @@ namespace TrabajoFinal
 
         private void GUI_Administrar_Personal_Load(object sender, EventArgs e)
         {
-            CargarGrillaCocinero();
-            CargarGrillaMozo();
+
         }
 
         private void Boton_Alta_Click(object sender, EventArgs e)
         {
             try
             {
-                
-                    if (!oBLCocinero.Existe(int.Parse(UC_ValDNI.Text)))
+                 if (!oBLCocinero.Existe(int.Parse(UC_ValDNI.Text)))
                     {
                         if (AsignarCocinero())
                         {
@@ -48,7 +50,6 @@ namespace TrabajoFinal
                             oBECocinero.CantPedidos = 0;
                             oBECocinero.Password = Encriptacion.Encrypt(textBox_Pass.Text.Trim(), null);
                             oBLCocinero.Guardar(oBECocinero);
-                            CargarGrillaCocinero();
                         }
                         else
                         { MessageBox.Show("Ingrese los datos de forma correcta"); }
@@ -63,7 +64,6 @@ namespace TrabajoFinal
                     oBEMozo.Password = Encriptacion.Encrypt(textBox_Pass.Text.Trim(), null);
                     oBLMozo.Guardar(oBEMozo);
                     AsignarMozoAControles(oBEMozo);
-                    CargarGrillaMozo();
                 }
                 
 
@@ -83,11 +83,9 @@ namespace TrabajoFinal
                     
                         oBLCocinero.Baja(oBECocinero);
                         LimpiarControles();
-                        CargarGrillaCocinero();
-                    
+                                           
                         oBLMozo.Baja(oBEMozo);
                         LimpiarControles();
-                        CargarGrillaMozo();
                   
 
                 }
@@ -105,7 +103,6 @@ namespace TrabajoFinal
                     {
                         oBLCocinero.Modificar(oBECocinero);
                         AsignarCocineroAControles(oBECocinero);
-                        CargarGrillaCocinero();
                     }
                     else
                     { MessageBox.Show("Ingrese los datos de forma correcta"); }
@@ -115,7 +112,6 @@ namespace TrabajoFinal
                     {
                         oBLMozo.Modificar(oBEMozo);
                         AsignarMozoAControles(oBEMozo);
-                        CargarGrillaMozo();
                     }
                     else
                     { MessageBox.Show("Ingrese los datos de forma correcta"); }
@@ -237,33 +233,7 @@ namespace TrabajoFinal
             Grilla_RolesAsignados.DataSource = null;
             BECocinero AuxCocinero = oBLCocinero.ListarObjeto(Cocinero.DNI);
 
-            Grilla_RolesAsignados.DataSource = AuxCocinero.Roles;
-
-
-        }
-
-        void CargarGrillaCocinero()
-        {
-            try
-            {
-                Grilla_Usuarios.DataSource = null;
-                Grilla_Usuarios.DataSource = oBLCocinero.ListarTodo();
-            }
-            catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
-
-        }
-
-        void CargarGrillaMozo()
-        {
-            try
-            {
-                Grilla_RolesAsignados.DataSource = null;
-                Grilla_RolesAsignados.DataSource = oBLMozo.ListarTodo();
-            }
-            catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
-
+            Grilla_RolesAsignados.DataSource = AuxCocinero.Roles.ToList();
         }
 
         void LimpiarControles()
@@ -279,25 +249,24 @@ namespace TrabajoFinal
             { MessageBox.Show(ex.Message); }
         }
 
-        private void Grilla_Cocineros_MouseClick(object sender, MouseEventArgs e)
+        void CargarGrillaUsuarios()
         {
-            if (Grilla_Usuarios.DataSource != null)
-            {
-                oBECocinero = (BECocinero)Grilla_Usuarios.CurrentRow.DataBoundItem;
-                AsignarCocineroAControles(oBECocinero);
-                CargarGrillaPermisos(oBECocinero);
-            }
+
         }
 
-        private void Grilla_Mozos_MouseClick(object sender, MouseEventArgs e)
+        private void Grilla_Usuarios_MouseClick(object sender, MouseEventArgs e)
         {
-            if (Grilla_RolesAsignados.DataSource != null)
-            {
-                oBEMozo = (BEMozo)Grilla_RolesAsignados.CurrentRow.DataBoundItem;
-                AsignarMozoAControles(oBEMozo);
-            }
+
         }
 
+        private void Grilla_RolesNoAsignados_MouseClick(object sender, MouseEventArgs e)
+        {
 
+        }
+
+        private void Grilla_RolesAsignados_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

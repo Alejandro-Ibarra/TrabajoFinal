@@ -31,17 +31,52 @@ namespace TrabajoFinal
 
         private void GUI_Admin_Load(object sender, EventArgs e)
         {
+            Grilla_Roles.MultiSelect = false;
+            Grilla_Roles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Grilla_PermisosNoAsignados.MultiSelect = false;
+            Grilla_PermisosNoAsignados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Grilla_PermisosAsignados.MultiSelect = false;
+            Grilla_PermisosAsignados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            AgregarPermisos();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            QuitarPermisos();
+        }
 
+        private void QuitarPermisos()
+        {
+            int aux = 0;
+            int aux2 = 0;
+            oBEPermisos = (BEPermisos)Grilla_PermisosAsignados.CurrentRow.DataBoundItem;
+            oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
+            foreach (BEPermisos perm in oBERoles.Permisos)
+            {
+                if (perm.Codigo == oBEPermisos.Codigo)
+                {
+                    aux2 = aux;
+                }
+                aux++;
+            }
+            //oBERoles.Permisos.Remove(oBEPermisos);
+            oBERoles.Permisos.RemoveAt(aux2);
+            oBLRoles.Modificar(oBERoles);
+            CargarGrillaPermisos(oBERoles);
+        }
+
+        private void AgregarPermisos()
+        {
+            oBEPermisos = (BEPermisos)Grilla_PermisosNoAsignados.CurrentRow.DataBoundItem;
+            oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
+            oBERoles.Permisos.Add(oBEPermisos);
+            oBLRoles.Modificar(oBERoles);
+            CargarGrillaPermisos(oBERoles);
         }
 
         private void CargarGrillaRoles()
