@@ -9,16 +9,16 @@ using Mapper;
 
 namespace BussinesLogic
 {
-    public class BLPersonal : IGestorABM<BEAdmin>, IGestorConsulta<int>
+    public class BLPersonal : IGestorABM<BEPersonal>, IGestorConsulta<int>
     {
         public BLPersonal()
         {
-            oMadmin = new MPersonal();
+            oMpersonal = new MPersonal();
         }
 
-        MPersonal oMadmin;
+        MPersonal oMpersonal;
 
-        public bool Baja(BEAdmin Objeto)
+        public bool Baja(BEPersonal Objeto)
         {
             throw new NotImplementedException();
         }
@@ -28,29 +28,39 @@ namespace BussinesLogic
             throw new NotImplementedException();
         }
 
-        public bool Guardar(BEAdmin Objeto)
+        public bool Guardar(BEPersonal Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public List<BEAdmin> ListarTodo()
+        public List<BEPersonal> ListarTodo()
         {
             throw new NotImplementedException();
         }
 
-        public bool Modificar(BEAdmin Objeto)
+        public bool Modificar(BEPersonal Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public BEAdmin ListarObjeto(int dni)
+        public BEPersonal ListarObjeto(int dni)
         {
-            return oMadmin.ListarObjeto(dni);
+            return oMpersonal.ListarObjeto(dni);
         }
 
         public List<BERoles> ListarRoles(int dni)
         {
-            return oMadmin.ListarRoles(dni);
+            return oMpersonal.ListarRoles(dni);
+        }
+
+        public bool GuardarRol(BEPersonal oBEPersonal)
+        {
+            return oMpersonal.GuardarRol(oBEPersonal);
+        }
+
+        public bool BorrarRol(BEPersonal oBEPersonal)
+        {
+            return oMpersonal.BorrarRol(oBEPersonal);
         }
     }
 }

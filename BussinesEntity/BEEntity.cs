@@ -10,5 +10,6 @@ namespace BussinesEntity
     public class BEEntity : IEntityCod
     {
         public int Codigo { get; set ; }
+
     }
 }

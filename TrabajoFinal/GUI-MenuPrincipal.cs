@@ -24,16 +24,16 @@ namespace TrabajoFinal
             oBLCocinero = new BLCocinero();
             oBEMozo = new BEMozo();
             oBLMozo = new BLMozo();
-            oBEAdmin = new BEAdmin();
-            oBLAdmin = new BLPersonal();
+            oBEPersonal = new BEAdmin();
+            oBLPersonal = new BLPersonal();
         }
 
         BECocinero oBECocinero;
         BLCocinero oBLCocinero;
         BEMozo oBEMozo;
         BLMozo oBLMozo;
-        BEAdmin oBEAdmin;
-        BLPersonal oBLAdmin;
+        BEPersonal oBEPersonal;
+        BLPersonal oBLPersonal;
 
         private void RecuperarUsuario(int dni)
         {
@@ -48,7 +48,7 @@ namespace TrabajoFinal
             }
             else
             {
-                oBEAdmin = oBLAdmin.ListarObjeto(dni);
+                oBEPersonal = oBLPersonal.ListarObjeto(dni);
             }
 
         }

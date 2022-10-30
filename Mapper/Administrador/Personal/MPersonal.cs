@@ -6,14 +6,31 @@ using System.Threading.Tasks;
 using Abstraction;
 using BussinesEntity;
 using System.Xml.Linq;
+using System.Data.Linq.SqlClient;
 
 namespace Mapper
 {
-    public class MPersonal : IGestorABM<BEAdmin>, IGestorConsulta<int>
+    public class MPersonal : IGestorABM<BEPersonal>, IGestorConsulta<int>
     {
-        public bool Baja(BEAdmin Objeto)
+        public bool Baja(BEPersonal oBEPersonal)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string Cod = oBEPersonal.DNI.ToString();
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta = from Cocinero in xmlDocument.Descendants("Cocinero")
+                               where Cocinero.Attribute("Codigo").Value == Cod
+                               select Cocinero;
+
+                consulta.Remove();
+                xmlDocument.Save("Restaurante.xml");
+                return true;
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public bool Existe(int obj)
@@ -21,12 +38,12 @@ namespace Mapper
             throw new NotImplementedException();
         }
 
-        public bool Guardar(BEAdmin Objeto)
+        public bool Guardar(BEPersonal Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public BEAdmin ListarObjeto(int dni)
+        public BEPersonal ListarObjeto(int dni)
         {
             try
             {
@@ -66,29 +83,24 @@ namespace Mapper
             { throw ex; }
         }
 
-        public List<BERoles> ListarRoles(int dni)
+        public bool BorrarRol(BEPersonal oBEPersonal)
         {
             try
             {
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
-                var consulta =
-                    from Personal in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Cocineros")
-                    where Personal.Element("Cocinero").Attribute("Codigo").Value.ToString() == dni.ToString()
-                    select new BERoles
-                    {
-                        Codigo = Convert.ToInt32(Convert.ToString(Personal.Element("Cocinero").Attribute("Codigo").Value).Trim()),
-                        Descripcion = (from rol in XElement.Load("Restaurante.xml").Elements("Roles")
-                                       where rol.Element("Rol").Attribute("ID").Value.ToString() == Convert.ToString(Personal.Element("Cocineros").Element("Cocinero").Element("RolesAsignados").Element("RolAsignado").Attribute("Codigo").Value).Trim()
-                                       select rol
-                                        ).FirstOrDefault().Element("Descripcion").Value.ToString()
+                var consulta = xmlDocument.Descendants()
+                    .Where(x => (string)x.Attribute("Codigo") == Convert.ToString(oBEPersonal.DNI))
+                    .FirstOrDefault();
 
+                var rol = consulta.Descendants().Where(x => (string)x.Attribute("ID") == Convert.ToString(oBEPersonal.Roles.FirstOrDefault().Codigo))
+                            .FirstOrDefault();
 
-                    };
-                List <BERoles> listrol = consulta.ToList();
-                
-                return listrol;
-
+                //.Element("RolesAsignados").Add(new XElement("RolAsignado",
+                //                                           new XAttribute("ID", oBEPersonal.Roles.Last().Codigo.ToString())));
+                rol.Remove();
+                xmlDocument.Save("Restaurante.xml");
+                return true;
             }
             catch (System.Xml.XmlException ex)
             { throw ex; }
@@ -96,12 +108,39 @@ namespace Mapper
             { throw ex; }
         }
 
-        public List<BEAdmin> ListarTodo()
+        public bool GuardarRol(BEPersonal oBEPersonal)
+        {
+            try
+            {
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta = xmlDocument.Descendants()
+                    .Where(x => (string)x.Attribute("Codigo") == Convert.ToString(oBEPersonal.DNI))
+                    .FirstOrDefault();
+
+                consulta.Element("RolesAsignados").Add(new XElement("RolAsignado",
+                                                                new XAttribute("ID", oBEPersonal.Roles.Last().Codigo.ToString())));
+
+                xmlDocument.Save("Restaurante.xml");
+                return true;
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
+            public List<BERoles> ListarRoles(int dni)
         {
             throw new NotImplementedException();
         }
 
-        public bool Modificar(BEAdmin Objeto)
+        public List<BEPersonal> ListarTodo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Modificar(BEPersonal Objeto)
         {
             throw new NotImplementedException();
         }

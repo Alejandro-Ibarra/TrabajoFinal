@@ -45,7 +45,6 @@ namespace Mapper
                                                                                         new XElement("Descripcion", oBERoles.Descripcion.Trim()),
                                                                                         new XElement("Permisos", 
                                                                                                     new XElement("PermisoAsignado", oBERoles.Permisos.ToList()))));
-
                     xmlDocument.Save("Restaurante.xml");
                     return true;
                 }
@@ -77,13 +76,11 @@ namespace Mapper
                                 select new BEPermisos
                                         {
                                          Codigo = Convert.ToInt32(permisos.Attribute("ID").Value.Trim()),
-                                         //Descripcion = (from desc in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
-                                         //              where Convert.ToInt32(permisos.Attribute("ID").Value.Trim()) == Convert.ToInt32(desc.Attribute("ID").Value.Trim())
-                                         //              select Convert.ToString(desc.Elements("Descripcion").FirstOrDefault().Value.Trim())
-                                         //              ).ToString()
-
-
-                                        }).ToList<BEPermisos>()
+                                         Descripcion = (from desc in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
+                                                        where (string)desc.Attribute("ID") == (string)permisos.Attribute("ID")
+                                                        select desc
+                                                        ).FirstOrDefault().Element("Descripcion").Value.ToString()
+                                }).ToList<BEPermisos>()
                 };
                 List<BERoles> Lista = consulta.ToList<BERoles>();
                 return Lista;
@@ -111,9 +108,6 @@ namespace Mapper
                 foreach (XElement EModifcar in consulta)
                 {
                     EModifcar.Element("Descripcion").Value = oBERole.Descripcion.ToString().Trim();
-                    //int count1 = EModifcar.Elements("Permisos").Elements("PermisoAsignado").Count();
-                    //int count2 = oBERole.Permisos.Count();
-
                     if (EModifcar.Elements("Permisos").Elements("PermisoAsignado").Count() < oBERole.Permisos.Count())
                     {
                         EModifcar.Element("Permisos").Add(new XElement("PermisoAsignado",
@@ -121,16 +115,12 @@ namespace Mapper
                     }
                     else
                     {
-
                         List<BEPermisos> listperm = EModifcar.Elements("Permisos").Elements("PermisoAsignado").Select(perm => new BEPermisos
                         {
                             Codigo = Convert.ToInt32(perm.Attribute("ID").Value)
-                            
+
                         }).ToList();
 
-
-                        //foreach (BEPermisos item in listperm)
-                        //{
                         for (int i = 0; i < oBERole.Permisos.Count; i++)
                         {
                             if (listperm[aux].Codigo != oBERole.Permisos[i].Codigo)
@@ -142,14 +132,13 @@ namespace Mapper
                         }
                         foreach (var item in EModifcar.Elements("Permisos").Elements("PermisoAsignado").ToList())
                         {
-                            
                             if (aux3 == aux2)
                             {
                                 item.Remove();
                             }
                             aux3++;
                         }
-                        //}
+
                     }
                 }
 

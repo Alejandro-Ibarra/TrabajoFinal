@@ -10,4 +10,5 @@ namespace BussinesEntity
     {
         public string Descripcion { get; set; }
     }
+
 }

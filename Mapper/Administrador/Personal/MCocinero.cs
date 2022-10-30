@@ -17,7 +17,7 @@ namespace Mapper
         {
             try
             {
-                string Cod = oBECocinero.Codigo.ToString();
+                string Cod = oBECocinero.DNI.ToString();
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
                 var consulta = from Cocinero in xmlDocument.Descendants("Cocinero")
@@ -99,7 +99,6 @@ namespace Mapper
             {
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
-                List<BERoles> listaRoles = new List<BERoles>();
                 var consulta = 
                     from Cocinero in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Cocineros").Elements("Cocinero")
                     where Cocinero.Attribute("Codigo").Value.ToString() == dni.ToString()
@@ -115,28 +114,12 @@ namespace Mapper
                                  from rol in Cocinero.Elements("RolesAsignados").Elements("RolAsignado")
                                  select new BERoles
                                  {
-                                 Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value.Trim())),
-                                 Descripcion = (
-                                                from rDesc in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
-                                                where (string)rDesc.Attribute("ID") == (string)rol.Attribute("ID")
-                                                select rDesc
-                                                ).FirstOrDefault().Element("Descripcion").Value.ToString()
-
-
-
-                                     /*Permisos = (from permisos in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
-                                                 where permisos.Attribute("ID").Value.ToString() == Convert.ToString(rol.Attribute("ID").Value.Trim())
-                                                 select new BEPermisos
-                                                 {
-                                                     Codigo = Convert.ToInt32(Convert.ToString(permisos.Element("Permisos").Element("Permiso").Attribute("ID").Value.Trim())),
-                                                     Descripcion = (from pDesc in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
-                                                                    where (string)pDesc.Attribute("ID") == Convert.ToString(permisos.Element("Permisos").Element("Permiso").Attribute("ID").Value.Trim())
-                                                                    select pDesc
-                                                                    ).FirstOrDefault().Element("Descripcion").Value.ToString()
-
-
-
-                                                 }).ToList<BEPermisos>()*/
+                                     Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value.Trim())),
+                                     Descripcion = (
+                                                    from rDesc in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                                                    where (string)rDesc.Attribute("ID") == (string)rol.Attribute("ID")
+                                                    select rDesc
+                                                    ).FirstOrDefault().Element("Descripcion").Value.ToString()
                                  }).ToList<BERoles>()
                     };
                 BECocinero oBECocinero = consulta.FirstOrDefault();
@@ -182,8 +165,8 @@ namespace Mapper
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
 
-                var consulta = from Cocinero in xmlDocument.Descendants("Cocinero")
-                               where Cocinero.Element("Dni").Value == dni.ToString()
+                var consulta = from Cocinero in xmlDocument.Descendants("Cocineros")
+                               where Cocinero.Element("Cocinero").Attribute("Codigo").Value == dni.ToString()
                                select Cocinero;
 
                 if (consulta.Any())
