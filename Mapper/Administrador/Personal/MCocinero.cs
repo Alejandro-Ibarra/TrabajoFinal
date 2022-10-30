@@ -151,13 +151,13 @@ namespace Mapper
                 from Cocinero in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Cocineros").Elements("Cocinero")
                 select new BECocinero
                 {
-                    Codigo = Convert.ToInt32(Convert.ToString(Cocinero.Attribute("Codigo").Value).Trim()),
+                    DNI = Convert.ToInt32(Convert.ToString(Cocinero.Attribute("Codigo").Value).Trim()),
                     Nombre = Convert.ToString(Cocinero.Element("Nombre").Value).Trim(),
                     Apellido = Convert.ToString(Cocinero.Element("Apellido").Value).Trim(),
                     Password = Convert.ToString(Cocinero.Element("Password").Value).Trim(),
                     Turno = Convert.ToString(Cocinero.Element("Turno").Value).Trim(),
                     CantPedidos = Convert.ToInt32(Convert.ToString(Cocinero.Element("Cantidad_Pedidos").Value).Trim()),
-                    DNI = Convert.ToInt32(Convert.ToString(Cocinero.Element("Dni").Value).Trim()),
+                    
                 };
                 List<BECocinero> ListaCocineros = consulta.ToList<BECocinero>();
                 return ListaCocineros;

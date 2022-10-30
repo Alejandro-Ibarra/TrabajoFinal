@@ -166,13 +166,12 @@ namespace Mapper
                 from Mozo in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Mozos").Elements("Mozo")
                 select new BEMozo
                 {
-                    Codigo = Convert.ToInt32(Convert.ToString(Mozo.Attribute("Codigo").Value).Trim()),
+                    DNI = Convert.ToInt32(Convert.ToString(Mozo.Attribute("Codigo").Value).Trim()),
                     Nombre = Convert.ToString(Mozo.Element("Nombre").Value).Trim(),
                     Apellido = Convert.ToString(Mozo.Element("Apellido").Value).Trim(),
                     Password = Convert.ToString(Mozo.Element("Password").Value).Trim(),
                     Turno = Convert.ToString(Mozo.Element("Turno").Value).Trim(),
                     Ranking = Convert.ToInt32(Convert.ToString(Mozo.Element("Ranking").Value).Trim()),
-                    DNI = Convert.ToInt32(Convert.ToString(Mozo.Element("Dni").Value).Trim()),
                 };
                 List<BEMozo> ListaMozos = consulta.ToList<BEMozo>();
                 return ListaMozos;

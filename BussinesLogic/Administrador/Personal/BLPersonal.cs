@@ -9,14 +9,14 @@ using Mapper;
 
 namespace BussinesLogic
 {
-    public class BLAdmin : IGestorABM<BEAdmin>, IGestorConsulta<int>
+    public class BLPersonal : IGestorABM<BEAdmin>, IGestorConsulta<int>
     {
-        public BLAdmin()
+        public BLPersonal()
         {
-            oMadmin = new MAdmin();
+            oMadmin = new MPersonal();
         }
 
-        MAdmin oMadmin;
+        MPersonal oMadmin;
 
         public bool Baja(BEAdmin Objeto)
         {
@@ -46,6 +46,11 @@ namespace BussinesLogic
         public BEAdmin ListarObjeto(int dni)
         {
             return oMadmin.ListarObjeto(dni);
+        }
+
+        public List<BERoles> ListarRoles(int dni)
+        {
+            return oMadmin.ListarRoles(dni);
         }
     }
 }

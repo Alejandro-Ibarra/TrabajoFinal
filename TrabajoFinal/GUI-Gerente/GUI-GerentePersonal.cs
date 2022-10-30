@@ -24,6 +24,9 @@ namespace TrabajoFinal
             oBLMozo = new BLMozo();
             oBERoles = new BERoles();
             oBLRoles = new BLRoles();
+            oBEPersonal = new BEPersonal();
+            oBLPersonal = new BLPersonal();
+
         }
 
         BERoles oBERoles;
@@ -32,10 +35,12 @@ namespace TrabajoFinal
         BLCocinero oBLCocinero;
         BEMozo oBEMozo;
         BLMozo oBLMozo;
+        BEPersonal oBEPersonal;
+        BLPersonal oBLPersonal;
 
         private void GUI_Administrar_Personal_Load(object sender, EventArgs e)
         {
-
+            CargarGrillaUsuarios();
         }
 
         private void Boton_Alta_Click(object sender, EventArgs e)
@@ -63,7 +68,7 @@ namespace TrabajoFinal
                     oBEMozo.Ranking = 0;
                     oBEMozo.Password = Encriptacion.Encrypt(textBox_Pass.Text.Trim(), null);
                     oBLMozo.Guardar(oBEMozo);
-                    AsignarMozoAControles(oBEMozo);
+                    AsignarAControles(oBEMozo);
                 }
                 
 
@@ -102,19 +107,11 @@ namespace TrabajoFinal
                     if (AsignarCocinero())
                     {
                         oBLCocinero.Modificar(oBECocinero);
-                        AsignarCocineroAControles(oBECocinero);
+                        AsignarAControles(oBECocinero);
                     }
                     else
                     { MessageBox.Show("Ingrese los datos de forma correcta"); }
 
-              
-                    if (AsignarMozo())
-                    {
-                        oBLMozo.Modificar(oBEMozo);
-                        AsignarMozoAControles(oBEMozo);
-                    }
-                    else
-                    { MessageBox.Show("Ingrese los datos de forma correcta"); }
                 
             }
             catch (Exception ex)
@@ -198,30 +195,15 @@ namespace TrabajoFinal
 
         }
 
-        void AsignarCocineroAControles(BECocinero oBECocinero)
+        void AsignarAControles(BEPersonal oBEpersonal)
         {
             try
             {
-                UC_ValApe.Text = oBECocinero.Apellido;
-                UC_ValCod.Text = oBECocinero.Codigo.ToString();
-                UC_ValNomb.Text = oBECocinero.Nombre;
-                UC_ValDNI.Text = oBECocinero.DNI.ToString();
-                UC_ValCod.Text = oBECocinero.Codigo.ToString();
-               
-            }
-            catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
-        }
-
-        void AsignarMozoAControles(BEMozo oBEMozo)
-        {
-            try
-            {
-                UC_ValApe.Text = oBEMozo.Apellido;
-                UC_ValCod.Text = oBEMozo.Codigo.ToString();
-                UC_ValNomb.Text = oBEMozo.Nombre;
-                UC_ValDNI.Text = oBEMozo.DNI.ToString();
-                UC_ValCod.Text = oBEMozo.Codigo.ToString();
+                UC_ValApe.Text = oBEpersonal.Apellido;
+                UC_ValCod.Text = oBEpersonal.Codigo.ToString();
+                UC_ValNomb.Text = oBEpersonal.Nombre;
+                UC_ValDNI.Text = oBEpersonal.DNI.ToString();
+                UC_ValCod.Text = oBEpersonal.Codigo.ToString();
             
             }
             catch (Exception ex)
@@ -251,12 +233,83 @@ namespace TrabajoFinal
 
         void CargarGrillaUsuarios()
         {
+            List<BEPersonal> listPersonal = new List<BEPersonal>();
+            List<BECocinero> listCocineros = oBLCocinero.ListarTodo();
+            List<BEMozo> listMozo = oBLMozo.ListarTodo();
+
+            foreach (BECocinero coci in listCocineros)
+            {
+                listPersonal.Add((BEPersonal)coci);
+            }
+            foreach (BEMozo mozo in listMozo)
+            {
+                listPersonal.Add((BEMozo)mozo);
+            }
+            Grilla_Usuarios.DataSource = listPersonal;
+
 
         }
 
         private void Grilla_Usuarios_MouseClick(object sender, MouseEventArgs e)
         {
+            BEPersonal Personal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
+            AsignarAControles(Personal);
+            Grilla_RolesAsignados.DataSource = oBLPersonal.ListarRoles(Personal.DNI);
+            CargarRolesNoAsignados(Personal);
+            CargarRolesAsignados(Personal);
 
+
+            //List<BERoles> listRoles = oBLRoles.ListarTodo();
+            //List<BERoles> listRolesAsignados = oBLPersonal.ListarRoles(Personal.DNI);
+            //List<BERoles> listRolesNoAsignados= new List<BERoles>();
+
+
+
+            /*
+            foreach (BERoles Rol in listRoles)
+            {
+                if (roles.Codigo == Rol.Codigo)
+                {
+
+                }
+            }
+            listPermisosNo = RolesNoAsig(listPermisos);
+            Grilla_PermisosAsignados.DataSource = null;
+            Grilla_PermisosAsignados.DataSource = listPermisos;
+            Grilla_PermisosNoAsignados.DataSource = null;
+            Grilla_PermisosNoAsignados.DataSource = listPermisosNo;
+            
+        }
+
+
+        private List<BEPermisos> RolesNoAsig(List<BEPermisos> listPer)
+        {
+            List<BEPermisos> listaAux = oBLPermisos.ListarTodo();
+            List<BEPermisos> listaAux2 = oBLPermisos.ListarTodo();
+
+            for (int i = 0; i < listPer.Count; i++)
+            {
+                for (int j = 0; j < listaAux.Count; j++)
+                {
+                    if (listPer[i].Codigo == listaAux[j].Codigo)
+                    {
+                        listaAux.RemoveAt(j);
+                    }
+                }
+            }
+            return listaAux;*/
+        }
+
+
+
+        private void CargarRolesAsignados(BEPersonal Personal)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CargarRolesNoAsignados(BEPersonal Personal)
+        {
+            throw new NotImplementedException();
         }
 
         private void Grilla_RolesNoAsignados_MouseClick(object sender, MouseEventArgs e)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BussinesEntity
 {
-    public abstract class BEPersonal : BEEntity
+    public class BEPersonal : BEEntity
     {
         public int DNI { get; set; }
         public string Nombre { get; set; }
@@ -14,6 +14,6 @@ namespace BussinesEntity
         public string Turno { get; set; }
         public string Password { get; set; }
         public List<BERoles> Roles { get; set; }
-
+       
     }
 }

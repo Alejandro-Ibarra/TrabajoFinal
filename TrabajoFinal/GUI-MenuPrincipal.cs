@@ -25,7 +25,7 @@ namespace TrabajoFinal
             oBEMozo = new BEMozo();
             oBLMozo = new BLMozo();
             oBEAdmin = new BEAdmin();
-            oBLAdmin = new BLAdmin();
+            oBLAdmin = new BLPersonal();
         }
 
         BECocinero oBECocinero;
@@ -33,7 +33,7 @@ namespace TrabajoFinal
         BEMozo oBEMozo;
         BLMozo oBLMozo;
         BEAdmin oBEAdmin;
-        BLAdmin oBLAdmin;
+        BLPersonal oBLAdmin;
 
         private void RecuperarUsuario(int dni)
         {

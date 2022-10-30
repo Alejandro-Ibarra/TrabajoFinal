@@ -53,7 +53,7 @@
     <Compile Include="Comanda\MComandaMozo.cs" />
     <Compile Include="Contble\MMetodoPago.cs" />
     <Compile Include="Contble\MPago.cs" />
-    <Compile Include="Administrador\Personal\MAdmin.cs" />
+    <Compile Include="Administrador\Personal\MPersonal.cs" />
     <Compile Include="MLogin.cs" />
     <Compile Include="Administrador\Personal\MMozo.cs" />
     <Compile Include="Administrador\Permisos\MPermisos.cs" />

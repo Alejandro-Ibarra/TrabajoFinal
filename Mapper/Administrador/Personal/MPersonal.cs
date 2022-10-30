@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace Mapper
 {
-    public class MAdmin : IGestorABM<BEAdmin>, IGestorConsulta<int>
+    public class MPersonal : IGestorABM<BEAdmin>, IGestorConsulta<int>
     {
         public bool Baja(BEAdmin Objeto)
         {
@@ -58,6 +58,35 @@ namespace Mapper
                     };
                 BEAdmin oBEAdmin = (BEAdmin)consulta;
                 return oBEAdmin;
+
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
+        public List<BERoles> ListarRoles(int dni)
+        {
+            try
+            {
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta =
+                    from Personal in xmlDocument.Descendants("Usuarios")
+                    where Personal.Attribute("Codigo").Value.ToString() == dni.ToString()
+                    select new BERoles
+                    {
+                        Codigo = Convert.ToInt32(Convert.ToString(Personal.Attribute("Codigo").Value).Trim()),
+                        Descripcion =  (from rol in xmlDocument.Descendants("Rol")
+                                        where rol.Attribute("ID").Value.ToString() == Convert.ToString(Personal.Attribute("Codigo").Value).Trim()
+                                        select rol.Element("Descripcion").Value).ToString()
+                                        
+                                
+                    };
+                List <BERoles> listrol = consulta.ToList();
+                
+                return listrol;
 
             }
             catch (System.Xml.XmlException ex)
