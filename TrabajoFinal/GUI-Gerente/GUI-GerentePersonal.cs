@@ -254,50 +254,22 @@ namespace TrabajoFinal
         {
             BEPersonal Personal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
             AsignarAControles(Personal);
-            Grilla_RolesAsignados.DataSource = oBLPersonal.ListarRoles(Personal.DNI);
-            CargarRolesNoAsignados(Personal);
-            CargarRolesAsignados(Personal);
+            BECocinero Cook = oBLCocinero.ListarObjeto(Personal.DNI);
+            BEMozo mozo = oBLMozo.ListarObjeto(Personal.DNI);
 
-
-            //List<BERoles> listRoles = oBLRoles.ListarTodo();
-            //List<BERoles> listRolesAsignados = oBLPersonal.ListarRoles(Personal.DNI);
-            //List<BERoles> listRolesNoAsignados= new List<BERoles>();
-
-
-
-            /*
-            foreach (BERoles Rol in listRoles)
+            if (!(Cook is null))
             {
-                if (roles.Codigo == Rol.Codigo)
-                {
-
-                }
+                Grilla_RolesAsignados.DataSource = Cook.Roles;
             }
-            listPermisosNo = RolesNoAsig(listPermisos);
-            Grilla_PermisosAsignados.DataSource = null;
-            Grilla_PermisosAsignados.DataSource = listPermisos;
-            Grilla_PermisosNoAsignados.DataSource = null;
-            Grilla_PermisosNoAsignados.DataSource = listPermisosNo;
-            
-        }
-
-
-        private List<BEPermisos> RolesNoAsig(List<BEPermisos> listPer)
-        {
-            List<BEPermisos> listaAux = oBLPermisos.ListarTodo();
-            List<BEPermisos> listaAux2 = oBLPermisos.ListarTodo();
-
-            for (int i = 0; i < listPer.Count; i++)
+            else
             {
-                for (int j = 0; j < listaAux.Count; j++)
-                {
-                    if (listPer[i].Codigo == listaAux[j].Codigo)
-                    {
-                        listaAux.RemoveAt(j);
-                    }
-                }
+                Grilla_RolesAsignados.DataSource = mozo.Roles;
             }
-            return listaAux;*/
+            //Grilla_RolesAsignados.DataSource = oBLPersonal.ListarRoles(Personal.DNI);
+            //CargarRolesNoAsignados(Personal);
+            //CargarRolesAsignados(Personal);
+
+
         }
 
 

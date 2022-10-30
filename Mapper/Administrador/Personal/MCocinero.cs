@@ -101,8 +101,8 @@ namespace Mapper
 
                 List<BERoles> listaRoles = new List<BERoles>();
                 var consulta = 
-                    from Cocinero in xmlDocument.Descendants("Cocinero")
-                    where Cocinero.Element("Dni").Value == dni.ToString()
+                    from Cocinero in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Cocineros").Elements("Cocinero")
+                    where Cocinero.Attribute("Codigo").Value.ToString() == dni.ToString()
                     select new BECocinero
                     {
                         Codigo = Convert.ToInt32(Convert.ToString(Cocinero.Attribute("Codigo").Value).Trim()),
@@ -111,25 +111,32 @@ namespace Mapper
                         Password = Convert.ToString(Cocinero.Element("Password").Value).Trim(),
                         Turno = Convert.ToString(Cocinero.Element("Turno").Value).Trim(),
                         CantPedidos = Convert.ToInt32(Convert.ToString(Cocinero.Element("Cantidad_Pedidos").Value).Trim()),
-                        DNI = Convert.ToInt32(Convert.ToString(Cocinero.Element("Dni").Value).Trim()),
                         Roles = (
-                                from rol in Cocinero.Elements("Roles").Elements("Rol")
+                                 from rol in Cocinero.Elements("RolesAsignados").Elements("RolAsignado")
                                  select new BERoles
                                  {
                                  Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value.Trim())),
-                                 Permisos = (from permisos in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
-                                             where permisos.Attribute("ID").Value.ToString() == Convert.ToString(rol.Attribute("ID").Value.Trim())
-                                             select new BEPermisos
-                                             {
-                                                 Codigo = Convert.ToInt32(Convert.ToString(permisos.Element("Permisos").Element("Permiso").Attribute("ID").Value.Trim())),
-                                                 Descripcion = (from pDesc in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
-                                                                where (string)pDesc.Attribute("ID") == Convert.ToString(permisos.Element("Permisos").Element("Permiso").Attribute("ID").Value.Trim())
-                                                                select pDesc
-                                                                ).FirstOrDefault().Element("Descripcion").Value.ToString()
+                                 Descripcion = (
+                                                from rDesc in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                                                where (string)rDesc.Attribute("ID") == (string)rol.Attribute("ID")
+                                                select rDesc
+                                                ).FirstOrDefault().Element("Descripcion").Value.ToString()
 
 
 
-                                             }).ToList<BEPermisos>()
+                                     /*Permisos = (from permisos in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                                                 where permisos.Attribute("ID").Value.ToString() == Convert.ToString(rol.Attribute("ID").Value.Trim())
+                                                 select new BEPermisos
+                                                 {
+                                                     Codigo = Convert.ToInt32(Convert.ToString(permisos.Element("Permisos").Element("Permiso").Attribute("ID").Value.Trim())),
+                                                     Descripcion = (from pDesc in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
+                                                                    where (string)pDesc.Attribute("ID") == Convert.ToString(permisos.Element("Permisos").Element("Permiso").Attribute("ID").Value.Trim())
+                                                                    select pDesc
+                                                                    ).FirstOrDefault().Element("Descripcion").Value.ToString()
+
+
+
+                                                 }).ToList<BEPermisos>()*/
                                  }).ToList<BERoles>()
                     };
                 BECocinero oBECocinero = consulta.FirstOrDefault();

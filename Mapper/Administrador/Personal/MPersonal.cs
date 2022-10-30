@@ -73,16 +73,17 @@ namespace Mapper
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
                 var consulta =
-                    from Personal in xmlDocument.Descendants("Usuarios")
-                    where Personal.Attribute("Codigo").Value.ToString() == dni.ToString()
+                    from Personal in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Cocineros")
+                    where Personal.Element("Cocinero").Attribute("Codigo").Value.ToString() == dni.ToString()
                     select new BERoles
                     {
-                        Codigo = Convert.ToInt32(Convert.ToString(Personal.Attribute("Codigo").Value).Trim()),
-                        Descripcion =  (from rol in xmlDocument.Descendants("Rol")
-                                        where rol.Attribute("ID").Value.ToString() == Convert.ToString(Personal.Attribute("Codigo").Value).Trim()
-                                        select rol.Element("Descripcion").Value).ToString()
-                                        
-                                
+                        Codigo = Convert.ToInt32(Convert.ToString(Personal.Element("Cocinero").Attribute("Codigo").Value).Trim()),
+                        Descripcion = (from rol in XElement.Load("Restaurante.xml").Elements("Roles")
+                                       where rol.Element("Rol").Attribute("ID").Value.ToString() == Convert.ToString(Personal.Element("Cocineros").Element("Cocinero").Element("RolesAsignados").Element("RolAsignado").Attribute("Codigo").Value).Trim()
+                                       select rol
+                                        ).FirstOrDefault().Element("Descripcion").Value.ToString()
+
+
                     };
                 List <BERoles> listrol = consulta.ToList();
                 
