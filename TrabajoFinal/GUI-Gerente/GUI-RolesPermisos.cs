@@ -12,9 +12,9 @@ using BussinesLogic;
 
 namespace TrabajoFinal
 {
-    public partial class GUI_Admin : Form
+    public partial class GUI_RolesPermisos : Form
     {
-        public GUI_Admin()
+        public GUI_RolesPermisos()
         {
             InitializeComponent();
             oBERoles = new BERoles();

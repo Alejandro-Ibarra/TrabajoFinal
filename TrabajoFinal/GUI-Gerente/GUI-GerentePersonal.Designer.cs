@@ -49,12 +49,14 @@ namespace TrabajoFinal
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.UC_ValDNI = new TrabajoFinal.UC_ValDNI();
-            this.UC_ValNomb = new TrabajoFinal.UC_ValNombApe();
-            this.UC_ValApe = new TrabajoFinal.UC_ValNombApe();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RadioButton_Cocinero = new System.Windows.Forms.RadioButton();
             this.RadioButton_Mozo = new System.Windows.Forms.RadioButton();
+            this.Boton_MostrarPsw = new System.Windows.Forms.Button();
+            this.UC_ValDNI = new TrabajoFinal.UC_ValDNI();
+            this.UC_ValNomb = new TrabajoFinal.UC_ValNombApe();
+            this.UC_ValApe = new TrabajoFinal.UC_ValNombApe();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Usuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_RolesAsignados)).BeginInit();
             this.GroupBox_Turno.SuspendLayout();
@@ -104,6 +106,7 @@ namespace TrabajoFinal
             this.textBox_Pass.Name = "textBox_Pass";
             this.textBox_Pass.Size = new System.Drawing.Size(100, 20);
             this.textBox_Pass.TabIndex = 10;
+            this.textBox_Pass.UseSystemPasswordChar = true;
             // 
             // Grilla_Usuarios
             // 
@@ -251,6 +254,49 @@ namespace TrabajoFinal
             this.label7.TabIndex = 29;
             this.label7.Text = "Roles Asignados";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.RadioButton_Cocinero);
+            this.groupBox1.Controls.Add(this.RadioButton_Mozo);
+            this.groupBox1.Location = new System.Drawing.Point(379, 17);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(99, 76);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Rol";
+            // 
+            // RadioButton_Cocinero
+            // 
+            this.RadioButton_Cocinero.AutoSize = true;
+            this.RadioButton_Cocinero.Location = new System.Drawing.Point(16, 42);
+            this.RadioButton_Cocinero.Name = "RadioButton_Cocinero";
+            this.RadioButton_Cocinero.Size = new System.Drawing.Size(67, 17);
+            this.RadioButton_Cocinero.TabIndex = 11;
+            this.RadioButton_Cocinero.Text = "Cocinero";
+            this.RadioButton_Cocinero.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_Mozo
+            // 
+            this.RadioButton_Mozo.AutoSize = true;
+            this.RadioButton_Mozo.Checked = true;
+            this.RadioButton_Mozo.Location = new System.Drawing.Point(16, 19);
+            this.RadioButton_Mozo.Name = "RadioButton_Mozo";
+            this.RadioButton_Mozo.Size = new System.Drawing.Size(51, 17);
+            this.RadioButton_Mozo.TabIndex = 12;
+            this.RadioButton_Mozo.TabStop = true;
+            this.RadioButton_Mozo.Text = "Mozo";
+            this.RadioButton_Mozo.UseVisualStyleBackColor = true;
+            // 
+            // Boton_MostrarPsw
+            // 
+            this.Boton_MostrarPsw.Location = new System.Drawing.Point(379, 99);
+            this.Boton_MostrarPsw.Name = "Boton_MostrarPsw";
+            this.Boton_MostrarPsw.Size = new System.Drawing.Size(99, 23);
+            this.Boton_MostrarPsw.TabIndex = 31;
+            this.Boton_MostrarPsw.Text = "Mostrar psw";
+            this.Boton_MostrarPsw.UseVisualStyleBackColor = true;
+            this.Boton_MostrarPsw.Click += new System.EventHandler(this.Boton_MostrarPsw_Click);
+            // 
             // UC_ValDNI
             // 
             this.UC_ValDNI.Location = new System.Drawing.Point(12, 48);
@@ -272,44 +318,20 @@ namespace TrabajoFinal
             this.UC_ValApe.Size = new System.Drawing.Size(100, 20);
             this.UC_ValApe.TabIndex = 0;
             // 
-            // groupBox1
+            // treeView1
             // 
-            this.groupBox1.Controls.Add(this.RadioButton_Cocinero);
-            this.groupBox1.Controls.Add(this.RadioButton_Mozo);
-            this.groupBox1.Location = new System.Drawing.Point(379, 17);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(99, 76);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Rol";
-            // 
-            // RadioButton_Cocinero
-            // 
-            this.RadioButton_Cocinero.AutoSize = true;
-            this.RadioButton_Cocinero.Location = new System.Drawing.Point(16, 42);
-            this.RadioButton_Cocinero.Name = "RadioButton_Cocinero";
-            this.RadioButton_Cocinero.Size = new System.Drawing.Size(53, 17);
-            this.RadioButton_Cocinero.TabIndex = 11;
-            this.RadioButton_Cocinero.Text = "Tarde";
-            this.RadioButton_Cocinero.UseVisualStyleBackColor = true;
-            // 
-            // RadioButton_Mozo
-            // 
-            this.RadioButton_Mozo.AutoSize = true;
-            this.RadioButton_Mozo.Checked = true;
-            this.RadioButton_Mozo.Location = new System.Drawing.Point(16, 19);
-            this.RadioButton_Mozo.Name = "RadioButton_Mozo";
-            this.RadioButton_Mozo.Size = new System.Drawing.Size(51, 17);
-            this.RadioButton_Mozo.TabIndex = 12;
-            this.RadioButton_Mozo.TabStop = true;
-            this.RadioButton_Mozo.Text = "Mozo";
-            this.RadioButton_Mozo.UseVisualStyleBackColor = true;
+            this.treeView1.Location = new System.Drawing.Point(706, 54);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(267, 457);
+            this.treeView1.TabIndex = 32;
             // 
             // GUI_Gerente_Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 523);
+            this.ClientSize = new System.Drawing.Size(1055, 536);
+            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.Boton_MostrarPsw);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -374,5 +396,7 @@ namespace TrabajoFinal
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton RadioButton_Cocinero;
         private System.Windows.Forms.RadioButton RadioButton_Mozo;
+        private System.Windows.Forms.Button Boton_MostrarPsw;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }

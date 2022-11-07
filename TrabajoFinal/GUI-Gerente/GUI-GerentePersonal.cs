@@ -41,6 +41,7 @@ namespace TrabajoFinal
         private void GUI_Administrar_Personal_Load(object sender, EventArgs e)
         {
             CargarGrillaUsuarios();
+            
         }
 
         private void Boton_Alta_Click(object sender, EventArgs e)
@@ -94,18 +95,10 @@ namespace TrabajoFinal
                 Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (Respuesta == DialogResult.Yes)
                 {
-                    if (RadioButton_Cocinero.Checked)
-                    {
                         AsignarCocinero();
-                        oBLCocinero.Baja(oBECocinero);
+                        oBLPersonal.Baja(oBECocinero);
                         LimpiarControles();
-                    }
-                    else
-                    {
-                        AsignarMozo();
-                        oBLMozo.Baja(oBEMozo);
-                        LimpiarControles();
-                    }
+
                     CargarGrillaUsuarios();
                 }
             }
@@ -121,6 +114,7 @@ namespace TrabajoFinal
                 {
                     if (AsignarCocinero())
                     {
+                        oBECocinero.Turno = AsignarTurno();
                         oBLCocinero.Modificar(oBECocinero);
                         AsignarAControles(oBECocinero);
                     }
@@ -131,9 +125,12 @@ namespace TrabajoFinal
                 {
                     if (AsignarMozo())
                     {
+                        oBEMozo.Turno = AsignarTurno();
                         oBLMozo.Modificar(oBEMozo);
                         AsignarAControles(oBEMozo);
                     }
+                    else
+                    { MessageBox.Show("Ingrese los datos de forma correcta"); }
                 }
                 CargarGrillaUsuarios();
             }
@@ -209,14 +206,14 @@ namespace TrabajoFinal
                 UC_ValApe.Text = oBEpersonal.Apellido;
                 UC_ValNomb.Text = oBEpersonal.Nombre;
                 UC_ValDNI.Text = oBEpersonal.DNI.ToString();
-                if (oBEPersonal is BECocinero)
-                {
-                    RadioButton_Cocinero.Checked = true;
-                }
-                else
-                {
-                    RadioButton_Mozo.Checked = true;
-                }
+
+                if (oBEpersonal.Turno == "Mañana") { RadioButton_Mañana.Checked = true;}
+                else if (oBEpersonal.Turno == "Tarde") { RadioButton_Tarde.Checked = true;}
+                else { RadioButton_Noche.Checked = true;}
+
+                if (oBEPersonal is BECocinero) { RadioButton_Cocinero.Checked = true; }
+                else { RadioButton_Mozo.Checked = true; }
+
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -256,7 +253,23 @@ namespace TrabajoFinal
         {
             BEPersonal Personal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
             AsignarAControles(Personal);
+            RecuperarPuesto(Personal.DNI);
             LlenarGrillasRoles(Personal);
+            LlenarTreeWiev(Personal.Roles);
+            textBox_Pass.UseSystemPasswordChar = true;
+        }
+
+        private void RecuperarPuesto(int dni)
+        {
+            string puesto = oBLPersonal.RecuperarPuesto(dni);
+            if (puesto == "Mozo")
+            {
+                RadioButton_Mozo.Checked = true;
+            }
+            else
+            {
+                RadioButton_Cocinero.Checked = true;
+            }
         }
 
         private void LlenarGrillasRoles(BEPersonal Personal)
@@ -277,6 +290,8 @@ namespace TrabajoFinal
             }
         }
 
+
+
         private void SeleccionarRolesNoAsignados(List<BERoles> Cook)
         {
             List<BERoles> listRoles = oBLRoles.ListarTodo();
@@ -290,7 +305,6 @@ namespace TrabajoFinal
                     }
                 }
             }
-
             Grilla_RolesNoAsignados.DataSource = listRoles;
         }
 
@@ -302,6 +316,36 @@ namespace TrabajoFinal
         private void Boton_Quitar_Click(object sender, EventArgs e)
         {
             QuitarRol();
+        }
+
+        private void LlenarTreeWiev(List<BERoles> listRoles)
+        {
+            listRoles.OrderBy(r => r.Codigo).ToList();
+            var nodoSuperior = new TreeNode("Select all");
+            treeView1.Nodes.Add(nodoSuperior);
+            string currentGroup = listRoles.First().Codigo.ToString();
+            var treeNodes = new List<TreeNode>();
+            var childNodes = new List<TreeNode>();
+            foreach (BERoles obj in listRoles)
+            {
+                if (currentGroup == obj.Codigo.ToString())
+                    childNodes.Add(new TreeNode(obj.Descripcion));
+                else
+                {
+                    if (childNodes.Count > 0)
+                    {
+                        treeNodes.Add(new TreeNode(currentGroup, childNodes.ToArray()));
+                        childNodes = new List<TreeNode>();
+                    }
+                    childNodes.Add(new TreeNode(obj.Descripcion));
+                    currentGroup = obj.Codigo.ToString();
+                }
+            }
+            if (childNodes.Count > 0)
+            {
+                treeNodes.Add(new TreeNode(currentGroup, childNodes.ToArray()));
+            }
+            treeView1.Nodes[0].Nodes.AddRange(treeNodes.ToArray());
         }
 
         private void AgregarRol()
@@ -325,6 +369,14 @@ namespace TrabajoFinal
             oBEPersonal.Roles = rolesAsignados;
             oBLPersonal.BorrarRol(oBEPersonal);
             LlenarGrillasRoles(oBEPersonal);
+        }
+
+        private void Boton_MostrarPsw_Click(object sender, EventArgs e)
+        {
+            oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
+            string passEnc = oBLPersonal.RecuperarPass(oBEPersonal.DNI);
+            textBox_Pass.UseSystemPasswordChar = false;
+            textBox_Pass.Text = Encriptacion.Decrypt(passEnc, null);
         }
     }
 }

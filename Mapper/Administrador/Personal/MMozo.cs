@@ -18,16 +18,14 @@ namespace Mapper
                 if (Existe(oBEMozo.DNI) == false)
                 {
                     XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-                    xmlDocument.Element("Restaurante").Element("Usuarios").Add(new XElement("Mozos",
-                                                                                    new XElement("Mozo",
-                                                                                        new XAttribute("Codigo", oBEMozo.Codigo.ToString().Trim()),
-                                                                                        new XElement("Rol", "Mozo"),
+                    xmlDocument.Element("Restaurante").Element("Usuarios").Element("Mozos").Add(new XElement("Mozo",
+                                                                                        new XAttribute("Codigo", oBEMozo.DNI.ToString().Trim()),
                                                                                         new XElement("Nombre", oBEMozo.Nombre.Trim()),
                                                                                         new XElement("Apellido", oBEMozo.Apellido.Trim()),
+                                                                                        new XElement("RolesAsignados"),
                                                                                         new XElement("Password", oBEMozo.Password.ToString().Trim()),
                                                                                         new XElement("Turno", oBEMozo.Turno.Trim()),
-                                                                                        new XElement("Ranking", oBEMozo.Ranking.ToString().Trim()),
-                                                                                        new XElement("Dni", oBEMozo.DNI.ToString().Trim()))));
+                                                                                        new XElement("Ranking", oBEMozo.Ranking.ToString().Trim())));
 
 
                     xmlDocument.Save("Restaurante.xml");
@@ -51,15 +49,13 @@ namespace Mapper
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
                 var consulta = from mozo in xmlDocument.Descendants("Mozo")
-                               where mozo.Element("Dni").Value == dni
+                               where Convert.ToString(mozo.Attribute("Codigo").Value) == dni.ToString()
                                select mozo;
 
                 foreach (XElement EModifcar in consulta)
                 {
                     EModifcar.Element("Nombre").Value = oBEMozo.Nombre.Trim();
                     EModifcar.Element("Apellido").Value = oBEMozo.Apellido.Trim();
-                    EModifcar.Element("Dni").Value = oBEMozo.DNI.ToString().Trim();
-                    EModifcar.Element("Password").Value = oBEMozo.Password.ToString().Trim();
                     EModifcar.Element("Turno").Value = oBEMozo.Turno.Trim();
 
                 }
@@ -101,7 +97,7 @@ namespace Mapper
 
 
                 var consulta = from Mozo in xmlDocument.Descendants("Mozo")
-                               where Mozo.Element("Dni").Value == dni.ToString()
+                               where Mozo.Attribute("Codigo").Value == dni.ToString()
                                select Mozo;
 
                 if (consulta.Any())
@@ -123,8 +119,25 @@ namespace Mapper
             {
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
-                var consulta = 
-                    from Mozo in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Mozos").Elements("Mozo")
+                var consultaRoles =
+                from rol in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                select new BERoles
+                {
+                    Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value).Trim()),
+                    Descripcion = Convert.ToString(rol.Element("Descripcion").Value).Trim(),
+                    Permisos = (from permisos in rol.Elements("Permisos").Elements("PermisoAsignado")
+                                select new BEPermisos
+                                {
+                                    Codigo = Convert.ToInt32(permisos.Attribute("ID").Value.Trim()),
+                                    Descripcion = (from desc in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
+                                                   where (string)desc.Attribute("ID") == (string)permisos.Attribute("ID")
+                                                   select desc
+                                                        ).FirstOrDefault().Element("Descripcion").Value.ToString()
+                                }).ToList<BEPermisos>()
+                };
+                
+                var consultaMozo = 
+                    (from Mozo in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Mozos").Elements("Mozo")
                     where Mozo.Attribute("Codigo").Value.ToString() == dni.ToString()
                     select new BEMozo
                     {
@@ -135,17 +148,65 @@ namespace Mapper
                         Turno = Convert.ToString(Mozo.Element("Turno").Value).Trim(),
                         Ranking = Convert.ToInt32(Convert.ToString(Mozo.Element("Ranking").Value).Trim()),
                         Roles = (from rol in Mozo.Elements("RolesAsignados").Elements("RolAsignado")
-                                 select new BERoles
+                                 
+                                 select new BERoles    
                                  {
                                      Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value.Trim())),
-                                     Descripcion = (
-                                                    from rDesc in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                                     Descripcion = (from rDesc in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
                                                     where (string)rDesc.Attribute("ID") == (string)rol.Attribute("ID")
                                                     select rDesc
-                                                    ).FirstOrDefault().Element("Descripcion").Value.ToString()
-                                 }).ToList()
-                    };
-                BEMozo oBEMozo = consulta.FirstOrDefault();
+                                                    ).FirstOrDefault().Element("Descripcion").Value.ToString(),
+
+
+                                     /* Permisos = (from permiso in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
+                                                 from roles in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                                                 where (string)permiso.Attribute("ID") == (string)roles.Element("Permisos").Element("PermisoAsignado").Attribute("ID") &&
+                                                       (string)rol.Attribute("ID") == (string)roles.Attribute("ID")
+                                                 select new BEPermisos
+                                                {
+                                                   Codigo = Convert.ToInt32(Convert.ToString(permiso.Attribute("ID").Value.Trim())),
+                                                   Descripcion = Convert.ToString(permiso.Element("Descripcion").Value.Trim())
+                                                                  from pDesc2 in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
+                                                                   where (string)pDesc2.Attribute("ID") == (string)permiso.Attribute("ID")
+                                                                   select pDesc2
+                                                                   ).FirstOrDefault().Element("Descripcion").Value.ToString(),
+
+                                               }).ToList(),*/
+
+
+                                     /*( from roles in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                                                  join permisos in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
+                                                        on (string)roles.Element("Permisos").Element("PermisoAsignado").Attribute("ID").Value.Trim() equals 
+                                                            (string)permisos.Attribute("ID")
+                                                  where ((string)roles.Element("Permisos").Element("PermisoAsignado").Attribute("ID").Value.Trim()).CompareTo((string)permisos.Attribute("ID")) > 0
+                                                  select new BEPermisos
+                                                  {
+                                                      Codigo = Convert.ToInt32(Convert.ToString(permisos.Attribute("ID"))),
+                                                      Descripcion = (Convert.ToString(permisos.Element("Descripcion").Value).Trim()),
+
+                                                  }).ToList<BEPermisos>()*/
+
+
+                                 }).ToList<BERoles>()
+                    }).ToList<BEMozo>();
+                BEMozo oBEMozo = consultaMozo.FirstOrDefault();
+                List<BERoles> listaRoles = consultaRoles.ToList<BERoles>();
+                List<BERoles> listRolAux = new List<BERoles>();
+                foreach (BERoles rol in listaRoles)
+                {
+                    foreach (BERoles rolMozo in oBEMozo.Roles)
+                    {
+                        if (rol.Codigo == rolMozo.Codigo)
+                        {
+                            listRolAux.Add(rol);
+                        }
+                    }
+                }
+                oBEMozo.Roles = listRolAux;
+
+
+                
+
                 return oBEMozo;
 
             }
@@ -153,6 +214,11 @@ namespace Mapper
             { throw ex; }
             catch (Exception ex)
             { throw ex; }
+        }
+
+        private void retornarpermisos(int num)
+        {
+
         }
 
         public List<BEMozo> ListarTodo()

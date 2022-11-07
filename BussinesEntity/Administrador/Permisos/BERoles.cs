@@ -25,5 +25,12 @@ namespace BussinesEntity
             Codigo = codigo;
             Descripcion = descripcion;
         }
+
+        public BERoles(int codigo, string descripcion, List<BEPermisos> permisos)
+        {
+            Codigo = codigo;
+            Descripcion = descripcion;
+            Permisos = permisos;
+        }
     }
 }

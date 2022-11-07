@@ -16,12 +16,11 @@ namespace Mapper
         {
             try
             {
-                string Cod = oBEPersonal.DNI.ToString();
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
-                var consulta = from Cocinero in xmlDocument.Descendants("Cocinero")
-                               where Cocinero.Attribute("Codigo").Value == Cod
-                               select Cocinero;
+                var consulta = xmlDocument.Descendants()
+                    .Where(x => (string)x.Attribute("Codigo") == Convert.ToString(oBEPersonal.DNI))
+                    .FirstOrDefault();
 
                 consulta.Remove();
                 xmlDocument.Save("Restaurante.xml");
@@ -83,6 +82,28 @@ namespace Mapper
             { throw ex; }
         }
 
+        public string RecuperarPass(int pass)
+        {
+            try
+            {
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                
+
+                var consulta = xmlDocument.Descendants()
+                    .Where(x => (string)x.Attribute("Codigo") == Convert.ToString(pass))
+                    .FirstOrDefault();
+
+               string password =  consulta.Element("Password").Value.ToString();
+
+                return password;
+
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
         public bool BorrarRol(BEPersonal oBEPersonal)
         {
             try
@@ -96,8 +117,6 @@ namespace Mapper
                 var rol = consulta.Descendants().Where(x => (string)x.Attribute("ID") == Convert.ToString(oBEPersonal.Roles.FirstOrDefault().Codigo))
                             .FirstOrDefault();
 
-                //.Element("RolesAsignados").Add(new XElement("RolAsignado",
-                //                                           new XAttribute("ID", oBEPersonal.Roles.Last().Codigo.ToString())));
                 rol.Remove();
                 xmlDocument.Save("Restaurante.xml");
                 return true;
@@ -130,7 +149,38 @@ namespace Mapper
             { throw ex; }
         }
 
-            public List<BERoles> ListarRoles(int dni)
+        public string RecuperarPuesto(int dni)
+        {
+            try
+            {
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta = xmlDocument.Descendants()
+                    .Where(x => (string)x.Attribute("Codigo") == dni.ToString())
+                    .FirstOrDefault();
+
+
+                if (consulta.Name == "Mozo")
+                {
+                    return "Mozo";
+                }
+                else
+                {
+                    return "Cocinero";
+                }
+
+
+
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
+
+
+        public List<BERoles> ListarRoles(int dni)
         {
             throw new NotImplementedException();
         }

@@ -20,7 +20,7 @@ namespace BussinesLogic
 
         public bool Baja(BEPersonal Objeto)
         {
-            throw new NotImplementedException();
+            return oMpersonal.Baja(Objeto);
         }
 
         public bool Existe(int obj)
@@ -61,6 +61,16 @@ namespace BussinesLogic
         public bool BorrarRol(BEPersonal oBEPersonal)
         {
             return oMpersonal.BorrarRol(oBEPersonal);
+        }
+
+        public string RecuperarPass(int pass)
+        {
+            return oMpersonal.RecuperarPass(pass);
+        }
+
+        public string RecuperarPuesto(int dni)
+        {
+            return oMpersonal.RecuperarPuesto(dni);
         }
     }
 }

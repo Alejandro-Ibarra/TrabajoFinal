@@ -47,11 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI-Gerente\GUI-Admin.cs">
+    <Compile Include="GUI-Gerente\GUI-BackUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-Admin.Designer.cs">
-      <DependentUpon>GUI-Admin.cs</DependentUpon>
+    <Compile Include="GUI-Gerente\GUI-BackUp.Designer.cs">
+      <DependentUpon>GUI-BackUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Gerente\GUI-RolesPermisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Gerente\GUI-RolesPermisos.Designer.cs">
+      <DependentUpon>GUI-RolesPermisos.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-Gerente\GUI-GerenteBebidas.cs">
       <SubType>Form</SubType>
@@ -151,8 +157,11 @@
     <EmbeddedResource Include="FoldeUserControls\UC_Mesas.resx">
       <DependentUpon>UC_Mesas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Gerente\GUI-Admin.resx">
-      <DependentUpon>GUI-Admin.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-Gerente\GUI-BackUp.resx">
+      <DependentUpon>GUI-BackUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Gerente\GUI-RolesPermisos.resx">
+      <DependentUpon>GUI-RolesPermisos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Gerente\GUI-GerenteBebidas.resx">
       <DependentUpon>GUI-GerenteBebidas.cs</DependentUpon>

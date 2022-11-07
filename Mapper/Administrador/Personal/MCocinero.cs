@@ -41,15 +41,14 @@ namespace Mapper
                 string dni = oBECocinero.DNI.ToString();
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
-                var consulta = from cocinero in xmlDocument.Descendants("Cocinero")
-                               where cocinero.Element("Dni").Value == dni
+                var consulta = from cocinero in xmlDocument.Descendants("Cocineros")
+                               where Convert.ToString(cocinero.Element("Cocinero").Attribute("Codigo").Value) == dni.ToString()
                                select cocinero;
 
                 foreach (XElement EModifcar in consulta)
                 {
                     EModifcar.Element("Nombre").Value = oBECocinero.Nombre.Trim();
                     EModifcar.Element("Apellido").Value = oBECocinero.Apellido.Trim();
-                    EModifcar.Element("Dni").Value = oBECocinero.DNI.ToString().Trim();
                     EModifcar.Element("Password").Value = oBECocinero.Password.ToString().Trim();
                     EModifcar.Element("Turno").Value = oBECocinero.Turno.Trim();
 
@@ -70,16 +69,16 @@ namespace Mapper
                 if (Existe(oBECocinero.DNI) == false)
                 {
                     XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-                    xmlDocument.Element("Restaurante").Element("Usuarios").Add(new XElement("Cocineros",
-                                                                                    new XElement("Cocinero",
-                                                                                        new XAttribute("Codigo", oBECocinero.Codigo.ToString().Trim()),
+                    xmlDocument.Element("Restaurante").Element("Usuarios").Element("Cocineros").Add(new XElement("Cocinero",
+                                                                                        new XAttribute("Codigo", oBECocinero.DNI.ToString().Trim()),
                                                                                         new XElement("Rol", "Cocinero"),
                                                                                         new XElement("Nombre", oBECocinero.Nombre.Trim()),
                                                                                         new XElement("Apellido", oBECocinero.Apellido.Trim()),
+                                                                                        new XElement("RolesAsignados"),
                                                                                         new XElement("Password", oBECocinero.Password.ToString().Trim()),
                                                                                         new XElement("Turno", oBECocinero.Turno.Trim()),
                                                                                         new XElement("Cantidad_Pedidos", oBECocinero.CantPedidos.ToString().Trim()),
-                                                                                        new XElement("Dni", oBECocinero.DNI.ToString().Trim()))));
+                                                                                        new XElement("Dni", oBECocinero.DNI.ToString().Trim())));
 
 
                     xmlDocument.Save("Restaurante.xml");
