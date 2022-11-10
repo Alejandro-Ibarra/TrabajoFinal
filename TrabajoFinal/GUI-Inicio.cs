@@ -37,5 +37,19 @@ namespace TrabajoFinal
             this.Hide();
             oGUI_Prueba.Show();
         }
+
+        private void button1rol_Click(object sender, EventArgs e)
+        {
+            GUI_RolesPermisos oGUI_Prueba2 = new GUI_RolesPermisos();
+            this.Hide();
+            oGUI_Prueba2.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GUI_BackUp oGUI_Prueba3 = new GUI_BackUp(33453333);
+            this.Hide();
+            oGUI_Prueba3.Show();
+        }
     }
 }

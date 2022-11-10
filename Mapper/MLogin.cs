@@ -19,7 +19,7 @@ namespace Mapper
 
                 var consulta = from Usuario in xmlDocument.Descendants("Usuarios")
                                where Usuario.Element("Dni").Value == oSELogin.DNI.ToString() && Usuario.Element("Password").Value == oSELogin.Password
-                               select Usuario.Element("Rol");
+                               select Usuario;
 
                 if (consulta.Any()) {return true;}
                 else { return false; }

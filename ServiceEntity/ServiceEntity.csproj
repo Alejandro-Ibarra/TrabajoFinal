@@ -41,8 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SEBackUp.cs" />
     <Compile Include="SELogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BussinesEntity\BussinesEntity.csproj">
+      <Project>{1953B4E7-ABE1-4BB3-8D4E-A6A7705D01D1}</Project>
+      <Name>BussinesEntity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

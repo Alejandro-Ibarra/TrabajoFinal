@@ -148,7 +148,6 @@ namespace Mapper
                         Turno = Convert.ToString(Mozo.Element("Turno").Value).Trim(),
                         Ranking = Convert.ToInt32(Convert.ToString(Mozo.Element("Ranking").Value).Trim()),
                         Roles = (from rol in Mozo.Elements("RolesAsignados").Elements("RolAsignado")
-                                 
                                  select new BERoles    
                                  {
                                      Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value.Trim())),
@@ -157,58 +156,31 @@ namespace Mapper
                                                     select rDesc
                                                     ).FirstOrDefault().Element("Descripcion").Value.ToString(),
 
-
-                                     /* Permisos = (from permiso in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
-                                                 from roles in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
-                                                 where (string)permiso.Attribute("ID") == (string)roles.Element("Permisos").Element("PermisoAsignado").Attribute("ID") &&
-                                                       (string)rol.Attribute("ID") == (string)roles.Attribute("ID")
-                                                 select new BEPermisos
-                                                {
-                                                   Codigo = Convert.ToInt32(Convert.ToString(permiso.Attribute("ID").Value.Trim())),
-                                                   Descripcion = Convert.ToString(permiso.Element("Descripcion").Value.Trim())
-                                                                  from pDesc2 in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
-                                                                   where (string)pDesc2.Attribute("ID") == (string)permiso.Attribute("ID")
-                                                                   select pDesc2
-                                                                   ).FirstOrDefault().Element("Descripcion").Value.ToString(),
-
-                                               }).ToList(),*/
-
-
-                                     /*( from roles in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
-                                                  join permisos in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
-                                                        on (string)roles.Element("Permisos").Element("PermisoAsignado").Attribute("ID").Value.Trim() equals 
-                                                            (string)permisos.Attribute("ID")
-                                                  where ((string)roles.Element("Permisos").Element("PermisoAsignado").Attribute("ID").Value.Trim()).CompareTo((string)permisos.Attribute("ID")) > 0
-                                                  select new BEPermisos
-                                                  {
-                                                      Codigo = Convert.ToInt32(Convert.ToString(permisos.Attribute("ID"))),
-                                                      Descripcion = (Convert.ToString(permisos.Element("Descripcion").Value).Trim()),
-
-                                                  }).ToList<BEPermisos>()*/
-
-
                                  }).ToList<BERoles>()
                     }).ToList<BEMozo>();
                 BEMozo oBEMozo = consultaMozo.FirstOrDefault();
                 List<BERoles> listaRoles = consultaRoles.ToList<BERoles>();
                 List<BERoles> listRolAux = new List<BERoles>();
-                foreach (BERoles rol in listaRoles)
+                if (oBEMozo != null)
                 {
-                    foreach (BERoles rolMozo in oBEMozo.Roles)
+                    foreach (BERoles rol in listaRoles)
                     {
-                        if (rol.Codigo == rolMozo.Codigo)
+                        foreach (BERoles rolMozo in oBEMozo.Roles)
                         {
-                            listRolAux.Add(rol);
+                            if (rol.Codigo == rolMozo.Codigo)
+                            {
+                                listRolAux.Add(rol);
+                            }
                         }
                     }
+                    oBEMozo.Roles = listRolAux;
+                    return oBEMozo;
                 }
-                oBEMozo.Roles = listRolAux;
-
-
+                else
+                {
+                    return null;
+                }
                 
-
-                return oBEMozo;
-
             }
             catch (System.Xml.XmlException ex)
             { throw ex; }

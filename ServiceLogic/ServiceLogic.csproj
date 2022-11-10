@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Encriptacion.cs" />
+    <Compile Include="SLBackUp.cs" />
     <Compile Include="SLLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -49,6 +50,10 @@
     <ProjectReference Include="..\Abstraction\Abstraction.csproj">
       <Project>{09535fe8-59c7-4c1c-8f37-c269810ff089}</Project>
       <Name>Abstraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BussinesEntity\BussinesEntity.csproj">
+      <Project>{1953b4e7-abe1-4bb3-8d4e-a6a7705d01d1}</Project>
+      <Name>BussinesEntity</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mapper\Mapper.csproj">
       <Project>{f173db1f-a5d4-4921-a0f3-22f4ea0e8ac8}</Project>

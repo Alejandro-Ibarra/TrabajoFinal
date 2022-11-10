@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +56,7 @@
     <Compile Include="Contble\MMetodoPago.cs" />
     <Compile Include="Contble\MPago.cs" />
     <Compile Include="Administrador\Personal\MPersonal.cs" />
+    <Compile Include="MBackUp.cs" />
     <Compile Include="MLogin.cs" />
     <Compile Include="Administrador\Personal\MMozo.cs" />
     <Compile Include="Administrador\Permisos\MPermisos.cs" />

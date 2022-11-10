@@ -8,86 +8,100 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ServiceLogic;
+using ServiceEntity;
+using BussinesEntity;
+using BussinesLogic;
 
 namespace TrabajoFinal
 {
     public partial class GUI_BackUp : Form
     {
-        public GUI_BackUp()
+        public GUI_BackUp(int codigo)
         {
             InitializeComponent();
-            CargarDatagrid();
+            oSLBackup = new SLBackUp();
+            oSEBackup = new SEBackUp();
+            oBEPersonal = new BEPersonal();
+            oBLPersonal = new BLPersonal();
+            codigoAdmin = codigo;
         }
+        SLBackUp oSLBackup;
+        SEBackUp oSEBackup;
+        BEPersonal oBEPersonal;
+        BLPersonal oBLPersonal;
+        int codigoAdmin;
 
+        private void GUI_BackUp_Load(object sender, EventArgs e)
+        {
+            CargarDatagrid();
+            RecuperarUsuario();
+        }
 
         private void Boton_BackUp_Click(object sender, EventArgs e)
         {
-            string restaurante = Application.StartupPath + @"\Restaurante.xml";
-            string backup = Application.StartupPath + @"\Backups\Restaurante-BK-" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + ".xml";
-            System.IO.File.Copy(restaurante, backup, true);
-            MessageBox.Show("BackUp created succesfully");
+                        
+            oSLBackup.Guardar(AsignarAObjetoBackup("BackUp"));
+            CargarDatagrid();
         }
 
         private void Boton_Restore_Click(object sender, EventArgs e)
         {
+            SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
+            SEBackUp restore = AsignarAObjetoBackup("restore");
 
-            int fila = DataGridView_BackUps.CurrentCell.RowIndex;
-            int columna = DataGridView_BackUps.CurrentCell.ColumnIndex;
 
-            string backup = DataGridView_BackUps.Rows[fila].Cells[columna].Value.ToString();
 
-            string restaurante = Application.StartupPath + @"\Restaurante.xml";
+            oSLBackup.HacerRestore(BK, restore);
+            CargarDatagrid();
 
-            System.IO.File.Copy(backup, restaurante, true);
-            MessageBox.Show("BackUp restored succesfully");
         }
 
         private void CargarDatagrid()
         {
-
-            String[] Archivos = Directory.GetFiles(Application.StartupPath + @"\Backups");
-            String[] Archivos1 = Directory.GetFiles(Application.StartupPath + @"\Backups\");
-
-
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Archivos");
-
-            foreach (string arch in Archivos)
-            {
-                dataTable.Rows.Add(arch);
-            }
-            DataGridView_BackUps.DataSource = dataTable;
-
+            DataGridView_BackUps.DataSource = oSLBackup.ListarTodo();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private BEPersonal RecuperarUsuario()
         {
-            string[] files = System.IO.Directory.GetFiles(@"C:\Users\Usuario\Documents\Visual Studio 2012\Projects\TrabajoFinal\TrabajoFinal\bin\Debug");
-            
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Name");
-            
-            foreach (string file in files)
-            {
-                dataTable.Rows.Add(file);
-            }
- 
+            oBEPersonal = oBLPersonal.ListarObjeto(codigoAdmin);
+            return oBEPersonal;
         }
 
-
-
-
-        private string[] getFiles()
+        private void AsignarAControles(SEBackUp BK)
         {
-            string[] files = System.IO.Directory.GetFiles(@"C:\Users\Usuario\Documents\Visual Studio 2013\Projects\TrabajoFinal\TrabajoFinal\bin\Debug");
-            return files;
+            TextBox_Cod.Text = BK.Codigo.ToString();
+            TextBox_Tipo.Text = BK.Tipo;
+            TextBox_Usuario.Text = BK.NombreUsuario;
+            TextBox_NombArchivo.Text = BK.NombreArchivo;
+            TextBox_FechHora.Text = BK.FechaHora;
+            TextBox_Ruta.Text = BK.Ruta;
         }
 
+        private SEBackUp AsignarAObjetoBackup(string tipo)
+        {
+            try
+            {
+                string fechaHora = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
+                SEBackUp BK = new SEBackUp();
 
+                BK.Codigo = Convert.ToInt32(oSLBackup.GenerarCodigo());
+                BK.Tipo = tipo;
+                BK.FechaHora = fechaHora;
+                BK.NombreArchivo = (Convert.ToString(BK.Codigo)) + "-Restaurante-BK-" + BK.FechaHora + ".xml";
+                BK.NombreUsuario = RecuperarUsuario().Nombre;
+                BK.Ruta = Application.StartupPath + @"\Backups\" + BK.NombreArchivo; 
+                return BK;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); return null; }
+        }
 
-
-
-
+        private void DataGridView_BackUps_MouseClick(object sender, MouseEventArgs e)
+        {
+            SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
+            AsignarAControles(BK);
+        }
 
     }
 }
