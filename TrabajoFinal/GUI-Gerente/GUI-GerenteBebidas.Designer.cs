@@ -45,8 +45,6 @@ namespace TrabajoFinal
             this.UC_ValStock = new TrabajoFinal.UC_ValCod();
             this.UC_ValGraduacion = new TrabajoFinal.UC_ValCod();
             this.UC_ValNomb = new TrabajoFinal.UC_ValNombApe();
-            this.UC_ValCod = new TrabajoFinal.UC_ValCod();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Bebidas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +59,7 @@ namespace TrabajoFinal
             // 
             // Boton_Modificar
             // 
-            this.Boton_Modificar.Location = new System.Drawing.Point(490, 261);
+            this.Boton_Modificar.Location = new System.Drawing.Point(488, 225);
             this.Boton_Modificar.Name = "Boton_Modificar";
             this.Boton_Modificar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Modificar.TabIndex = 20;
@@ -71,7 +69,7 @@ namespace TrabajoFinal
             // 
             // Boton_Baja
             // 
-            this.Boton_Baja.Location = new System.Drawing.Point(341, 261);
+            this.Boton_Baja.Location = new System.Drawing.Point(339, 225);
             this.Boton_Baja.Name = "Boton_Baja";
             this.Boton_Baja.Size = new System.Drawing.Size(75, 23);
             this.Boton_Baja.TabIndex = 19;
@@ -81,7 +79,7 @@ namespace TrabajoFinal
             // 
             // Boton_Alta
             // 
-            this.Boton_Alta.Location = new System.Drawing.Point(157, 261);
+            this.Boton_Alta.Location = new System.Drawing.Point(155, 225);
             this.Boton_Alta.Name = "Boton_Alta";
             this.Boton_Alta.Size = new System.Drawing.Size(75, 23);
             this.Boton_Alta.TabIndex = 18;
@@ -187,29 +185,11 @@ namespace TrabajoFinal
             this.UC_ValNomb.Size = new System.Drawing.Size(100, 20);
             this.UC_ValNomb.TabIndex = 21;
             // 
-            // UC_ValCod
-            // 
-            this.UC_ValCod.Location = new System.Drawing.Point(50, 86);
-            this.UC_ValCod.Name = "UC_ValCod";
-            this.UC_ValCod.Size = new System.Drawing.Size(100, 20);
-            this.UC_ValCod.TabIndex = 39;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "Codigo";
-            // 
-            // GUI_AdminBebidas
+            // GUI_Gerente_Bebidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 713);
-            this.Controls.Add(this.UC_ValCod);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.ComboBox_Marca);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ComboBox_Envases);
@@ -226,7 +206,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.Boton_Baja);
             this.Controls.Add(this.Boton_Alta);
             this.Controls.Add(this.Grilla_Bebidas);
-            this.Name = "GUI_AdminBebidas";
+            this.Name = "GUI_Gerente_Bebidas";
             this.Text = "GUI_AdminBebidas";
             this.Load += new System.EventHandler(this.GUI_AdminBebidas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Bebidas)).EndInit();
@@ -253,7 +233,5 @@ namespace TrabajoFinal
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox ComboBox_Marca;
         private System.Windows.Forms.Label label6;
-        private UC_ValCod UC_ValCod;
-        private System.Windows.Forms.Label label2;
     }
 }

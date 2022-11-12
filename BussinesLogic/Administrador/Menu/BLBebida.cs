@@ -48,5 +48,10 @@ namespace BussinesLogic
         {
             return oMBebida.Modificar(oBEBebida);
         }
+
+        public int GenerarCodigo()
+        {
+            return oMBebida.GenerarCodigo();
+        }
     }
 }

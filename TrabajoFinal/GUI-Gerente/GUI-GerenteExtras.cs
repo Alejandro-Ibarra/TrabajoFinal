@@ -38,6 +38,7 @@ namespace TrabajoFinal
                 {
                     if (oBLExtras.Existe(oBEExtras))
                     {
+                        oBEExtras.Codigo = oBLExtras.GenerarCodigo();
                         oBLExtras.Guardar(oBEExtras);
                         CargarGrilla();
                     }
@@ -90,23 +91,18 @@ namespace TrabajoFinal
         {
             try
             {
-                if (UC_ValCod.validar())
+                
+                if (UC_ValNomb.validar())
                 {
-                    oBEExtras.Codigo = int.Parse(UC_ValCod.Text);
+                    oBEExtras.Nombre = UC_ValNomb.Text;
 
-                    if (UC_ValNomb.validar())
+                    if (UC_ValStock.validar())
                     {
-                        oBEExtras.Nombre = UC_ValNomb.Text;
+                        oBEExtras.Stock = int.Parse(UC_ValStock.Text);
+                        oBEExtras.Proveedor = ComboBox_Proveedor.SelectedItem.ToString();
+                        oBEExtras.Tipo = ComboBox_Tipo.SelectedItem.ToString();
 
-                        if (UC_ValStock.validar())
-                        {
-                            oBEExtras.Stock = int.Parse(UC_ValStock.Text);
-                            oBEExtras.Proveedor = ComboBox_Proveedor.SelectedItem.ToString();
-                            oBEExtras.Tipo = ComboBox_Tipo.SelectedItem.ToString();
-
-                            return true;
-                        }
-                        else { return false; }
+                        return true;
                     }
                     else { return false; }
                 }
@@ -121,7 +117,6 @@ namespace TrabajoFinal
         {
             try
             {
-                UC_ValCod.Text = oBEExtras.Codigo.ToString();
                 UC_ValNomb.Text = oBEExtras.Nombre;
                 UC_ValStock.Text = oBEExtras.Stock.ToString();
                 ComboBox_Proveedor.SelectedItem = oBEExtras.Proveedor;

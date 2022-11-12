@@ -37,6 +37,7 @@ namespace TrabajoFinal
                 {
                     if (oBLIngrediente.Existe(oBEIngrediente))
                     {
+                        oBEIngrediente.Codigo = oBLIngrediente.GenerarCodigo();
                         oBLIngrediente.Guardar(oBEIngrediente);
                         CargarGrilla();
                     }
@@ -95,26 +96,23 @@ namespace TrabajoFinal
         {
             try
             {
-                if (UC_ValCod.validar())
+                
+                
+
+                if (UC_ValNomb.validar())
                 {
-                    oBEIngrediente.Codigo = int.Parse(UC_ValCod.Text);
+                    oBEIngrediente.Nombre = UC_ValNomb.Text;
 
-                    if (UC_ValNomb.validar())
+                    if (UC_ValStock.validar())
                     {
-                        oBEIngrediente.Nombre = UC_ValNomb.Text;
+                        oBEIngrediente.Stock = int.Parse(UC_ValStock.Text);
+                        oBEIngrediente.Proveedor = ComboBox_Proveedor.SelectedItem.ToString();
+                        oBEIngrediente.Tipo = ComboBox_Tipo.SelectedItem.ToString();
 
-                        if (UC_ValStock.validar())
-                        {
-                            oBEIngrediente.Stock = int.Parse(UC_ValStock.Text);
-                            oBEIngrediente.Proveedor = ComboBox_Proveedor.SelectedItem.ToString();
-                            oBEIngrediente.Tipo = ComboBox_Tipo.SelectedItem.ToString();
+                        if (RadioButton_Si.Checked) { oBEIngrediente.Refrigeracion = true; }
+                        else { oBEIngrediente.Refrigeracion = false; }
 
-                            if (RadioButton_Si.Checked) { oBEIngrediente.Refrigeracion = true; }
-                            else { oBEIngrediente.Refrigeracion = false; }
-
-                            return true;
-                        }
-                        else { return false; }
+                        return true;
                     }
                     else { return false; }
                 }
@@ -129,7 +127,6 @@ namespace TrabajoFinal
         {
             try
             {
-                UC_ValCod.Text = oBEIngrediente.Codigo.ToString();
                 UC_ValNomb.Text = oBEIngrediente.Nombre;
                 UC_ValStock.Text = oBEIngrediente.Stock.ToString();
                 ComboBox_Proveedor.SelectedItem = oBEIngrediente.Proveedor;
@@ -181,6 +178,7 @@ namespace TrabajoFinal
             ListaTipo.Add("Secundario");
             ComboBox_Tipo.DataSource = ListaTipo;
         }
+
 
 
         private void CargarGrilla()

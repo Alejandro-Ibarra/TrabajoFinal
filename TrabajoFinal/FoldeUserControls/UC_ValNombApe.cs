@@ -12,7 +12,7 @@ namespace TrabajoFinal
     {
         public Boolean validar()
         {
-            if (Regex.IsMatch(base.Text, @"^[a-zA-Z]+$") && base.Text != null)
+            if (Regex.IsMatch(base.Text, @"^[a-zA-Z ]+$") && base.Text != null)
             {
                 return true;
             }

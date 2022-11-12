@@ -48,5 +48,10 @@ namespace BussinesLogic
         {
             return oMExtras.Modificar(oBExtras);
         }
+
+        public int GenerarCodigo()
+        {
+            return oMExtras.GenerarCodigo();
+        }
     }
 }

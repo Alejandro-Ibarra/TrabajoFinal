@@ -109,6 +109,7 @@ namespace Mapper
                     Codigo = Convert.ToInt32(Convert.ToString(Backups.Attribute("Codigo").Value).Trim()),
                     Ruta = Convert.ToString(Backups.Element("Ruta").Value).Trim(),
                     Tipo = Convert.ToString(Backups.Element("Tipo").Value).Trim(),
+                    NombreArchivo = Convert.ToString(Backups.Element("NombreArchivo").Value).Trim(),
                     NombreUsuario = Convert.ToString(Backups.Element("NombreUsuario").Value).Trim(),
                     FechaHora = Convert.ToString(Backups.Element("FechaHora").Value).Trim(),
                 };

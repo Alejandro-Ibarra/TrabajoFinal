@@ -39,7 +39,7 @@ namespace Mapper
                 List<BEBebida> listaBebidas = ListarTodo();
                 foreach (BEBebida bebida in listaBebidas)
                 {
-                    if (bebida == oBEBebida)
+                    if (bebida.Nombre == oBEBebida.Nombre && bebida.Marca == oBEBebida.Marca && bebida.TipoEnvase == oBEBebida.TipoEnvase && bebida.GraduacionAlc == oBEBebida.GraduacionAlc)
                     {
                         return false;
                     }
@@ -134,5 +134,27 @@ namespace Mapper
             catch (Exception ex)
             { throw ex; }
         }
+
+        public int GenerarCodigo()
+        {
+            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+            var consulta = (from BK in xmlDocument.Descendants("Bebida")
+                            select new BEBebida
+                            {
+                                Codigo = Convert.ToInt32(BK.Attribute("Codigo").Value.Trim())
+                            }).ToList<BEBebida>();
+            int aux = 0;
+            foreach (BEBebida bebida in consulta)
+            {
+                if (aux < bebida.Codigo)
+                {
+                    aux = bebida.Codigo;
+                }
+            }
+            return aux + 1;
+        }
+
+
     }
 }

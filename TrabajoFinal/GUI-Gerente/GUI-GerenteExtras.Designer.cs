@@ -29,10 +29,7 @@ namespace TrabajoFinal
         /// </summary>
         private void InitializeComponent()
         {
-            this.ComboBox_Tipo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.UC_ValCod = new TrabajoFinal.UC_ValCod();
-            this.label2 = new System.Windows.Forms.Label();
             this.ComboBox_Proveedor = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.UC_ValStock = new TrabajoFinal.UC_ValCod();
@@ -43,16 +40,9 @@ namespace TrabajoFinal
             this.Boton_Baja = new System.Windows.Forms.Button();
             this.Boton_Alta = new System.Windows.Forms.Button();
             this.Grilla_Ingredientes = new System.Windows.Forms.DataGridView();
+            this.ComboBox_Tipo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Ingredientes)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ComboBox_Tipo
-            // 
-            this.ComboBox_Tipo.FormattingEnabled = true;
-            this.ComboBox_Tipo.Location = new System.Drawing.Point(233, 166);
-            this.ComboBox_Tipo.Name = "ComboBox_Tipo";
-            this.ComboBox_Tipo.Size = new System.Drawing.Size(121, 21);
-            this.ComboBox_Tipo.TabIndex = 79;
             // 
             // label4
             // 
@@ -62,22 +52,6 @@ namespace TrabajoFinal
             this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 78;
             this.label4.Text = "Tipo";
-            // 
-            // UC_ValCod
-            // 
-            this.UC_ValCod.Location = new System.Drawing.Point(77, 89);
-            this.UC_ValCod.Name = "UC_ValCod";
-            this.UC_ValCod.Size = new System.Drawing.Size(100, 20);
-            this.UC_ValCod.TabIndex = 74;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(74, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 73;
-            this.label2.Text = "Codigo";
             // 
             // ComboBox_Proveedor
             // 
@@ -98,7 +72,7 @@ namespace TrabajoFinal
             // 
             // UC_ValStock
             // 
-            this.UC_ValStock.Location = new System.Drawing.Point(368, 89);
+            this.UC_ValStock.Location = new System.Drawing.Point(233, 86);
             this.UC_ValStock.Name = "UC_ValStock";
             this.UC_ValStock.Size = new System.Drawing.Size(100, 20);
             this.UC_ValStock.TabIndex = 70;
@@ -106,7 +80,7 @@ namespace TrabajoFinal
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(365, 57);
+            this.label1.Location = new System.Drawing.Point(230, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 69;
@@ -115,7 +89,7 @@ namespace TrabajoFinal
             // Nombre
             // 
             this.Nombre.AutoSize = true;
-            this.Nombre.Location = new System.Drawing.Point(230, 58);
+            this.Nombre.Location = new System.Drawing.Point(74, 54);
             this.Nombre.Name = "Nombre";
             this.Nombre.Size = new System.Drawing.Size(44, 13);
             this.Nombre.TabIndex = 68;
@@ -123,7 +97,7 @@ namespace TrabajoFinal
             // 
             // UC_ValNomb
             // 
-            this.UC_ValNomb.Location = new System.Drawing.Point(233, 90);
+            this.UC_ValNomb.Location = new System.Drawing.Point(77, 86);
             this.UC_ValNomb.Name = "UC_ValNomb";
             this.UC_ValNomb.Size = new System.Drawing.Size(100, 20);
             this.UC_ValNomb.TabIndex = 67;
@@ -167,15 +141,21 @@ namespace TrabajoFinal
             this.Grilla_Ingredientes.TabIndex = 63;
             this.Grilla_Ingredientes.Click += new System.EventHandler(this.Grilla_Ingredientes_Click);
             // 
-            // GUI_AdminExtras
+            // ComboBox_Tipo
+            // 
+            this.ComboBox_Tipo.FormattingEnabled = true;
+            this.ComboBox_Tipo.Location = new System.Drawing.Point(233, 166);
+            this.ComboBox_Tipo.Name = "ComboBox_Tipo";
+            this.ComboBox_Tipo.Size = new System.Drawing.Size(121, 21);
+            this.ComboBox_Tipo.TabIndex = 79;
+            // 
+            // GUI_Gerente_Extras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 560);
             this.Controls.Add(this.ComboBox_Tipo);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.UC_ValCod);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.ComboBox_Proveedor);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.UC_ValStock);
@@ -186,7 +166,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.Boton_Baja);
             this.Controls.Add(this.Boton_Alta);
             this.Controls.Add(this.Grilla_Ingredientes);
-            this.Name = "GUI_AdminExtras";
+            this.Name = "GUI_Gerente_Extras";
             this.Text = "GUI_AdminExtras";
             this.Load += new System.EventHandler(this.GUI_AdminExtras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Ingredientes)).EndInit();
@@ -196,11 +176,7 @@ namespace TrabajoFinal
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox ComboBox_Tipo;
         private System.Windows.Forms.Label label4;
-        private UC_ValCod UC_ValCod;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox ComboBox_Proveedor;
         private System.Windows.Forms.Label label6;
         private UC_ValCod UC_ValStock;
@@ -211,5 +187,6 @@ namespace TrabajoFinal
         private System.Windows.Forms.Button Boton_Baja;
         private System.Windows.Forms.Button Boton_Alta;
         private System.Windows.Forms.DataGridView Grilla_Ingredientes;
+        private System.Windows.Forms.ComboBox ComboBox_Tipo;
     }
 }

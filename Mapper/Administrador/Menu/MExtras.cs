@@ -50,6 +50,26 @@ namespace Mapper
             { throw ex; }
         }
 
+        public int GenerarCodigo()
+        {
+            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+            var consulta = (from Extras in xmlDocument.Descendants("Extra")
+                            select new BEExtras
+                            {
+                                Codigo = Convert.ToInt32(Extras.Attribute("Codigo").Value.Trim())
+                            }).ToList<BEExtras>();
+            int aux = 0;
+            foreach (BEExtras Extra in consulta)
+            {
+                if (aux < Extra.Codigo)
+                {
+                    aux = Extra.Codigo;
+                }
+            }
+            return aux + 1;
+        }
+
         public bool Guardar(BEExtras oBEExtras)
         {
             try

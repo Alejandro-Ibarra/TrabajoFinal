@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI-Gerente\GUI-GerenteMesas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Gerente\GUI-GerenteMesas.Designer.cs">
+      <DependentUpon>GUI-GerenteMesas.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI-Gerente\GUI-BackUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,12 +100,6 @@
     </Compile>
     <Compile Include="GUI-Gerente\GUI-GerentePlatos.Designer.cs">
       <DependentUpon>GUI-GerentePlatos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI-Gerente\GUI-GerenteMesas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI-Gerente\GUI-GerenteMesas.Designer.cs">
-      <DependentUpon>GUI-GerenteMesas.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-Usuarios\GUI-Cliente.cs">
       <SubType>Form</SubType>
@@ -160,6 +160,12 @@
     <EmbeddedResource Include="GUI-Gerente\GUI-BackUp.resx">
       <DependentUpon>GUI-BackUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Gerente\GUI-GerenteMesas.resx">
+      <DependentUpon>GUI-GerenteMesas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Gerente\GUI-GerentePlatos.resx">
+      <DependentUpon>GUI-GerentePlatos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI-Gerente\GUI-RolesPermisos.resx">
       <DependentUpon>GUI-RolesPermisos.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,9 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Gerente\GUI-GerenteIngredientes.resx">
       <DependentUpon>GUI-GerenteIngredientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Gerente\GUI-GerenteMesas.resx">
-      <DependentUpon>GUI-GerenteMesas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Gerente\GUI-GerentePersonal.resx">
       <DependentUpon>GUI-GerentePersonal.cs</DependentUpon>
@@ -201,6 +204,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -237,6 +241,8 @@
       <Name>ServiceLogic</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="bin\Debug\Mesas.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

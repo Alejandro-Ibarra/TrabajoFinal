@@ -47,5 +47,10 @@ namespace BussinesLogic
         {
             return oMIngredientes.Modificar(oBEIngredientes);
         }
+
+        public int GenerarCodigo()
+        {
+            return oMIngredientes.GenerarCodigo();
+        }
     }
 }

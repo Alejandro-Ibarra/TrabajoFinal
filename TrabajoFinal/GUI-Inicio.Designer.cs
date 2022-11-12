@@ -31,8 +31,6 @@
             this.Button_Cliente = new System.Windows.Forms.Button();
             this.Buton_Restaurante = new System.Windows.Forms.Button();
             this.Pruebas = new System.Windows.Forms.Button();
-            this.button1rol = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Button_Cliente
@@ -57,7 +55,7 @@
             // 
             // Pruebas
             // 
-            this.Pruebas.Location = new System.Drawing.Point(26, 83);
+            this.Pruebas.Location = new System.Drawing.Point(86, 87);
             this.Pruebas.Name = "Pruebas";
             this.Pruebas.Size = new System.Drawing.Size(75, 23);
             this.Pruebas.TabIndex = 2;
@@ -65,33 +63,11 @@
             this.Pruebas.UseVisualStyleBackColor = true;
             this.Pruebas.Click += new System.EventHandler(this.Pruebas_Click);
             // 
-            // button1rol
-            // 
-            this.button1rol.Location = new System.Drawing.Point(121, 83);
-            this.button1rol.Name = "button1rol";
-            this.button1rol.Size = new System.Drawing.Size(75, 23);
-            this.button1rol.TabIndex = 3;
-            this.button1rol.Text = "rol";
-            this.button1rol.UseVisualStyleBackColor = true;
-            this.button1rol.Click += new System.EventHandler(this.button1rol_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(83, 136);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Backup";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // GUI_Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(270, 192);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1rol);
             this.Controls.Add(this.Pruebas);
             this.Controls.Add(this.Buton_Restaurante);
             this.Controls.Add(this.Button_Cliente);
@@ -106,7 +82,5 @@
         private System.Windows.Forms.Button Button_Cliente;
         private System.Windows.Forms.Button Buton_Restaurante;
         private System.Windows.Forms.Button Pruebas;
-        private System.Windows.Forms.Button button1rol;
-        private System.Windows.Forms.Button button2;
     }
 }

@@ -38,6 +38,7 @@ namespace TrabajoFinal
                 {
                     if (oBLBebida.Existe(oBEBebida))
                     {
+                        oBEBebida.Codigo = oBLBebida.GenerarCodigo();
                         oBLBebida.Guardar(oBEBebida);
                         CargarGrilla();
                     }
@@ -90,27 +91,21 @@ namespace TrabajoFinal
         {
             try
             {
-                if (UC_ValCod.validar())
+                if (UC_ValNomb.validar())
                 {
-                    oBEBebida.Codigo = int.Parse(UC_ValCod.Text);
-                
-                    if (UC_ValNomb.validar())
+                    oBEBebida.Nombre = UC_ValNomb.Text;
+                    if (UC_ValPrecio.validar())
                     {
-                        oBEBebida.Nombre = UC_ValNomb.Text;
-                        if (UC_ValPrecio.validar())
+                        oBEBebida.Precio = int.Parse(UC_ValPrecio.Text);
+                        if (UC_ValGraduacion.validar())
                         {
-                            oBEBebida.Precio = int.Parse(UC_ValPrecio.Text);
-                            if (UC_ValGraduacion.validar())
+                            oBEBebida.GraduacionAlc = int.Parse(UC_ValGraduacion.Text);
+                            if (UC_ValStock.validar())
                             {
-                                oBEBebida.GraduacionAlc = int.Parse(UC_ValGraduacion.Text);
-                                if (UC_ValStock.validar())
-                                {
-                                    oBEBebida.Stock = int.Parse(UC_ValStock.Text);
-                                    oBEBebida.Marca = ComboBox_Marca.SelectedItem.ToString();
-                                    oBEBebida.TipoEnvase = ComboBox_Envases.SelectedItem.ToString();
-                                    return true;
-                                }
-                                else { return false; }
+                                oBEBebida.Stock = int.Parse(UC_ValStock.Text);
+                                oBEBebida.Marca = ComboBox_Marca.SelectedItem.ToString();
+                                oBEBebida.TipoEnvase = ComboBox_Envases.SelectedItem.ToString();
+                                return true;
                             }
                             else { return false; }
                         }
@@ -119,6 +114,7 @@ namespace TrabajoFinal
                     else { return false; }
                 }
                 else { return false; }
+              
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); return false; }
@@ -128,7 +124,7 @@ namespace TrabajoFinal
         private void CargarComboBoxMarca()
         {
             List<string> ListaMarcas = new List<string>();
-            ListaMarcas.Add("Coca Cola");
+            ListaMarcas.Add("Quilme");
             ListaMarcas.Add("Sprite");
             ListaMarcas.Add("Paso de los toros");
             ListaMarcas.Add("7UP");
@@ -152,7 +148,6 @@ namespace TrabajoFinal
         {
             try
             {
-                UC_ValCod.Text = oBEBebida.Codigo.ToString();
                 UC_ValNomb.Text = oBEBebida.Nombre;
                 UC_ValGraduacion.Text = oBEBebida.GraduacionAlc.ToString();
                 UC_ValPrecio.Text = oBEBebida.Precio.ToString();

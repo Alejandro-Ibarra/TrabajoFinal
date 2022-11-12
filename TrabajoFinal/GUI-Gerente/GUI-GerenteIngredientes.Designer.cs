@@ -29,8 +29,6 @@ namespace TrabajoFinal
         /// </summary>
         private void InitializeComponent()
         {
-            this.UC_ValCod = new TrabajoFinal.UC_ValCod();
-            this.label2 = new System.Windows.Forms.Label();
             this.ComboBox_Proveedor = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.UC_ValStock = new TrabajoFinal.UC_ValCod();
@@ -48,22 +46,6 @@ namespace TrabajoFinal
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Ingredientes)).BeginInit();
             this.SuspendLayout();
-            // 
-            // UC_ValCod
-            // 
-            this.UC_ValCod.Location = new System.Drawing.Point(66, 88);
-            this.UC_ValCod.Name = "UC_ValCod";
-            this.UC_ValCod.Size = new System.Drawing.Size(100, 20);
-            this.UC_ValCod.TabIndex = 57;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "Codigo";
             // 
             // ComboBox_Proveedor
             // 
@@ -84,7 +66,7 @@ namespace TrabajoFinal
             // 
             // UC_ValStock
             // 
-            this.UC_ValStock.Location = new System.Drawing.Point(357, 88);
+            this.UC_ValStock.Location = new System.Drawing.Point(204, 80);
             this.UC_ValStock.Name = "UC_ValStock";
             this.UC_ValStock.Size = new System.Drawing.Size(100, 20);
             this.UC_ValStock.TabIndex = 49;
@@ -92,7 +74,7 @@ namespace TrabajoFinal
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(354, 56);
+            this.label1.Location = new System.Drawing.Point(201, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 46;
@@ -101,7 +83,7 @@ namespace TrabajoFinal
             // Nombre
             // 
             this.Nombre.AutoSize = true;
-            this.Nombre.Location = new System.Drawing.Point(219, 57);
+            this.Nombre.Location = new System.Drawing.Point(66, 49);
             this.Nombre.Name = "Nombre";
             this.Nombre.Size = new System.Drawing.Size(44, 13);
             this.Nombre.TabIndex = 45;
@@ -109,7 +91,7 @@ namespace TrabajoFinal
             // 
             // UC_ValNomb
             // 
-            this.UC_ValNomb.Location = new System.Drawing.Point(222, 89);
+            this.UC_ValNomb.Location = new System.Drawing.Point(69, 81);
             this.UC_ValNomb.Name = "UC_ValNomb";
             this.UC_ValNomb.Size = new System.Drawing.Size(100, 20);
             this.UC_ValNomb.TabIndex = 44;
@@ -201,7 +183,7 @@ namespace TrabajoFinal
             this.label4.TabIndex = 61;
             this.label4.Text = "Tipo";
             // 
-            // GUI_AdminIngredientes
+            // GUI_Gerente_Ingredientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -211,8 +193,6 @@ namespace TrabajoFinal
             this.Controls.Add(this.label3);
             this.Controls.Add(this.RadioButton_No);
             this.Controls.Add(this.RadioButton_Si);
-            this.Controls.Add(this.UC_ValCod);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.ComboBox_Proveedor);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.UC_ValStock);
@@ -223,7 +203,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.Boton_Baja);
             this.Controls.Add(this.Boton_Alta);
             this.Controls.Add(this.Grilla_Ingredientes);
-            this.Name = "GUI_AdminIngredientes";
+            this.Name = "GUI_Gerente_Ingredientes";
             this.Text = "GUI_AdminIngredientes";
             this.Load += new System.EventHandler(this.GUI_AdminIngredientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Ingredientes)).EndInit();
@@ -233,9 +213,6 @@ namespace TrabajoFinal
         }
 
         #endregion
-
-        private UC_ValCod UC_ValCod;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox ComboBox_Proveedor;
         private System.Windows.Forms.Label label6;
         private UC_ValCod UC_ValStock;

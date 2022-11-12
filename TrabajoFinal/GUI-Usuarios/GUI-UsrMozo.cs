@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace TrabajoFinal
 {
-    public partial class GUI_UsrMozo : Form
+    public partial class GUI_UsrMozo : GUI_GerenteMesas
     {
-        public GUI_UsrMozo(BEMozo Mozo)
+        public GUI_UsrMozo()
         {
             InitializeComponent();
-            oBEMozo = Mozo;
+            oBEMozo = new BEMozo();
             oBLMozo = new BLMozo();
             AsignarAControles(oBEMozo);
         }
@@ -30,8 +30,7 @@ namespace TrabajoFinal
         {
             try
             {
-                TextBox_Apellido.Text = oBEMozo.Apellido;
-                TextBox_Nombre.Text = oBEMozo.Nombre;
+
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
