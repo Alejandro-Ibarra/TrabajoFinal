@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinesEntity;
 using BussinesLogic;
+using System.Text.RegularExpressions;
 
 namespace TrabajoFinal
 {
@@ -23,8 +24,9 @@ namespace TrabajoFinal
             oBEIngrediente = new BEIngrediente();
             oBLIngrediente = new BLIngrediente();
             CargarControles();
-            ComboEventTipo();
-            ComboEventClase();
+            CargarGrillaPlatos();
+            //ComboEventTipo();
+            //ComboEventClase();
         }
 
         BEPlato oBEplato;
@@ -32,53 +34,117 @@ namespace TrabajoFinal
         BLIngrediente oBLIngrediente;
         BEIngrediente oBEIngrediente;
 
+        private void GUI_Gerente_Platos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        #region BotonesPrincipales
         private void Boton_Alta_Click(object sender, EventArgs e)
         {
+            ActivarDisponibilidadControles(true);
+            oBEplato.Nombre = Interaction.InputBox("Ingrese el nombre del plato");
             oBEplato.Descripcion = Interaction.InputBox("Ingrese una descripcion para el plato");
+            Boton_Alta.Enabled = false;
+            oBEplato.Codigo = oBLPlato.GenerarCodigo();
             SeleccionarTipoPlato();
         }
-        
-        private void ComboEventTipo()
+
+        private void Boton_EliminarPlato_Click(object sender, EventArgs e)
         {
-            this.ComboBox_TipoPlato.SelectedIndexChanged +=
-            new System.EventHandler(ComboBox_TipoPlato_SelectedIndexChanged);
+            try
+            {
+                DialogResult Respuesta;
+                Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (Respuesta == DialogResult.Yes)
+                {
+                    oBLPlato.Baja(oBEplato);
+                    LimpiarTextboxYGrilla();
+                    CargarGrillaPlatos();
+                }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
-        private void ComboEventClase()
+        private void Boton_ModificarPlatos_Click(object sender, EventArgs e)
         {
-            this.ComboBox_ClasePlato.SelectedIndexChanged +=
-            new System.EventHandler(ComboBox_ClasePlato_SelectedIndexChanged);
-        }
+            
+            ActivarVisibilidadControles(true);
+            ActivarDisponibilidadControles(true);
+            SeleccionarPlatoGrilla();
+            CargarComboIngredientePrincipal();
 
-        private void SeleccionarTipoPlato()
-        {
-            MessageBox.Show("Seleccione el tipo de plato");
-            ComboBox_TipoPlato.Visible = true;
-            ComboBox_TipoPlato.Enabled = true;
         }
+        #endregion
 
-        private void ComboBox_TipoPlato_SelectedIndexChanged(object sender, EventArgs e)
+        #region BotonesSecundarios
+        private void Boton_ContinuarTipoPlato_Click(object sender, EventArgs e)
         {
-            string selectedTipo = (string)ComboBox_TipoPlato.SelectedItem;
-            oBEplato.Tipo = selectedTipo;
+            oBEplato.Tipo = (string)ComboBox_TipoPlato.SelectedItem;
             ComboBox_TipoPlato.Enabled = false;
+            Boton_ContinuarTipoPlato.Enabled = false;
+            Label_ClasePlato.Visible = true;
             ComboBox_ClasePlato.Visible = true;
-            ComboBox_ClasePlato.Enabled = true;
+            Boton_ContinuarClasePlato.Visible = true;
+
             MessageBox.Show("Seleccione la clase de plato");
         }
 
-        private void ComboBox_ClasePlato_SelectedIndexChanged(object sender, EventArgs e)
+        private void Boton_ContinuarClasePlato_Click(object sender, EventArgs e)
         {
-            string selectedTipo = (string)ComboBox_ClasePlato.SelectedItem;
-            oBEplato.Clase= selectedTipo;
+            oBEplato.Clase = (string)ComboBox_ClasePlato.SelectedItem;
             ComboBox_ClasePlato.Enabled = false;
+            Boton_ContinuarClasePlato.Enabled = false;
 
             MessageBox.Show("Seleccione los ingredientes de la lista");
-
+            DataGridView_TodosIngredientes.Enabled = true;
+            DataGridView_SeleccionIngredientes.Visible = true;
+            label_GrillaSeleccionados.Visible = true;
+            DataGridView_SeleccionIngredientes.Enabled = true;
+            Boton_ConfirmarIngredientes.Visible = true;
             DataGridView_TodosIngredientes.DataSource = oBLIngrediente.ListarTodo();
+        }
+
+        private void Boton_ConfirmarIngredientes_Click(object sender, EventArgs e)
+        {
+            DataGridView_TodosIngredientes.Enabled = false;
+            DataGridView_SeleccionIngredientes.Enabled = false;
+            Boton_ConfirmalIngPrincipal.Visible = true;
+            ComboBox_IngredientePrincipal.Visible = true;
+            MessageBox.Show("Seleccione el ingrediente principal de la lista y presione el boton \" Confirmar ingrediente principal\"");
+            CargarComboIngredientePrincipal();
 
         }
 
+        private void Boton_ConfirmalIngPrincipal_Click(object sender, EventArgs e)
+        {
+            AgregarIngredientePrincipal();
+            ComboBox_IngredientePrincipal.Enabled = false;
+            Boton_ConfirmalIngPrincipal.Enabled = false;
+            TextBox_Precio.Visible = true;
+            Boton_ConfirmarPrecio.Visible = true;
+            MessageBox.Show("Ingrese el precio del plato y presione el boton \" Confirmar precio\"");
+        }
+
+        private void Boton_ConfirmarPrecio_Click(object sender, EventArgs e)
+        {
+            ValidarPrecio();
+        }
+
+        private void Button_Guardar_Click(object sender, EventArgs e)
+        {
+            AsignarAPlato();
+            oBLPlato.Guardar(oBEplato);
+            ActivarVisibilidadControles(false);
+            LimpiarTextboxYGrilla();
+            ActivarDisponibilidadControles(false);
+
+            CargarGrillaPlatos();
+        }
+        #endregion
+
+        #region DatagridClick
         private void DataGridView_SeleccionIngredientes_MouseClick(object sender, MouseEventArgs e)
         {
             QuitarIngrediente();
@@ -89,8 +155,42 @@ namespace TrabajoFinal
             AgregarIngrediente();
         }
 
-        private void QuitarIngrediente()
+        private void DataGridView_Platos_MouseClick(object sender, MouseEventArgs e)
+        {
+            SeleccionarPlatoGrilla();
+        }
+        #endregion
+
+        #region MetodosPrincipales
+
+        private void SeleccionarPlatoGrilla()
+        {
+            int codPlato = ((BEPlato)DataGridView_Platos.CurrentRow.DataBoundItem).Codigo;////////////////////////////////////////////////////////////////
+            BEPlato oBEPlatoMod = new BEPlato();
+            List<BEPlato> listaPlatos = oBLPlato.ListarTodo();
+            foreach (BEPlato plato in listaPlatos)
             {
+                if (plato.Codigo == codPlato)
+                {
+                    oBEPlatoMod = plato;
+                }
+            }
+            oBEplato = oBEPlatoMod;
+            CargarGrillasModificacion(oBEplato);
+            AsignarAControles(oBEplato);
+
+        }
+
+        private void SeleccionarTipoPlato()
+        {
+            MessageBox.Show("Seleccione el tipo de plato");
+            Label_TipoPlato.Visible = true;
+            ComboBox_TipoPlato.Visible = true;
+            Boton_ContinuarTipoPlato.Visible = true;
+        }
+
+        private void QuitarIngrediente()
+        {
             if (DataGridView_SeleccionIngredientes.Rows.Count > 0)
             {
                 List<BEIngrediente> ingreAux = new List<BEIngrediente>();
@@ -115,7 +215,6 @@ namespace TrabajoFinal
                 DataGridView_SeleccionIngredientes.DataSource = oBEplato.ListaIngredientes;
             }
         }
-
 
         private void AgregarIngrediente()
         {
@@ -153,6 +252,73 @@ namespace TrabajoFinal
             }
         }
 
+        private void AgregarIngredientePrincipal()
+        {
+            foreach (DataGridViewRow row in DataGridView_SeleccionIngredientes.Rows)
+            {
+                if (((BEIngrediente)row.DataBoundItem).Nombre == ComboBox_IngredientePrincipal.SelectedItem.ToString())
+                {
+                    oBEplato.IngredientePrincipal = (BEIngrediente)row.DataBoundItem;
+                }
+            }
+        }
+        
+        private void ConfirmarPlato()
+        {
+            TextBox_Precio.Enabled = false;
+            Boton_ConfirmarPrecio.Enabled = false;
+            TextBox_Resumen.Visible = true;
+            Boton_Guardar.Visible = true;
+
+            TextBox_Resumen.Text = Resumen(oBEplato);
+        }
+
+        private string Resumen(BEPlato oPlato)
+        {
+            string ingredientes = "";
+            foreach (BEIngrediente ing in oPlato.ListaIngredientes)
+            {
+                ingredientes = ingredientes + "\t\t" + ing.Nombre + Environment.NewLine;
+            }
+
+            string resumen = "Nombre del plato: " + oPlato.Nombre + Environment.NewLine + "Descripcion del plato: " + oPlato.Descripcion + Environment.NewLine +
+                "Tipo de plato: " + oPlato.Tipo + Environment.NewLine + "Clase de Plato: " + oPlato.Clase + Environment.NewLine + "Precio del plato: " + oPlato.Precio + Environment.NewLine
+                + "Ingrediente principal: " + oPlato.IngredientePrincipal.Nombre + Environment.NewLine + "Lista de ingredientes:" + Environment.NewLine + ingredientes;
+
+            return resumen;
+        }
+
+        private void AsignarAPlato()
+        {
+            oBEplato.Tipo = ComboBox_TipoPlato.SelectedItem.ToString();
+            oBEplato.Clase = ComboBox_ClasePlato.SelectedItem.ToString();
+            AgregarIngredientePrincipal();
+            oBEplato.Precio = Convert.ToInt32(TextBox_Precio.Text);
+
+        }
+
+
+        #endregion
+
+        #region CArgarControles
+
+        private void CargarComboIngredientePrincipal()
+        {
+            List<string> ingreAux = new List<string>();
+
+            foreach (DataGridViewRow row in DataGridView_SeleccionIngredientes.Rows)
+            {
+                ingreAux.Add(((BEIngrediente)row.DataBoundItem).Nombre);
+            }
+            ComboBox_IngredientePrincipal.DataSource = ingreAux;
+        }
+
+
+        private void CargarGrillaPlatos()
+        {
+            DataGridView_Platos.DataSource = oBLPlato.ListarTodo();
+        }
+
         private void CargarControles()
         {
             ComboBox_TipoPlato.DataSource = CargarComboTipoPlato();
@@ -178,6 +344,87 @@ namespace TrabajoFinal
             ClasePlato.Add("Estandar");
             return ClasePlato;
         }
+
+        private void CargarGrillasModificacion(BEPlato PlatoMod)
+        {
+            DataGridView_TodosIngredientes.DataSource = oBLIngrediente.ListarTodo();
+        }
+        #endregion
+
+        #region AdministracionControles
+
+
+
+        private void AsignarAControles(BEPlato oPlato)
+        {
+            ComboBox_TipoPlato.SelectedItem = oPlato.Tipo;
+            ComboBox_ClasePlato.SelectedItem = oPlato.Clase;
+            ComboBox_IngredientePrincipal.SelectedItem = oPlato.IngredientePrincipal.Nombre;
+            TextBox_Precio.Text = oPlato.Precio.ToString();
+            TextBox_Resumen.Text = Resumen(oPlato);
+            DataGridView_SeleccionIngredientes.DataSource = oPlato.ListaIngredientes;
+
+        }
+
+        private void ActivarVisibilidadControles(bool valor)
+        {
+            ComboBox_TipoPlato.Visible = valor;
+            Boton_ContinuarTipoPlato.Visible = valor;
+            ComboBox_ClasePlato.Visible = valor;
+            Boton_ContinuarClasePlato.Visible = valor;
+            Boton_ConfirmarIngredientes.Visible = valor;
+            Boton_ConfirmalIngPrincipal.Visible = valor;
+            ComboBox_IngredientePrincipal.Visible = valor;
+            TextBox_Precio.Visible = valor;
+            Boton_ConfirmarPrecio.Visible = valor;
+            TextBox_Resumen.Visible = valor;
+            Boton_Guardar.Visible = valor;
+            Label_TipoPlato.Visible = valor;
+            Label_ClasePlato.Visible = valor;
+            label_GrillaSeleccionados.Visible = valor;
+            DataGridView_SeleccionIngredientes.Visible = valor;
+        }
+
+        private void ActivarDisponibilidadControles(bool dispo)
+        {
+            DataGridView_TodosIngredientes.Enabled = dispo;
+            DataGridView_SeleccionIngredientes.Enabled = dispo;
+            Boton_Alta.Enabled = dispo;
+            ComboBox_TipoPlato.Enabled = dispo;
+            Boton_ContinuarTipoPlato.Enabled = dispo;
+            ComboBox_ClasePlato.Enabled = dispo;
+            Boton_ContinuarClasePlato.Enabled = dispo;
+            ComboBox_IngredientePrincipal.Enabled = dispo;
+            Boton_ConfirmalIngPrincipal.Enabled = dispo;
+        }
+
+        private void LimpiarTextboxYGrilla()
+        {
+            TextBox_Resumen.Clear();
+            oBEplato = new BEPlato();
+            DataGridView_SeleccionIngredientes.DataSource = oBEplato.ListaIngredientes;
+        }
+
+        #endregion
+
+        #region Validaciones
+        private void ValidarPrecio()
+        {
+            string precio = TextBox_Precio.Text;
+
+            if (Regex.IsMatch(precio, @"^[0-9]") && base.Text != null)
+            {
+                oBEplato.Precio = Convert.ToInt32(precio);
+                MessageBox.Show("Verifique los datos ingresados son correctos y precione el boton guardar");
+                ConfirmarPlato();
+            }
+            else
+            {
+                MessageBox.Show("Formato de precio incorrecto, debe contener numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        #endregion
 
 
     }

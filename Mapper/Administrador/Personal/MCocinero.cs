@@ -127,7 +127,6 @@ namespace Mapper
                          Turno = Convert.ToString(Cocinero.Element("Turno").Value).Trim(),
                          CantPedidos = Convert.ToInt32(Convert.ToString(Cocinero.Element("Cantidad_Pedidos").Value).Trim()),
                          Roles = (from rol in Cocinero.Elements("RolesAsignados").Elements("RolAsignado")
-
                                   select new BERoles
                                   {
                                       Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value.Trim())),
@@ -200,8 +199,8 @@ namespace Mapper
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
 
-                var consulta = from Cocinero in xmlDocument.Descendants("Cocineros")
-                               where Cocinero.Element("Cocinero").Attribute("Codigo").Value == dni.ToString()
+                var consulta = from Cocinero in xmlDocument.Descendants("Cocinero")
+                               where Cocinero.Attribute("Codigo").Value == dni.ToString()
                                select Cocinero;
 
                 if (consulta.Any())

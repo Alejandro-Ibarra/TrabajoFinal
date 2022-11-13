@@ -5,14 +5,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mapper;
 
 namespace BussinesLogic
 {
     public class BLPlato : IGestorABM<BEPlato>, IGestorConsulta<string>
     {
+        public BLPlato()
+        {
+            oMPlato = new MPlato();
+        }
+
+        MPlato oMPlato;
+
         public bool Baja(BEPlato oBEPlato)
         {
-            throw new NotImplementedException();
+            return oMPlato.Baja(oBEPlato);
         }
 
         public bool Existe(string obj)
@@ -22,7 +30,7 @@ namespace BussinesLogic
 
         public bool Guardar(BEPlato oBEPlato)
         {
-            throw new NotImplementedException();
+            return oMPlato.Guardar(oBEPlato);
         }
 
         public BEPlato ListarObjeto(int oBEPlato)
@@ -32,12 +40,17 @@ namespace BussinesLogic
 
         public List<BEPlato> ListarTodo()
         {
-            throw new NotImplementedException();
+            return oMPlato.ListarTodo();
         }
 
         public bool Modificar(BEPlato Objeto)
         {
             throw new NotImplementedException();
+        }
+
+        public int GenerarCodigo()
+        {
+            return oMPlato.GenerarCodigo();
         }
     }
 }

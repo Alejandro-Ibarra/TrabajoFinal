@@ -17,9 +17,9 @@ namespace ServiceLogic
         }
         MLogin oMLogin;
 
-        public bool VerificarUsuario(SELogin oSELogin)
+        public bool VerificarUsuario(SELogin oSELogin, List<string> tipo)
         {
-            return oMLogin.VerificarUsuario(oSELogin);
+            return oMLogin.VerificarUsuario(oSELogin, tipo);
         }
     }
 }

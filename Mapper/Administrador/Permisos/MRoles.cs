@@ -105,6 +105,7 @@ namespace Mapper
                                where rol.Attribute("ID").Value == ID
                                select rol;
 
+
                 foreach (XElement EModifcar in consulta)
                 {
                     EModifcar.Element("Descripcion").Value = oBERole.Descripcion.ToString().Trim();

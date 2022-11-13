@@ -15,24 +15,24 @@ namespace TrabajoFinal
 {
     public partial class GUI_UsrCocina : Form
     {
-        public GUI_UsrCocina(BECocinero Cocinero)
+        public GUI_UsrCocina(BEPersonal Personal)
         {
             InitializeComponent();
-            oBECocinero = Cocinero;
+            oBEPersonal = Personal;
             oBLCocinero = new BLCocinero();
-            AsignarAControles(oBECocinero);
+            AsignarAControles(oBEPersonal);
 
         }
 
-        BECocinero oBECocinero;
+        BEPersonal oBEPersonal;
         BLCocinero oBLCocinero;
 
 
-        void AsignarAControles(BECocinero oBECocinero)
+        void AsignarAControles(BEPersonal oBEPerso)
         {
             try
             {
-                oBLCocinero.Guardar(oBECocinero); //BORRAR solo era para evitar warning
+                
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

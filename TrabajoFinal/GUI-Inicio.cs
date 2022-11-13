@@ -37,5 +37,19 @@ namespace TrabajoFinal
             this.Hide();
             oGUI_Prueba.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GUI_Gerente_Personal oGUI_Prueba = new GUI_Gerente_Personal();
+            this.Hide();
+            oGUI_Prueba.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GUI_RolesPermisos oGUI_Prueba = new GUI_RolesPermisos();
+            this.Hide();
+            oGUI_Prueba.Show();
+        }
     }
 }

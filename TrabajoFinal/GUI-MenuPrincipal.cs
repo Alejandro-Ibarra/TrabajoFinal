@@ -15,49 +15,120 @@ namespace TrabajoFinal
 {
     public partial class GUI_MenuPrincipal : Form
     {
-        public int dniUsr { get; set; }
-        
-        public GUI_MenuPrincipal()
+        //public int dniUsr { get; set; }
+
+        public GUI_MenuPrincipal(BEPersonal bEPersonal)
         {
             InitializeComponent();
-            oBECocinero = new BECocinero();
-            oBLCocinero = new BLCocinero();
-            oBEMozo = new BEMozo();
-            oBLMozo = new BLMozo();
-            oBEPersonal = new BEAdmin();
+            oBePersonal = bEPersonal;
             oBLPersonal = new BLPersonal();
+            oBEPermisos = new BEPermisos();
+            oBLPermisos = new BLPermisos();
+            AsignarControles(bEPersonal);
         }
 
-        BECocinero oBECocinero;
-        BLCocinero oBLCocinero;
-        BEMozo oBEMozo;
-        BLMozo oBLMozo;
-        BEPersonal oBEPersonal;
+        BEPermisos oBEPermisos;
+        BLPermisos oBLPermisos;
+        BEPersonal oBePersonal;
         BLPersonal oBLPersonal;
 
-        private void RecuperarUsuario(int dni)
+        private List<BEPermisos> RecuperarTodosPermisos(BEPersonal obEPersonal)
         {
-            if (oBLCocinero.Existe(dni))
+            List<BEPermisos> todosPer = new List<BEPermisos>(); 
+            foreach (BERoles rol in obEPersonal.Roles)
             {
-                oBECocinero = oBLCocinero.ListarObjeto(dni);
-                
+                foreach (BEPermisos item in rol.Permisos)
+                {
+                    todosPer.Add(item);
+                }
             }
-            else if (oBLMozo.Existe(dni))
-            {
-                oBEMozo = oBLMozo.ListarObjeto(dni);
-            }
-            else
-            {
-                oBEPersonal = oBLPersonal.ListarObjeto(dni);
-            }
-
+            return todosPer;
         }
 
-        private void personalToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AsignarControles(BEPersonal obEPersonal)
         {
-            GUI_Gerente_Personal oGUI_Administrar_Personal = new GUI_Gerente_Personal();
-            oGUI_Administrar_Personal.MdiParent = this;
-            oGUI_Administrar_Personal.Show();
+            List<BEPermisos> perperso = RecuperarTodosPermisos(obEPersonal);
+            foreach ( BEPermisos item in perperso)
+            {
+                foreach (ToolStripMenuItem tool in menuStrip1.Items)
+                {
+                    if (tool.Name == item.Descripcion)
+                    {
+                        tool.Visible = true;
+                    }
+                }
+                foreach (ToolStripMenuItem tool in ToolStrip_Admin.DropDownItems)
+                {
+                    if (tool.Name == item.Descripcion)
+                    {
+                        ToolStrip_Admin.Visible = true;
+                        tool.Visible = true;
+                    }
+                }
+                foreach (ToolStripMenuItem tool in ToolStrip_Menu.DropDownItems)
+                {
+                    if (tool.Name == item.Descripcion)
+                    {
+                        ToolStrip_Menu.Visible = true;
+                        tool.Visible = true;
+                    }
+                }
+            }
         }
+
+        private void ToolStrip_Cocinero_Click(object sender, EventArgs e)
+        {
+            GUI_UsrCocina oGUI_Cocina = new GUI_UsrCocina(oBePersonal);
+            oGUI_Cocina.Show();
+        }
+
+        private void ToolStrip_Mozo_Click(object sender, EventArgs e)
+        {
+            GUI_UsrMozo oGUI_Mozo = new GUI_UsrMozo();
+            oGUI_Mozo.Show();
+        }
+
+        private void ToolStrip_Personal_Click(object sender, EventArgs e)
+        {
+            GUI_Gerente_Personal oGUI_Personal = new GUI_Gerente_Personal();
+            oGUI_Personal.Show();
+        }
+
+        private void ToolStrip_Ingredientes_Click(object sender, EventArgs e)
+        {
+            GUI_Gerente_Ingredientes oGUI_Ingredientes = new GUI_Gerente_Ingredientes();
+            oGUI_Ingredientes.Show();
+        }
+
+        private void ToolStrip_Bebidas_Click(object sender, EventArgs e)
+        {
+            GUI_Gerente_Bebidas oGUI_Bebidas = new GUI_Gerente_Bebidas();
+            oGUI_Bebidas.Show();
+        }
+
+        private void ToolStrip_Platos_Click(object sender, EventArgs e)
+        {
+            GUI_Gerente_Platos oGUI_Platos = new GUI_Gerente_Platos();
+            oGUI_Platos.Show();
+        }
+
+        private void ToolStrip_Evento_Click(object sender, EventArgs e)
+        {
+            GUI_Gerente_Eventos oGUI_Eventos = new GUI_Gerente_Eventos();
+            oGUI_Eventos.Show();
+        }
+
+        private void ToolStrip_Extras_Click(object sender, EventArgs e)
+        {
+            GUI_Gerente_Extras oGUI_Extras = new GUI_Gerente_Extras();
+            oGUI_Extras.Show();
+        }
+
+        private void ToolStrip_Mesas_Click(object sender, EventArgs e)
+        {
+            GUI_GerenteMesas oGUI_Mesas = new GUI_GerenteMesas();
+            oGUI_Mesas.Show();
+        }
+
     }
 }

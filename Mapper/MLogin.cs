@@ -11,17 +11,20 @@ namespace Mapper
 {
     public class MLogin 
     {
-        public bool VerificarUsuario(SELogin oSELogin)
+        public bool VerificarUsuario(SELogin oSELogin, List<string> tipo)
         {
             try
             {
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string cod = oSELogin.DNI.ToString();
 
-                var consulta = from Usuario in xmlDocument.Descendants("Usuarios")
-                               where Usuario.Element("Dni").Value == oSELogin.DNI.ToString() && Usuario.Element("Password").Value == oSELogin.Password
+                var consulta = from Usuario in xmlDocument.Descendants(tipo[1])
+                               where Usuario.Attribute("Codigo").Value ==  cod && Usuario.Element("Password").Value == oSELogin.Password
                                select Usuario;
 
                 if (consulta.Any()) {return true;}
+
+
                 else { return false; }
             }
             catch (System.Xml.XmlException ex)

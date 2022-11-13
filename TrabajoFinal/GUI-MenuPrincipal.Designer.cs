@@ -30,114 +30,133 @@ namespace TrabajoFinal
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.personalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ingredientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bebidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.platosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mesasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cocineroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mozoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Admin = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Personal = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Ingredientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Bebidas = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Platos = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Evento = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Extras = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Mesas = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Cocinero = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Mozo = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adminToolStripMenuItem,
-            this.cocineroToolStripMenuItem,
-            this.mozoToolStripMenuItem});
+            this.ToolStrip_Admin,
+            this.ToolStrip_Cocinero,
+            this.ToolStrip_Mozo});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(840, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // adminToolStripMenuItem
+            // ToolStrip_Admin
             // 
-            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.personalToolStripMenuItem,
-            this.menuToolStripMenuItem,
-            this.eventosToolStripMenuItem,
-            this.extrasToolStripMenuItem,
-            this.mesasToolStripMenuItem});
-            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.adminToolStripMenuItem.Text = "Admin";
+            this.ToolStrip_Admin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStrip_Personal,
+            this.ToolStrip_Menu,
+            this.ToolStrip_Evento,
+            this.ToolStrip_Extras,
+            this.ToolStrip_Mesas});
+            this.ToolStrip_Admin.Name = "ToolStrip_Admin";
+            this.ToolStrip_Admin.Size = new System.Drawing.Size(55, 20);
+            this.ToolStrip_Admin.Text = "Admin";
+            this.ToolStrip_Admin.Visible = false;
             // 
-            // personalToolStripMenuItem
+            // ToolStrip_Personal
             // 
-            this.personalToolStripMenuItem.Name = "personalToolStripMenuItem";
-            this.personalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.personalToolStripMenuItem.Text = "Personal";
-            this.personalToolStripMenuItem.Click += new System.EventHandler(this.personalToolStripMenuItem_Click);
+            this.ToolStrip_Personal.Name = "ToolStrip_Personal";
+            this.ToolStrip_Personal.Size = new System.Drawing.Size(180, 22);
+            this.ToolStrip_Personal.Text = "Personal";
+            this.ToolStrip_Personal.Visible = false;
+            this.ToolStrip_Personal.Click += new System.EventHandler(this.ToolStrip_Personal_Click);
             // 
-            // menuToolStripMenuItem
+            // ToolStrip_Menu
             // 
-            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ingredientesToolStripMenuItem,
-            this.bebidasToolStripMenuItem,
-            this.platosToolStripMenuItem});
-            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.menuToolStripMenuItem.Text = "Menu";
+            this.ToolStrip_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStrip_Ingredientes,
+            this.ToolStrip_Bebidas,
+            this.ToolStrip_Platos});
+            this.ToolStrip_Menu.Name = "ToolStrip_Menu";
+            this.ToolStrip_Menu.Size = new System.Drawing.Size(180, 22);
+            this.ToolStrip_Menu.Text = "Menu";
+            this.ToolStrip_Menu.Visible = false;
             // 
-            // ingredientesToolStripMenuItem
+            // ToolStrip_Ingredientes
             // 
-            this.ingredientesToolStripMenuItem.Name = "ingredientesToolStripMenuItem";
-            this.ingredientesToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.ingredientesToolStripMenuItem.Text = "Ingredientes";
+            this.ToolStrip_Ingredientes.Name = "ToolStrip_Ingredientes";
+            this.ToolStrip_Ingredientes.Size = new System.Drawing.Size(180, 22);
+            this.ToolStrip_Ingredientes.Text = "Ingredientes";
+            this.ToolStrip_Ingredientes.Visible = false;
+            this.ToolStrip_Ingredientes.Click += new System.EventHandler(this.ToolStrip_Ingredientes_Click);
             // 
-            // bebidasToolStripMenuItem
+            // ToolStrip_Bebidas
             // 
-            this.bebidasToolStripMenuItem.Name = "bebidasToolStripMenuItem";
-            this.bebidasToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.bebidasToolStripMenuItem.Text = "Bebidas";
+            this.ToolStrip_Bebidas.Name = "ToolStrip_Bebidas";
+            this.ToolStrip_Bebidas.Size = new System.Drawing.Size(180, 22);
+            this.ToolStrip_Bebidas.Text = "Bebidas";
+            this.ToolStrip_Bebidas.Visible = false;
+            this.ToolStrip_Bebidas.Click += new System.EventHandler(this.ToolStrip_Bebidas_Click);
             // 
-            // platosToolStripMenuItem
+            // ToolStrip_Platos
             // 
-            this.platosToolStripMenuItem.Name = "platosToolStripMenuItem";
-            this.platosToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.platosToolStripMenuItem.Text = "Platos";
+            this.ToolStrip_Platos.Name = "ToolStrip_Platos";
+            this.ToolStrip_Platos.Size = new System.Drawing.Size(180, 22);
+            this.ToolStrip_Platos.Text = "Platos";
+            this.ToolStrip_Platos.Visible = false;
+            this.ToolStrip_Platos.Click += new System.EventHandler(this.ToolStrip_Platos_Click);
             // 
-            // eventosToolStripMenuItem
+            // ToolStrip_Evento
             // 
-            this.eventosToolStripMenuItem.Name = "eventosToolStripMenuItem";
-            this.eventosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.eventosToolStripMenuItem.Text = "Eventos";
+            this.ToolStrip_Evento.Name = "ToolStrip_Evento";
+            this.ToolStrip_Evento.Size = new System.Drawing.Size(180, 22);
+            this.ToolStrip_Evento.Text = "Eventos";
+            this.ToolStrip_Evento.Visible = false;
+            this.ToolStrip_Evento.Click += new System.EventHandler(this.ToolStrip_Evento_Click);
             // 
-            // extrasToolStripMenuItem
+            // ToolStrip_Extras
             // 
-            this.extrasToolStripMenuItem.Name = "extrasToolStripMenuItem";
-            this.extrasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.extrasToolStripMenuItem.Text = "Extras";
+            this.ToolStrip_Extras.Name = "ToolStrip_Extras";
+            this.ToolStrip_Extras.Size = new System.Drawing.Size(180, 22);
+            this.ToolStrip_Extras.Text = "Extras";
+            this.ToolStrip_Extras.Visible = false;
+            this.ToolStrip_Extras.Click += new System.EventHandler(this.ToolStrip_Extras_Click);
             // 
-            // mesasToolStripMenuItem
+            // ToolStrip_Mesas
             // 
-            this.mesasToolStripMenuItem.Name = "mesasToolStripMenuItem";
-            this.mesasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.mesasToolStripMenuItem.Text = "Mesas";
+            this.ToolStrip_Mesas.Name = "ToolStrip_Mesas";
+            this.ToolStrip_Mesas.Size = new System.Drawing.Size(180, 22);
+            this.ToolStrip_Mesas.Text = "Mesas";
+            this.ToolStrip_Mesas.Visible = false;
+            this.ToolStrip_Mesas.Click += new System.EventHandler(this.ToolStrip_Mesas_Click);
             // 
-            // cocineroToolStripMenuItem
+            // ToolStrip_Cocinero
             // 
-            this.cocineroToolStripMenuItem.Name = "cocineroToolStripMenuItem";
-            this.cocineroToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.cocineroToolStripMenuItem.Text = "Cocinero";
+            this.ToolStrip_Cocinero.Name = "ToolStrip_Cocinero";
+            this.ToolStrip_Cocinero.Size = new System.Drawing.Size(67, 20);
+            this.ToolStrip_Cocinero.Text = "Cocinero";
+            this.ToolStrip_Cocinero.Visible = false;
+            this.ToolStrip_Cocinero.Click += new System.EventHandler(this.ToolStrip_Cocinero_Click);
             // 
-            // mozoToolStripMenuItem
+            // ToolStrip_Mozo
             // 
-            this.mozoToolStripMenuItem.Name = "mozoToolStripMenuItem";
-            this.mozoToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.mozoToolStripMenuItem.Text = "Mozo";
+            this.ToolStrip_Mozo.Name = "ToolStrip_Mozo";
+            this.ToolStrip_Mozo.Size = new System.Drawing.Size(49, 20);
+            this.ToolStrip_Mozo.Text = "Mozo";
+            this.ToolStrip_Mozo.Visible = false;
+            this.ToolStrip_Mozo.Click += new System.EventHandler(this.ToolStrip_Mozo_Click);
             // 
             // GUI_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(840, 521);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "GUI_MenuPrincipal";
@@ -152,16 +171,16 @@ namespace TrabajoFinal
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem personalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ingredientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bebidasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem platosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eventosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem extrasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mesasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cocineroToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mozoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Admin;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Personal;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Menu;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Ingredientes;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Bebidas;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Platos;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Evento;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Extras;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Mesas;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Cocinero;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Mozo;
     }
 }
