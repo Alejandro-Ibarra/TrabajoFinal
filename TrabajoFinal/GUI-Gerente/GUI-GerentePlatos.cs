@@ -139,7 +139,7 @@ namespace TrabajoFinal
             ActivarVisibilidadControles(false);
             LimpiarTextboxYGrilla();
             ActivarDisponibilidadControles(false);
-
+            Boton_Alta.Enabled = true;
             CargarGrillaPlatos();
         }
         #endregion
@@ -329,8 +329,7 @@ namespace TrabajoFinal
         {
             List<string> TipoPlato = new List<string>();
             TipoPlato.Add("Entrada");
-            TipoPlato.Add("Plato Principal");
-            TipoPlato.Add("Acompañamiento");
+            TipoPlato.Add("Principal");
             TipoPlato.Add("Postre");
             return TipoPlato;
         }
@@ -396,6 +395,9 @@ namespace TrabajoFinal
             Boton_ContinuarClasePlato.Enabled = dispo;
             ComboBox_IngredientePrincipal.Enabled = dispo;
             Boton_ConfirmalIngPrincipal.Enabled = dispo;
+            Boton_ConfirmarPrecio.Enabled = dispo;
+            TextBox_Precio.Enabled = dispo;
+
         }
 
         private void LimpiarTextboxYGrilla()
@@ -424,8 +426,12 @@ namespace TrabajoFinal
             }
         }
 
+
         #endregion
 
+        private void DataGridView_TodosIngredientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }

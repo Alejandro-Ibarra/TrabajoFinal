@@ -130,5 +130,16 @@ namespace TrabajoFinal
             oGUI_Mesas.Show();
         }
 
+        private void ToolStrip_BackUp_Click(object sender, EventArgs e)
+        {
+            GUI_BackUp oGUI_BackUp = new GUI_BackUp(oBePersonal.Codigo);
+            oGUI_BackUp.Show();
+        }
+
+        private void ToolStrip_Roles_Click(object sender, EventArgs e)
+        {
+            GUI_RolesPermisos oGUI_RolesPermisos = new GUI_RolesPermisos();
+            oGUI_RolesPermisos.Show();
+        }
     }
 }

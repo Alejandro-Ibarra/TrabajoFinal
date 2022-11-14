@@ -65,7 +65,7 @@ namespace Mapper
                     xmlDocument.Element("Restaurante").Element("Platos").Add(new XElement("Plato",
                                                                                 new XAttribute("ID", oBEPlato.Codigo.ToString().Trim()),
                                                                                 new XElement("Nombre", oBEPlato.Nombre.Trim()),
-                                                                                new XElement("Tipo", oBEPlato.Tipo.Trim()),
+                                                                                new XElement("TipoPlato", oBEPlato.Tipo.Trim()),
                                                                                 new XElement("Clase", oBEPlato.Clase.Trim()),
                                                                                 new XElement("Descripcion", oBEPlato.Descripcion.Trim()),
                                                                                 new XElement("Precio", Convert.ToString(oBEPlato.Precio).Trim()),
@@ -104,7 +104,7 @@ namespace Mapper
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(Plato.Attribute("ID").Value)),
                     Nombre = Convert.ToString(Plato.Element("Nombre").Value).Trim(),
-                    Tipo = Convert.ToString(Plato.Element("Tipo").Value).Trim(),
+                    Tipo = Convert.ToString(Plato.Element("TipoPlato").Value).Trim(),
                     Clase = Convert.ToString(Plato.Element("Clase").Value).Trim(),
                     Descripcion = Convert.ToString(Plato.Element("Descripcion").Value).Trim(),
                     Precio = Convert.ToInt32(Plato.Element("Precio").Value),

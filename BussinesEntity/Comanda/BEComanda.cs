@@ -9,8 +9,8 @@ namespace BussinesEntity
 {
     public class BEComanda : BEEntity
     {
-        public string Nombre { get; set; }
         public int NroMesa { get; set; }
-
+        public DateTime FechaHora { get; set; }
+        public int MontoTotal { get; set; }
     }
 }

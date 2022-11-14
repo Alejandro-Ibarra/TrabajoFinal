@@ -31,12 +31,12 @@ namespace TrabajoFinal
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.Grilla_PermisosNoAsignados = new System.Windows.Forms.DataGridView();
             this.Grilla_PermisosAsignados = new System.Windows.Forms.DataGridView();
             this.Grilla_Roles = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_PermisosNoAsignados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_PermisosAsignados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Roles)).BeginInit();
@@ -59,26 +59,6 @@ namespace TrabajoFinal
             this.label2.Size = new System.Drawing.Size(101, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Permisos Asignados";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(461, 183);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 23);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Quitar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(461, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 23);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Grilla_PermisosNoAsignados
             // 
@@ -117,7 +97,27 @@ namespace TrabajoFinal
             this.label3.TabIndex = 28;
             this.label3.Text = "Permisos No Asignados";
             // 
-            // GUI_Admin
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(461, 183);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(65, 23);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "Quitar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(461, 154);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(65, 23);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Agregar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // GUI_RolesPermisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -130,7 +130,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.Grilla_Roles);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "GUI_Admin";
+            this.Name = "GUI_RolesPermisos";
             this.Text = "GUI_Admin";
             this.Load += new System.EventHandler(this.GUI_Admin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_PermisosNoAsignados)).EndInit();
@@ -144,11 +144,11 @@ namespace TrabajoFinal
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView Grilla_PermisosNoAsignados;
         private System.Windows.Forms.DataGridView Grilla_PermisosAsignados;
         private System.Windows.Forms.DataGridView Grilla_Roles;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

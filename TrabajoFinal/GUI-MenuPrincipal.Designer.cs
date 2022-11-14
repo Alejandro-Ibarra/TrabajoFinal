@@ -39,8 +39,10 @@ namespace TrabajoFinal
             this.ToolStrip_Evento = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_Extras = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_Mesas = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_BackUp = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_Cocinero = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_Mozo = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Roles = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +65,9 @@ namespace TrabajoFinal
             this.ToolStrip_Menu,
             this.ToolStrip_Evento,
             this.ToolStrip_Extras,
-            this.ToolStrip_Mesas});
+            this.ToolStrip_Mesas,
+            this.ToolStrip_BackUp,
+            this.ToolStrip_Roles});
             this.ToolStrip_Admin.Name = "ToolStrip_Admin";
             this.ToolStrip_Admin.Size = new System.Drawing.Size(55, 20);
             this.ToolStrip_Admin.Text = "Admin";
@@ -136,6 +140,13 @@ namespace TrabajoFinal
             this.ToolStrip_Mesas.Visible = false;
             this.ToolStrip_Mesas.Click += new System.EventHandler(this.ToolStrip_Mesas_Click);
             // 
+            // ToolStrip_BackUp
+            // 
+            this.ToolStrip_BackUp.Name = "ToolStrip_BackUp";
+            this.ToolStrip_BackUp.Size = new System.Drawing.Size(180, 22);
+            this.ToolStrip_BackUp.Text = "BackUp/Restore";
+            this.ToolStrip_BackUp.Click += new System.EventHandler(this.ToolStrip_BackUp_Click);
+            // 
             // ToolStrip_Cocinero
             // 
             this.ToolStrip_Cocinero.Name = "ToolStrip_Cocinero";
@@ -151,6 +162,13 @@ namespace TrabajoFinal
             this.ToolStrip_Mozo.Text = "Mozo";
             this.ToolStrip_Mozo.Visible = false;
             this.ToolStrip_Mozo.Click += new System.EventHandler(this.ToolStrip_Mozo_Click);
+            // 
+            // ToolStrip_Roles
+            // 
+            this.ToolStrip_Roles.Name = "ToolStrip_Roles";
+            this.ToolStrip_Roles.Size = new System.Drawing.Size(180, 22);
+            this.ToolStrip_Roles.Text = "Roles/Permisos";
+            this.ToolStrip_Roles.Click += new System.EventHandler(this.ToolStrip_Roles_Click);
             // 
             // GUI_MenuPrincipal
             // 
@@ -182,5 +200,7 @@ namespace TrabajoFinal
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_Mesas;
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_Cocinero;
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_Mozo;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_BackUp;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Roles;
     }
 }

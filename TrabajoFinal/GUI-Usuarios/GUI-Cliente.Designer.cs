@@ -28,12 +28,138 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.Boton_Entrada = new System.Windows.Forms.Button();
+            this.Boton_PlatoPrincipal = new System.Windows.Forms.Button();
+            this.Boton_Postre = new System.Windows.Forms.Button();
+            this.Boton_Extras = new System.Windows.Forms.Button();
+            this.Boton_Bebidas = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Boton_Pagar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // Boton_Entrada
+            // 
+            this.Boton_Entrada.Location = new System.Drawing.Point(58, 72);
+            this.Boton_Entrada.Name = "Boton_Entrada";
+            this.Boton_Entrada.Size = new System.Drawing.Size(75, 23);
+            this.Boton_Entrada.TabIndex = 0;
+            this.Boton_Entrada.Text = "Entrada";
+            this.Boton_Entrada.UseVisualStyleBackColor = true;
+            this.Boton_Entrada.Click += new System.EventHandler(this.Boton_Entrada_Click);
+            // 
+            // Boton_PlatoPrincipal
+            // 
+            this.Boton_PlatoPrincipal.Location = new System.Drawing.Point(183, 72);
+            this.Boton_PlatoPrincipal.Name = "Boton_PlatoPrincipal";
+            this.Boton_PlatoPrincipal.Size = new System.Drawing.Size(93, 23);
+            this.Boton_PlatoPrincipal.TabIndex = 1;
+            this.Boton_PlatoPrincipal.Text = "Plato Principal";
+            this.Boton_PlatoPrincipal.UseVisualStyleBackColor = true;
+            this.Boton_PlatoPrincipal.Click += new System.EventHandler(this.Boton_PlatoPrincipal_Click);
+            // 
+            // Boton_Postre
+            // 
+            this.Boton_Postre.Location = new System.Drawing.Point(332, 72);
+            this.Boton_Postre.Name = "Boton_Postre";
+            this.Boton_Postre.Size = new System.Drawing.Size(75, 23);
+            this.Boton_Postre.TabIndex = 2;
+            this.Boton_Postre.Text = "Postre";
+            this.Boton_Postre.UseVisualStyleBackColor = true;
+            this.Boton_Postre.Click += new System.EventHandler(this.Boton_Postre_Click);
+            // 
+            // Boton_Extras
+            // 
+            this.Boton_Extras.Location = new System.Drawing.Point(461, 72);
+            this.Boton_Extras.Name = "Boton_Extras";
+            this.Boton_Extras.Size = new System.Drawing.Size(75, 23);
+            this.Boton_Extras.TabIndex = 3;
+            this.Boton_Extras.Text = "Extras";
+            this.Boton_Extras.UseVisualStyleBackColor = true;
+            this.Boton_Extras.Click += new System.EventHandler(this.Boton_Extras_Click);
+            // 
+            // Boton_Bebidas
+            // 
+            this.Boton_Bebidas.Location = new System.Drawing.Point(607, 72);
+            this.Boton_Bebidas.Name = "Boton_Bebidas";
+            this.Boton_Bebidas.Size = new System.Drawing.Size(75, 23);
+            this.Boton_Bebidas.TabIndex = 4;
+            this.Boton_Bebidas.Text = "Bebidas";
+            this.Boton_Bebidas.UseVisualStyleBackColor = true;
+            this.Boton_Bebidas.Click += new System.EventHandler(this.Boton_Bebidas_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(37, 177);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(528, 335);
+            this.dataGridView1.TabIndex = 5;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(607, 480);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(118, 32);
+            this.textBox1.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(604, 452);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "MontoTotal";
+            // 
+            // Boton_Pagar
+            // 
+            this.Boton_Pagar.Location = new System.Drawing.Point(607, 376);
+            this.Boton_Pagar.Name = "Boton_Pagar";
+            this.Boton_Pagar.Size = new System.Drawing.Size(75, 23);
+            this.Boton_Pagar.TabIndex = 8;
+            this.Boton_Pagar.Text = "Pagar";
+            this.Boton_Pagar.UseVisualStyleBackColor = true;
+            this.Boton_Pagar.Click += new System.EventHandler(this.Boton_Pagar_Click);
+            // 
+            // GUI_Cliente
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(855, 558);
+            this.Controls.Add(this.Boton_Pagar);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Boton_Bebidas);
+            this.Controls.Add(this.Boton_Extras);
+            this.Controls.Add(this.Boton_Postre);
+            this.Controls.Add(this.Boton_PlatoPrincipal);
+            this.Controls.Add(this.Boton_Entrada);
+            this.Name = "GUI_Cliente";
             this.Text = "GUI_Cliente";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button Boton_Entrada;
+        private System.Windows.Forms.Button Boton_PlatoPrincipal;
+        private System.Windows.Forms.Button Boton_Postre;
+        private System.Windows.Forms.Button Boton_Extras;
+        private System.Windows.Forms.Button Boton_Bebidas;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Boton_Pagar;
     }
 }

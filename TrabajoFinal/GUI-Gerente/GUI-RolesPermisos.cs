@@ -120,7 +120,6 @@ namespace TrabajoFinal
         private List<BEPermisos> PermNoAsig(List<BEPermisos> listPer)
         {
             List<BEPermisos> listaAux = oBLPermisos.ListarTodo();
-            List<BEPermisos> listaAux2 = oBLPermisos.ListarTodo();
 
             for (int i = 0; i < listPer.Count; i++)
             {

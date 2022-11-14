@@ -137,6 +137,12 @@
     <Compile Include="GUI-Usuarios\GUI-UsrMozo.Designer.cs">
       <DependentUpon>GUI-UsrMozo.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI-Usuarios\GUI_SeleccionPlatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI_SeleccionPlatos.Designer.cs">
+      <DependentUpon>GUI_SeleccionPlatos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FoldeUserControls\UC_Mesas.cs">
@@ -190,11 +196,17 @@
     <EmbeddedResource Include="GUI-MenuPrincipal.resx">
       <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Usuarios\GUI-Cliente.resx">
+      <DependentUpon>GUI-Cliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI-Usuarios\GUI-UsrCocina.resx">
       <DependentUpon>GUI-UsrCocina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Usuarios\GUI-UsrMozo.resx">
       <DependentUpon>GUI-UsrMozo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Usuarios\GUI_SeleccionPlatos.resx">
+      <DependentUpon>GUI_SeleccionPlatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -220,6 +232,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Abstraction\Abstraction.csproj">
+      <Project>{09535fe8-59c7-4c1c-8f37-c269810ff089}</Project>
+      <Name>Abstraction</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BussinesEntity\BussinesEntity.csproj">
       <Project>{1953b4e7-abe1-4bb3-8d4e-a6a7705d01d1}</Project>
       <Name>BussinesEntity</Name>
