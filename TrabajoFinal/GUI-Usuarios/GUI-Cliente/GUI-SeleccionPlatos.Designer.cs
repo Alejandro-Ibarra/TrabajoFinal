@@ -166,6 +166,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.GridView_TodosIng);
             this.Name = "GUI_SeleccionPlatos";
             this.Text = "GUI_SeleccionPlatos";
+            this.Load += new System.EventHandler(this.GUI_SeleccionPlatos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridView_TodosIng)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_IngSelec)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_PlatoSelec)).EndInit();

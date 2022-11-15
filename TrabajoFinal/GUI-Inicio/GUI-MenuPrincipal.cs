@@ -21,16 +21,10 @@ namespace TrabajoFinal
         {
             InitializeComponent();
             oBePersonal = bEPersonal;
-            oBLPersonal = new BLPersonal();
-            oBEPermisos = new BEPermisos();
-            oBLPermisos = new BLPermisos();
             AsignarControles(bEPersonal);
         }
 
-        BEPermisos oBEPermisos;
-        BLPermisos oBLPermisos;
         BEPersonal oBePersonal;
-        BLPersonal oBLPersonal;
 
         private List<BEPermisos> RecuperarTodosPermisos(BEPersonal obEPersonal)
         {

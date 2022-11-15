@@ -1,20 +1,21 @@
-﻿using Abstraction;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BussinesEntity;
 
-namespace BussinesEntity
+namespace BussinesLogic
 {
-    public abstract class BEComanda
+    public abstract class BLComanda
     {
+
         int _NroMesa;
         DateTime _FechaHora;
         int _MontoTotal;
         string _Estado;
 
-        public BEComanda(DateTime fechaHora, int nroMesa,  int montoTotal, string estado)
+        public BLComanda( int nroMesa, DateTime fechaHora, int montoTotal, string estado)
         {
             _NroMesa = nroMesa;
             _FechaHora = fechaHora;
@@ -25,6 +26,11 @@ namespace BussinesEntity
         public int NroMesa { get { return _NroMesa; } }
         public DateTime FechaHora { get { return _FechaHora; } }
         public int MontoTotal { get { return _MontoTotal; } }
-        public string  Estado { get { return _Estado; } }
+        public string Estado { get { return _Estado; } }
+
+        public abstract void AgregarComanda(BLComanda comanda);
+        public abstract IList<BLComanda> ObtenerComandas();
+        public abstract void CambiarEstado(string estado);
+
     }
 }

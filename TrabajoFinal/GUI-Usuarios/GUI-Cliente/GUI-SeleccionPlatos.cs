@@ -177,5 +177,10 @@ namespace TrabajoFinal
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void GUI_SeleccionPlatos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

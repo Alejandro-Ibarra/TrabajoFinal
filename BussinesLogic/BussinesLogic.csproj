@@ -52,6 +52,7 @@
     <Compile Include="Administrador\Permisos\BLRoles.cs" />
     <Compile Include="Administrador\Salon\BLMesa.cs" />
     <Compile Include="Administrador\Personal\BLPersonal.cs" />
+    <Compile Include="Comanda\BLComanda.cs" />
     <Compile Include="Contable\BLMetodoPago.cs" />
     <Compile Include="Administrador\Personal\BLMozo.cs" />
     <Compile Include="Contable\BLPago.cs" />

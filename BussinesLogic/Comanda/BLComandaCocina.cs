@@ -8,31 +8,29 @@ using System.Threading.Tasks;
 
 namespace BussinesLogic
 {
-    public class BLComandaCocina : IGestorABM<BEComandaCocina>
+    public class BLComandaCocina : BLComanda
     {
-        public bool Baja(BEComandaCocina oBEComandaCocina)
+        private List<BLComanda> _comandas;
+
+        public BLComandaCocina( int nroMesa, DateTime fechaHora, int montoTotal, string estado, BEPlato platos) : base(nroMesa, fechaHora, montoTotal, estado)
+        {
+            _comandas = new List<BLComanda>();
+        }
+
+        public override void AgregarComanda(BLComanda comanda)
+        {
+            _comandas.Add(comanda);
+        }
+
+        public override IList<BLComanda> ObtenerComandas()
+        {
+            return _comandas.ToArray();
+        }
+
+        public override void CambiarEstado(string estado)
         {
             throw new NotImplementedException();
         }
 
-        public bool Guardar(BEComandaCocina oBEComandaCocina)
-        {
-            throw new NotImplementedException();
-        }
-
-        public BEComandaCocina ListarObjeto(int oBEComandaCocina)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<BEComandaCocina> ListarTodo()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Modificar(BEComandaCocina Objeto)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

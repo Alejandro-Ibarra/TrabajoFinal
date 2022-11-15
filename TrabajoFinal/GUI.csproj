@@ -101,28 +101,46 @@
     <Compile Include="GUI-Gerente\GUI-GerentePlatos.Designer.cs">
       <DependentUpon>GUI-GerentePlatos.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Usuarios\GUI-Cliente.cs">
+    <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-RealizarPago.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Usuarios\GUI-Cliente.Designer.cs">
+    <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-RealizarPago.Designer.cs">
+      <DependentUpon>GUI-RealizarPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionBebidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionBebidas.Designer.cs">
+      <DependentUpon>GUI-SeleccionBebidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionExtras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionExtras.Designer.cs">
+      <DependentUpon>GUI-SeleccionExtras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-Cliente.Designer.cs">
       <DependentUpon>GUI-Cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Inicio.cs">
+    <Compile Include="GUI-Inicio\GUI-Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Inicio.Designer.cs">
+    <Compile Include="GUI-Inicio\GUI-Inicio.Designer.cs">
       <DependentUpon>GUI-Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Login.cs">
+    <Compile Include="GUI-Inicio\GUI-Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Login.Designer.cs">
+    <Compile Include="GUI-Inicio\GUI-Login.Designer.cs">
       <DependentUpon>GUI-Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-MenuPrincipal.cs">
+    <Compile Include="GUI-Inicio\GUI-MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-MenuPrincipal.Designer.cs">
+    <Compile Include="GUI-Inicio\GUI-MenuPrincipal.Designer.cs">
       <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-Usuarios\GUI-UsrCocina.cs">
@@ -137,11 +155,11 @@
     <Compile Include="GUI-Usuarios\GUI-UsrMozo.Designer.cs">
       <DependentUpon>GUI-UsrMozo.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Usuarios\GUI_SeleccionPlatos.cs">
+    <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionPlatos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Usuarios\GUI_SeleccionPlatos.Designer.cs">
-      <DependentUpon>GUI_SeleccionPlatos.cs</DependentUpon>
+    <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionPlatos.Designer.cs">
+      <DependentUpon>GUI-SeleccionPlatos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,16 +205,22 @@
     <EmbeddedResource Include="GUI-Gerente\GUI-GerentePersonal.resx">
       <DependentUpon>GUI-GerentePersonal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Inicio.resx">
+    <EmbeddedResource Include="GUI-Inicio\GUI-Inicio.resx">
       <DependentUpon>GUI-Inicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Login.resx">
+    <EmbeddedResource Include="GUI-Inicio\GUI-Login.resx">
       <DependentUpon>GUI-Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-MenuPrincipal.resx">
+    <EmbeddedResource Include="GUI-Inicio\GUI-MenuPrincipal.resx">
       <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Usuarios\GUI-Cliente.resx">
+    <EmbeddedResource Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionBebidas.resx">
+      <DependentUpon>GUI-SeleccionBebidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionExtras.resx">
+      <DependentUpon>GUI-SeleccionExtras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Usuarios\GUI-Cliente\GUI-Cliente.resx">
       <DependentUpon>GUI-Cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Usuarios\GUI-UsrCocina.resx">
@@ -205,8 +229,8 @@
     <EmbeddedResource Include="GUI-Usuarios\GUI-UsrMozo.resx">
       <DependentUpon>GUI-UsrMozo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Usuarios\GUI_SeleccionPlatos.resx">
-      <DependentUpon>GUI_SeleccionPlatos.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionPlatos.resx">
+      <DependentUpon>GUI-SeleccionPlatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -260,5 +284,6 @@
   <ItemGroup>
     <None Include="bin\Debug\Mesas.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
