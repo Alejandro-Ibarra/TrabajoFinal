@@ -144,7 +144,7 @@ namespace TrabajoFinal
         {
             List<string> ListaProveedor = new List<string>();
             ListaProveedor.Add("Limpieza clean");
-            ListaProveedor.Add("Ledezma");
+            ListaProveedor.Add("Ledesma");
             ListaProveedor.Add("Limpieza ramona");
             ListaProveedor.Add("Bazar chef");
             ListaProveedor.Add("Chango");

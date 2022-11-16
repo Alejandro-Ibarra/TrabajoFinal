@@ -7,24 +7,13 @@ using System.Threading.Tasks;
 
 namespace BussinesEntity
 {
-    public abstract class BEComanda
+    public class BEComanda : BEEntity
     {
-        int _NroMesa;
-        DateTime _FechaHora;
-        int _MontoTotal;
-        string _Estado;
-
-        public BEComanda(DateTime fechaHora, int nroMesa,  int montoTotal, string estado)
-        {
-            _NroMesa = nroMesa;
-            _FechaHora = fechaHora;
-            _MontoTotal = montoTotal;
-            _Estado = estado;
-        }
-
-        public int NroMesa { get { return _NroMesa; } }
-        public DateTime FechaHora { get { return _FechaHora; } }
-        public int MontoTotal { get { return _MontoTotal; } }
-        public string  Estado { get { return _Estado; } }
+        public List<BEComanda> comandas = new List<BEComanda>();
+        public int NroMesa { get; set; }
+        public DateTime FechaHora { get; set; }
+        public int MontoTotal { get; set; }
+        public string Estado { get; set; }
+        public BECliente Cliente { get; set; }
     }
 }

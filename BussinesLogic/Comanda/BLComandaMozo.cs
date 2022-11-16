@@ -5,31 +5,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mapper;
 
 namespace BussinesLogic
 {
-    public class BLComandaMozo : BLComanda
+    public class BLComandaMozo : IGestorABM<BEComandaMozo>, IGestorConsulta<int>
     {
-        private List<BLComanda> _comandas;
 
-        public BLComandaMozo( int nroMesa, DateTime fechaHora, int montoTotal, string estado, List<BEExtras> extras , List<BEBebida> bebidas) : base(nroMesa, fechaHora, montoTotal, estado)
+        public BLComandaMozo()
         {
-            _comandas = new List<BLComanda>();
+            oMComandaMozo = new MComandaMozo();
         }
 
-        public override void AgregarComanda(BLComanda comanda)
+        MComandaMozo oMComandaMozo;
+
+        public bool Baja(BEComandaMozo Objeto)
         {
-            _comandas.Add(comanda);
+            return oMComandaMozo.Baja(Objeto);
         }
 
-        public override void CambiarEstado(string estado)
+        public bool Existe(int obj)
         {
-            throw new NotImplementedException();
+            return oMComandaMozo.Existe(obj);
         }
 
-        public override IList<BLComanda> ObtenerComandas()
+        public bool Guardar(BEComandaMozo Objeto)
         {
-            return _comandas.ToArray();
+            return oMComandaMozo.Guardar(Objeto);
+        }
+
+        public BEComandaMozo ListarObjeto(int Dni)
+        {
+            return oMComandaMozo.ListarObjeto(Dni);
+        }
+
+        public List<BEComandaMozo> ListarTodo()
+        {
+            return oMComandaMozo.ListarTodo();
+        }
+
+        public bool Modificar(BEComandaMozo Objeto)
+        {
+            return oMComandaMozo.Modificar(Objeto);
+        }
+
+        public int GenerarCodigo()
+        {
+            return oMComandaMozo.GenerarCodigo();
         }
     }
 }

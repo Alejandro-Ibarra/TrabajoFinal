@@ -9,16 +9,9 @@ namespace BussinesEntity
     public class BEComandaMozo : BEComanda
     {
 
-        private List<BEComanda> _comandas;
-
-        public BEComandaMozo(DateTime fechaHora, int nroMesa, int montoTotal, string estado) : base(fechaHora, nroMesa, montoTotal, estado)
-        {
-            _comandas = new List<BEComanda>();
-        }
+        public List<BEExtras> extras = new List<BEExtras>();
+        public List<BEBebida> bebidas = new List<BEBebida>();
 
 
-
-        public List<BEBebida> ListaBebidas { get; set; }
-        public List<BEExtras> ListaExtras { get; set; }
     }
 }

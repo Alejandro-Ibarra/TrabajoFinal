@@ -130,23 +130,8 @@ namespace TrabajoFinal
         {
             if (GridView_TodosPlatos.Rows.Count > 0)
             {
-                int aux = 0;
+                listaPlatosElegidos.Add((BEPlato)GridView_TodosPlatos.CurrentRow.DataBoundItem);
 
-                foreach (BEPlato plato in listaPlatosElegidos)
-                {
-                    if (plato.Codigo == ((BEPlato)GridView_TodosPlatos.CurrentRow.DataBoundItem).Codigo)
-                    {
-                        aux++;
-                    }
-                }
-                if (aux == 0)
-                {
-                    listaPlatosElegidos.Add((BEPlato)GridView_TodosPlatos.CurrentRow.DataBoundItem);
-                }
-                else
-                {
-                    MessageBox.Show("El ingrediente ya se encuentra en el plato");
-                }
                 GridView_PlatoSelec.DataSource = null;
                 GridView_PlatoSelec.DataSource = listaPlatosElegidos;
             }

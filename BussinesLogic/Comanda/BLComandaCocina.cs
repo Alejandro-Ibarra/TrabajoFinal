@@ -5,32 +5,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Mapper;
 namespace BussinesLogic
 {
-    public class BLComandaCocina : BLComanda
+    public class BLComandaCocina : IGestorABM<BEComandaCocina>, IGestorConsulta<int>
     {
-        private List<BLComanda> _comandas;
-
-        public BLComandaCocina( int nroMesa, DateTime fechaHora, int montoTotal, string estado, BEPlato platos) : base(nroMesa, fechaHora, montoTotal, estado)
+        public BLComandaCocina()
         {
-            _comandas = new List<BLComanda>();
+            oMComandaCocina = new MComandaCocina();
         }
 
-        public override void AgregarComanda(BLComanda comanda)
+        MComandaCocina oMComandaCocina;
+
+        public bool Baja(BEComandaCocina Objeto)
         {
-            _comandas.Add(comanda);
+            return oMComandaCocina.Baja(Objeto);
         }
 
-        public override IList<BLComanda> ObtenerComandas()
+        public bool Existe(int obj)
         {
-            return _comandas.ToArray();
+            return oMComandaCocina.Existe(obj);
         }
 
-        public override void CambiarEstado(string estado)
+        public bool Guardar(BEComandaCocina Objeto)
         {
-            throw new NotImplementedException();
+            return oMComandaCocina.Guardar(Objeto);
         }
 
+        public BEComandaCocina ListarObjeto(int Dni)
+        {
+            return oMComandaCocina.ListarObjeto(Dni);
+        }
+
+        public List<BEComandaCocina> ListarTodo()
+        {
+            return oMComandaCocina.ListarTodo();
+        }
+
+        public bool Modificar(BEComandaCocina Objeto)
+        {
+            return oMComandaCocina.Modificar(Objeto);
+        }
+        public int GenerarCodigo()
+        {
+            return oMComandaCocina.GenerarCodigo();
+        }
     }
 }

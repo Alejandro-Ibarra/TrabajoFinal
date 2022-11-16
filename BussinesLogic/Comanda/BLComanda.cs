@@ -3,34 +3,62 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Abstraction;
 using BussinesEntity;
+using Mapper;
 
 namespace BussinesLogic
 {
-    public abstract class BLComanda
+    public class BLComanda : IGestorABM<BEComanda>, IGestorConsulta<int>
     {
 
-        int _NroMesa;
-        DateTime _FechaHora;
-        int _MontoTotal;
-        string _Estado;
-
-        public BLComanda( int nroMesa, DateTime fechaHora, int montoTotal, string estado)
+        public BLComanda()
         {
-            _NroMesa = nroMesa;
-            _FechaHora = fechaHora;
-            _MontoTotal = montoTotal;
-            _Estado = estado;
+            oMComanda = new MComanda();
+        }
+        MComanda oMComanda;
+
+        public bool Baja(BEComanda Objeto)
+        {
+            return oMComanda.Baja(Objeto);
         }
 
-        public int NroMesa { get { return _NroMesa; } }
-        public DateTime FechaHora { get { return _FechaHora; } }
-        public int MontoTotal { get { return _MontoTotal; } }
-        public string Estado { get { return _Estado; } }
+        public bool Existe(int obj)
+        {
+            return oMComanda.Existe(obj);
+        }
 
-        public abstract void AgregarComanda(BLComanda comanda);
-        public abstract IList<BLComanda> ObtenerComandas();
-        public abstract void CambiarEstado(string estado);
+        public bool Guardar(BEComanda Objeto)
+        {
+            return oMComanda.Guardar(Objeto);
+        }
 
+        public BEComanda ListarObjeto(int Dni)
+        {
+            return oMComanda.ListarObjeto(Dni);
+        }
+
+        public List<BEComanda> ListarTodo()
+        {
+            return oMComanda.ListarTodo();
+        }
+
+        public bool Modificar(BEComanda Objeto)
+        {
+            return oMComanda.Modificar(Objeto);
+        }
+        public int GenerarCodigo()
+        {
+            return oMComanda.GenerarCodigo();
+        }
+        public int GenerarCodigoPedido(int codigo)
+        {
+            return oMComanda.GenerarCodigoPedido(codigo);
+        }
+
+        public bool GestionarPlato(string nombre, int codigo, string estadoPlato)
+        {
+            return oMComanda.GestionarPlato(nombre, codigo, estadoPlato);
+        }
     }
 }

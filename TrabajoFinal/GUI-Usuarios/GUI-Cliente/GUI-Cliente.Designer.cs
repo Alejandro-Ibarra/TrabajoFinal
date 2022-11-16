@@ -33,16 +33,25 @@
             this.Boton_Postre = new System.Windows.Forms.Button();
             this.Boton_Extras = new System.Windows.Forms.Button();
             this.Boton_Bebidas = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Grilla_PedidosCliente = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Boton_Pagar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.TextBox_Nombre = new System.Windows.Forms.TextBox();
+            this.TextBox_Mail = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Boton_Aceptar = new System.Windows.Forms.Button();
+            this.Boton_Rechazar = new System.Windows.Forms.Button();
+            this.TextBox_NombreGrilla = new System.Windows.Forms.TextBox();
+            this.TextBox_CodigoGrilla = new System.Windows.Forms.TextBox();
+            this.Boton_Cancelar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla_PedidosCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // Boton_Entrada
             // 
-            this.Boton_Entrada.Location = new System.Drawing.Point(58, 72);
+            this.Boton_Entrada.Location = new System.Drawing.Point(46, 95);
             this.Boton_Entrada.Name = "Boton_Entrada";
             this.Boton_Entrada.Size = new System.Drawing.Size(75, 23);
             this.Boton_Entrada.TabIndex = 0;
@@ -52,7 +61,7 @@
             // 
             // Boton_PlatoPrincipal
             // 
-            this.Boton_PlatoPrincipal.Location = new System.Drawing.Point(183, 72);
+            this.Boton_PlatoPrincipal.Location = new System.Drawing.Point(171, 95);
             this.Boton_PlatoPrincipal.Name = "Boton_PlatoPrincipal";
             this.Boton_PlatoPrincipal.Size = new System.Drawing.Size(93, 23);
             this.Boton_PlatoPrincipal.TabIndex = 1;
@@ -62,7 +71,7 @@
             // 
             // Boton_Postre
             // 
-            this.Boton_Postre.Location = new System.Drawing.Point(332, 72);
+            this.Boton_Postre.Location = new System.Drawing.Point(320, 95);
             this.Boton_Postre.Name = "Boton_Postre";
             this.Boton_Postre.Size = new System.Drawing.Size(75, 23);
             this.Boton_Postre.TabIndex = 2;
@@ -72,7 +81,7 @@
             // 
             // Boton_Extras
             // 
-            this.Boton_Extras.Location = new System.Drawing.Point(461, 72);
+            this.Boton_Extras.Location = new System.Drawing.Point(449, 95);
             this.Boton_Extras.Name = "Boton_Extras";
             this.Boton_Extras.Size = new System.Drawing.Size(75, 23);
             this.Boton_Extras.TabIndex = 3;
@@ -82,7 +91,7 @@
             // 
             // Boton_Bebidas
             // 
-            this.Boton_Bebidas.Location = new System.Drawing.Point(607, 72);
+            this.Boton_Bebidas.Location = new System.Drawing.Point(595, 95);
             this.Boton_Bebidas.Name = "Boton_Bebidas";
             this.Boton_Bebidas.Size = new System.Drawing.Size(75, 23);
             this.Boton_Bebidas.TabIndex = 4;
@@ -90,16 +99,17 @@
             this.Boton_Bebidas.UseVisualStyleBackColor = true;
             this.Boton_Bebidas.Click += new System.EventHandler(this.Boton_Bebidas_Click);
             // 
-            // dataGridView1
+            // Grilla_PedidosCliente
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(37, 177);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(528, 335);
-            this.dataGridView1.TabIndex = 5;
+            this.Grilla_PedidosCliente.AllowUserToAddRows = false;
+            this.Grilla_PedidosCliente.AllowUserToDeleteRows = false;
+            this.Grilla_PedidosCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla_PedidosCliente.Location = new System.Drawing.Point(37, 177);
+            this.Grilla_PedidosCliente.Name = "Grilla_PedidosCliente";
+            this.Grilla_PedidosCliente.ReadOnly = true;
+            this.Grilla_PedidosCliente.Size = new System.Drawing.Size(487, 335);
+            this.Grilla_PedidosCliente.TabIndex = 5;
+            this.Grilla_PedidosCliente.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_PedidosCliente_MouseClick);
             // 
             // textBox1
             // 
@@ -120,7 +130,7 @@
             // 
             // Boton_Pagar
             // 
-            this.Boton_Pagar.Location = new System.Drawing.Point(607, 376);
+            this.Boton_Pagar.Location = new System.Drawing.Point(731, 489);
             this.Boton_Pagar.Name = "Boton_Pagar";
             this.Boton_Pagar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Pagar.TabIndex = 8;
@@ -128,15 +138,100 @@
             this.Boton_Pagar.UseVisualStyleBackColor = true;
             this.Boton_Pagar.Click += new System.EventHandler(this.Boton_Pagar_Click);
             // 
+            // TextBox_Nombre
+            // 
+            this.TextBox_Nombre.Location = new System.Drawing.Point(46, 43);
+            this.TextBox_Nombre.Name = "TextBox_Nombre";
+            this.TextBox_Nombre.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_Nombre.TabIndex = 9;
+            // 
+            // TextBox_Mail
+            // 
+            this.TextBox_Mail.Location = new System.Drawing.Point(189, 43);
+            this.TextBox_Mail.Name = "TextBox_Mail";
+            this.TextBox_Mail.Size = new System.Drawing.Size(163, 20);
+            this.TextBox_Mail.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(43, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Nombre";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(186, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "E-Mail";
+            // 
+            // Boton_Aceptar
+            // 
+            this.Boton_Aceptar.Location = new System.Drawing.Point(543, 266);
+            this.Boton_Aceptar.Name = "Boton_Aceptar";
+            this.Boton_Aceptar.Size = new System.Drawing.Size(75, 23);
+            this.Boton_Aceptar.TabIndex = 13;
+            this.Boton_Aceptar.Text = "Aceptar";
+            this.Boton_Aceptar.UseVisualStyleBackColor = true;
+            this.Boton_Aceptar.Click += new System.EventHandler(this.Boton_Aceptar_Click);
+            // 
+            // Boton_Rechazar
+            // 
+            this.Boton_Rechazar.Location = new System.Drawing.Point(543, 317);
+            this.Boton_Rechazar.Name = "Boton_Rechazar";
+            this.Boton_Rechazar.Size = new System.Drawing.Size(75, 23);
+            this.Boton_Rechazar.TabIndex = 14;
+            this.Boton_Rechazar.Text = "Rechazar";
+            this.Boton_Rechazar.UseVisualStyleBackColor = true;
+            this.Boton_Rechazar.Click += new System.EventHandler(this.Boton_Rechazar_Click);
+            // 
+            // TextBox_NombreGrilla
+            // 
+            this.TextBox_NombreGrilla.Location = new System.Drawing.Point(543, 219);
+            this.TextBox_NombreGrilla.Name = "TextBox_NombreGrilla";
+            this.TextBox_NombreGrilla.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_NombreGrilla.TabIndex = 15;
+            // 
+            // TextBox_CodigoGrilla
+            // 
+            this.TextBox_CodigoGrilla.Location = new System.Drawing.Point(696, 219);
+            this.TextBox_CodigoGrilla.Name = "TextBox_CodigoGrilla";
+            this.TextBox_CodigoGrilla.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_CodigoGrilla.TabIndex = 16;
+            // 
+            // Boton_Cancelar
+            // 
+            this.Boton_Cancelar.Location = new System.Drawing.Point(543, 366);
+            this.Boton_Cancelar.Name = "Boton_Cancelar";
+            this.Boton_Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.Boton_Cancelar.TabIndex = 17;
+            this.Boton_Cancelar.Text = "Cancelar";
+            this.Boton_Cancelar.UseVisualStyleBackColor = true;
+            this.Boton_Cancelar.Click += new System.EventHandler(this.Boton_Cancelar_Click);
+            // 
             // GUI_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 558);
+            this.Controls.Add(this.Boton_Cancelar);
+            this.Controls.Add(this.TextBox_CodigoGrilla);
+            this.Controls.Add(this.TextBox_NombreGrilla);
+            this.Controls.Add(this.Boton_Rechazar);
+            this.Controls.Add(this.Boton_Aceptar);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.TextBox_Mail);
+            this.Controls.Add(this.TextBox_Nombre);
             this.Controls.Add(this.Boton_Pagar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Grilla_PedidosCliente);
             this.Controls.Add(this.Boton_Bebidas);
             this.Controls.Add(this.Boton_Extras);
             this.Controls.Add(this.Boton_Postre);
@@ -144,7 +239,7 @@
             this.Controls.Add(this.Boton_Entrada);
             this.Name = "GUI_Cliente";
             this.Text = "GUI_Cliente";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla_PedidosCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,9 +252,18 @@
         private System.Windows.Forms.Button Boton_Postre;
         private System.Windows.Forms.Button Boton_Extras;
         private System.Windows.Forms.Button Boton_Bebidas;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Grilla_PedidosCliente;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Boton_Pagar;
+        private System.Windows.Forms.TextBox TextBox_Nombre;
+        private System.Windows.Forms.TextBox TextBox_Mail;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button Boton_Aceptar;
+        private System.Windows.Forms.Button Boton_Rechazar;
+        private System.Windows.Forms.TextBox TextBox_NombreGrilla;
+        private System.Windows.Forms.TextBox TextBox_CodigoGrilla;
+        private System.Windows.Forms.Button Boton_Cancelar;
     }
 }

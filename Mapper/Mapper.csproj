@@ -57,6 +57,7 @@
     <Compile Include="Contble\MPago.cs" />
     <Compile Include="Administrador\Personal\MPersonal.cs" />
     <Compile Include="MBackUp.cs" />
+    <Compile Include="Comanda\MComanda.cs" />
     <Compile Include="MLogin.cs" />
     <Compile Include="Administrador\Personal\MMozo.cs" />
     <Compile Include="Administrador\Permisos\MPermisos.cs" />
