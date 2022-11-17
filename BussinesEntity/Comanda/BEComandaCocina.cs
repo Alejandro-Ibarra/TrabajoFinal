@@ -8,7 +8,6 @@ namespace BussinesEntity
 {
     public class BEComandaCocina : BEComanda
     {
-        
-        public List<BEPlato> oBEPlato = new List<BEPlato>();
+        public List<BEPlato> Plato = new List<BEPlato>();
     }
 }

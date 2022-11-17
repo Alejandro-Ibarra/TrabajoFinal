@@ -44,7 +44,6 @@
             this.Boton_Aceptar = new System.Windows.Forms.Button();
             this.Boton_Rechazar = new System.Windows.Forms.Button();
             this.TextBox_NombreGrilla = new System.Windows.Forms.TextBox();
-            this.TextBox_CodigoGrilla = new System.Windows.Forms.TextBox();
             this.Boton_Cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_PedidosCliente)).BeginInit();
             this.SuspendLayout();
@@ -172,7 +171,7 @@
             // 
             // Boton_Aceptar
             // 
-            this.Boton_Aceptar.Location = new System.Drawing.Point(543, 266);
+            this.Boton_Aceptar.Location = new System.Drawing.Point(543, 320);
             this.Boton_Aceptar.Name = "Boton_Aceptar";
             this.Boton_Aceptar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Aceptar.TabIndex = 13;
@@ -182,7 +181,7 @@
             // 
             // Boton_Rechazar
             // 
-            this.Boton_Rechazar.Location = new System.Drawing.Point(543, 317);
+            this.Boton_Rechazar.Location = new System.Drawing.Point(543, 366);
             this.Boton_Rechazar.Name = "Boton_Rechazar";
             this.Boton_Rechazar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Rechazar.TabIndex = 14;
@@ -197,16 +196,9 @@
             this.TextBox_NombreGrilla.Size = new System.Drawing.Size(100, 20);
             this.TextBox_NombreGrilla.TabIndex = 15;
             // 
-            // TextBox_CodigoGrilla
-            // 
-            this.TextBox_CodigoGrilla.Location = new System.Drawing.Point(696, 219);
-            this.TextBox_CodigoGrilla.Name = "TextBox_CodigoGrilla";
-            this.TextBox_CodigoGrilla.Size = new System.Drawing.Size(100, 20);
-            this.TextBox_CodigoGrilla.TabIndex = 16;
-            // 
             // Boton_Cancelar
             // 
-            this.Boton_Cancelar.Location = new System.Drawing.Point(543, 366);
+            this.Boton_Cancelar.Location = new System.Drawing.Point(721, 366);
             this.Boton_Cancelar.Name = "Boton_Cancelar";
             this.Boton_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Cancelar.TabIndex = 17;
@@ -220,7 +212,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 558);
             this.Controls.Add(this.Boton_Cancelar);
-            this.Controls.Add(this.TextBox_CodigoGrilla);
             this.Controls.Add(this.TextBox_NombreGrilla);
             this.Controls.Add(this.Boton_Rechazar);
             this.Controls.Add(this.Boton_Aceptar);
@@ -263,7 +254,6 @@
         private System.Windows.Forms.Button Boton_Aceptar;
         private System.Windows.Forms.Button Boton_Rechazar;
         private System.Windows.Forms.TextBox TextBox_NombreGrilla;
-        private System.Windows.Forms.TextBox TextBox_CodigoGrilla;
         private System.Windows.Forms.Button Boton_Cancelar;
     }
 }

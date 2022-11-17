@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BussinesEntity
 {
-    public class BEPlato : BEEntity
+    public class BEPlato : BEItem
     {
         public string Nombre { get; set; }
         public string Tipo { get; set; }

@@ -9,7 +9,7 @@ namespace BussinesEntity
 {
     public class BEComanda : BEEntity
     {
-        public List<BEComanda> comandas = new List<BEComanda>();
+        public List<BEComanda> Comandas = new List<BEComanda>();
         public int NroMesa { get; set; }
         public DateTime FechaHora { get; set; }
         public int MontoTotal { get; set; }

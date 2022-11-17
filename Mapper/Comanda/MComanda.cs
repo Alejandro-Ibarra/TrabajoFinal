@@ -24,7 +24,7 @@ namespace Mapper
             try
             {
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-                if (Existe(oBEcomanda.Codigo) == false && oBEcomanda.comandas.Count == 0)
+                if (Existe(oBEcomanda.Codigo) == false && oBEcomanda.Comandas.Count == 0)
                 {
                     
                     xmlDocument.Element("Restaurante").Element("Comandas").Add(new XElement("Comanda",
@@ -46,21 +46,25 @@ namespace Mapper
 
                     foreach (XElement comViejas in consulta)
                     {
-                        int aux = comViejas.Elements("PedidosRealizados").Count();
-                        if (oBEcomanda.comandas[aux] is BEComandaCocina)
+                        int aux = comViejas.Elements("PedidosRealizadosCocina").Count();
+                        int lala = oBEcomanda.Comandas.Count -1;
+                        if (oBEcomanda.Comandas[lala] is BEComandaCocina)
                         {
-                            BEComandaCocina oBEComCocAux = (BEComandaCocina)oBEcomanda.comandas[aux];
+                            BEComandaCocina oBEComCocAux = (BEComandaCocina)oBEcomanda.Comandas[lala];
                             XElement platos = new XElement("PlatosDeComanda");
 
-                            foreach (BEPlato plato in oBEComCocAux.oBEPlato )
+                            foreach (BEPlato plato in oBEComCocAux.Plato )
                             {
                                 platos.Add(new XElement("PlatoComandaCocina",
                                                new XAttribute("Codigo", plato.Codigo),
-                                               new XElement("Estado", "Enviado_Cocina")
+                                               new XElement("Estado", "Enviado_Cocina"),
+                                               new XElement("CodigoComanda", plato.CodigoComanda.ToString()),
+                                               new XElement("CodigoPedido", plato.CodigoPedido.ToString()),
+                                               new XElement("CodigoItem", plato.CodigoItem.ToString())
                                                ));
                             }
 
-                            comViejas.Add(new XElement("PedidosRealizados",
+                            comViejas.Add(new XElement("PedidosRealizadosCocina",
                                         new XAttribute("ID", oBEComCocAux.Codigo.ToString()),
                                         new XElement("Tipo", "Cocina"),
                                         new XElement("Estado", oBEComCocAux.Estado.ToString()),
@@ -73,24 +77,30 @@ namespace Mapper
                         {
                             XElement bebidas = new XElement("BebidasDeComanda");
                             XElement extras = new XElement("ExtrasDeComanda");
-                            BEComandaMozo oBEComMozAux = (BEComandaMozo)oBEcomanda.comandas[aux];
+                            BEComandaMozo oBEComMozAux = (BEComandaMozo)oBEcomanda.Comandas.Last();
 
                             foreach (BEBebida bebida in oBEComMozAux.bebidas)
                             {
                                 bebidas.Add(new XElement("BebidasComandaMozo",
                                                 new XAttribute("ID", bebida.Codigo),
-                                                new XElement("Estado", "Enviado_Mozo")));
+                                                new XElement("Estado", "Enviado_Mozo"),
+                                                new XElement("CodigoComanda", bebida.CodigoComanda.ToString()),
+                                                new XElement("CodigoPedido", bebida.CodigoPedido.ToString()),
+                                                new XElement("CodigoItem", bebida.CodigoItem.ToString())));
                             }
 
                             foreach (BEExtras extra in oBEComMozAux.extras)
                             {
                                 extras.Add(new XElement("ExtrasComandaMozo",
                                                 new XAttribute("ID", extra.Codigo),
+                                                new XElement("CodigoComanda", extra.CodigoComanda.ToString()),
+                                                new XElement("CodigoPedido", extra.CodigoPedido.ToString()),
+                                                new XElement("CodigoItem", extra.CodigoItem.ToString()),
                                                 new XElement("Estado", "Enviado_Mozo")));
                             }
                             if (!bebidas.IsEmpty)
                             {
-                                comViejas.Add(new XElement("PedidosRealizados",
+                                comViejas.Add(new XElement("PedidosRealizadosBebidas",
                                         new XAttribute("ID", (aux + 1).ToString()),
                                         new XElement("Tipo", "Mozo"),
                                         new XElement("Estado", oBEComMozAux.Estado.ToString()),
@@ -101,7 +111,7 @@ namespace Mapper
                             }
                             else
                             {
-                                comViejas.Add(new XElement("PedidosRealizados",
+                                comViejas.Add(new XElement("PedidosRealizadosExtras",
                                         new XAttribute("ID", (aux + 1).ToString()),
                                         new XElement("Tipo", "Mozo"),
                                         new XElement("Estado", oBEComMozAux.Estado.ToString()),
@@ -126,33 +136,53 @@ namespace Mapper
             { throw ex; }
         }
 
-        public bool GestionarPlato(string nombre, int codigo, string estadoPlato)
+        public bool GestionarPlato(ItemsSeleccionados item)
         {
             try
             {
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-                var consulta = from Comanda in xmlDocument.Descendants("PedidosRealizados")
-                               where Comanda.Attribute("ID").Value == codigo.ToString()
-                               select Comanda;
+                var consultaPlato = from plato in xmlDocument.Descendants("PlatoComandaCocina")
+                                     where plato.Element("CodigoComanda").Value == item.CodigoComanda.ToString() && plato.Element("CodigoPedido").Value == item.codigoPedido.ToString() && plato.Element("CodigoItem").Value == item.CodigoItem.ToString()
+                                    select plato;
 
-                if (estadoPlato == "Aceptado")
+                var consultaBebida = from bebida in xmlDocument.Descendants("BebidasComandaMozo")
+                               where bebida.Element("CodigoComanda").Value == item.CodigoComanda.ToString() && bebida.Element("CodigoPedido").Value == item.codigoPedido.ToString() && bebida.Element("CodigoItem").Value == item.CodigoItem.ToString()
+                               select bebida;
+
+                var consultaExtra = from extras in xmlDocument.Descendants("ExtrasComandaMozo")
+                                     where extras.Element("CodigoComanda").Value == item.CodigoComanda.ToString() && extras.Element("CodigoPedido").Value == item.codigoPedido.ToString() && extras.Element("CodigoItem").Value == item.CodigoItem.ToString()
+                                     select extras;
+
+                if (consultaPlato.Any())
                 {
-
+                    foreach (XElement EModifcar in consultaPlato)
+                    {
+                        EModifcar.Element("Estado").Value = item.Estado.Trim();
+                    }
                 }
-                else if (estadoPlato == "Rechazado")
+                else if (consultaBebida.Any())
                 {
-
+                    foreach (XElement EModifcar in consultaBebida)
+                    {
+                        EModifcar.Element("Estado").Value = item.Estado.Trim();
+                    }
                 }
-                else
+                else if(consultaExtra.Any())
                 {
-
+                    foreach (XElement EModifcar in consultaExtra)
+                    {
+                        EModifcar.Element("Estado").Value = item.Estado.Trim();
+                    }
                 }
-                return false;
+                xmlDocument.Save("Restaurante.xml");
+                return true;
             }
             catch (Exception)
             {throw;}
 
         }
+
+
 
         private void SetEstadoPlato()
         {
@@ -166,7 +196,49 @@ namespace Mapper
 
         public List<BEComanda> ListarTodo()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var consulta =
+                from comanda in XElement.Load("Restaurante.xml").Elements("Comandas").Elements("Comanda")
+                select new BEComanda
+                {
+                    Codigo = Convert.ToInt32(Convert.ToString(comanda.Attribute("ID").Value).Trim()),
+                    NroMesa = Convert.ToInt32(comanda.Element("Mesa").Value),
+                    Cliente = new BECliente
+                    {
+                        Nombre = comanda.Element("Cliente").Element("Nombre").Value.ToString(),
+                        EMail = comanda.Element("Cliente").Element("Mail").Value.ToString()
+                    },
+                
+                    
+                
+                };
+                List<BEComanda> Lista = consulta.ToList<BEComanda>();
+
+                foreach (BEComanda comanda in Lista)
+                {
+                    var pedidos = from com in XElement.Load("Restaurante.xml").Elements("Comandas").Elements("Comanda")
+                                  where com.Attribute("ID").Value.ToString() == comanda.Codigo.ToString() && com.Element("PedidosRealizadosCocina").Value.Any()
+                                  select new BEComandaCocina
+                                  {
+                                      Codigo = Convert.ToInt32(com.Attribute("PedidosRealizadosCocina").Value),
+                                       /*from platos in XElement.Load("Restaurante.xml").Elements("Platos").Elements("Plato")
+                                              where platos.Attribute("ID").Value == com.Elements("PedidosRealizadosCocina").Elements("PlatosDeComanda").Elements("PlatoComandaCocina").Attributes("ID")
+                                              select new BEPlato
+                                              {
+                                                  
+                                              }*/
+
+                                  };
+
+
+                }
+                return Lista;
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public bool Modificar(BEComanda oBEComanda)
@@ -193,7 +265,7 @@ namespace Mapper
             }
             return aux + 1;
         }
-        public int GenerarCodigoPedido(int codigo)
+        /*public int GenerarCodigoPedido(int codigo)
         {
             XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
@@ -210,7 +282,7 @@ namespace Mapper
             }
 
             return aux + 1;
-        }
+        }*/
 
         public bool Existe(int ID)
         {

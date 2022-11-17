@@ -51,14 +51,14 @@ namespace BussinesLogic
         {
             return oMComanda.GenerarCodigo();
         }
-        public int GenerarCodigoPedido(int codigo)
+        /*public int GenerarCodigoPedido(int codigo)
         {
             return oMComanda.GenerarCodigoPedido(codigo);
-        }
+        }*/
 
-        public bool GestionarPlato(string nombre, int codigo, string estadoPlato)
+        public bool GestionarPlato(ItemsSeleccionados item)
         {
-            return oMComanda.GestionarPlato(nombre, codigo, estadoPlato);
+            return oMComanda.GestionarPlato(item);
         }
     }
 }

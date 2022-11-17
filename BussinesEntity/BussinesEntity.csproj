@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrador\Menu\BEBebida.cs" />
+    <Compile Include="Administrador\Menu\BEItem.cs" />
     <Compile Include="Administrador\Personal\BECocinero.cs" />
     <Compile Include="Administrador\Permisos\BEPermisos.cs" />
     <Compile Include="Administrador\Personal\BEPersonal.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Comanda\BEComandaMozo.cs" />
     <Compile Include="Administrador\Menu\BEPlato.cs" />
     <Compile Include="Cliente\BECliente.cs" />
+    <Compile Include="Administrador\Menu\ItemsSeleccionados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
