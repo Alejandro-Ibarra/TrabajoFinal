@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace BussinesEntity
 {
-    public class BEIngrediente : BEItem
+    public class BEIngrediente : BEEntity
     {
+        public string Nombre { get; set; }
         public string Tipo { get; set; }
         public bool Refrigeracion { get; set; }
         public int Stock { get; set; }

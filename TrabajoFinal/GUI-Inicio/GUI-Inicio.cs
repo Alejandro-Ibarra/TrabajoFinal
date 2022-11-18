@@ -33,14 +33,14 @@ namespace TrabajoFinal
 
         private void Pruebas_Click(object sender, EventArgs e)
         {
-            GUI_RolesPermisos oGUI_Prueba = new GUI_RolesPermisos();
+            GUI_BackUp oGUI_Prueba = new GUI_BackUp(11111111);
             this.Hide();
             oGUI_Prueba.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GUI_Gerente_Personal oGUI_Prueba = new GUI_Gerente_Personal();
+            GUI_Gerente_Ingredientes oGUI_Prueba = new GUI_Gerente_Ingredientes();
             this.Hide();
             oGUI_Prueba.Show();
         }

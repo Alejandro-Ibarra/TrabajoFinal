@@ -45,22 +45,27 @@ namespace TrabajoFinal
 
         private void Button_Aceptar_Click(object sender, EventArgs e)
         {
-            if (TextBox_DNI.validar() == true)
+            try
             {
-                BEPersonal oper = RecuperarUsuario(Convert.ToInt32(TextBox_DNI.Text));
-                List<string> tipo = RecuperarTipo(Convert.ToInt32(TextBox_DNI.Text));
-                oSELogin.DNI = Convert.ToInt32(TextBox_DNI.Text);
-                oSELogin.Password = Encriptacion.Encrypt(TextBox_Pass.Text, null);
-                oSELogin.Personal = oper;
-
-                if (oSLLogin.VerificarUsuario(oSELogin, tipo) != false)
+                if (TextBox_DNI.validar() == true)
                 {
-                    GUI_MenuPrincipal oGUI_MenuPrincipal = new GUI_MenuPrincipal(oper);
-                    this.Hide();
-                    oGUI_MenuPrincipal.Show();
+                    BEPersonal oper = RecuperarUsuario(Convert.ToInt32(TextBox_DNI.Text));
+                    List<string> tipo = RecuperarTipo(Convert.ToInt32(TextBox_DNI.Text));
+                    oSELogin.DNI = Convert.ToInt32(TextBox_DNI.Text);
+                    oSELogin.Password = Encriptacion.Encrypt(TextBox_Pass.Text, null);
+                    oSELogin.Personal = oper;
+
+                    if (oSLLogin.VerificarUsuario(oSELogin, tipo) != false)
+                    {
+                        GUI_MenuPrincipal oGUI_MenuPrincipal = new GUI_MenuPrincipal(oper);
+                        this.Hide();
+                        oGUI_MenuPrincipal.Show();
+                    }
+                    else {MessageBox.Show("Usuario o contraseña incorrectos");}
                 }
-                else {MessageBox.Show("Usuario o contraseña incorrectos");}
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Button_Cancelar_Click(object sender, EventArgs e)
@@ -70,44 +75,54 @@ namespace TrabajoFinal
 
         private BEPersonal RecuperarUsuario(int dni)
         {
-            if (oBLCocinero.Existe(dni))
+            try
             {
-                oBEPersonal = oBLCocinero.ListarObjeto(dni);
+                if (oBLCocinero.Existe(dni))
+                {
+                    oBEPersonal = oBLCocinero.ListarObjeto(dni);
+                }
+                else if (oBLMozo.Existe(dni))
+                {
+                    oBEPersonal = oBLMozo.ListarObjeto(dni);
+                }
+                else
+                {
+                    oBEPersonal = oBLPersonal.ListarObjeto(dni);
+                }
+                return oBEPersonal;
             }
-            else if (oBLMozo.Existe(dni))
-            {
-                oBEPersonal = oBLMozo.ListarObjeto(dni);
-            }
-            else
-            {
-                oBEPersonal = oBLPersonal.ListarObjeto(dni);
-            }
-            return oBEPersonal;
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); return null; }
         }
 
         private List<string> RecuperarTipo(int dni)
         {
-            string tipos;
-            string tipo;
-            List<string> list = new List<string>();
-            if (oBLCocinero.Existe(dni))
+            try
             {
-                tipos = "Cocineros";
-                tipo = "Cocinero";
+                string tipos;
+                string tipo;
+                List<string> list = new List<string>();
+                if (oBLCocinero.Existe(dni))
+                {
+                    tipos = "Cocineros";
+                    tipo = "Cocinero";
+                }
+                else if (oBLMozo.Existe(dni))
+                {
+                    tipos = "Mozos";
+                    tipo = "Mozo";
+                }
+                else
+                {
+                    tipos = "Gerente";
+                    tipo = "Admin";
+                }
+                list.Add(tipos);
+                list.Add(tipo);
+                return list;
             }
-            else if (oBLMozo.Existe(dni))
-            {
-                tipos = "Mozos";
-                tipo = "Mozo";
-            }
-            else
-            {
-                tipos = "Gerente";
-                tipo = "Admin";
-            }
-            list.Add(tipos);
-            list.Add(tipo);
-            return list;
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); return null; }
         }
 
     }

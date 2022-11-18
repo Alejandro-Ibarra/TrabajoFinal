@@ -34,48 +34,68 @@ namespace TrabajoFinal
 
         private void GUI_BackUp_Load(object sender, EventArgs e)
         {
-            CargarDatagrid();
-            RecuperarUsuario();
+            try
+            {
+                CargarDatagrid();
+                RecuperarUsuario();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_BackUp_Click(object sender, EventArgs e)
         {
-                        
-            oSLBackup.Guardar(AsignarAObjetoBackup("BackUp"));
-            CargarDatagrid();
+            try
+            {
+                oSLBackup.Guardar(AsignarAObjetoBackup("BackUp"));
+                CargarDatagrid();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_Restore_Click(object sender, EventArgs e)
         {
-            SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
-            SEBackUp restore = AsignarAObjetoBackup("restore");
+            try
+            {
+                SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
+                SEBackUp restore = AsignarAObjetoBackup("restore");
 
-
-
-            oSLBackup.HacerRestore(BK, restore);
-            CargarDatagrid();
+                oSLBackup.HacerRestore(BK, restore);
+                CargarDatagrid();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
 
         }
 
         private void CargarDatagrid()
         {
-            DataGridView_BackUps.DataSource = oSLBackup.ListarTodo();
+            try
+            {
+                DataGridView_BackUps.DataSource = oSLBackup.ListarTodo();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message);}
         }
 
         private BEPersonal RecuperarUsuario()
         {
-            oBEPersonal = oBLPersonal.ListarObjeto(codigoAdmin);
-            return oBEPersonal;
+            try
+            {
+                oBEPersonal = oBLPersonal.ListarObjeto(codigoAdmin);
+                return oBEPersonal;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
         }
 
         private void AsignarAControles(SEBackUp BK)
-        {
-            TextBox_Cod.Text = BK.Codigo.ToString();
-            TextBox_Tipo.Text = BK.Tipo;
-            TextBox_Usuario.Text = BK.NombreUsuario;
-            TextBox_NombArchivo.Text = BK.NombreArchivo;
-            TextBox_FechHora.Text = BK.FechaHora;
-            TextBox_Ruta.Text = BK.Ruta;
+        {  try
+            {
+                TextBox_Cod.Text = BK.Codigo.ToString();
+                TextBox_Tipo.Text = BK.Tipo;
+                TextBox_Usuario.Text = BK.NombreUsuario;
+                TextBox_NombArchivo.Text = BK.NombreArchivo;
+                TextBox_FechHora.Text = BK.FechaHora;
+                TextBox_Ruta.Text = BK.Ruta;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private SEBackUp AsignarAObjetoBackup(string tipo)
@@ -99,8 +119,16 @@ namespace TrabajoFinal
 
         private void DataGridView_BackUps_MouseClick(object sender, MouseEventArgs e)
         {
-            SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
-            AsignarAControles(BK);
+            try
+            {
+                if (DataGridView_BackUps.SelectedRows.Count > 0)
+                {
+                SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
+                AsignarAControles(BK);
+                }
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
     }

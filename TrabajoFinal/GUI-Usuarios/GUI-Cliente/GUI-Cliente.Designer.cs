@@ -60,7 +60,7 @@
             // 
             // Boton_PlatoPrincipal
             // 
-            this.Boton_PlatoPrincipal.Location = new System.Drawing.Point(171, 95);
+            this.Boton_PlatoPrincipal.Location = new System.Drawing.Point(46, 148);
             this.Boton_PlatoPrincipal.Name = "Boton_PlatoPrincipal";
             this.Boton_PlatoPrincipal.Size = new System.Drawing.Size(93, 23);
             this.Boton_PlatoPrincipal.TabIndex = 1;
@@ -70,7 +70,7 @@
             // 
             // Boton_Postre
             // 
-            this.Boton_Postre.Location = new System.Drawing.Point(320, 95);
+            this.Boton_Postre.Location = new System.Drawing.Point(162, 95);
             this.Boton_Postre.Name = "Boton_Postre";
             this.Boton_Postre.Size = new System.Drawing.Size(75, 23);
             this.Boton_Postre.TabIndex = 2;
@@ -80,7 +80,7 @@
             // 
             // Boton_Extras
             // 
-            this.Boton_Extras.Location = new System.Drawing.Point(449, 95);
+            this.Boton_Extras.Location = new System.Drawing.Point(277, 95);
             this.Boton_Extras.Name = "Boton_Extras";
             this.Boton_Extras.Size = new System.Drawing.Size(75, 23);
             this.Boton_Extras.TabIndex = 3;
@@ -90,7 +90,7 @@
             // 
             // Boton_Bebidas
             // 
-            this.Boton_Bebidas.Location = new System.Drawing.Point(595, 95);
+            this.Boton_Bebidas.Location = new System.Drawing.Point(162, 148);
             this.Boton_Bebidas.Name = "Boton_Bebidas";
             this.Boton_Bebidas.Size = new System.Drawing.Size(75, 23);
             this.Boton_Bebidas.TabIndex = 4;
@@ -139,6 +139,7 @@
             // 
             // TextBox_Nombre
             // 
+            this.TextBox_Nombre.Enabled = false;
             this.TextBox_Nombre.Location = new System.Drawing.Point(46, 43);
             this.TextBox_Nombre.Name = "TextBox_Nombre";
             this.TextBox_Nombre.Size = new System.Drawing.Size(100, 20);
@@ -146,6 +147,7 @@
             // 
             // TextBox_Mail
             // 
+            this.TextBox_Mail.Enabled = false;
             this.TextBox_Mail.Location = new System.Drawing.Point(189, 43);
             this.TextBox_Mail.Name = "TextBox_Mail";
             this.TextBox_Mail.Size = new System.Drawing.Size(163, 20);

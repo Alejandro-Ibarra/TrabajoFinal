@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace BussinesEntity
 {
-    public class ItemsSeleccionados
+    public class BEItemsSeleccionados : BEItem
     {
-        public int CodigoComanda { get; set; }
-        public int codigoPedido { get; set; }
-        public int CodigoItem { get; set; }
-        public string Nombre { get; set; }
         public int Precio { get; set; }
         public string Estado { get; set; }
 
-        public ItemsSeleccionados()
+        public BEItemsSeleccionados()
         {
         }
     }

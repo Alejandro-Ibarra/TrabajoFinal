@@ -28,60 +28,84 @@ namespace TrabajoFinal
 
         private void Boton_AgregarBebida_Click(object sender, EventArgs e)
         {
-            if (GridView_TodosBebidas.Rows.Count > 0)
+            try
             {
-                int aux = 0;
-
-                foreach (BEBebida Extras in listaBebidasElegidas)
+                if (GridView_TodosBebidas.Rows.Count > 0)
                 {
-                    if (Extras.Codigo == ((BEBebida)GridView_TodosBebidas.CurrentRow.DataBoundItem).Codigo)
+                    int aux = 0;
+
+                    foreach (BEBebida Extras in listaBebidasElegidas)
                     {
-                        aux++;
+                        if (Extras.Codigo == ((BEBebida)GridView_TodosBebidas.CurrentRow.DataBoundItem).Codigo)
+                        {
+                            aux++;
+                        }
                     }
-                }
-                if (aux == 0)
-                {
-                    listaBebidasElegidas.Add((BEBebida)GridView_TodosBebidas.CurrentRow.DataBoundItem);
-                }
-                else
-                {
-                    MessageBox.Show("El ingrediente ya se encuentra en el plato");
-                }
+                    if (aux == 0)
+                    {
+                        listaBebidasElegidas.Add((BEBebida)GridView_TodosBebidas.CurrentRow.DataBoundItem);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El ingrediente ya se encuentra en el plato");
+                    }
 
-                GridView_BebidasSelec.DataSource = null;
-                GridView_BebidasSelec.DataSource = listaBebidasElegidas;
+                    GridView_BebidasSelec.DataSource = null;
+                    GridView_BebidasSelec.DataSource = listaBebidasElegidas;
+                }
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+        
         }
 
         private void Boton_QuitarBebida_Click(object sender, EventArgs e)
         {
-            if (GridView_BebidasSelec.Rows.Count > 0)
+            try
             {
-
-                List<BEBebida> ingreAux2 = new List<BEBebida>();
-                foreach (BEBebida ing in listaBebidasElegidas)
+                if (GridView_BebidasSelec.Rows.Count > 0)
                 {
-                    if (ing.Nombre != ((BEBebida)GridView_BebidasSelec.CurrentRow.DataBoundItem).Nombre && GridView_BebidasSelec.CurrentRow.DataBoundItem != null)
+
+                    List<BEBebida> ingreAux2 = new List<BEBebida>();
+                    foreach (BEBebida ing in listaBebidasElegidas)
                     {
-                        ingreAux2.Add(ing);
+                        if (ing.Nombre != ((BEBebida)GridView_BebidasSelec.CurrentRow.DataBoundItem).Nombre && GridView_BebidasSelec.CurrentRow.DataBoundItem != null)
+                        {
+                            ingreAux2.Add(ing);
+                        }
                     }
+                    listaBebidasElegidas = ingreAux2;
+                    GridView_BebidasSelec.DataSource = null;
+                    GridView_BebidasSelec.DataSource = listaBebidasElegidas;
                 }
-                listaBebidasElegidas = ingreAux2;
-                GridView_BebidasSelec.DataSource = null;
-                GridView_BebidasSelec.DataSource = listaBebidasElegidas;
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void CargarGrillaBebidas()
         {
-            GridView_TodosBebidas.DataSource = oBLBebida.ListarTodo();
+            try
+            {
+                if (GridView_BebidasSelec.Rows.Count > 0)
+                {
+                    GridView_TodosBebidas.DataSource = oBLBebida.ListarTodo();
+                }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_Confirmar_Click(object sender, EventArgs e)
         {
-            this.listaBebidasFinal = listaBebidasElegidas;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            try
+            {
+                this.listaBebidasFinal = listaBebidasElegidas;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
     }
 }

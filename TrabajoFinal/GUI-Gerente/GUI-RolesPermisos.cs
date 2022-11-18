@@ -52,31 +52,41 @@ namespace TrabajoFinal
 
         private void QuitarPermisos()
         {
-            int aux = 0;
-            int aux2 = 0;
-            oBEPermisos = (BEPermisos)Grilla_PermisosAsignados.CurrentRow.DataBoundItem;
-            oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
-            foreach (BEPermisos perm in oBERoles.Permisos)
+            try
             {
-                if (perm.Codigo == oBEPermisos.Codigo)
+                int aux = 0;
+                int aux2 = 0;
+                oBEPermisos = (BEPermisos)Grilla_PermisosAsignados.CurrentRow.DataBoundItem;
+                oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
+                foreach (BEPermisos perm in oBERoles.Permisos)
                 {
-                    aux2 = aux;
+                    if (perm.Codigo == oBEPermisos.Codigo)
+                    {
+                        aux2 = aux;
+                    }
+                    aux++;
                 }
-                aux++;
+                //oBERoles.Permisos.Remove(oBEPermisos);
+                oBERoles.Permisos.RemoveAt(aux2);
+                oBLRoles.Modificar(oBERoles);
+                CargarGrillaPermisos(oBERoles);
             }
-            //oBERoles.Permisos.Remove(oBEPermisos);
-            oBERoles.Permisos.RemoveAt(aux2);
-            oBLRoles.Modificar(oBERoles);
-            CargarGrillaPermisos(oBERoles);
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void AgregarPermisos()
         {
-            oBEPermisos = (BEPermisos)Grilla_PermisosNoAsignados.CurrentRow.DataBoundItem;
-            oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
-            oBERoles.Permisos.Add(oBEPermisos);
-            oBLRoles.Modificar(oBERoles);
-            CargarGrillaPermisos(oBERoles);
+            try
+            {
+                oBEPermisos = (BEPermisos)Grilla_PermisosNoAsignados.CurrentRow.DataBoundItem;
+                oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
+                oBERoles.Permisos.Add(oBEPermisos);
+                oBLRoles.Modificar(oBERoles);
+                CargarGrillaPermisos(oBERoles);
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void CargarGrillaRoles()
@@ -119,19 +129,24 @@ namespace TrabajoFinal
 
         private List<BEPermisos> PermNoAsig(List<BEPermisos> listPer)
         {
-            List<BEPermisos> listaAux = oBLPermisos.ListarTodo();
-
-            for (int i = 0; i < listPer.Count; i++)
+            try
             {
-                for (int j = 0; j < listaAux.Count; j++)
+                List<BEPermisos> listaAux = oBLPermisos.ListarTodo();
+
+                for (int i = 0; i < listPer.Count; i++)
                 {
-                    if (listPer[i].Codigo == listaAux[j].Codigo)
+                    for (int j = 0; j < listaAux.Count; j++)
                     {
-                        listaAux.RemoveAt(j);
+                        if (listPer[i].Codigo == listaAux[j].Codigo)
+                        {
+                            listaAux.RemoveAt(j);
+                        }
                     }
                 }
+                return listaAux;
             }
-            return listaAux;
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message);return null; }
         }
 
 

@@ -142,23 +142,28 @@ namespace TrabajoFinal
 
         private void CargarCombobox()
         {
-            List<string> ListaProveedor = new List<string>();
-            ListaProveedor.Add("Limpieza clean");
-            ListaProveedor.Add("Ledesma");
-            ListaProveedor.Add("Limpieza ramona");
-            ListaProveedor.Add("Bazar chef");
-            ListaProveedor.Add("Chango");
-            ListaProveedor.Add("Blanqueria nona");
-            ListaProveedor.Add("Estela limpieza");
-            ListaProveedor.Add("Distribuidora Pepito");
-            ComboBox_Proveedor.DataSource = ListaProveedor;
+            try
+            {
+                List<string> ListaProveedor = new List<string>();
+                ListaProveedor.Add("Limpieza clean");
+                ListaProveedor.Add("Ledesma");
+                ListaProveedor.Add("Limpieza ramona");
+                ListaProveedor.Add("Bazar chef");
+                ListaProveedor.Add("Chango");
+                ListaProveedor.Add("Blanqueria nona");
+                ListaProveedor.Add("Estela limpieza");
+                ListaProveedor.Add("Distribuidora Pepito");
+                ComboBox_Proveedor.DataSource = ListaProveedor;
 
-            List<string> ListaTipo = new List<string>();
-            ListaTipo.Add("Limpieza");
-            ListaTipo.Add("Bazar");
-            ListaTipo.Add("Blanqueria");
-            ListaTipo.Add("Distribuidora");
-            ComboBox_Tipo.DataSource = ListaTipo;
+                List<string> ListaTipo = new List<string>();
+                ListaTipo.Add("Limpieza");
+                ListaTipo.Add("Bazar");
+                ListaTipo.Add("Blanqueria");
+                ListaTipo.Add("Distribuidora");
+                ComboBox_Tipo.DataSource = ListaTipo;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
 
@@ -175,11 +180,16 @@ namespace TrabajoFinal
 
         private void Grilla_Ingredientes_Click(object sender, EventArgs e)
         {
-            if (Grilla_Ingredientes.DataSource != null)
+            try
             {
+                if (Grilla_Ingredientes.DataSource != null)
+                {
                 oBEExtras = (BEExtras)Grilla_Ingredientes.CurrentRow.DataBoundItem;
                 AsignarExtrasAControles(oBEExtras);
+                }
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
     }
 }

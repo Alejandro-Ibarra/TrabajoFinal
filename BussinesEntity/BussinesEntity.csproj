@@ -61,7 +61,7 @@
     <Compile Include="Comanda\BEComandaMozo.cs" />
     <Compile Include="Administrador\Menu\BEPlato.cs" />
     <Compile Include="Cliente\BECliente.cs" />
-    <Compile Include="Administrador\Menu\ItemsSeleccionados.cs" />
+    <Compile Include="Administrador\Menu\BEItemsSeleccionados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

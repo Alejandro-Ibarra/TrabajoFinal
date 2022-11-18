@@ -114,7 +114,7 @@ namespace TrabajoFinal
                     else { return false; }
                 }
                 else { return false; }
-              
+
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); return false; }
@@ -123,25 +123,35 @@ namespace TrabajoFinal
 
         private void CargarComboBoxMarca()
         {
-            List<string> ListaMarcas = new List<string>();
-            ListaMarcas.Add("Quilme");
-            ListaMarcas.Add("Sprite");
-            ListaMarcas.Add("Paso de los toros");
-            ListaMarcas.Add("7UP");
-            ListaMarcas.Add("Pepsi");
+            try
+            {
+                List<string> ListaMarcas = new List<string>();
+                ListaMarcas.Add("Quilme");
+                ListaMarcas.Add("Sprite");
+                ListaMarcas.Add("Paso de los toros");
+                ListaMarcas.Add("7UP");
+                ListaMarcas.Add("Pepsi");
 
             ComboBox_Marca.DataSource = ListaMarcas;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void CargarComboBoxEnvase()
         {
-            List<string> ListaEnvases = new List<string>();
-            ListaEnvases.Add("Vidrio retornable");
-            ListaEnvases.Add("Vidrio No retornable");
-            ListaEnvases.Add("Plastico");
-            ListaEnvases.Add("Plastico No retornable");
+            try
+            {
+                List<string> ListaEnvases = new List<string>();
+                ListaEnvases.Add("Vidrio retornable");
+                ListaEnvases.Add("Vidrio No retornable");
+                ListaEnvases.Add("Plastico");
+                ListaEnvases.Add("Plastico No retornable");
 
-            ComboBox_Envases.DataSource = ListaEnvases;
+                ComboBox_Envases.DataSource = ListaEnvases;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         void AsignarBebidaAControles(BEBebida oBEBebida)
@@ -173,11 +183,16 @@ namespace TrabajoFinal
 
         private void Grilla_Bebidas_MouseClick(object sender, MouseEventArgs e)
         {
-            if (Grilla_Bebidas.DataSource != null)
+            try
             {
-                oBEBebida = (BEBebida)Grilla_Bebidas.CurrentRow.DataBoundItem;
-                AsignarBebidaAControles(oBEBebida);
+                if (Grilla_Bebidas.DataSource != null)
+                {
+                    oBEBebida = (BEBebida)Grilla_Bebidas.CurrentRow.DataBoundItem;
+                    AsignarBebidaAControles(oBEBebida);
+                }
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         void LimpiarControles()

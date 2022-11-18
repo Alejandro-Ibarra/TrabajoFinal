@@ -11,5 +11,7 @@ namespace BussinesEntity
     {
         public int Capacidad { get; set; }
         public int Ocupacion { get; set; }
+        public string MozoAsignado { get; set; }
+        public BEComanda Comanda { get; set; }
     }
 }

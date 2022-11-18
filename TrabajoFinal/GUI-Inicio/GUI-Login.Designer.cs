@@ -32,8 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TextBox_Pass = new System.Windows.Forms.TextBox();
             this.Button_Aceptar = new System.Windows.Forms.Button();
-            this.TextBox_DNI = new TrabajoFinal.UC_ValDNI();
             this.Button_Cancelar = new System.Windows.Forms.Button();
+            this.TextBox_DNI = new TrabajoFinal.UC_ValDNI();
             this.SuspendLayout();
             // 
             // label3
@@ -59,34 +59,34 @@
             this.TextBox_Pass.Location = new System.Drawing.Point(67, 87);
             this.TextBox_Pass.Name = "TextBox_Pass";
             this.TextBox_Pass.Size = new System.Drawing.Size(100, 20);
-            this.TextBox_Pass.TabIndex = 39;
+            this.TextBox_Pass.TabIndex = 2;
             // 
             // Button_Aceptar
             // 
             this.Button_Aceptar.Location = new System.Drawing.Point(26, 137);
             this.Button_Aceptar.Name = "Button_Aceptar";
             this.Button_Aceptar.Size = new System.Drawing.Size(75, 23);
-            this.Button_Aceptar.TabIndex = 40;
+            this.Button_Aceptar.TabIndex = 3;
             this.Button_Aceptar.Text = "Aceptar";
             this.Button_Aceptar.UseVisualStyleBackColor = true;
             this.Button_Aceptar.Click += new System.EventHandler(this.Button_Aceptar_Click);
-            // 
-            // TextBox_DNI
-            // 
-            this.TextBox_DNI.Location = new System.Drawing.Point(67, 26);
-            this.TextBox_DNI.Name = "TextBox_DNI";
-            this.TextBox_DNI.Size = new System.Drawing.Size(100, 20);
-            this.TextBox_DNI.TabIndex = 46;
             // 
             // Button_Cancelar
             // 
             this.Button_Cancelar.Location = new System.Drawing.Point(124, 137);
             this.Button_Cancelar.Name = "Button_Cancelar";
             this.Button_Cancelar.Size = new System.Drawing.Size(75, 23);
-            this.Button_Cancelar.TabIndex = 41;
+            this.Button_Cancelar.TabIndex = 4;
             this.Button_Cancelar.Text = "Cancelar";
             this.Button_Cancelar.UseVisualStyleBackColor = true;
             this.Button_Cancelar.Click += new System.EventHandler(this.Button_Cancelar_Click);
+            // 
+            // TextBox_DNI
+            // 
+            this.TextBox_DNI.Location = new System.Drawing.Point(67, 26);
+            this.TextBox_DNI.Name = "TextBox_DNI";
+            this.TextBox_DNI.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_DNI.TabIndex = 1;
             // 
             // GUI_Login
             // 

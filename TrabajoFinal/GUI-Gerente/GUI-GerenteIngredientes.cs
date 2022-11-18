@@ -96,9 +96,6 @@ namespace TrabajoFinal
         {
             try
             {
-                
-                
-
                 if (UC_ValNomb.validar())
                 {
                     oBEIngrediente.Nombre = UC_ValNomb.Text;
@@ -156,31 +153,39 @@ namespace TrabajoFinal
 
         private void Grilla_Ingredientes_MouseClick(object sender, MouseEventArgs e)
         {
-            if (Grilla_Ingredientes.DataSource != null)
+            try
             {
+                if (Grilla_Ingredientes.DataSource != null)
+                {
                 oBEIngrediente = (BEIngrediente)Grilla_Ingredientes.CurrentRow.DataBoundItem;
                 AsignarIngredienteAControles(oBEIngrediente);
+                }
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void CargarCombobox()
         {
-            List<string> ListaProveedor = new List<string>();
-            ListaProveedor.Add("Verduleria Amistad");
-            ListaProveedor.Add("Frigorifico Corte");
-            ListaProveedor.Add("La Serenisima");
-            ListaProveedor.Add("Coca Cola");
-            ListaProveedor.Add("Pepsi");
-            ComboBox_Proveedor.DataSource = ListaProveedor;
+            try
+            {
+                List<string> ListaProveedor = new List<string>();
+                ListaProveedor.Add("Verduleria Amistad");
+                ListaProveedor.Add("Frigorifico Corte");
+                ListaProveedor.Add("La Serenisima");
+                ListaProveedor.Add("Coca Cola");
+                ListaProveedor.Add("Pepsi");
+                ComboBox_Proveedor.DataSource = ListaProveedor;
 
-            List<string> ListaTipo = new List<string>();
-            ListaTipo.Add("Principal");
-            ListaTipo.Add("Secundario");
-            ComboBox_Tipo.DataSource = ListaTipo;
+                List<string> ListaTipo = new List<string>();
+                ListaTipo.Add("Principal");
+                ListaTipo.Add("Secundario");
+                ComboBox_Tipo.DataSource = ListaTipo;
+
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
-
-
-
         private void CargarGrilla()
         {
             try

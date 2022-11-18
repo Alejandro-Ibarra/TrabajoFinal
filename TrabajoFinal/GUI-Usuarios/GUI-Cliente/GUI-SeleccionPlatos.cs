@@ -36,131 +36,170 @@ namespace TrabajoFinal
 
         private List<BEPlato> RecuperarPlatosPorTipo(string tipo)
         {
-            List<BEPlato> listaPlaAux = oBLPlato.ListarTodo();
-            foreach (BEPlato pla in listaPlaAux)
+            try
             {
-                if (pla.Tipo == tipo)
+                List<BEPlato> listaPlaAux = oBLPlato.ListarTodo();
+                foreach (BEPlato pla in listaPlaAux)
                 {
-                    listaPlatos.Add(pla);
+                    if (pla.Tipo == tipo)
+                    {
+                        listaPlatos.Add(pla);
+                    }
                 }
+                return listaPlatos;
             }
-            return listaPlatos;
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); return null; }
         }
 
         private void CargarGrillaIngredientes()
         {
-            List<BEPlato> lPlatos = RecuperarPlatosPorTipo(tipoPlato);
-            List<BEIngrediente> lIngrediente = new List<BEIngrediente>();
-            foreach (BEPlato plato in lPlatos)
+            try
             {
-                lIngrediente.Add(plato.IngredientePrincipal);
+                List<BEPlato> lPlatos = RecuperarPlatosPorTipo(tipoPlato);
+                List<BEIngrediente> lIngrediente = new List<BEIngrediente>();
+                foreach (BEPlato plato in lPlatos)
+                {
+                    lIngrediente.Add(plato.IngredientePrincipal);
+                }
+                var lIngreAux = lIngrediente.GroupBy(x => x.Nombre).Select(x => x.First()).ToList();
+                GridView_TodosIng.DataSource = lIngreAux;
             }
-            var lIngreAux = lIngrediente.GroupBy(x => x.Nombre).Select(x => x.First()).ToList();
-            GridView_TodosIng.DataSource = lIngreAux;
-
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_AgregarIng_Click(object sender, EventArgs e)
         {
-            if (GridView_TodosIng.Rows.Count > 0)
+            try
             {
-                int aux = 0;
-
-                foreach (BEIngrediente Ingrediente in listaIng)
+                if (GridView_TodosIng.Rows.Count > 0)
                 {
-                    if (Ingrediente.Codigo == ((BEIngrediente)GridView_TodosIng.CurrentRow.DataBoundItem).Codigo)
+                    int aux = 0;
+
+                    foreach (BEIngrediente Ingrediente in listaIng)
                     {
-                        aux++;
+                        if (Ingrediente.Codigo == ((BEIngrediente)GridView_TodosIng.CurrentRow.DataBoundItem).Codigo)
+                        {
+                            aux++;
+                        }
                     }
-                }
-                if (aux == 0)
-                {
-                    listaIng.Add((BEIngrediente)GridView_TodosIng.CurrentRow.DataBoundItem);
-                }
-                else
-                {
-                    MessageBox.Show("El ingrediente ya se encuentra en el plato");
-                }
+                    if (aux == 0)
+                    {
+                        listaIng.Add((BEIngrediente)GridView_TodosIng.CurrentRow.DataBoundItem);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El ingrediente ya se encuentra en el plato");
+                    }
 
-                GridView_IngSelec.DataSource = null;
-                GridView_IngSelec.DataSource = listaIng;
+                    GridView_IngSelec.DataSource = null;
+                    GridView_IngSelec.DataSource = listaIng;
+                }    
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+        
         }
 
 
         private void Boton_QuitarIng_Click(object sender, EventArgs e)
         {
-            if (GridView_IngSelec.Rows.Count > 0)
+            try
             {
-
-                List<BEIngrediente> ingreAux2 = new List<BEIngrediente>();
-                foreach (BEIngrediente ing in listaIng)
+                if (GridView_IngSelec.Rows.Count > 0)
                 {
-                    if (ing.Nombre != ((BEIngrediente)GridView_IngSelec.CurrentRow.DataBoundItem).Nombre && GridView_IngSelec.CurrentRow.DataBoundItem != null)
+
+                    List<BEIngrediente> ingreAux2 = new List<BEIngrediente>();
+                    foreach (BEIngrediente ing in listaIng)
                     {
-                        ingreAux2.Add(ing);
+                        if (ing.Nombre != ((BEIngrediente)GridView_IngSelec.CurrentRow.DataBoundItem).Nombre && GridView_IngSelec.CurrentRow.DataBoundItem != null)
+                        {
+                            ingreAux2.Add(ing);
+                        }
                     }
+                    listaIng = ingreAux2;
+                    GridView_IngSelec.DataSource = null;
+                    GridView_IngSelec.DataSource = listaIng;
                 }
-                listaIng = ingreAux2;
-                GridView_IngSelec.DataSource = null;
-                GridView_IngSelec.DataSource = listaIng;
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_Sugerir_Click(object sender, EventArgs e)
         {
-            List<BEPlato> platoaxu = new List<BEPlato>();
-            foreach (BEPlato plato in listaPlatos)
+            try
             {
-                foreach (BEIngrediente ingre in listaIng)
+                List<BEPlato> platoaxu = new List<BEPlato>();
+                foreach (BEPlato plato in listaPlatos)
                 {
-                    if (plato.IngredientePrincipal.Nombre == ingre.Nombre)
+                    foreach (BEIngrediente ingre in listaIng)
                     {
-                        platoaxu.Add(plato);
+                        if (plato.IngredientePrincipal.Nombre == ingre.Nombre)
+                        {
+                            platoaxu.Add(plato);
+                        }
                     }
                 }
+                if (platoaxu != null)
+                {
+                    GridView_TodosPlatos.DataSource = platoaxu;
+                }
             }
-            if (platoaxu != null)
-            {
-                GridView_TodosPlatos.DataSource = platoaxu;
-            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_AgregarPlato_Click(object sender, EventArgs e)
         {
-            if (GridView_TodosPlatos.Rows.Count > 0)
+            try
             {
-                listaPlatosElegidos.Add((BEPlato)GridView_TodosPlatos.CurrentRow.DataBoundItem);
+                if (GridView_TodosPlatos.Rows.Count > 0)
+                {
+                    listaPlatosElegidos.Add((BEPlato)GridView_TodosPlatos.CurrentRow.DataBoundItem);
 
-                GridView_PlatoSelec.DataSource = null;
-                GridView_PlatoSelec.DataSource = listaPlatosElegidos;
+                    GridView_PlatoSelec.DataSource = null;
+                    GridView_PlatoSelec.DataSource = listaPlatosElegidos;
+                }
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_QuitarPlato_Click(object sender, EventArgs e)
         {
-            if (GridView_PlatoSelec.Rows.Count > 0)
+            try
             {
-
-                List<BEPlato> platoAux = new List<BEPlato>();
-                foreach (BEPlato plato in listaPlatosElegidos)
+                if (GridView_PlatoSelec.Rows.Count > 0)
                 {
-                    if (plato.Nombre != ((BEPlato)GridView_PlatoSelec.CurrentRow.DataBoundItem).Nombre && GridView_PlatoSelec.CurrentRow.DataBoundItem != null)
+                    List<BEPlato> platoAux = new List<BEPlato>();
+                    foreach (BEPlato plato in listaPlatosElegidos)
                     {
-                        platoAux.Add(plato);
+                        if (plato.Nombre != ((BEPlato)GridView_PlatoSelec.CurrentRow.DataBoundItem).Nombre && GridView_PlatoSelec.CurrentRow.DataBoundItem != null)
+                        {
+                            platoAux.Add(plato);
+                        }
                     }
+                    listaPlatosElegidos = platoAux;
+                    GridView_PlatoSelec.DataSource = null;
+                    GridView_PlatoSelec.DataSource = listaPlatosElegidos;
                 }
-                listaPlatosElegidos = platoAux;
-                GridView_PlatoSelec.DataSource = null;
-                GridView_PlatoSelec.DataSource = listaPlatosElegidos;
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_ConfirmarPedido_Click(object sender, EventArgs e)
         {
-            this.listaPlatosFinal = listaPlatosElegidos;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            try
+            {
+                this.listaPlatosFinal = listaPlatosElegidos;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void GUI_SeleccionPlatos_Load(object sender, EventArgs e)

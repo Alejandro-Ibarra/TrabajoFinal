@@ -24,7 +24,6 @@ namespace Mapper
 
             try
             {
-                //XElement.Load(Application.StartupPath + @"\BackUps.xml").Elements("Backups").Elements("Backup")
                 XDocument xmlDocument = XDocument.Load("BackUps.xml");
                 xmlDocument.Element("Backups").Add(new XElement("Backup",
                                                     new XAttribute("Codigo", oSEBackup.Codigo.ToString().Trim()),

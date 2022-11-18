@@ -22,10 +22,10 @@ namespace TrabajoFinal
             nroPedido = 0;
             MontoTotal = 0;
             nroMesa = CalcularNroMesa();
-            listNombrePrecio = new List<ItemsSeleccionados>();
+            listNombrePrecio = new List<BEItemsSeleccionados>();
             oBLComanda = new BLComanda();
             oBEComanda = new BEComanda();
-            item = new ItemsSeleccionados();
+            item = new BEItemsSeleccionados();
             cargarTextbox();
             CargarComandaPrincipal();
 
@@ -35,8 +35,8 @@ namespace TrabajoFinal
         int MontoTotal;
         int nroMesa;
         int nroPedido;
-        ItemsSeleccionados item;
-        List<ItemsSeleccionados> listNombrePrecio;
+        BEItemsSeleccionados item;
+        List<BEItemsSeleccionados> listNombrePrecio;
         BLComanda oBLComanda;
         BEComanda oBEComanda;
 
@@ -59,75 +59,84 @@ namespace TrabajoFinal
 
         private void Boton_Extras_Click(object sender, EventArgs e)
         {
-            using (var form = new GUI_SeleccionExtras())
+            try
             {
-                
-                int codItem = 1;
-                List<ItemsSeleccionados> listNPAux = new List<ItemsSeleccionados>();
-                var result = form.ShowDialog();
-                if (result == DialogResult.OK)
+                using (var form = new GUI_SeleccionExtras())
                 {
-                    List<BEExtras> Extras = form.listaExtrasFinal;
-                    nroPedido = nroPedido + 1;
-                    foreach (BEExtras ext in Extras)
+                    int codItem = 1;
+                    List<BEItemsSeleccionados> listNPAux = new List<BEItemsSeleccionados>();
+                    var result = form.ShowDialog();
+                    if (result == DialogResult.OK)
                     {
-                        ItemsSeleccionados nombPre = new ItemsSeleccionados();
-                        nombPre.Nombre = ext.Nombre;
-                        nombPre.CodigoComanda = oBEComanda.Codigo;
-                        nombPre.codigoPedido = nroPedido;
-                        nombPre.CodigoItem = codItem;
-                        ext.CodigoItem = codItem;
-                        ext.CodigoPedido = nroPedido;
-                        ext.CodigoComanda = oBEComanda.Codigo;
-                        codItem += 1;
+                        List<BEExtras> Extras = form.listaExtrasFinal;
+                        nroPedido = nroPedido + 1;
+                        foreach (BEExtras ext in Extras)
+                        {
+                            BEItemsSeleccionados nombPre = new BEItemsSeleccionados();
+                            nombPre.Nombre = ext.Nombre;
+                            nombPre.CodigoComanda = oBEComanda.Codigo;
+                            nombPre.CodigoPedido = nroPedido;
+                            nombPre.CodigoItem = codItem;
+                            ext.CodigoItem = codItem;
+                            ext.CodigoPedido = nroPedido;
+                            ext.CodigoComanda = oBEComanda.Codigo;
+                            codItem += 1;
 
-                        listNPAux.Add(nombPre);
+                            listNPAux.Add(nombPre);
+                        }
+                        CargarComandaMozo(Extras, null, 0, nroPedido);
+                        listNombrePrecio.AddRange(listNPAux);
                     }
-                    CargarComandaMozo(Extras, null, 0, nroPedido);
-                    listNombrePrecio.AddRange(listNPAux);
                 }
+                Grilla_PedidosCliente.DataSource = null;
+                Grilla_PedidosCliente.DataSource = listNombrePrecio;
             }
-            Grilla_PedidosCliente.DataSource = null;
-            Grilla_PedidosCliente.DataSource = listNombrePrecio;
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message);}
         }
 
         private void Boton_Bebidas_Click(object sender, EventArgs e)
         {
-            using (var form = new GUI_SeleccionBebidas())
+            try
             {
-                int montoComanda = 1;
-                int codItem = 1;
-                List<ItemsSeleccionados> listNPAux = new List<ItemsSeleccionados>();
-                var result = form.ShowDialog();
-                if (result == DialogResult.OK)
+                using (var form = new GUI_SeleccionBebidas())
                 {
-                    List<BEBebida> Bebidas = form.listaBebidasFinal;
-                    nroPedido = nroPedido + 1;
-                    foreach (BEBebida item in Bebidas)
+                    int montoComanda = 1;
+                    int codItem = 1;
+                    List<BEItemsSeleccionados> listNPAux = new List<BEItemsSeleccionados>();
+                    var result = form.ShowDialog();
+                    if (result == DialogResult.OK)
                     {
-                        ItemsSeleccionados nombPre = new ItemsSeleccionados();
-                        nombPre.Nombre = item.Nombre;
-                        nombPre.Precio = item.Precio;
-                        nombPre.CodigoComanda = oBEComanda.Codigo;
-                        nombPre.codigoPedido = nroPedido;
-                        nombPre.CodigoItem = codItem;
-                        item.CodigoItem = codItem;
-                        item.CodigoPedido = nroPedido;
-                        item.CodigoComanda = oBEComanda.Codigo;
-                        codItem += 1;
+                        List<BEBebida> Bebidas = form.listaBebidasFinal;
+                        nroPedido = nroPedido + 1;
+                        foreach (BEBebida item in Bebidas)
+                        {
+                            BEItemsSeleccionados nombPre = new BEItemsSeleccionados();
+                            nombPre.Nombre = item.Nombre;
+                            nombPre.Precio = item.Precio;
+                            nombPre.CodigoComanda = oBEComanda.Codigo;
+                            nombPre.CodigoPedido = nroPedido;
+                            nombPre.CodigoItem = codItem;
+                            item.CodigoItem = codItem;
+                            item.CodigoPedido = nroPedido;
+                            item.CodigoComanda = oBEComanda.Codigo;
+                            codItem += 1;
 
-                        listNPAux.Add(nombPre);
-                        montoComanda = montoComanda + nombPre.Precio;
+                            listNPAux.Add(nombPre);
+                            montoComanda = montoComanda + nombPre.Precio;
+                        }
+                        CargarComandaMozo(null, Bebidas, montoComanda, nroPedido);
+                        listNombrePrecio.AddRange(listNPAux);
                     }
-                    CargarComandaMozo(null, Bebidas, montoComanda, nroPedido);
-                    listNombrePrecio.AddRange(listNPAux);
                 }
-            }
-            Grilla_PedidosCliente.DataSource = null;
-            Grilla_PedidosCliente.DataSource = listNombrePrecio;
+                Grilla_PedidosCliente.DataSource = null;
+                Grilla_PedidosCliente.DataSource = listNombrePrecio;
 
-            CalcularTotal(listNombrePrecio);
-            textBox1.Text = "$" + MontoTotal.ToString();
+                CalcularTotal(listNombrePrecio);
+                textBox1.Text = "$" + MontoTotal.ToString();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_Pagar_Click(object sender, EventArgs e)
@@ -160,8 +169,13 @@ namespace TrabajoFinal
 
         private void Boton_Cancelar_Click(object sender, EventArgs e)
         {
-            item.Estado = "Cancelado";
-            oBLComanda.GestionarPlato(item);
+            try
+            {
+                item.Estado = "Cancelado";
+                oBLComanda.GestionarPlato(item);
+            }
+            catch (Exception)
+            { throw; }
         }
 
         private void Grilla_PedidosCliente_MouseClick(object sender, MouseEventArgs e)
@@ -170,7 +184,7 @@ namespace TrabajoFinal
             {
                 if (Grilla_PedidosCliente.CurrentRow.DataBoundItem != null)
                 {
-                    item = (ItemsSeleccionados)Grilla_PedidosCliente.CurrentRow.DataBoundItem;
+                    item = (BEItemsSeleccionados)Grilla_PedidosCliente.CurrentRow.DataBoundItem;
                 }
             }
             catch (Exception)
@@ -180,128 +194,146 @@ namespace TrabajoFinal
 
         private void AbrirMenuPlato(string tipo)
         {
-            using (var form = new GUI_SeleccionPlatos(tipo))
+            try
             {
-                int montoComanda = 0;
-                int codItem = 1;
-                List<ItemsSeleccionados> listNPAux = new List<ItemsSeleccionados>();
-                var result = form.ShowDialog();
-                if (result == DialogResult.OK)
+                using (var form = new GUI_SeleccionPlatos(tipo))
                 {
-                    List<BEPlato> Platos = form.listaPlatosFinal;
-                    nroPedido = nroPedido + 1;
-                    foreach (BEPlato item in Platos)
+                    int montoComanda = 0;
+                    int codItem = 1;
+                    List<BEItemsSeleccionados> listNPAux = new List<BEItemsSeleccionados>();
+                    var result = form.ShowDialog();
+                    if (result == DialogResult.OK)
                     {
-                        ItemsSeleccionados nombPre = new ItemsSeleccionados();
-                        nombPre.Nombre = item.Nombre;
-                        nombPre.Precio = item.Precio;
-                        nombPre.CodigoComanda = oBEComanda.Codigo;
-                        nombPre.codigoPedido = nroPedido;
-                        nombPre.CodigoItem = codItem;
-                        item.CodigoItem = codItem;
-                        item.CodigoPedido = nroPedido;
-                        item.CodigoComanda = oBEComanda.Codigo;
-                        montoComanda = montoComanda + nombPre.Precio;
+                        List<BEPlato> Platos = form.listaPlatosFinal;
+                        nroPedido = nroPedido + 1;
+                        foreach (BEPlato item in Platos)
+                        {
+                            BEItemsSeleccionados nombPre = new BEItemsSeleccionados();
+                            nombPre.Nombre = item.Nombre;
+                            nombPre.Precio = item.Precio;
+                            nombPre.CodigoComanda = oBEComanda.Codigo;
+                            nombPre.CodigoPedido = nroPedido;
+                            nombPre.CodigoItem = codItem;
+                            item.CodigoItem = codItem;
+                            item.CodigoPedido = nroPedido;
+                            item.CodigoComanda = oBEComanda.Codigo;
+                            montoComanda = montoComanda + nombPre.Precio;
                         
-                        codItem += 1;
+                            codItem += 1;
 
-                        listNPAux.Add(nombPre);
-                    }
+                            listNPAux.Add(nombPre);
+                        }
                     
-                    CargarComandaCocinero(Platos, montoComanda, nroPedido);
-                    listNombrePrecio.AddRange(listNPAux);
+                        CargarComandaCocinero(Platos, montoComanda, nroPedido);
+                        listNombrePrecio.AddRange(listNPAux);
+                    }
                 }
-            }
-            Grilla_PedidosCliente.DataSource = null;
-            Grilla_PedidosCliente.DataSource = listNombrePrecio;
+                Grilla_PedidosCliente.DataSource = null;
+                Grilla_PedidosCliente.DataSource = listNombrePrecio;
 
-            CalcularTotal(listNombrePrecio);
-            textBox1.Text = "$" + MontoTotal.ToString();
+                CalcularTotal(listNombrePrecio);
+                textBox1.Text = "$" + MontoTotal.ToString();
+            }
+            catch (Exception)
+            { throw; }
         }
 
-        private void CalcularTotal(List<ItemsSeleccionados> NP)
+        private void CalcularTotal(List<BEItemsSeleccionados> NP)
         {
-            int aux = 0;
-            foreach (ItemsSeleccionados precio in NP)
+            try
             {
-                aux = precio.Precio + aux;
+                int aux = 0;
+                foreach (BEItemsSeleccionados precio in NP)
+                {
+                    aux = precio.Precio + aux;
+                }
+                MontoTotal = aux;
             }
-            MontoTotal = aux;
+            catch (Exception)
+            { throw; }
         }
 
         private void CargarComandaCocinero(List<BEPlato> platos, int montoComanda, int codPedido)
         {
-            BEComandaCocina oBEComandaCocina = new BEComandaCocina();
-            oBEComandaCocina.Codigo = codPedido;
-            oBEComandaCocina.Estado = "Enviado_Cocina";
-            oBEComandaCocina.MontoTotal = montoComanda;
-            oBEComandaCocina.NroMesa = nroMesa;
-            oBEComandaCocina.FechaHora = DateTime.Now;
-            oBEComandaCocina.Plato = platos;
-            oBEComanda.Comandas.Add(oBEComandaCocina);
-            oBLComanda.Guardar(oBEComanda);
+            try
+            {
+                BEComandaCocina oBEComandaCocina = new BEComandaCocina();
+                oBEComandaCocina.Codigo = codPedido;
+                oBEComandaCocina.Estado = "Enviado_Cocina";
+                oBEComandaCocina.MontoTotal = montoComanda;
+                oBEComandaCocina.NroMesa = nroMesa;
+                oBEComandaCocina.FechaHora = DateTime.Now;
+                oBEComandaCocina.Plato = platos;
+                oBEComanda.Comandas.Add(oBEComandaCocina);
+                oBLComanda.Guardar(oBEComanda);
+            }
+            catch (Exception)
+            { throw; }
         }
 
         private void CargarComandaMozo( List<BEExtras> extras, List<BEBebida> bebidas, int montoComanda, int codPedido)
         {
-            BEComandaMozo oBEComandaMozo = new BEComandaMozo();
+            try
+            {
+                BEComandaMozo oBEComandaMozo = new BEComandaMozo();
 
-            oBEComandaMozo.Codigo = codPedido;
-            oBEComandaMozo.Estado = "Enviado_Mozo";
-            oBEComandaMozo.MontoTotal = montoComanda;
-            oBEComandaMozo.NroMesa = nroMesa;
-            oBEComandaMozo.FechaHora = DateTime.Now;    
-            if (extras != null)
-            {
-                oBEComandaMozo.extras = extras;
+                oBEComandaMozo.Codigo = codPedido;
+                oBEComandaMozo.Estado = "Enviado_Mozo";
+                oBEComandaMozo.MontoTotal = montoComanda;
+                oBEComandaMozo.NroMesa = nroMesa;
+                oBEComandaMozo.FechaHora = DateTime.Now;    
+                if (extras != null)
+                {
+                    oBEComandaMozo.extras = extras;
+                }
+                else
+                {
+                    oBEComandaMozo.bebidas = bebidas;
+                }
+                oBEComanda.Comandas.Add(oBEComandaMozo);
+                oBLComanda.Guardar(oBEComanda);
             }
-            else
-            {
-                oBEComandaMozo.bebidas = bebidas;
-            }
-            oBEComanda.Comandas.Add(oBEComandaMozo);
-            oBLComanda.Guardar(oBEComanda);
+            catch (Exception)
+            { throw; }
         }
 
         private int CalcularNroMesa()
         {
-            Random rand = new Random();
-            int number = rand.Next(0, 30);
-            return number;
+            try
+            {
+                Random rand = new Random();
+                int number = rand.Next(0, 18);
+                return number;
+            }
+            catch (Exception)
+            { throw; }
         }
 
         private void CargarComandaPrincipal()
         {
-            BECliente oBECliente = new BECliente();
-            oBECliente.Nombre = TextBox_Nombre.Text;
-            oBECliente.EMail = TextBox_Mail.Text;
+            try
+            {
+                BECliente oBECliente = new BECliente();
+                oBECliente.Nombre = TextBox_Nombre.Text;
+                oBECliente.EMail = TextBox_Mail.Text;
 
-            oBEComanda.Codigo = oBLComanda.GenerarCodigo();
-            oBEComanda.Cliente = oBECliente;
+                oBEComanda.Codigo = oBLComanda.GenerarCodigo();
+                oBEComanda.Cliente = oBECliente;
 
-            oBLComanda.Guardar(oBEComanda);
-
+                oBLComanda.Guardar(oBEComanda);
+            }
+            catch (Exception)
+            { throw; }
         }
         private void cargarTextbox()
         {
-            TextBox_Nombre.Text = Interaction.InputBox("Ingrese su nombre");
-            TextBox_Mail.Text = Interaction.InputBox("Ingrese su mail");
+            try
+            {
+                TextBox_Nombre.Text = Interaction.InputBox("Ingrese su nombre");
+                TextBox_Mail.Text = Interaction.InputBox("Ingrese su mail");
+            }
+            catch (Exception)
+            { throw; }
         }
-
-
     }
-    /*
-    public class ItemsSeleccionados
-    {
-        public int CodigoComanda { get; set; }
-        public int codigoPedido { get; set; }
-        public int CodigoItem { get; set; }
-        public string Nombre { get; set; }
-        public int Precio { get; set; }
-        public string Estado { get; set; }
-
-        public ItemsSeleccionados()
-        {
-        }
-    }*/
 }

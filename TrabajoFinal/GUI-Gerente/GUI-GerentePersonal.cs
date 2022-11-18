@@ -190,13 +190,17 @@ namespace TrabajoFinal
 
         private string AsignarTurno()
         {
-            if (RadioButton_Mañana.Checked)
-            {return "Mañana";}
-            else if (RadioButton_Tarde.Checked)
-            {return "Tarde";}
-            else
-            {return "Noche";}
-
+            try
+            {
+                if (RadioButton_Mañana.Checked)
+                {return "Mañana";}
+                else if (RadioButton_Tarde.Checked)
+                {return "Tarde";}
+                else
+                {return "Noche";}
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message);}
         }
 
         void AsignarAControles(BEPersonal oBEpersonal)
@@ -234,96 +238,118 @@ namespace TrabajoFinal
 
         void CargarGrillaUsuarios()
         {
-            List<BEPersonal> listPersonal = new List<BEPersonal>();
-            List<BECocinero> listCocineros = oBLCocinero.ListarTodo();
-            List<BEMozo> listMozo = oBLMozo.ListarTodo();
+            try
+            {
+                List<BEPersonal> listPersonal = new List<BEPersonal>();
+                List<BECocinero> listCocineros = oBLCocinero.ListarTodo();
+                List<BEMozo> listMozo = oBLMozo.ListarTodo();
 
-            foreach (BECocinero coci in listCocineros)
-            {
-                listPersonal.Add((BEPersonal)coci);
+                foreach (BECocinero coci in listCocineros)
+                {
+                    listPersonal.Add((BEPersonal)coci);
+                }
+                foreach (BEMozo mozo in listMozo)
+                {
+                    listPersonal.Add((BEMozo)mozo);
+                }
+                Grilla_Usuarios.DataSource = listPersonal;
             }
-            foreach (BEMozo mozo in listMozo)
-            {
-                listPersonal.Add((BEMozo)mozo);
-            }
-            Grilla_Usuarios.DataSource = listPersonal;
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Grilla_Usuarios_MouseClick(object sender, MouseEventArgs e)
         {
-            BEPersonal Personal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
-            AsignarAControles(Personal);
-            RecuperarPuesto(Personal.DNI);
-            LlenarRolesGrillasTree(Personal);
+            try
+            {
+                BEPersonal Personal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
+                AsignarAControles(Personal);
+                RecuperarPuesto(Personal.DNI);
+                LlenarRolesGrillasTree(Personal);
             
-            textBox_Pass.UseSystemPasswordChar = true;
+                textBox_Pass.UseSystemPasswordChar = true;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void RecuperarPuesto(int dni)
         {
-            string puesto = oBLPersonal.RecuperarPuesto(dni);
-            if (puesto == "Mozo")
+            try
             {
-                RadioButton_Mozo.Checked = true;
+                string puesto = oBLPersonal.RecuperarPuesto(dni);
+                if (puesto == "Mozo")
+                {
+                    RadioButton_Mozo.Checked = true;
+                }
+                else
+                {
+                    RadioButton_Cocinero.Checked = true;
+                }
             }
-            else
-            {
-                RadioButton_Cocinero.Checked = true;
-            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+
         }
 
         private void LlenarRolesGrillasTree(BEPersonal Personal)
         {
-            
-            BECocinero oBECoc = oBLCocinero.ListarObjeto(Personal.DNI);
-            BEMozo oBEMo = oBLMozo.ListarObjeto(Personal.DNI);
-
-
-            if (!(oBECoc is null))
+            try
             {
-                Grilla_RolesAsignados.DataSource = oBECoc.Roles;
-                SeleccionarRolesNoAsignados(oBECoc.Roles);
-                if (oBECoc.Roles.Count > 0)
-                {
-                    LlenarTreeWiev(oBECoc.Roles);
-                }
-                else
-                {
-                    treeView1.Nodes.Clear();
-                }
-            }
-            else
-            {
-                Grilla_RolesAsignados.DataSource = oBEMo.Roles;
-                SeleccionarRolesNoAsignados(oBEMo.Roles);
-                if (oBEMo.Roles.Count > 0)
-                {
-                    LlenarTreeWiev(oBEMo.Roles);
-                }
-                else
-                {
-                    treeView1.Nodes.Clear();
-                }
-                
-            }
-        }
+                BECocinero oBECoc = oBLCocinero.ListarObjeto(Personal.DNI);
+                BEMozo oBEMo = oBLMozo.ListarObjeto(Personal.DNI);
 
 
-
-        private void SeleccionarRolesNoAsignados(List<BERoles> roles)
-        {
-            List<BERoles> listRoles = oBLRoles.ListarTodo();
-            foreach (BERoles rol in roles)
-            {
-                for (int i = listRoles.Count -1 ; i >= 0 ; i--)
+                if (!(oBECoc is null))
                 {
-                    if (rol.Codigo == listRoles[i].Codigo)
+                    Grilla_RolesAsignados.DataSource = oBECoc.Roles;
+                    SeleccionarRolesNoAsignados(oBECoc.Roles);
+                    if (oBECoc.Roles.Count > 0)
                     {
-                        listRoles.RemoveAt(i);
+                        LlenarTreeWiev(oBECoc.Roles);
+                    }
+                    else
+                    {
+                        treeView1.Nodes.Clear();
+                    }
+                }
+                else
+                {
+                    Grilla_RolesAsignados.DataSource = oBEMo.Roles;
+                    SeleccionarRolesNoAsignados(oBEMo.Roles);
+                    if (oBEMo.Roles.Count > 0)
+                    {
+                        LlenarTreeWiev(oBEMo.Roles);
+                    }
+                    else
+                    {
+                        treeView1.Nodes.Clear();
                     }
                 }
             }
-            Grilla_RolesNoAsignados.DataSource = listRoles;
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+        }
+
+        private void SeleccionarRolesNoAsignados(List<BERoles> roles)
+        {
+            try
+            {
+                List<BERoles> listRoles = oBLRoles.ListarTodo();
+                foreach (BERoles rol in roles)
+                {
+                    for (int i = listRoles.Count -1 ; i >= 0 ; i--)
+                    {
+                        if (rol.Codigo == listRoles[i].Codigo)
+                        {
+                            listRoles.RemoveAt(i);
+                        }
+                    }
+                }
+                Grilla_RolesNoAsignados.DataSource = listRoles;
+                }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_Agregar_Click(object sender, EventArgs e)
@@ -338,77 +364,98 @@ namespace TrabajoFinal
 
         private void LlenarTreeWiev(List<BERoles> listRoles)
         {
-            treeView1.Nodes.Clear();
-            listRoles.OrderBy(r => r.Codigo).ToList();
-            var nodoSuperior = new TreeNode("Roles");
-            treeView1.Nodes.Add(nodoSuperior);
-            string RolActual = listRoles.First().Codigo.ToString();
-            var treeNodes = new List<TreeNode>();
-            var childNodes = new List<TreeNode>();
-            string rolAux = null;
-            foreach (BERoles obj in listRoles)
+            try
             {
-                
-                if (RolActual == obj.Codigo.ToString()) {
-                    
-                    foreach (BEPermisos permisos in obj.Permisos)
-                    {
-                        childNodes.Add(new TreeNode(permisos.Codigo.ToString() +" "+ permisos.Descripcion.ToString()));
-                    }
-                    rolAux = obj.Codigo.ToString() + " " + obj.Descripcion;
-                }
-                else
+                treeView1.Nodes.Clear();
+                listRoles.OrderBy(r => r.Codigo).ToList();
+                var nodoSuperior = new TreeNode("Roles");
+                treeView1.Nodes.Add(nodoSuperior);
+                string RolActual = listRoles.First().Codigo.ToString();
+                var treeNodes = new List<TreeNode>();
+                var childNodes = new List<TreeNode>();
+                string rolAux = null;
+                foreach (BERoles obj in listRoles)
                 {
-                    if (childNodes.Count > 0)
+
+                    if (RolActual == obj.Codigo.ToString())
                     {
-                        treeNodes.Add(new TreeNode(rolAux, childNodes.ToArray()));
-                        childNodes = new List<TreeNode>();
+
+                        foreach (BEPermisos permisos in obj.Permisos)
+                        {
+                            childNodes.Add(new TreeNode(permisos.Codigo.ToString() + " " + permisos.Descripcion.ToString()));
+                        }
+                        rolAux = obj.Codigo.ToString() + " " + obj.Descripcion;
                     }
-                    childNodes.Add(new TreeNode(obj.Descripcion));
-                    RolActual = obj.Codigo.ToString() + " " + obj.Descripcion.ToString();
+                    else
+                    {
+                        if (childNodes.Count > 0)
+                        {
+                            treeNodes.Add(new TreeNode(rolAux, childNodes.ToArray()));
+                            childNodes = new List<TreeNode>();
+                        }
+                        childNodes.Add(new TreeNode(obj.Descripcion));
+                        RolActual = obj.Codigo.ToString() + " " + obj.Descripcion.ToString();
+                    }
                 }
+                if (childNodes.Count > 0)
+                {
+                    treeNodes.Add(new TreeNode(RolActual, childNodes.ToArray()));
+                }
+                treeView1.Nodes[0].Nodes.AddRange(treeNodes.ToArray());
             }
-            if (childNodes.Count > 0)
-            {
-                treeNodes.Add(new TreeNode(RolActual, childNodes.ToArray()));
-            }
-            treeView1.Nodes[0].Nodes.AddRange(treeNodes.ToArray());
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
       
         private void AgregarRol()
         {
-            if (Grilla_RolesNoAsignados.Rows.Count >0 )
+            try
             {
-                oBERoles = (BERoles)Grilla_RolesNoAsignados.CurrentRow.DataBoundItem;
-                oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
-                List<BERoles> rolesAsignados = new List<BERoles>();
-                rolesAsignados.Add(oBERoles);
-                oBEPersonal.Roles = rolesAsignados;
-                oBLPersonal.GuardarRol(oBEPersonal);
-                LlenarRolesGrillasTree(oBEPersonal);
+                if (Grilla_RolesNoAsignados.Rows.Count > 0)
+                {
+                    oBERoles = (BERoles)Grilla_RolesNoAsignados.CurrentRow.DataBoundItem;
+                    oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
+                    List<BERoles> rolesAsignados = new List<BERoles>();
+                    rolesAsignados.Add(oBERoles);
+                    oBEPersonal.Roles = rolesAsignados;
+                    oBLPersonal.GuardarRol(oBEPersonal);
+                    LlenarRolesGrillasTree(oBEPersonal);
+                }
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void QuitarRol()
         {
-            if (Grilla_RolesAsignados.Rows.Count > 0)
+            try
             {
-                oBERoles = (BERoles)Grilla_RolesAsignados.CurrentRow.DataBoundItem;
-                oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
-                List<BERoles> rolesAsignados = new List<BERoles>();
-                rolesAsignados.Add(oBERoles);
-                oBEPersonal.Roles = rolesAsignados;
-                oBLPersonal.BorrarRol(oBEPersonal);
-                LlenarRolesGrillasTree(oBEPersonal);
+                if (Grilla_RolesAsignados.Rows.Count > 0)
+                {
+                    oBERoles = (BERoles)Grilla_RolesAsignados.CurrentRow.DataBoundItem;
+                    oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
+                    List<BERoles> rolesAsignados = new List<BERoles>();
+                    rolesAsignados.Add(oBERoles);
+                    oBEPersonal.Roles = rolesAsignados;
+                    oBLPersonal.BorrarRol(oBEPersonal);
+                    LlenarRolesGrillasTree(oBEPersonal);
+                }
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_MostrarPsw_Click(object sender, EventArgs e)
         {
-            oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
-            string passEnc = oBLPersonal.RecuperarPass(oBEPersonal.DNI);
-            textBox_Pass.UseSystemPasswordChar = false;
-            textBox_Pass.Text = Encriptacion.Decrypt(passEnc, null);
+            try
+            {
+                oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
+                string passEnc = oBLPersonal.RecuperarPass(oBEPersonal.DNI);
+                textBox_Pass.UseSystemPasswordChar = false;
+                textBox_Pass.Text = Encriptacion.Decrypt(passEnc, null);
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
     }
 }

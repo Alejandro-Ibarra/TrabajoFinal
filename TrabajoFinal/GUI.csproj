@@ -101,6 +101,12 @@
     <Compile Include="GUI-Gerente\GUI-GerentePlatos.Designer.cs">
       <DependentUpon>GUI-GerentePlatos.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI-Usuarios\GUI-UsrMozo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Usuarios\GUI-UsrMozo.Designer.cs">
+      <DependentUpon>GUI-UsrMozo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-RealizarPago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,12 +154,6 @@
     </Compile>
     <Compile Include="GUI-Usuarios\GUI-UsrCocina.Designer.cs">
       <DependentUpon>GUI-UsrCocina.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI-Usuarios\GUI-UsrMozo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI-Usuarios\GUI-UsrMozo.Designer.cs">
-      <DependentUpon>GUI-UsrMozo.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionPlatos.cs">
       <SubType>Form</SubType>
@@ -223,11 +223,11 @@
     <EmbeddedResource Include="GUI-Usuarios\GUI-Cliente\GUI-Cliente.resx">
       <DependentUpon>GUI-Cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Usuarios\GUI-UsrCocina.resx">
-      <DependentUpon>GUI-UsrCocina.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI-Usuarios\GUI-UsrMozo.resx">
       <DependentUpon>GUI-UsrMozo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Usuarios\GUI-UsrCocina.resx">
+      <DependentUpon>GUI-UsrCocina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionPlatos.resx">
       <DependentUpon>GUI-SeleccionPlatos.cs</DependentUpon>

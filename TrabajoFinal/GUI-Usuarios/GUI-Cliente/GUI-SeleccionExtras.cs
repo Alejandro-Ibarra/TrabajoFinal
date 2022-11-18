@@ -32,60 +32,80 @@ namespace TrabajoFinal
 
         private void Boton_AgregarExtra_Click(object sender, EventArgs e)
         {
-            if (GridView_TodosExtras.Rows.Count > 0)
+            try
             {
-                int aux = 0;
-
-                foreach (BEExtras Extras in listExtrasElegidos)
+                if (GridView_TodosExtras.Rows.Count > 0)
                 {
-                    if (Extras.Codigo == ((BEExtras)GridView_TodosExtras.CurrentRow.DataBoundItem).Codigo)
+                    int aux = 0;
+
+                    foreach (BEExtras Extras in listExtrasElegidos)
                     {
-                        aux++;
+                        if (Extras.Codigo == ((BEExtras)GridView_TodosExtras.CurrentRow.DataBoundItem).Codigo)
+                        {
+                            aux++;
+                        }
                     }
-                }
-                if (aux == 0)
-                {
-                    listExtrasElegidos.Add((BEExtras)GridView_TodosExtras.CurrentRow.DataBoundItem);
-                }
-                else
-                {
-                    MessageBox.Show("El ingrediente ya se encuentra en el plato");
-                }
+                    if (aux == 0)
+                    {
+                        listExtrasElegidos.Add((BEExtras)GridView_TodosExtras.CurrentRow.DataBoundItem);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El ingrediente ya se encuentra en el plato");
+                    }
 
-                GridView_ExtrasSelec.DataSource = null;
-                GridView_ExtrasSelec.DataSource = listExtrasElegidos;
+                    GridView_ExtrasSelec.DataSource = null;
+                    GridView_ExtrasSelec.DataSource = listExtrasElegidos;
+                }
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message);}
         }
 
         private void Boton_QuitarExtras_Click(object sender, EventArgs e)
         {
-            if (GridView_ExtrasSelec.Rows.Count > 0)
+            try
             {
-
-                List<BEExtras> ingreAux2 = new List<BEExtras>();
-                foreach (BEExtras ing in listExtrasElegidos)
+                if (GridView_ExtrasSelec.Rows.Count > 0)
                 {
-                    if (ing.Nombre != ((BEExtras)GridView_ExtrasSelec.CurrentRow.DataBoundItem).Nombre && GridView_ExtrasSelec.CurrentRow.DataBoundItem != null)
+
+                    List<BEExtras> ingreAux2 = new List<BEExtras>();
+                    foreach (BEExtras ing in listExtrasElegidos)
                     {
-                        ingreAux2.Add(ing);
+                        if (ing.Nombre != ((BEExtras)GridView_ExtrasSelec.CurrentRow.DataBoundItem).Nombre && GridView_ExtrasSelec.CurrentRow.DataBoundItem != null)
+                        {
+                            ingreAux2.Add(ing);
+                        }
                     }
+                    listExtrasElegidos = ingreAux2;
+                    GridView_ExtrasSelec.DataSource = null;
+                    GridView_ExtrasSelec.DataSource = listExtrasElegidos;
                 }
-                listExtrasElegidos = ingreAux2;
-                GridView_ExtrasSelec.DataSource = null;
-                GridView_ExtrasSelec.DataSource = listExtrasElegidos;
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_Confirmar_Click(object sender, EventArgs e)
         {
-            this.listaExtrasFinal = listExtrasElegidos;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            try
+            {
+                this.listaExtrasFinal = listExtrasElegidos;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void CargarGrillaExtras()
         {
-            GridView_TodosExtras.DataSource = oBLExtras.ListarTodo();
+            try
+            {
+                GridView_TodosExtras.DataSource = oBLExtras.ListarTodo();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
     }

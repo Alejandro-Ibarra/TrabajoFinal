@@ -28,7 +28,9 @@ namespace TrabajoFinal
 
         private List<BEPermisos> RecuperarTodosPermisos(BEPersonal obEPersonal)
         {
-            List<BEPermisos> todosPer = new List<BEPermisos>(); 
+            try
+            {
+                List<BEPermisos> todosPer = new List<BEPermisos>(); 
             foreach (BERoles rol in obEPersonal.Roles)
             {
                 foreach (BEPermisos item in rol.Permisos)
@@ -37,37 +39,45 @@ namespace TrabajoFinal
                 }
             }
             return todosPer;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); return null; }
         }
 
         private void AsignarControles(BEPersonal obEPersonal)
         {
-            List<BEPermisos> perperso = RecuperarTodosPermisos(obEPersonal);
-            foreach ( BEPermisos item in perperso)
+            try
             {
-                foreach (ToolStripMenuItem tool in menuStrip1.Items)
+                List<BEPermisos> perperso = RecuperarTodosPermisos(obEPersonal);
+                foreach ( BEPermisos item in perperso)
                 {
-                    if (tool.Name == item.Descripcion)
+                    foreach (ToolStripMenuItem tool in menuStrip1.Items)
                     {
-                        tool.Visible = true;
+                        if (tool.Name == item.Descripcion)
+                        {
+                            tool.Visible = true;
+                        }
                     }
-                }
-                foreach (ToolStripMenuItem tool in ToolStrip_Admin.DropDownItems)
-                {
-                    if (tool.Name == item.Descripcion)
+                    foreach (ToolStripMenuItem tool in ToolStrip_Admin.DropDownItems)
                     {
-                        ToolStrip_Admin.Visible = true;
-                        tool.Visible = true;
+                        if (tool.Name == item.Descripcion)
+                        {
+                            ToolStrip_Admin.Visible = true;
+                            tool.Visible = true;
+                        }
                     }
-                }
-                foreach (ToolStripMenuItem tool in ToolStrip_Menu.DropDownItems)
-                {
-                    if (tool.Name == item.Descripcion)
+                    foreach (ToolStripMenuItem tool in ToolStrip_Menu.DropDownItems)
                     {
-                        ToolStrip_Menu.Visible = true;
-                        tool.Visible = true;
+                        if (tool.Name == item.Descripcion)
+                        {
+                            ToolStrip_Menu.Visible = true;
+                            tool.Visible = true;
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message);}
         }
 
         private void ToolStrip_Cocinero_Click(object sender, EventArgs e)
@@ -78,8 +88,11 @@ namespace TrabajoFinal
 
         private void ToolStrip_Mozo_Click(object sender, EventArgs e)
         {
-            GUI_UsrMozo oGUI_Mozo = new GUI_UsrMozo();
-            oGUI_Mozo.Show();
+            GUI_UsrCocina oGUI_Cocina = new GUI_UsrCocina(oBePersonal);
+            oGUI_Cocina.Show();
+
+            //GUI_UsrMozo oGUI_Mozo = new GUI_UsrMozo();
+            //oGUI_Mozo.Show();
         }
 
         private void ToolStrip_Personal_Click(object sender, EventArgs e)
@@ -134,6 +147,13 @@ namespace TrabajoFinal
         {
             GUI_RolesPermisos oGUI_RolesPermisos = new GUI_RolesPermisos();
             oGUI_RolesPermisos.Show();
+        }
+
+        private void ToolStrip_CerrarSesion_Click(object sender, EventArgs e)
+        {
+            GUI_Login oGUI_LogIn = new GUI_Login();
+            this.Close();
+            oGUI_LogIn.Show();
         }
     }
 }

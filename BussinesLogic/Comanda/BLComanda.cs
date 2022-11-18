@@ -56,7 +56,7 @@ namespace BussinesLogic
             return oMComanda.GenerarCodigoPedido(codigo);
         }*/
 
-        public bool GestionarPlato(ItemsSeleccionados item)
+        public bool GestionarPlato(BEItemsSeleccionados item)
         {
             return oMComanda.GestionarPlato(item);
         }

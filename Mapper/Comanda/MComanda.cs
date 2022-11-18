@@ -47,17 +47,20 @@ namespace Mapper
                     foreach (XElement comViejas in consulta)
                     {
                         int aux = comViejas.Elements("PedidosRealizadosCocina").Count();
-                        int lala = oBEcomanda.Comandas.Count -1;
-                        if (oBEcomanda.Comandas[lala] is BEComandaCocina)
+                        int aux2 = comViejas.Elements("PedidosRealizadosBebidas").Count();
+                        int aux3 = comViejas.Elements("PedidosRealizadosExtras").Count();
+                        int auxtot = aux + aux2 + aux3;
+                        int aux4 = oBEcomanda.Comandas.Count -1;
+                        if (oBEcomanda.Comandas[aux4] is BEComandaCocina)
                         {
-                            BEComandaCocina oBEComCocAux = (BEComandaCocina)oBEcomanda.Comandas[lala];
+                            BEComandaCocina oBEComCocAux = (BEComandaCocina)oBEcomanda.Comandas[aux4];
                             XElement platos = new XElement("PlatosDeComanda");
 
                             foreach (BEPlato plato in oBEComCocAux.Plato )
                             {
                                 platos.Add(new XElement("PlatoComandaCocina",
                                                new XAttribute("Codigo", plato.Codigo),
-                                               new XElement("Estado", "Enviado_Cocina"),
+                                               new XElement("Estado", "Enviado_Cocinero"),
                                                new XElement("CodigoComanda", plato.CodigoComanda.ToString()),
                                                new XElement("CodigoPedido", plato.CodigoPedido.ToString()),
                                                new XElement("CodigoItem", plato.CodigoItem.ToString())
@@ -101,7 +104,7 @@ namespace Mapper
                             if (!bebidas.IsEmpty)
                             {
                                 comViejas.Add(new XElement("PedidosRealizadosBebidas",
-                                        new XAttribute("ID", (aux + 1).ToString()),
+                                        new XAttribute("ID", (auxtot + 1).ToString()),
                                         new XElement("Tipo", "Mozo"),
                                         new XElement("Estado", oBEComMozAux.Estado.ToString()),
                                         new XElement("FechaHoraPedido", oBEComMozAux.FechaHora.ToString()),
@@ -112,7 +115,7 @@ namespace Mapper
                             else
                             {
                                 comViejas.Add(new XElement("PedidosRealizadosExtras",
-                                        new XAttribute("ID", (aux + 1).ToString()),
+                                        new XAttribute("ID", (auxtot + 1).ToString()),
                                         new XElement("Tipo", "Mozo"),
                                         new XElement("Estado", oBEComMozAux.Estado.ToString()),
                                         new XElement("FechaHoraPedido", oBEComMozAux.FechaHora.ToString()),
@@ -136,21 +139,21 @@ namespace Mapper
             { throw ex; }
         }
 
-        public bool GestionarPlato(ItemsSeleccionados item)
+        public bool GestionarPlato(BEItemsSeleccionados item)
         {
             try
             {
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
                 var consultaPlato = from plato in xmlDocument.Descendants("PlatoComandaCocina")
-                                     where plato.Element("CodigoComanda").Value == item.CodigoComanda.ToString() && plato.Element("CodigoPedido").Value == item.codigoPedido.ToString() && plato.Element("CodigoItem").Value == item.CodigoItem.ToString()
+                                     where plato.Element("CodigoComanda").Value == item.CodigoComanda.ToString() && plato.Element("CodigoPedido").Value == item.CodigoPedido.ToString() && plato.Element("CodigoItem").Value == item.CodigoItem.ToString()
                                     select plato;
 
                 var consultaBebida = from bebida in xmlDocument.Descendants("BebidasComandaMozo")
-                               where bebida.Element("CodigoComanda").Value == item.CodigoComanda.ToString() && bebida.Element("CodigoPedido").Value == item.codigoPedido.ToString() && bebida.Element("CodigoItem").Value == item.CodigoItem.ToString()
+                               where bebida.Element("CodigoComanda").Value == item.CodigoComanda.ToString() && bebida.Element("CodigoPedido").Value == item.CodigoPedido.ToString() && bebida.Element("CodigoItem").Value == item.CodigoItem.ToString()
                                select bebida;
 
                 var consultaExtra = from extras in xmlDocument.Descendants("ExtrasComandaMozo")
-                                     where extras.Element("CodigoComanda").Value == item.CodigoComanda.ToString() && extras.Element("CodigoPedido").Value == item.codigoPedido.ToString() && extras.Element("CodigoItem").Value == item.CodigoItem.ToString()
+                                     where extras.Element("CodigoComanda").Value == item.CodigoComanda.ToString() && extras.Element("CodigoPedido").Value == item.CodigoPedido.ToString() && extras.Element("CodigoItem").Value == item.CodigoItem.ToString()
                                      select extras;
 
                 if (consultaPlato.Any())
@@ -179,13 +182,6 @@ namespace Mapper
             }
             catch (Exception)
             {throw;}
-
-        }
-
-
-
-        private void SetEstadoPlato()
-        {
 
         }
 
