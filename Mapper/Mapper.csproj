@@ -58,6 +58,7 @@
     <Compile Include="MBackUp.cs" />
     <Compile Include="Comanda\MComanda.cs" />
     <Compile Include="Administrador\Menu\MItemsSeleccionados.cs" />
+    <Compile Include="Administrador\MCliente.cs" />
     <Compile Include="MLogin.cs" />
     <Compile Include="Administrador\Personal\MMozo.cs" />
     <Compile Include="Administrador\Permisos\MPermisos.cs" />

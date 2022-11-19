@@ -87,10 +87,9 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_BebidasSelec.Rows.Count > 0)
-                {
-                    GridView_TodosBebidas.DataSource = oBLBebida.ListarTodo();
-                }
+                
+                GridView_TodosBebidas.DataSource = oBLBebida.ListarTodo();
+    
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

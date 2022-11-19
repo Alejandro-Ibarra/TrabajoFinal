@@ -29,23 +29,7 @@ namespace Mapper
             throw new NotImplementedException();
         }
 
-        public List<BEItemsSeleccionados> RecuperarPlatosMasVendidos()
-        {
-            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
-            var consulta =
-            from platos in xmlDocument.Descendants("PlatoComandaCocina")
-            select new BEItemsSeleccionados
-            {
-                Codigo = Convert.ToInt32(platos.Attribute("Codigo").Value)
-            };
-            
-
-            List < BEItemsSeleccionados > ListaItems = consulta.ToList<BEItemsSeleccionados>();
-
-            return ListaItems;
-        }
-    
 
 
         public List<BEItemsSeleccionados> ListarTodo()
@@ -129,6 +113,39 @@ namespace Mapper
 
         }
 
+        public List<BEItemsSeleccionados> RecuperarPlatosMasVendidos()
+        {
+            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+            var consulta =
+            from platos in xmlDocument.Descendants("PlatoComandaCocina")
+            select new BEItemsSeleccionados
+            {
+                Codigo = Convert.ToInt32(platos.Attribute("Codigo").Value)
+            };
+
+
+            List<BEItemsSeleccionados> ListaItems = consulta.ToList<BEItemsSeleccionados>();
+
+            return ListaItems;
+        }
+
+
+        public List<BEItemsSeleccionados> RecuperarBebidasMasVendidas()
+        {
+            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+            var consulta =
+            from bebidas in xmlDocument.Descendants("BebidasComandaMozo")
+            select new BEItemsSeleccionados
+            {
+                Codigo = Convert.ToInt32(bebidas.Attribute("ID").Value)
+            };
+
+            List<BEItemsSeleccionados> ListaItems = consulta.ToList<BEItemsSeleccionados>();
+            return ListaItems;
+        }
+
         public bool Modificar(BEItemsSeleccionados oBEItem)
         {
             try
@@ -161,7 +178,6 @@ namespace Mapper
                     }
                 }
                
-
                 var pedidobebida = from ped in comanda.Descendants("PedidosRealizadosBebidas")
                              where ped.Attribute("ID").Value == CodigoPedido //|| ped.Element("PedidosRealizadosBebidas").Attribute("ID").Value == CodigoPedido || ped.Element("PedidosRealizadosExtras").Attribute("ID").Value == CodigoPedido
                              select ped;
@@ -178,8 +194,6 @@ namespace Mapper
                     }
                 }
 
-
-
                 var pedidoextra = from ped in comanda.Descendants("PedidosRealizadosExtras")
                                    where ped.Attribute("ID").Value == CodigoPedido //|| ped.Element("PedidosRealizadosBebidas").Attribute("ID").Value == CodigoPedido || ped.Element("PedidosRealizadosExtras").Attribute("ID").Value == CodigoPedido
                                    select ped;
@@ -195,11 +209,6 @@ namespace Mapper
                         EModifcar.Element("Estado").Value = oBEItem.Estado.ToString().Trim();
                     }
                 }
-
-
-
-
-
                 xmlDocument.Save("Restaurante.xml");
                 return true;
             }

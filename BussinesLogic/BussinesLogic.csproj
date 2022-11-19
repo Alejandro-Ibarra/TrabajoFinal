@@ -57,7 +57,7 @@
     <Compile Include="Contable\BLMetodoPago.cs" />
     <Compile Include="Administrador\Personal\BLMozo.cs" />
     <Compile Include="Contable\BLPago.cs" />
-    <Compile Include="Cliente\BLPedidoCliente.cs" />
+    <Compile Include="Cliente\BLClientes.cs" />
     <Compile Include="Comanda\BLComandaCocina.cs" />
     <Compile Include="Comanda\BLComandaMozo.cs" />
     <Compile Include="Administrador\Menu\BLPlato.cs" />

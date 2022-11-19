@@ -54,5 +54,9 @@ namespace BussinesLogic
             return oMItemSelec.RecuperarPlatosMasVendidos();
         }
 
+        public List<BEItemsSeleccionados> RecuperarBebidasMasVendidas()
+        {
+            return oMItemSelec.RecuperarBebidasMasVendidas();
+        }
     }
 }

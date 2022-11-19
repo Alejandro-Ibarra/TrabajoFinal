@@ -194,6 +194,9 @@
     <EmbeddedResource Include="GUI-Gerente\Gestion\GUI-GerenteMetricas.resx">
       <DependentUpon>GUI-GerenteMetricas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Gerente\GUI-GerenteEventos.resx">
+      <DependentUpon>GUI-GerenteEventos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI-Gerente\GUI-GerenteMesas.resx">
       <DependentUpon>GUI-GerenteMesas.cs</DependentUpon>
     </EmbeddedResource>

@@ -25,14 +25,18 @@ namespace TrabajoFinal
             oBEPlato = new BEPlato();
             oListaItemsCod = new List<BEItemsSeleccionados>();
             oListaPlatos = new List<BEPlato>();
+            oBLBebidas = new BLBebida();
             CargarGraficoPlatos();
+            CargarGraficoBebidas();
         }
 
         BLPlato oBLPlato;
+        BLBebida oBLBebidas;
         BEPlato oBEPlato;
         BLItemsSeleccionados oBLItemsSeleccionados;
         List<BEItemsSeleccionados> oListaItemsCod;
         List<BEPlato> oListaPlatos;
+        List<BEBebida> oListaBebidas;
 
         private List<BEPlato> RecuperarPlatos()
         {
@@ -54,25 +58,25 @@ namespace TrabajoFinal
             return platos;
         }
 
-        /*private List<BEPlato> RecuperarBebidas()
+        private List<BEBebida> RecuperarBebidas()
         {
-            List<BEBebida> platos = new List<BEBebida>();
+            List<BEBebida> bebidas = new List<BEBebida>();
 
-            oListaItemsCod = oBLItemsSeleccionados.RecuperarPlatosMasVendidos();
-            oListaPlatos = oBLPlato.ListarTodo();
+            oListaItemsCod = oBLItemsSeleccionados.RecuperarBebidasMasVendidas();
+            oListaBebidas = oBLBebidas.ListarTodo();
 
             foreach (BEItemsSeleccionados item in oListaItemsCod)
             {
-                foreach (BEBebida plat in oListaPlatos)
+                foreach (BEBebida plat in oListaBebidas)
                 {
                     if (plat.Codigo == item.Codigo)
                     {
-                        platos.Add(plat);
+                        bebidas.Add(plat);
                     }
                 }
             }
-            return platos;
-        }*/
+            return bebidas;
+        }
 
         private void CargarGraficoPlatos()
         {
@@ -102,6 +106,36 @@ namespace TrabajoFinal
 
             Chart_Platos.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = true;
             Chart_Platos.Legends[0].Enabled = true;
+        }
+
+        private void CargarGraficoBebidas()
+        {
+            List<BEBebida> bebida = RecuperarBebidas();
+            List<string> NombresBebidas = new List<string>();
+            List<int> cantidad = new List<int>();
+            var bebidasPorID = bebida
+                .GroupBy(u => u.Codigo)
+                .Select(grp => grp.ToList())
+                .ToList();
+
+            foreach (var grupos in bebidasPorID)
+            {
+                int aux = 0;
+                string aux2 = "";
+                foreach (var item in grupos)
+                {
+                    aux = aux + 1;
+                    aux2 = item.Nombre;
+                }
+                cantidad.Add(aux);
+                NombresBebidas.Add(aux2);
+            }
+
+            Chart_Bebidas.Series["Series1"].Points.DataBindXY(NombresBebidas, cantidad);
+            Chart_Bebidas.Titles.Add("Estadisticas bebidas");
+
+            Chart_Bebidas.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = true;
+            Chart_Bebidas.Legends[0].Enabled = true;
         }
 
     }
