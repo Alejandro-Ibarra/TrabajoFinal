@@ -149,6 +149,12 @@ namespace TrabajoFinal
             oGUI_RolesPermisos.Show();
         }
 
+        private void ToolStrip_Metricas_Click(object sender, EventArgs e)
+        {
+            GUI_Gerente_Metricas oGUI_RolesPermisos = new GUI_Gerente_Metricas();
+            oGUI_RolesPermisos.Show();
+        }
+
         private void ToolStrip_CerrarSesion_Click(object sender, EventArgs e)
         {
             GUI_Login oGUI_LogIn = new GUI_Login();

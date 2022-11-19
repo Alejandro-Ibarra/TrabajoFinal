@@ -36,6 +36,7 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,28 +48,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI-Gerente\Gestion\GUI-GerenteMetricas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Gerente\Gestion\GUI-GerenteMetricas.Designer.cs">
+      <DependentUpon>GUI-GerenteMetricas.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI-Gerente\GUI-GerenteMesas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI-Gerente\GUI-GerenteMesas.Designer.cs">
       <DependentUpon>GUI-GerenteMesas.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-BackUp.cs">
+    <Compile Include="GUI-Gerente\Gestion\GUI-BackUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-BackUp.Designer.cs">
+    <Compile Include="GUI-Gerente\Gestion\GUI-BackUp.Designer.cs">
       <DependentUpon>GUI-BackUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-RolesPermisos.cs">
+    <Compile Include="GUI-Gerente\Gestion\GUI-RolesPermisos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-RolesPermisos.Designer.cs">
+    <Compile Include="GUI-Gerente\Gestion\GUI-RolesPermisos.Designer.cs">
       <DependentUpon>GUI-RolesPermisos.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-GerenteBebidas.cs">
+    <Compile Include="GUI-Gerente\Menu\GUI-GerenteBebidas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-GerenteBebidas.Designer.cs">
+    <Compile Include="GUI-Gerente\Menu\GUI-GerenteBebidas.Designer.cs">
       <DependentUpon>GUI-GerenteBebidas.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-Gerente\GUI-GerenteEventos.cs">
@@ -77,16 +84,16 @@
     <Compile Include="GUI-Gerente\GUI-GerenteEventos.Designer.cs">
       <DependentUpon>GUI-GerenteEventos.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-GerenteExtras.cs">
+    <Compile Include="GUI-Gerente\Menu\GUI-GerenteExtras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-GerenteExtras.Designer.cs">
+    <Compile Include="GUI-Gerente\Menu\GUI-GerenteExtras.Designer.cs">
       <DependentUpon>GUI-GerenteExtras.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-GerenteIngredientes.cs">
+    <Compile Include="GUI-Gerente\Menu\GUI-GerenteIngredientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-GerenteIngredientes.Designer.cs">
+    <Compile Include="GUI-Gerente\Menu\GUI-GerenteIngredientes.Designer.cs">
       <DependentUpon>GUI-GerenteIngredientes.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-Gerente\GUI-GerentePersonal.cs">
@@ -95,10 +102,10 @@
     <Compile Include="GUI-Gerente\GUI-GerentePersonal.Designer.cs">
       <DependentUpon>GUI-GerentePersonal.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-GerentePlatos.cs">
+    <Compile Include="GUI-Gerente\Menu\GUI-GerentePlatos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-GerentePlatos.Designer.cs">
+    <Compile Include="GUI-Gerente\Menu\GUI-GerentePlatos.Designer.cs">
       <DependentUpon>GUI-GerentePlatos.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-Usuarios\GUI-UsrMozo.cs">
@@ -181,25 +188,28 @@
     <EmbeddedResource Include="FoldeUserControls\UC_Mesas.resx">
       <DependentUpon>UC_Mesas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Gerente\GUI-BackUp.resx">
+    <EmbeddedResource Include="GUI-Gerente\Gestion\GUI-BackUp.resx">
       <DependentUpon>GUI-BackUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Gerente\Gestion\GUI-GerenteMetricas.resx">
+      <DependentUpon>GUI-GerenteMetricas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Gerente\GUI-GerenteMesas.resx">
       <DependentUpon>GUI-GerenteMesas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Gerente\GUI-GerentePlatos.resx">
+    <EmbeddedResource Include="GUI-Gerente\Menu\GUI-GerentePlatos.resx">
       <DependentUpon>GUI-GerentePlatos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Gerente\GUI-RolesPermisos.resx">
+    <EmbeddedResource Include="GUI-Gerente\Gestion\GUI-RolesPermisos.resx">
       <DependentUpon>GUI-RolesPermisos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Gerente\GUI-GerenteBebidas.resx">
+    <EmbeddedResource Include="GUI-Gerente\Menu\GUI-GerenteBebidas.resx">
       <DependentUpon>GUI-GerenteBebidas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Gerente\GUI-GerenteExtras.resx">
+    <EmbeddedResource Include="GUI-Gerente\Menu\GUI-GerenteExtras.resx">
       <DependentUpon>GUI-GerenteExtras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Gerente\GUI-GerenteIngredientes.resx">
+    <EmbeddedResource Include="GUI-Gerente\Menu\GUI-GerenteIngredientes.resx">
       <DependentUpon>GUI-GerenteIngredientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Gerente\GUI-GerentePersonal.resx">

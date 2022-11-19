@@ -200,7 +200,7 @@ namespace TrabajoFinal
                 {return "Noche";}
             }
             catch (Exception ex)
-            { MessageBox.Show(ex.Message);}
+            { MessageBox.Show(ex.Message); return null; }
         }
 
         void AsignarAControles(BEPersonal oBEpersonal)

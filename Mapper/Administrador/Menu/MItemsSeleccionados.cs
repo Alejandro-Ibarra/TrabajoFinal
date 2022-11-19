@@ -29,13 +29,30 @@ namespace Mapper
             throw new NotImplementedException();
         }
 
+        public List<BEItemsSeleccionados> RecuperarPlatosMasVendidos()
+        {
+            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+            var consulta =
+            from platos in xmlDocument.Descendants("PlatoComandaCocina")
+            select new BEItemsSeleccionados
+            {
+                Codigo = Convert.ToInt32(platos.Attribute("Codigo").Value)
+            };
+            
+
+            List < BEItemsSeleccionados > ListaItems = consulta.ToList<BEItemsSeleccionados>();
+
+            return ListaItems;
+        }
+    
+
+
         public List<BEItemsSeleccionados> ListarTodo()
         {
             try
             {
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-                string papapa = "kaka";
-
 
                 var consultaBebida =
                 from PBebidas in xmlDocument.Descendants("BebidasComandaMozo")

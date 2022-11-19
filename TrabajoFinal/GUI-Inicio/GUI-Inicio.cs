@@ -33,7 +33,7 @@ namespace TrabajoFinal
 
         private void Pruebas_Click(object sender, EventArgs e)
         {
-            GUI_BackUp oGUI_Prueba = new GUI_BackUp(11111111);
+            GUI_Gerente_Metricas oGUI_Prueba = new GUI_Gerente_Metricas();
             this.Hide();
             oGUI_Prueba.Show();
         }

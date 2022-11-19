@@ -44,6 +44,7 @@ namespace TrabajoFinal
             this.ToolStrip_Cocinero = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_Mozo = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_CerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Metricas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +70,8 @@ namespace TrabajoFinal
             this.ToolStrip_Extras,
             this.ToolStrip_Mesas,
             this.ToolStrip_BackUp,
-            this.ToolStrip_Roles});
+            this.ToolStrip_Roles,
+            this.ToolStrip_Metricas});
             this.ToolStrip_Admin.Name = "ToolStrip_Admin";
             this.ToolStrip_Admin.Size = new System.Drawing.Size(55, 20);
             this.ToolStrip_Admin.Text = "Admin";
@@ -180,6 +182,13 @@ namespace TrabajoFinal
             this.ToolStrip_CerrarSesion.Text = "Cerrar Sesion";
             this.ToolStrip_CerrarSesion.Click += new System.EventHandler(this.ToolStrip_CerrarSesion_Click);
             // 
+            // ToolStrip_Metricas
+            // 
+            this.ToolStrip_Metricas.Name = "ToolStrip_Metricas";
+            this.ToolStrip_Metricas.Size = new System.Drawing.Size(180, 22);
+            this.ToolStrip_Metricas.Text = "Metricas";
+            this.ToolStrip_Metricas.Click += new System.EventHandler(this.ToolStrip_Metricas_Click);
+            // 
             // GUI_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,5 +222,6 @@ namespace TrabajoFinal
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_BackUp;
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_Roles;
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_CerrarSesion;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Metricas;
     }
 }
