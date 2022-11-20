@@ -161,6 +161,7 @@ namespace Mapper
                     foreach (XElement EModifcar in consultaPlato)
                     {
                         EModifcar.Element("Estado").Value = item.Estado.Trim();
+                        
                     }
                 }
                 else if (consultaBebida.Any())
@@ -205,10 +206,8 @@ namespace Mapper
                         Nombre = comanda.Element("Cliente").Element("Nombre").Value.ToString(),
                         EMail = comanda.Element("Cliente").Element("Mail").Value.ToString()
                     },
-                
-                    
-                
                 };
+
                 List<BEComanda> Lista = consulta.ToList<BEComanda>();
 
                 foreach (BEComanda comanda in Lista)
