@@ -121,7 +121,7 @@ namespace Mapper
                     ListaIngredientes = (from ingredientes in Plato.Elements("IngredientesPlato").Elements("IngredientePlato")
                                             select new BEIngrediente
                                             {
-                                                Codigo = Convert.ToInt32(Convert.ToString(ingredientes.Attribute("ID").Value)),
+                                                Codigo = Convert.ToInt32(Convert.ToString(ingredientes.Attribute("ID").Value))
                                             }).ToList<BEIngrediente>()
                 };
                 List<BEPlato> Lista = consulta.ToList<BEPlato>();

@@ -5,39 +5,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mapper;
 
 namespace BussinesLogic
 {
     public class BLEvento : IGestorABM<BEEvento>, IGestorConsulta<int>
     {
+
+        public BLEvento()
+        {
+            oMEvento = new MEvento();
+        }
+        MEvento oMEvento;
+
         public bool Existe(int obj)
         {
-            throw new NotImplementedException();
+            return oMEvento.Existe(obj);
         }
 
         public bool Modificar(BEEvento Objeto)
         {
-            throw new NotImplementedException();
+            return oMEvento.Modificar(Objeto);
         }
 
-        bool IGestorABM<BEEvento>.Baja(BEEvento oBEEvento)
+        public bool Baja(BEEvento oBEEvento)
         {
-            throw new NotImplementedException();
+            return oMEvento.Baja(oBEEvento);
         }
 
-        bool IGestorABM<BEEvento>.Guardar(BEEvento oBEEvento)
+        public bool Guardar(BEEvento oBEEvento)
         {
-            throw new NotImplementedException();
+            return oMEvento.Guardar(oBEEvento);
         }
 
-        BEEvento IGestorABM<BEEvento>.ListarObjeto(int oBEEvento)
+        public int GenerarCodigo()
         {
-            throw new NotImplementedException();
+            return oMEvento.GenerarCodigo();
         }
 
-        List<BEEvento> IGestorABM<BEEvento>.ListarTodo()
+        public BEEvento ListarObjeto(int oBEEvento)
         {
-            throw new NotImplementedException();
+            return oMEvento.ListarObjeto(oBEEvento);
+        }
+
+        public List<BEEvento> ListarTodo()
+        {
+            return oMEvento.ListarTodo();    
         }
     }
 }

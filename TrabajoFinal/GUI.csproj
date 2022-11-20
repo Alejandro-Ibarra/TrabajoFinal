@@ -185,6 +185,9 @@
     <Compile Include="FoldeUserControls\UC_ValNombApe.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FoldeUserControls\UC_ValidarMail.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="FoldeUserControls\UC_Mesas.resx">
       <DependentUpon>UC_Mesas.cs</DependentUpon>
     </EmbeddedResource>
