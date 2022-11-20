@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace Mapper
 {
-    public class MPlato : IGestorABM<BEPlato>, IGestorConsulta<int>
+    public class MPlato : IGestorABM<BEPlato>, IGestorConsulta<BEPlato>
     {
         
         public bool Baja(BEPlato oBEPlato)
@@ -45,7 +45,7 @@ namespace Mapper
         {
             try
             {
-                if (Existe(oBEPlato.Codigo) == false)
+                if (Existe(oBEPlato) == false)
                 {
                     XElement ingredientes = new XElement("IngredientesPlato");
                     foreach (BEIngrediente ing in oBEPlato.ListaIngredientes)
@@ -155,7 +155,7 @@ namespace Mapper
             throw new NotImplementedException();
         }
 
-        public bool Existe(int ID)
+        public bool Existe(BEPlato plato)
         {
             try
             {
@@ -163,7 +163,7 @@ namespace Mapper
 
 
                 var consulta = from Plato in xmlDocument.Descendants("Plato")
-                               where Plato.Attribute("ID").Value.ToString() == ID.ToString()
+                               where Plato.Element("Nombre").Value.ToString() == plato.Nombre
                                select Plato;
 
                 if (consulta.Any())

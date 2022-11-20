@@ -43,7 +43,7 @@ namespace TrabajoFinal
                         CargarGrilla();
                     }
                     else
-                    { MessageBox.Show("La bebida ingresada ya existe"); }
+                    { MessageBox.Show("El extra ingresado ya existe"); }
                 }
                 else
                 { MessageBox.Show("Ingrese los datos de forma correcta"); }

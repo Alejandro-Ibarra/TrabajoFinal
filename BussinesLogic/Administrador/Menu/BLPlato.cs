@@ -9,7 +9,7 @@ using Mapper;
 
 namespace BussinesLogic
 {
-    public class BLPlato : IGestorABM<BEPlato>, IGestorConsulta<string>
+    public class BLPlato : IGestorABM<BEPlato>, IGestorConsulta<BEPlato>
     {
         public BLPlato()
         {
@@ -23,9 +23,9 @@ namespace BussinesLogic
             return oMPlato.Baja(oBEPlato);
         }
 
-        public bool Existe(string obj)
+        public bool Existe(BEPlato oBEPlato)
         {
-            throw new NotImplementedException();
+            return oMPlato.Existe(oBEPlato);
         }
 
         public bool Guardar(BEPlato oBEPlato)

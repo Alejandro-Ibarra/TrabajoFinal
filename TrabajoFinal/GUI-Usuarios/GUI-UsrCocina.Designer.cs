@@ -47,7 +47,7 @@
             this.GridView_Pedidos.ReadOnly = true;
             this.GridView_Pedidos.Size = new System.Drawing.Size(546, 405);
             this.GridView_Pedidos.TabIndex = 4;
-            this.GridView_Pedidos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GridView_Comandas_MouseClick);
+            this.GridView_Pedidos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GridView_Pedidos_MouseClick);
             // 
             // Boton_EnPreparacion
             // 

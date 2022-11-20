@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinesEntity;
 using BussinesLogic;
+using Microsoft.VisualBasic;
 
 namespace TrabajoFinal
 {
@@ -28,6 +29,15 @@ namespace TrabajoFinal
         BERoles oBERoles;
         BLPermisos oBLPermisos;
         BEPermisos oBEPermisos;
+
+        private void Boton_CrearRol_Click(object sender, EventArgs e)
+        {
+            oBERoles.Codigo = Convert.ToInt32(uC_ValCod1.Text);
+            oBERoles.Descripcion = uC_ValNombApe1.Text;
+            oBERoles.Permisos = null;
+            oBLRoles.Guardar(oBERoles);
+            CargarGrillaRoles();
+        }
 
         private void GUI_Admin_Load(object sender, EventArgs e)
         {
@@ -54,22 +64,25 @@ namespace TrabajoFinal
         {
             try
             {
-                int aux = 0;
-                int aux2 = 0;
-                oBEPermisos = (BEPermisos)Grilla_PermisosAsignados.CurrentRow.DataBoundItem;
-                oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
-                foreach (BEPermisos perm in oBERoles.Permisos)
+                if (Grilla_PermisosAsignados.SelectedRows.Count > 0)
                 {
-                    if (perm.Codigo == oBEPermisos.Codigo)
+                    int aux = 0;
+                    int aux2 = 0;
+                    oBEPermisos = (BEPermisos)Grilla_PermisosAsignados.CurrentRow.DataBoundItem;
+                    oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
+                    foreach (BEPermisos perm in oBERoles.Permisos)
                     {
-                        aux2 = aux;
+                        if (perm.Codigo == oBEPermisos.Codigo)
+                        {
+                            aux2 = aux;
+                        }
+                        aux++;
                     }
-                    aux++;
+                    //oBERoles.Permisos.Remove(oBEPermisos);
+                    oBERoles.Permisos.RemoveAt(aux2);
+                    oBLRoles.Modificar(oBERoles);
+                    CargarGrillaPermisos(oBERoles);
                 }
-                //oBERoles.Permisos.Remove(oBEPermisos);
-                oBERoles.Permisos.RemoveAt(aux2);
-                oBLRoles.Modificar(oBERoles);
-                CargarGrillaPermisos(oBERoles);
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -79,11 +92,14 @@ namespace TrabajoFinal
         {
             try
             {
-                oBEPermisos = (BEPermisos)Grilla_PermisosNoAsignados.CurrentRow.DataBoundItem;
-                oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
-                oBERoles.Permisos.Add(oBEPermisos);
-                oBLRoles.Modificar(oBERoles);
-                CargarGrillaPermisos(oBERoles);
+                if (Grilla_PermisosNoAsignados.SelectedRows.Count > 0)
+                {
+                    oBEPermisos = (BEPermisos)Grilla_PermisosNoAsignados.CurrentRow.DataBoundItem;
+                    oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
+                    oBERoles.Permisos.Add(oBEPermisos);
+                    oBLRoles.Modificar(oBERoles);
+                    CargarGrillaPermisos(oBERoles);
+                }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -155,9 +171,13 @@ namespace TrabajoFinal
 
             try
             {
-                oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
-                CargarGrillaPermisos(oBERoles);
 
+                if (Grilla_Roles.DataSource != null)
+                {
+
+                    oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
+                    CargarGrillaPermisos(oBERoles);
+                }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

@@ -56,11 +56,14 @@ namespace TrabajoFinal
         {
             try
             {
-                SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
-                SEBackUp restore = AsignarAObjetoBackup("restore");
+                if (DataGridView_BackUps.SelectedRows.Count > 0)
+                {
+                    SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
+                    SEBackUp restore = AsignarAObjetoBackup("restore");
 
-                oSLBackup.HacerRestore(BK, restore);
-                CargarDatagrid();
+                    oSLBackup.HacerRestore(BK, restore);
+                    CargarDatagrid();
+                }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 

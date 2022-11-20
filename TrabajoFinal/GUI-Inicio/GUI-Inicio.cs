@@ -33,7 +33,7 @@ namespace TrabajoFinal
 
         private void Pruebas_Click(object sender, EventArgs e)
         {
-            GUI_Cliente oGUI_Prueba = new GUI_Cliente();
+            GUI_RolesPermisos oGUI_Prueba = new GUI_RolesPermisos();
             this.Hide();
             oGUI_Prueba.Show();
         }

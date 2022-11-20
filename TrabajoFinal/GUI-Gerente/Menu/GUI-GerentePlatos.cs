@@ -47,9 +47,17 @@ namespace TrabajoFinal
                 ActivarDisponibilidadControles(true);
                 oBEplato.Nombre = Interaction.InputBox("Ingrese el nombre del plato");
                 oBEplato.Descripcion = Interaction.InputBox("Ingrese una descripcion para el plato");
-                Boton_Alta.Enabled = false;
-                oBEplato.Codigo = oBLPlato.GenerarCodigo();
-                SeleccionarTipoPlato();
+                if (oBEplato.Nombre == "" || oBEplato.Descripcion == "")
+                {
+                    MessageBox.Show("Ingrese nombre y descripción");
+                }
+                else
+                {
+                    Boton_Alta.Enabled = false;
+                    oBEplato.Codigo = oBLPlato.GenerarCodigo();
+                    SeleccionarTipoPlato();
+                }
+                
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -164,12 +172,21 @@ namespace TrabajoFinal
             try
             {
                 AsignarAPlato();
-                oBLPlato.Guardar(oBEplato);
-                ActivarVisibilidadControles(false);
-                LimpiarTextboxYGrilla();
-                ActivarDisponibilidadControles(false);
-                Boton_Alta.Enabled = true;
-                CargarGrillaPlatos();
+                oBLPlato.Existe(oBEplato);
+                if (oBLPlato.Guardar(oBEplato) == true)
+                {
+                    ActivarVisibilidadControles(false);
+                    LimpiarTextboxYGrilla();
+                    ActivarDisponibilidadControles(false);
+                    Boton_Alta.Enabled = true;
+                    CargarGrillaPlatos();
+                }
+                else
+                {
+                    MessageBox.Show("Ya existe un plato con ese nombre");
+                }
+
+                
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -179,17 +196,26 @@ namespace TrabajoFinal
         #region DatagridClick
         private void DataGridView_SeleccionIngredientes_MouseClick(object sender, MouseEventArgs e)
         {
-            QuitarIngrediente();
+            if (DataGridView_SeleccionIngredientes.DataSource != null)
+            {
+                QuitarIngrediente();
+            }
         }
 
         private void DataGridView_TodosIngredientes_MouseClick(object sender, MouseEventArgs e)
         {
-            AgregarIngrediente();
+            if (DataGridView_TodosIngredientes.DataSource != null)
+            {
+                AgregarIngrediente();
+            }
         }
 
         private void DataGridView_Platos_MouseClick(object sender, MouseEventArgs e)
         {
-            SeleccionarPlatoGrilla();
+            if (DataGridView_Platos.DataSource != null)
+            {
+                SeleccionarPlatoGrilla();
+            }
         }
         #endregion
 
@@ -199,19 +225,22 @@ namespace TrabajoFinal
         {
             try
             {
-                int codPlato = ((BEPlato)DataGridView_Platos.CurrentRow.DataBoundItem).Codigo;
-                BEPlato oBEPlatoMod = new BEPlato();
-                List<BEPlato> listaPlatos = oBLPlato.ListarTodo();
-                foreach (BEPlato plato in listaPlatos)
+                if (DataGridView_Platos.SelectedRows.Count > 0)
                 {
-                    if (plato.Codigo == codPlato)
+                    int codPlato = ((BEPlato)DataGridView_Platos.CurrentRow.DataBoundItem).Codigo;
+                    BEPlato oBEPlatoMod = new BEPlato();
+                    List<BEPlato> listaPlatos = oBLPlato.ListarTodo();
+                    foreach (BEPlato plato in listaPlatos)
                     {
-                        oBEPlatoMod = plato;
+                        if (plato.Codigo == codPlato)
+                        {
+                            oBEPlatoMod = plato;
+                        }
                     }
+                    oBEplato = oBEPlatoMod;
+                    CargarGrillasModificacion(oBEplato);
+                    AsignarAControles(oBEplato);
                 }
-                oBEplato = oBEPlatoMod;
-                CargarGrillasModificacion(oBEplato);
-                AsignarAControles(oBEplato);
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

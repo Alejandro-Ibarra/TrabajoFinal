@@ -52,6 +52,7 @@ namespace TrabajoFinal
             this.DataGridView_BackUps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView_BackUps.Location = new System.Drawing.Point(12, 12);
             this.DataGridView_BackUps.Name = "DataGridView_BackUps";
+            this.DataGridView_BackUps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView_BackUps.Size = new System.Drawing.Size(700, 206);
             this.DataGridView_BackUps.TabIndex = 0;
             this.DataGridView_BackUps.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGridView_BackUps_MouseClick);

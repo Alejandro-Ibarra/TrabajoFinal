@@ -39,7 +39,7 @@ namespace Mapper
                 List<BEIngrediente> listaIngredientes = ListarTodo();
                 foreach (BEIngrediente ingrediente in listaIngredientes)
                 {
-                    if (ingrediente == oBEingrediente)
+                    if (oBEingrediente.Nombre == ingrediente.Nombre && oBEingrediente.Proveedor == ingrediente.Proveedor && oBEingrediente.Refrigeracion ==ingrediente.Refrigeracion && oBEingrediente.Tipo == ingrediente.Tipo)
                     {
                         return false;
                     }

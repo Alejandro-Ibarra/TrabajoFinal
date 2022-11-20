@@ -47,21 +47,28 @@ namespace TrabajoFinal
         {
             try
             {
-                if (TextBox_DNI.validar() == true)
+                if (TextBox_DNI.Text == null || TextBox_Pass.Text == null)
                 {
-                    BEPersonal oper = RecuperarUsuario(Convert.ToInt32(TextBox_DNI.Text));
-                    List<string> tipo = RecuperarTipo(Convert.ToInt32(TextBox_DNI.Text));
-                    oSELogin.DNI = Convert.ToInt32(TextBox_DNI.Text);
-                    oSELogin.Password = Encriptacion.Encrypt(TextBox_Pass.Text, null);
-                    oSELogin.Personal = oper;
-
-                    if (oSLLogin.VerificarUsuario(oSELogin, tipo) != false)
+                    MessageBox.Show("Ingrese los datos para continuar");
+                }
+                else
+                {
+                    if (TextBox_DNI.validar() == true)
                     {
-                        GUI_MenuPrincipal oGUI_MenuPrincipal = new GUI_MenuPrincipal(oper);
-                        this.Hide();
-                        oGUI_MenuPrincipal.Show();
+                        BEPersonal oper = RecuperarUsuario(Convert.ToInt32(TextBox_DNI.Text));
+                        List<string> tipo = RecuperarTipo(Convert.ToInt32(TextBox_DNI.Text));
+                        oSELogin.DNI = Convert.ToInt32(TextBox_DNI.Text);
+                        oSELogin.Password = Encriptacion.Encrypt(TextBox_Pass.Text, null);
+                        oSELogin.Personal = oper;
+
+                        if (oSLLogin.VerificarUsuario(oSELogin, tipo) != false)
+                        {
+                            GUI_MenuPrincipal oGUI_MenuPrincipal = new GUI_MenuPrincipal(oper);
+                            this.Hide();
+                            oGUI_MenuPrincipal.Show();
+                        }
+                        else { MessageBox.Show("Usuario o contraseña incorrectos"); }
                     }
-                    else {MessageBox.Show("Usuario o contraseña incorrectos");}
                 }
             }
             catch (Exception ex)
@@ -70,7 +77,9 @@ namespace TrabajoFinal
 
         private void Button_Cancelar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            GUI_Inicio oGUI_Inicio = new GUI_Inicio();
+            this.Hide();
+            oGUI_Inicio.Show();
         }
 
         private BEPersonal RecuperarUsuario(int dni)

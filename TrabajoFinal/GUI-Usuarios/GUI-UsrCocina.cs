@@ -115,56 +115,59 @@ namespace TrabajoFinal
             { MessageBox.Show(ex.Message); }
         }
 
-        private void GridView_Comandas_MouseClick(object sender, MouseEventArgs e)
+        private void GridView_Pedidos_MouseClick(object sender, MouseEventArgs e)
         {
             try
             {
-                oBEItem = (BEItemsSeleccionados)GridView_Pedidos.CurrentRow.DataBoundItem;
-
-                if (oBEItem.Estado == "Verificar_" + rol)
+                if (GridView_Pedidos.DataSource != null)
                 {
-                
+                    oBEItem = (BEItemsSeleccionados)GridView_Pedidos.CurrentRow.DataBoundItem;
+
+                    if (oBEItem.Estado == "Verificar_" + rol)
+                    {
+
                         Boton_VerificacionPlato.Enabled = true;
                         Boton_EnPreparacion.Enabled = false;
                         Boton_EnEntrega.Enabled = false;
                         Boton_Entregado.Enabled = false;
                         Boton_Retirado.Enabled = false;
 
-                }
+                    }
 
-                if (oBEItem.Estado == "Enviado_"+rol)
-                {
-                    Boton_VerificacionPlato.Enabled = false;
-                    Boton_EnPreparacion.Enabled = true;
-                    Boton_EnEntrega.Enabled = false;
-                    Boton_Entregado.Enabled = false;
-                    Boton_Retirado.Enabled = false;
-                }
+                    if (oBEItem.Estado == "Enviado_" + rol)
+                    {
+                        Boton_VerificacionPlato.Enabled = false;
+                        Boton_EnPreparacion.Enabled = true;
+                        Boton_EnEntrega.Enabled = false;
+                        Boton_Entregado.Enabled = false;
+                        Boton_Retirado.Enabled = false;
+                    }
 
-                if (oBEItem.Estado == "En_Preparacion_"+rol)
-                {
-                    Boton_VerificacionPlato.Enabled = false;
-                    Boton_EnPreparacion.Enabled = false;
-                    Boton_EnEntrega.Enabled = true;
-                    Boton_Entregado.Enabled = false;
-                    Boton_Retirado.Enabled = false;
-                }
+                    if (oBEItem.Estado == "En_Preparacion_" + rol)
+                    {
+                        Boton_VerificacionPlato.Enabled = false;
+                        Boton_EnPreparacion.Enabled = false;
+                        Boton_EnEntrega.Enabled = true;
+                        Boton_Entregado.Enabled = false;
+                        Boton_Retirado.Enabled = false;
+                    }
 
-                if (oBEItem.Estado == "En_Entrega_"+rol)
-                {
-                    Boton_VerificacionPlato.Enabled = false;
-                    Boton_EnPreparacion.Enabled = false;
-                    Boton_EnEntrega.Enabled = false;
-                    Boton_Entregado.Enabled = true;
-                    Boton_Retirado.Enabled = false;
-                }
-                if (oBEItem.Estado == "Rechazado")
-                {
-                    Boton_VerificacionPlato.Enabled = false;
-                    Boton_EnPreparacion.Enabled = false;
-                    Boton_EnEntrega.Enabled = false;
-                    Boton_Entregado.Enabled = false;
-                    Boton_Retirado.Enabled = true;
+                    if (oBEItem.Estado == "En_Entrega_" + rol)
+                    {
+                        Boton_VerificacionPlato.Enabled = false;
+                        Boton_EnPreparacion.Enabled = false;
+                        Boton_EnEntrega.Enabled = false;
+                        Boton_Entregado.Enabled = true;
+                        Boton_Retirado.Enabled = false;
+                    }
+                    if (oBEItem.Estado == "Rechazado")
+                    {
+                        Boton_VerificacionPlato.Enabled = false;
+                        Boton_EnPreparacion.Enabled = false;
+                        Boton_EnEntrega.Enabled = false;
+                        Boton_Entregado.Enabled = false;
+                        Boton_Retirado.Enabled = true;
+                    }
                 }
             }
             catch (Exception ex)

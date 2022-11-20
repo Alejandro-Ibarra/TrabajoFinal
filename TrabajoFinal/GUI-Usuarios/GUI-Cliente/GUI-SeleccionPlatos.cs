@@ -155,12 +155,15 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_TodosPlatos.Rows.Count > 0)
+                if (GridView_IngSelec.Rows.Count > 0)
                 {
-                    listaPlatosElegidos.Add((BEPlato)GridView_TodosPlatos.CurrentRow.DataBoundItem);
+                    if (GridView_TodosPlatos.Rows.Count > 0)
+                    {
+                        listaPlatosElegidos.Add((BEPlato)GridView_TodosPlatos.CurrentRow.DataBoundItem);
 
-                    GridView_PlatoSelec.DataSource = null;
-                    GridView_PlatoSelec.DataSource = listaPlatosElegidos;
+                        GridView_PlatoSelec.DataSource = null;
+                        GridView_PlatoSelec.DataSource = listaPlatosElegidos;
+                    }
                 }
             }
             catch (Exception ex)

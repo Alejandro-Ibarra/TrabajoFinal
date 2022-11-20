@@ -90,9 +90,6 @@ namespace TrabajoFinal
         {
             GUI_UsrCocina oGUI_Cocina = new GUI_UsrCocina(oBePersonal);
             oGUI_Cocina.Show();
-
-            //GUI_UsrMozo oGUI_Mozo = new GUI_UsrMozo();
-            //oGUI_Mozo.Show();
         }
 
         private void ToolStrip_Personal_Click(object sender, EventArgs e)

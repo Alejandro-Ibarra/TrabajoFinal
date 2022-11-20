@@ -262,12 +262,15 @@ namespace TrabajoFinal
         {
             try
             {
-                BEPersonal Personal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
-                AsignarAControles(Personal);
-                RecuperarPuesto(Personal.DNI);
-                LlenarRolesGrillasTree(Personal);
-            
-                textBox_Pass.UseSystemPasswordChar = true;
+                if (Grilla_Usuarios.DataSource != null)
+                {
+                    BEPersonal Personal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
+                    AsignarAControles(Personal);
+                    RecuperarPuesto(Personal.DNI);
+                    LlenarRolesGrillasTree(Personal);
+
+                    textBox_Pass.UseSystemPasswordChar = true;
+                }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -449,10 +452,13 @@ namespace TrabajoFinal
         {
             try
             {
-                oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
-                string passEnc = oBLPersonal.RecuperarPass(oBEPersonal.DNI);
-                textBox_Pass.UseSystemPasswordChar = false;
-                textBox_Pass.Text = Encriptacion.Decrypt(passEnc, null);
+                if (Grilla_RolesAsignados.Rows.Count > 0)
+                {
+                    oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
+                    string passEnc = oBLPersonal.RecuperarPass(oBEPersonal.DNI);
+                    textBox_Pass.UseSystemPasswordChar = false;
+                    textBox_Pass.Text = Encriptacion.Decrypt(passEnc, null);
+                }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

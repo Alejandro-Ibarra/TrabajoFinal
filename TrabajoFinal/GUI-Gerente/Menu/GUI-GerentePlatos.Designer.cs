@@ -132,9 +132,9 @@ namespace TrabajoFinal
             // 
             // Boton_Guardar
             // 
-            this.Boton_Guardar.Location = new System.Drawing.Point(825, 556);
+            this.Boton_Guardar.Location = new System.Drawing.Point(808, 541);
             this.Boton_Guardar.Name = "Boton_Guardar";
-            this.Boton_Guardar.Size = new System.Drawing.Size(107, 23);
+            this.Boton_Guardar.Size = new System.Drawing.Size(124, 38);
             this.Boton_Guardar.TabIndex = 7;
             this.Boton_Guardar.Text = "Guardar Plato";
             this.Boton_Guardar.UseVisualStyleBackColor = true;
@@ -258,7 +258,7 @@ namespace TrabajoFinal
             this.TextBox_Resumen.Location = new System.Drawing.Point(467, 415);
             this.TextBox_Resumen.Multiline = true;
             this.TextBox_Resumen.Name = "TextBox_Resumen";
-            this.TextBox_Resumen.Size = new System.Drawing.Size(474, 135);
+            this.TextBox_Resumen.Size = new System.Drawing.Size(474, 120);
             this.TextBox_Resumen.TabIndex = 20;
             this.TextBox_Resumen.Visible = false;
             // 

@@ -39,7 +39,7 @@ namespace Mapper
                     string restaurante = Application.StartupPath + @"\Restaurante.xml";
                     string backup = oSEBackup.Ruta;
                     File.Copy(restaurante, backup, true);
-                    MessageBox.Show("BackUp created succesfully");
+                    MessageBox.Show("BackUp creado con exito");
                 }
                 return true;
         
@@ -59,7 +59,7 @@ namespace Mapper
                 Guardar(restore);
 
                 File.Copy(backupRecuperar.Ruta, Rutarestaurante, true);
-
+                MessageBox.Show("BackUp restaurado con exito");
                 return true;
             }
             catch (System.Xml.XmlException ex)

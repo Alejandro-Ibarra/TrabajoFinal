@@ -39,7 +39,7 @@ namespace Mapper
                 List<BEExtras> listaExtras = ListarTodo();
                 foreach (BEExtras Extra in listaExtras)
                 {
-                    if (Extra == oBEExtras)
+                    if (oBEExtras.Nombre == Extra.Nombre && oBEExtras.Proveedor ==Extra.Proveedor && oBEExtras.Tipo == Extra.Tipo) 
                     {
                         return false;
                     }

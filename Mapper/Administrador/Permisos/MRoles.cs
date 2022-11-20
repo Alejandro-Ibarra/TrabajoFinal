@@ -43,8 +43,7 @@ namespace Mapper
                     xmlDocument.Element("Restaurante").Element("Roles").Add(new XElement("Rol",
                                                                                         new XAttribute("ID", oBERoles.Codigo.ToString().Trim()),
                                                                                         new XElement("Descripcion", oBERoles.Descripcion.Trim()),
-                                                                                        new XElement("Permisos", 
-                                                                                                    new XElement("PermisoAsignado", oBERoles.Permisos.ToList()))));
+                                                                                        new XElement("Permisos")));
                     xmlDocument.Save("Restaurante.xml");
                     return true;
                 }
@@ -160,8 +159,8 @@ namespace Mapper
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
 
-                var consulta = from Rol in xmlDocument.Descendants("Cocinero")
-                               where Rol.Element("Rol").Value == ID.ToString()
+                var consulta = from Rol in xmlDocument.Descendants("Rol")
+                               where Rol.Attribute("ID").Value == ID.ToString()
                                select Rol;
 
                 if (consulta.Any())
