@@ -38,6 +38,8 @@ namespace TrabajoFinal
             {
                 CargarDatagrid();
                 RecuperarUsuario();
+                DataGridView_BackUps.MultiSelect = false;
+                DataGridView_BackUps.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

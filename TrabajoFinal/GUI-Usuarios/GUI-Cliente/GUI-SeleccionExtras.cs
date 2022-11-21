@@ -27,8 +27,14 @@ namespace TrabajoFinal
         public List<BEExtras> listaExtrasFinal { get; set; }
         BLExtras oBLExtras;
         List<BEExtras> listExtrasElegidos;
-        
 
+        private void GUI_SeleccionExtras_Load(object sender, EventArgs e)
+        {
+            GridView_TodosExtras.MultiSelect = false;
+            GridView_TodosExtras.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            GridView_ExtrasSelec.MultiSelect = false;
+            GridView_ExtrasSelec.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
 
         private void Boton_AgregarExtra_Click(object sender, EventArgs e)
         {
@@ -36,24 +42,7 @@ namespace TrabajoFinal
             {
                 if (GridView_TodosExtras.Rows.Count > 0)
                 {
-                    int aux = 0;
-
-                    foreach (BEExtras Extras in listExtrasElegidos)
-                    {
-                        if (Extras.Codigo == ((BEExtras)GridView_TodosExtras.CurrentRow.DataBoundItem).Codigo)
-                        {
-                            aux++;
-                        }
-                    }
-                    if (aux == 0)
-                    {
-                        listExtrasElegidos.Add((BEExtras)GridView_TodosExtras.CurrentRow.DataBoundItem);
-                    }
-                    else
-                    {
-                        MessageBox.Show("El ingrediente ya se encuentra en el plato");
-                    }
-
+                    listExtrasElegidos.Add((BEExtras)GridView_TodosExtras.CurrentRow.DataBoundItem);
                     GridView_ExtrasSelec.DataSource = null;
                     GridView_ExtrasSelec.DataSource = listExtrasElegidos;
                 }
@@ -66,16 +55,17 @@ namespace TrabajoFinal
         {
             try
             {
+                int aux = 0;
                 if (GridView_ExtrasSelec.Rows.Count > 0)
                 {
-
                     List<BEExtras> ingreAux2 = new List<BEExtras>();
                     foreach (BEExtras ing in listExtrasElegidos)
                     {
-                        if (ing.Nombre != ((BEExtras)GridView_ExtrasSelec.CurrentRow.DataBoundItem).Nombre && GridView_ExtrasSelec.CurrentRow.DataBoundItem != null)
+                        if (ing.Nombre != ((BEExtras)GridView_ExtrasSelec.CurrentRow.DataBoundItem).Nombre || aux != 0)
                         {
                             ingreAux2.Add(ing);
                         }
+                        else{aux++;}
                     }
                     listExtrasElegidos = ingreAux2;
                     GridView_ExtrasSelec.DataSource = null;
@@ -107,6 +97,7 @@ namespace TrabajoFinal
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
+
 
     }
 

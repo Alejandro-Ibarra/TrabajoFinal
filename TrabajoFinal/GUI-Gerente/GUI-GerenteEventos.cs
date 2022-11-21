@@ -33,6 +33,15 @@ namespace TrabajoFinal
         BLEvento oBLEvento;
         List<BEEvento> listaEventos;
         List<BECliente> listaClientes;
+
+        private void GUI_Gerente_Eventos_Load(object sender, EventArgs e)
+        {
+            Grilla_Eventos.MultiSelect = false;
+            Grilla_Eventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Grilla_DeClientes.MultiSelect = false;
+            Grilla_DeClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
         private void Boton_VerificarDisp_Click(object sender, EventArgs e)
         {
             try
@@ -166,7 +175,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Eventos.DataSource != null)
+                if (Grilla_Eventos.Rows.Count > 0)
                 {
                     oBEEvento = (BEEvento)Grilla_Eventos.CurrentRow.DataBoundItem;
                     AsignarEventoAControles(oBEEvento);
@@ -180,7 +189,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_DeClientes.DataSource != null)
+                if (Grilla_DeClientes.Rows.Count > 0)
                 {
                     oBECliente = (BECliente)Grilla_DeClientes.CurrentRow.DataBoundItem;
                     AsignarClienteAControles(oBECliente);
@@ -389,5 +398,7 @@ namespace TrabajoFinal
             uC_ValNombApe1.Clear();
             Grilla_DeClientes.DataSource = null;
         }
+
+
     }
 }

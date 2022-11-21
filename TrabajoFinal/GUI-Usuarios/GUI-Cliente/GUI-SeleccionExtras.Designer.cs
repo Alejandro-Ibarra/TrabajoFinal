@@ -40,7 +40,7 @@ namespace TrabajoFinal
             // 
             // Boton_QuitarIng
             // 
-            this.Boton_QuitarIng.Location = new System.Drawing.Point(293, 153);
+            this.Boton_QuitarIng.Location = new System.Drawing.Point(512, 169);
             this.Boton_QuitarIng.Name = "Boton_QuitarIng";
             this.Boton_QuitarIng.Size = new System.Drawing.Size(65, 23);
             this.Boton_QuitarIng.TabIndex = 33;
@@ -50,7 +50,7 @@ namespace TrabajoFinal
             // 
             // Boton_AgregarExtra
             // 
-            this.Boton_AgregarExtra.Location = new System.Drawing.Point(293, 124);
+            this.Boton_AgregarExtra.Location = new System.Drawing.Point(512, 140);
             this.Boton_AgregarExtra.Name = "Boton_AgregarExtra";
             this.Boton_AgregarExtra.Size = new System.Drawing.Size(65, 23);
             this.Boton_AgregarExtra.TabIndex = 32;
@@ -63,10 +63,10 @@ namespace TrabajoFinal
             this.GridView_ExtrasSelec.AllowUserToAddRows = false;
             this.GridView_ExtrasSelec.AllowUserToDeleteRows = false;
             this.GridView_ExtrasSelec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridView_ExtrasSelec.Location = new System.Drawing.Point(447, 28);
+            this.GridView_ExtrasSelec.Location = new System.Drawing.Point(637, 28);
             this.GridView_ExtrasSelec.Name = "GridView_ExtrasSelec";
             this.GridView_ExtrasSelec.ReadOnly = true;
-            this.GridView_ExtrasSelec.Size = new System.Drawing.Size(205, 251);
+            this.GridView_ExtrasSelec.Size = new System.Drawing.Size(413, 251);
             this.GridView_ExtrasSelec.TabIndex = 31;
             // 
             // GridView_TodosExtras
@@ -77,12 +77,12 @@ namespace TrabajoFinal
             this.GridView_TodosExtras.Location = new System.Drawing.Point(28, 28);
             this.GridView_TodosExtras.Name = "GridView_TodosExtras";
             this.GridView_TodosExtras.ReadOnly = true;
-            this.GridView_TodosExtras.Size = new System.Drawing.Size(205, 251);
+            this.GridView_TodosExtras.Size = new System.Drawing.Size(449, 251);
             this.GridView_TodosExtras.TabIndex = 30;
             // 
             // Boton_Confirmar
             // 
-            this.Boton_Confirmar.Location = new System.Drawing.Point(264, 238);
+            this.Boton_Confirmar.Location = new System.Drawing.Point(483, 254);
             this.Boton_Confirmar.Name = "Boton_Confirmar";
             this.Boton_Confirmar.Size = new System.Drawing.Size(146, 23);
             this.Boton_Confirmar.TabIndex = 34;
@@ -94,7 +94,7 @@ namespace TrabajoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 321);
+            this.ClientSize = new System.Drawing.Size(1062, 321);
             this.Controls.Add(this.Boton_Confirmar);
             this.Controls.Add(this.Boton_QuitarIng);
             this.Controls.Add(this.Boton_AgregarExtra);
@@ -102,6 +102,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.GridView_TodosExtras);
             this.Name = "GUI_SeleccionExtras";
             this.Text = "GUI_SeleccionExtras";
+            this.Load += new System.EventHandler(this.GUI_SeleccionExtras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridView_ExtrasSelec)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_TodosExtras)).EndInit();
             this.ResumeLayout(false);

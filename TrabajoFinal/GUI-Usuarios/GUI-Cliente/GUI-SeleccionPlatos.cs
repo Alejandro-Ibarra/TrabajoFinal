@@ -34,6 +34,19 @@ namespace TrabajoFinal
         List<BEPlato> listaPlatos;
         List<BEIngrediente> listaIng;
 
+        private void GUI_SeleccionPlatos_Load(object sender, EventArgs e)
+        {
+            GridView_TodosIng.MultiSelect = false;
+            GridView_TodosIng.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            GridView_IngSelec.MultiSelect = false;
+            GridView_IngSelec.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            GridView_TodosPlatos.MultiSelect = false;
+            GridView_TodosPlatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            GridView_PlatoSelec.MultiSelect = false;
+            GridView_PlatoSelec.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+        }
+
         private List<BEPlato> RecuperarPlatosPorTipo(string tipo)
         {
             try
@@ -205,9 +218,6 @@ namespace TrabajoFinal
             { MessageBox.Show(ex.Message); }
         }
 
-        private void GUI_SeleccionPlatos_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

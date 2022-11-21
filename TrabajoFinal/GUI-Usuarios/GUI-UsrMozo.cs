@@ -29,6 +29,12 @@ namespace TrabajoFinal
         BLItemsSeleccionados oBLItemMozo;
         BEItemsSeleccionados oBEItemMozo;
 
+        private void GUI_UsrMozo_Load(object sender, EventArgs e)
+        {
+            GridView_Pedidos.MultiSelect = false;
+            GridView_Pedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
         private void Boton_EnEntrega_Click(object sender, EventArgs e)
         {
             try
@@ -69,26 +75,29 @@ namespace TrabajoFinal
         {
             try
             {
-                oBEItemMozo = (BEItemsSeleccionados)GridView_Pedidos.CurrentRow.DataBoundItem;
+                if (GridView_Pedidos.Rows.Count > 0)
+                {
+                    oBEItemMozo = (BEItemsSeleccionados)GridView_Pedidos.CurrentRow.DataBoundItem;
 
-                if (oBEItemMozo.Estado == "Enviado_Mozo" || oBEItemMozo.Estado == "Listo_Entrega")
-                {
-                    Boton_EnEntrega.Enabled = true;
-                    Boton_Entregado.Enabled = false;
-                    Boton_Retirado.Enabled = false;
-                }
-                if (oBEItemMozo.Estado == "En_Entrega")
-                {
-                    Boton_EnEntrega.Enabled = false;
-                    Boton_Entregado.Enabled = true;
-                    Boton_Retirado.Enabled = false;
+                    if (oBEItemMozo.Estado == "Enviado_Mozo" || oBEItemMozo.Estado == "Listo_Entrega")
+                    {
+                        Boton_EnEntrega.Enabled = true;
+                        Boton_Entregado.Enabled = false;
+                        Boton_Retirado.Enabled = false;
+                    }
+                    if (oBEItemMozo.Estado == "En_Entrega")
+                    {
+                        Boton_EnEntrega.Enabled = false;
+                        Boton_Entregado.Enabled = true;
+                        Boton_Retirado.Enabled = false;
 
-                }
-                if (oBEItemMozo.Estado == "Rechazado")
-                {
-                    Boton_EnEntrega.Enabled = false;
-                    Boton_Entregado.Enabled = false;
-                    Boton_Retirado.Enabled = true;
+                    }
+                    if (oBEItemMozo.Estado == "Rechazado")
+                    {
+                        Boton_EnEntrega.Enabled = false;
+                        Boton_Entregado.Enabled = false;
+                        Boton_Retirado.Enabled = true;
+                    }
                 }
             }
             catch (Exception ex)
@@ -123,5 +132,7 @@ namespace TrabajoFinal
             catch (Exception ex)
             { MessageBox.Show(ex.Message); return null; }
         }
+
+
     }
 }

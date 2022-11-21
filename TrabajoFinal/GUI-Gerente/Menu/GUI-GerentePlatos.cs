@@ -36,6 +36,12 @@ namespace TrabajoFinal
 
         private void GUI_Gerente_Platos_Load(object sender, EventArgs e)
         {
+            DataGridView_SeleccionIngredientes.MultiSelect = false;
+            DataGridView_SeleccionIngredientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGridView_TodosIngredientes.MultiSelect = false;
+            DataGridView_TodosIngredientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGridView_Platos.MultiSelect = false;
+            DataGridView_Platos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
         }
 
@@ -196,7 +202,7 @@ namespace TrabajoFinal
         #region DatagridClick
         private void DataGridView_SeleccionIngredientes_MouseClick(object sender, MouseEventArgs e)
         {
-            if (DataGridView_SeleccionIngredientes.DataSource != null)
+            if (DataGridView_SeleccionIngredientes.Rows.Count > 0)
             {
                 QuitarIngrediente();
             }
@@ -204,7 +210,7 @@ namespace TrabajoFinal
 
         private void DataGridView_TodosIngredientes_MouseClick(object sender, MouseEventArgs e)
         {
-            if (DataGridView_TodosIngredientes.DataSource != null)
+            if (DataGridView_TodosIngredientes.Rows.Count > 0)
             {
                 AgregarIngrediente();
             }
@@ -212,7 +218,7 @@ namespace TrabajoFinal
 
         private void DataGridView_Platos_MouseClick(object sender, MouseEventArgs e)
         {
-            if (DataGridView_Platos.DataSource != null)
+            if (DataGridView_Platos.Rows.Count > 0)
             {
                 SeleccionarPlatoGrilla();
             }
@@ -404,13 +410,16 @@ namespace TrabajoFinal
         {
             try
             {
-                List<string> ingreAux = new List<string>();
-
-                foreach (DataGridViewRow row in DataGridView_SeleccionIngredientes.Rows)
+                if (DataGridView_SeleccionIngredientes.Rows.Count > 0)
                 {
-                    ingreAux.Add(((BEIngrediente)row.DataBoundItem).Nombre);
+                    List<string> ingreAux = new List<string>();
+
+                    foreach (DataGridViewRow row in DataGridView_SeleccionIngredientes.Rows)
+                    {
+                        ingreAux.Add(((BEIngrediente)row.DataBoundItem).Nombre);
+                    }
+                    ComboBox_IngredientePrincipal.DataSource = ingreAux;
                 }
-                ComboBox_IngredientePrincipal.DataSource = ingreAux;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

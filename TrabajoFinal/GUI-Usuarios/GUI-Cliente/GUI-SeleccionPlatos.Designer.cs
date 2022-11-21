@@ -53,7 +53,7 @@ namespace TrabajoFinal
             this.GridView_TodosIng.Location = new System.Drawing.Point(27, 24);
             this.GridView_TodosIng.Name = "GridView_TodosIng";
             this.GridView_TodosIng.ReadOnly = true;
-            this.GridView_TodosIng.Size = new System.Drawing.Size(205, 251);
+            this.GridView_TodosIng.Size = new System.Drawing.Size(299, 251);
             this.GridView_TodosIng.TabIndex = 0;
             // 
             // GridView_IngSelec
@@ -61,10 +61,10 @@ namespace TrabajoFinal
             this.GridView_IngSelec.AllowUserToAddRows = false;
             this.GridView_IngSelec.AllowUserToDeleteRows = false;
             this.GridView_IngSelec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridView_IngSelec.Location = new System.Drawing.Point(446, 24);
+            this.GridView_IngSelec.Location = new System.Drawing.Point(501, 24);
             this.GridView_IngSelec.Name = "GridView_IngSelec";
             this.GridView_IngSelec.ReadOnly = true;
-            this.GridView_IngSelec.Size = new System.Drawing.Size(205, 251);
+            this.GridView_IngSelec.Size = new System.Drawing.Size(300, 251);
             this.GridView_IngSelec.TabIndex = 1;
             // 
             // GridView_PlatoSelec
@@ -72,10 +72,10 @@ namespace TrabajoFinal
             this.GridView_PlatoSelec.AllowUserToAddRows = false;
             this.GridView_PlatoSelec.AllowUserToDeleteRows = false;
             this.GridView_PlatoSelec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridView_PlatoSelec.Location = new System.Drawing.Point(446, 387);
+            this.GridView_PlatoSelec.Location = new System.Drawing.Point(501, 397);
             this.GridView_PlatoSelec.Name = "GridView_PlatoSelec";
             this.GridView_PlatoSelec.ReadOnly = true;
-            this.GridView_PlatoSelec.Size = new System.Drawing.Size(205, 251);
+            this.GridView_PlatoSelec.Size = new System.Drawing.Size(300, 251);
             this.GridView_PlatoSelec.TabIndex = 2;
             // 
             // GridView_TodosPlatos
@@ -86,12 +86,12 @@ namespace TrabajoFinal
             this.GridView_TodosPlatos.Location = new System.Drawing.Point(27, 397);
             this.GridView_TodosPlatos.Name = "GridView_TodosPlatos";
             this.GridView_TodosPlatos.ReadOnly = true;
-            this.GridView_TodosPlatos.Size = new System.Drawing.Size(205, 251);
+            this.GridView_TodosPlatos.Size = new System.Drawing.Size(299, 251);
             this.GridView_TodosPlatos.TabIndex = 3;
             // 
             // Boton_QuitarIng
             // 
-            this.Boton_QuitarIng.Location = new System.Drawing.Point(292, 149);
+            this.Boton_QuitarIng.Location = new System.Drawing.Point(379, 155);
             this.Boton_QuitarIng.Name = "Boton_QuitarIng";
             this.Boton_QuitarIng.Size = new System.Drawing.Size(65, 23);
             this.Boton_QuitarIng.TabIndex = 29;
@@ -101,7 +101,7 @@ namespace TrabajoFinal
             // 
             // Boton_AgregarIng
             // 
-            this.Boton_AgregarIng.Location = new System.Drawing.Point(292, 120);
+            this.Boton_AgregarIng.Location = new System.Drawing.Point(379, 126);
             this.Boton_AgregarIng.Name = "Boton_AgregarIng";
             this.Boton_AgregarIng.Size = new System.Drawing.Size(65, 23);
             this.Boton_AgregarIng.TabIndex = 28;
@@ -111,7 +111,7 @@ namespace TrabajoFinal
             // 
             // Boton_QuitarPlato
             // 
-            this.Boton_QuitarPlato.Location = new System.Drawing.Point(292, 519);
+            this.Boton_QuitarPlato.Location = new System.Drawing.Point(379, 515);
             this.Boton_QuitarPlato.Name = "Boton_QuitarPlato";
             this.Boton_QuitarPlato.Size = new System.Drawing.Size(65, 23);
             this.Boton_QuitarPlato.TabIndex = 31;
@@ -121,7 +121,7 @@ namespace TrabajoFinal
             // 
             // Boton_AgregarPlato
             // 
-            this.Boton_AgregarPlato.Location = new System.Drawing.Point(292, 490);
+            this.Boton_AgregarPlato.Location = new System.Drawing.Point(379, 486);
             this.Boton_AgregarPlato.Name = "Boton_AgregarPlato";
             this.Boton_AgregarPlato.Size = new System.Drawing.Size(65, 23);
             this.Boton_AgregarPlato.TabIndex = 30;
@@ -131,7 +131,7 @@ namespace TrabajoFinal
             // 
             // Boton_Sugerir
             // 
-            this.Boton_Sugerir.Location = new System.Drawing.Point(261, 327);
+            this.Boton_Sugerir.Location = new System.Drawing.Point(345, 335);
             this.Boton_Sugerir.Name = "Boton_Sugerir";
             this.Boton_Sugerir.Size = new System.Drawing.Size(146, 23);
             this.Boton_Sugerir.TabIndex = 32;
@@ -141,7 +141,7 @@ namespace TrabajoFinal
             // 
             // Boton_ConfirmarPedido
             // 
-            this.Boton_ConfirmarPedido.Location = new System.Drawing.Point(261, 571);
+            this.Boton_ConfirmarPedido.Location = new System.Drawing.Point(345, 566);
             this.Boton_ConfirmarPedido.Name = "Boton_ConfirmarPedido";
             this.Boton_ConfirmarPedido.Size = new System.Drawing.Size(133, 57);
             this.Boton_ConfirmarPedido.TabIndex = 33;

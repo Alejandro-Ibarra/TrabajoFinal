@@ -257,6 +257,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.Calendario);
             this.Name = "GUI_Gerente_Eventos";
             this.Text = "GUI_AdminEventos";
+            this.Load += new System.EventHandler(this.GUI_Gerente_Eventos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_DeClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Eventos)).EndInit();
             this.ResumeLayout(false);

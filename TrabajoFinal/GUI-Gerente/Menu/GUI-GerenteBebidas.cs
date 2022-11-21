@@ -28,6 +28,8 @@ namespace TrabajoFinal
             CargarComboBoxMarca();
             CargarComboBoxEnvase();
             CargarGrilla();
+            Grilla_Bebidas.MultiSelect = false;
+            Grilla_Bebidas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void Boton_Alta_Click(object sender, EventArgs e)
@@ -185,7 +187,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Bebidas.DataSource != null)
+                if (Grilla_Bebidas.Rows.Count > 0)
                 {
                     oBEBebida = (BEBebida)Grilla_Bebidas.CurrentRow.DataBoundItem;
                     AsignarBebidaAControles(oBEBebida);

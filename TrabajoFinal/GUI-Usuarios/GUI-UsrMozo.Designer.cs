@@ -101,6 +101,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.GridView_Pedidos);
             this.Name = "GUI_UsrMozo";
             this.Text = "GUI_UsrMozo";
+            this.Load += new System.EventHandler(this.GUI_UsrMozo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridView_Pedidos)).EndInit();
             this.ResumeLayout(false);
 

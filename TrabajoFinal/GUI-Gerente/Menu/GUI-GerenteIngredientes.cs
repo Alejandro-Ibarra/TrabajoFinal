@@ -27,6 +27,8 @@ namespace TrabajoFinal
         {
             CargarCombobox();
             CargarGrilla();
+            Grilla_Ingredientes.MultiSelect = false;
+            Grilla_Ingredientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void Boton_Alta_Click(object sender, EventArgs e)
@@ -155,9 +157,9 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Ingredientes.DataSource != null)
+                if (Grilla_Ingredientes.Rows.Count > 0)
                 {
-                oBEIngrediente = (BEIngrediente)Grilla_Ingredientes.CurrentRow.DataBoundItem;
+                    oBEIngrediente = (BEIngrediente)Grilla_Ingredientes.CurrentRow.DataBoundItem;
                 AsignarIngredienteAControles(oBEIngrediente);
                 }
             }

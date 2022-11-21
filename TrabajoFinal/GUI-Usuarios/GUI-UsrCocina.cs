@@ -39,6 +39,12 @@ namespace TrabajoFinal
         BLItemsSeleccionados oBLItem;
         BEItemsSeleccionados oBEItem;
 
+        private void GUI_UsrCocina_Load(object sender, EventArgs e)
+        {
+            GridView_Pedidos.MultiSelect = false;
+            GridView_Pedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
         private void Boton_VerificacionPlato_Click(object sender, EventArgs e)
         {
             try
@@ -119,7 +125,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_Pedidos.DataSource != null)
+                if (GridView_Pedidos.Rows.Count > 0)
                 {
                     oBEItem = (BEItemsSeleccionados)GridView_Pedidos.CurrentRow.DataBoundItem;
 
@@ -229,6 +235,7 @@ namespace TrabajoFinal
             { MessageBox.Show(ex.Message); return null; }
 
         }
+
 
     }
 }

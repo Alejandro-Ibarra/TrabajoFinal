@@ -26,29 +26,23 @@ namespace TrabajoFinal
         BLBebida oBLBebida;
         List<BEBebida> listaBebidasElegidas;
 
+
+        private void GUI_SeleccionBebidas_Load(object sender, EventArgs e)
+        {
+            GridView_TodosBebidas.MultiSelect = false;
+            GridView_TodosBebidas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            GridView_BebidasSelec.MultiSelect = false;
+            GridView_BebidasSelec.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
         private void Boton_AgregarBebida_Click(object sender, EventArgs e)
         {
             try
             {
                 if (GridView_TodosBebidas.Rows.Count > 0)
                 {
-                    int aux = 0;
 
-                    foreach (BEBebida Extras in listaBebidasElegidas)
-                    {
-                        if (Extras.Codigo == ((BEBebida)GridView_TodosBebidas.CurrentRow.DataBoundItem).Codigo)
-                        {
-                            aux++;
-                        }
-                    }
-                    if (aux == 0)
-                    {
-                        listaBebidasElegidas.Add((BEBebida)GridView_TodosBebidas.CurrentRow.DataBoundItem);
-                    }
-                    else
-                    {
-                        MessageBox.Show("El ingrediente ya se encuentra en el plato");
-                    }
+                    listaBebidasElegidas.Add((BEBebida)GridView_TodosBebidas.CurrentRow.DataBoundItem);
 
                     GridView_BebidasSelec.DataSource = null;
                     GridView_BebidasSelec.DataSource = listaBebidasElegidas;
@@ -63,16 +57,19 @@ namespace TrabajoFinal
         {
             try
             {
+                int aux = 0;
                 if (GridView_BebidasSelec.Rows.Count > 0)
                 {
-
                     List<BEBebida> ingreAux2 = new List<BEBebida>();
                     foreach (BEBebida ing in listaBebidasElegidas)
                     {
-                        if (ing.Nombre != ((BEBebida)GridView_BebidasSelec.CurrentRow.DataBoundItem).Nombre && GridView_BebidasSelec.CurrentRow.DataBoundItem != null)
+                        if (ing.Nombre != ((BEBebida)GridView_BebidasSelec.CurrentRow.DataBoundItem).Nombre || aux != 0)
                         {
                             ingreAux2.Add(ing);
+
                         }
+                        else{aux++;}
+                        
                     }
                     listaBebidasElegidas = ingreAux2;
                     GridView_BebidasSelec.DataSource = null;
@@ -106,5 +103,7 @@ namespace TrabajoFinal
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
+
+
     }
 }

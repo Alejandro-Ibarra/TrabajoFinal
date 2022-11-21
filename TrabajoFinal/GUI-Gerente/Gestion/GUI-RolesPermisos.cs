@@ -172,7 +172,7 @@ namespace TrabajoFinal
             try
             {
 
-                if (Grilla_Roles.DataSource != null)
+                if (Grilla_Roles.Rows.Count > 0)
                 {
 
                     oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;

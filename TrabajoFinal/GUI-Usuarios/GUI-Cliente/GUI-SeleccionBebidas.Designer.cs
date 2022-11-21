@@ -40,7 +40,7 @@ namespace TrabajoFinal
             // 
             // Boton_Confirmar
             // 
-            this.Boton_Confirmar.Location = new System.Drawing.Point(262, 246);
+            this.Boton_Confirmar.Location = new System.Drawing.Point(461, 262);
             this.Boton_Confirmar.Name = "Boton_Confirmar";
             this.Boton_Confirmar.Size = new System.Drawing.Size(146, 23);
             this.Boton_Confirmar.TabIndex = 39;
@@ -50,7 +50,7 @@ namespace TrabajoFinal
             // 
             // Boton_QuitarBebida
             // 
-            this.Boton_QuitarBebida.Location = new System.Drawing.Point(291, 161);
+            this.Boton_QuitarBebida.Location = new System.Drawing.Point(490, 177);
             this.Boton_QuitarBebida.Name = "Boton_QuitarBebida";
             this.Boton_QuitarBebida.Size = new System.Drawing.Size(65, 23);
             this.Boton_QuitarBebida.TabIndex = 38;
@@ -60,7 +60,7 @@ namespace TrabajoFinal
             // 
             // Boton_AgregarBebida
             // 
-            this.Boton_AgregarBebida.Location = new System.Drawing.Point(291, 132);
+            this.Boton_AgregarBebida.Location = new System.Drawing.Point(490, 148);
             this.Boton_AgregarBebida.Name = "Boton_AgregarBebida";
             this.Boton_AgregarBebida.Size = new System.Drawing.Size(65, 23);
             this.Boton_AgregarBebida.TabIndex = 37;
@@ -73,10 +73,10 @@ namespace TrabajoFinal
             this.GridView_BebidasSelec.AllowUserToAddRows = false;
             this.GridView_BebidasSelec.AllowUserToDeleteRows = false;
             this.GridView_BebidasSelec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridView_BebidasSelec.Location = new System.Drawing.Point(445, 36);
+            this.GridView_BebidasSelec.Location = new System.Drawing.Point(617, 36);
             this.GridView_BebidasSelec.Name = "GridView_BebidasSelec";
             this.GridView_BebidasSelec.ReadOnly = true;
-            this.GridView_BebidasSelec.Size = new System.Drawing.Size(205, 251);
+            this.GridView_BebidasSelec.Size = new System.Drawing.Size(395, 251);
             this.GridView_BebidasSelec.TabIndex = 36;
             // 
             // GridView_TodosBebidas
@@ -87,14 +87,14 @@ namespace TrabajoFinal
             this.GridView_TodosBebidas.Location = new System.Drawing.Point(26, 36);
             this.GridView_TodosBebidas.Name = "GridView_TodosBebidas";
             this.GridView_TodosBebidas.ReadOnly = true;
-            this.GridView_TodosBebidas.Size = new System.Drawing.Size(205, 251);
+            this.GridView_TodosBebidas.Size = new System.Drawing.Size(424, 251);
             this.GridView_TodosBebidas.TabIndex = 35;
             // 
             // GUI_SeleccionBebidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 323);
+            this.ClientSize = new System.Drawing.Size(1024, 336);
             this.Controls.Add(this.Boton_Confirmar);
             this.Controls.Add(this.Boton_QuitarBebida);
             this.Controls.Add(this.Boton_AgregarBebida);
@@ -102,6 +102,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.GridView_TodosBebidas);
             this.Name = "GUI_SeleccionBebidas";
             this.Text = "GUI_SeleccionBebidas";
+            this.Load += new System.EventHandler(this.GUI_SeleccionBebidas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridView_BebidasSelec)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_TodosBebidas)).EndInit();
             this.ResumeLayout(false);

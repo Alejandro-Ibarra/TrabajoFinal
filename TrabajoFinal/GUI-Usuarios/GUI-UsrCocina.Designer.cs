@@ -117,6 +117,7 @@
             this.Controls.Add(this.GridView_Pedidos);
             this.Name = "GUI_UsrCocina";
             this.Text = "GUI_UsrCocina";
+            this.Load += new System.EventHandler(this.GUI_UsrCocina_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridView_Pedidos)).EndInit();
             this.ResumeLayout(false);
 

@@ -41,7 +41,12 @@ namespace TrabajoFinal
         private void GUI_Administrar_Personal_Load(object sender, EventArgs e)
         {
             CargarGrillaUsuarios();
-            
+            Grilla_Usuarios.MultiSelect = false;
+            Grilla_Usuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Grilla_RolesNoAsignados.MultiSelect = false;
+            Grilla_RolesNoAsignados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Grilla_RolesAsignados.MultiSelect = false;
+            Grilla_RolesAsignados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void Boton_Alta_Click(object sender, EventArgs e)
@@ -262,7 +267,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Usuarios.DataSource != null)
+                if (Grilla_Usuarios.Rows.Count > 0)
                 {
                     BEPersonal Personal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
                     AsignarAControles(Personal);
@@ -414,7 +419,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_RolesNoAsignados.Rows.Count > 0)
+                if (Grilla_RolesNoAsignados.Rows.Count > 0 && Grilla_Usuarios.Rows.Count > 0)
                 {
                     oBERoles = (BERoles)Grilla_RolesNoAsignados.CurrentRow.DataBoundItem;
                     oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
@@ -433,7 +438,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_RolesAsignados.Rows.Count > 0)
+                if (Grilla_RolesAsignados.Rows.Count > 0 && Grilla_Usuarios.Rows.Count > 0)
                 {
                     oBERoles = (BERoles)Grilla_RolesAsignados.CurrentRow.DataBoundItem;
                     oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
@@ -452,7 +457,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_RolesAsignados.Rows.Count > 0)
+                if (Grilla_Usuarios.Rows.Count > 0)
                 {
                     oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
                     string passEnc = oBLPersonal.RecuperarPass(oBEPersonal.DNI);

@@ -223,6 +223,7 @@
             this.Controls.Add(this.Boton_Entrada);
             this.Name = "GUI_Cliente";
             this.Text = "GUI_Cliente";
+            this.Load += new System.EventHandler(this.GUI_Cliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_PedidosCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

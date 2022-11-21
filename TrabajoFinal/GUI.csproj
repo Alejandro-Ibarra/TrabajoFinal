@@ -114,12 +114,6 @@
     <Compile Include="GUI-Usuarios\GUI-UsrMozo.Designer.cs">
       <DependentUpon>GUI-UsrMozo.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-RealizarPago.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-RealizarPago.Designer.cs">
-      <DependentUpon>GUI-RealizarPago.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionBebidas.cs">
       <SubType>Form</SubType>
     </Compile>

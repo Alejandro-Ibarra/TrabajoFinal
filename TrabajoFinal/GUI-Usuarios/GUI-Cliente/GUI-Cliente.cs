@@ -46,6 +46,12 @@ namespace TrabajoFinal
         BLBebida oBLBebida;
         BLExtras oBLExtras;
 
+        private void GUI_Cliente_Load(object sender, EventArgs e)
+        {
+            Grilla_PedidosCliente.MultiSelect = false;
+            Grilla_PedidosCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
         private void Boton_Entrada_Click(object sender, EventArgs e)
         {
             AbrirMenuPlato("Entrada");
@@ -542,6 +548,7 @@ namespace TrabajoFinal
             catch (Exception)
             { throw; }
         }
+
 
     }
 }
