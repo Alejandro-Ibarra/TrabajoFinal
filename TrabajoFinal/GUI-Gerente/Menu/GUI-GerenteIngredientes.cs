@@ -54,18 +54,18 @@ namespace TrabajoFinal
 
         private void Boton_Baja_Click(object sender, EventArgs e)
         {
-            ///////////////////////////////////////
-            ///Verificar que no este en plato
-            //////////////////////////////////////
             try
             {
                 DialogResult Respuesta;
                 Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (Respuesta == DialogResult.Yes)
                 {
-                    oBLIngrediente.Baja(oBEIngrediente);
-                    LimpiarControles();
-                    CargarGrilla();
+                    if (oBLIngrediente.Baja(oBEIngrediente))
+                    {
+                        LimpiarControles();
+                        CargarGrilla();
+                    }
+                    else {MessageBox.Show("No se puede dar de baja un ingrediente que se encuentre en un plato");}
                 }
             }
             catch (Exception ex)
@@ -74,16 +74,16 @@ namespace TrabajoFinal
 
         private void Boton_Modificar_Click(object sender, EventArgs e)
         {
-            ///////////////////////////////////////
-            ///Verificar que no este en plato
-            //////////////////////////////////////
             try
             {
                 if (AsignarIngrediente())
                 {
-                    oBLIngrediente.Modificar(oBEIngrediente);
-                    AsignarIngredienteAControles(oBEIngrediente);
-                    CargarGrilla();
+                    if (oBLIngrediente.Modificar(oBEIngrediente))
+                    {
+                        AsignarIngredienteAControles(oBEIngrediente);
+                        CargarGrilla();
+                    }
+                    else { MessageBox.Show("No se puede dar de baja un ingrediente que se encuentre en un plato"); }
                 }
                 else
                 { MessageBox.Show("Ingrese los datos de forma correcta"); }

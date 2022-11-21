@@ -29,9 +29,6 @@ namespace Mapper
             throw new NotImplementedException();
         }
 
-
-
-
         public List<BEItemsSeleccionados> ListarTodo()
         {
             try

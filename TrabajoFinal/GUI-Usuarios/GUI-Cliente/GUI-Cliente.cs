@@ -191,14 +191,47 @@ namespace TrabajoFinal
 
         private void Boton_Pagar_Click(object sender, EventArgs e)
         {
+            int aux = 0;
 
+            List<string> listaEstados = new List<string>();
+            foreach (DataGridViewRow row in Grilla_PedidosCliente.Rows)
+            {
+                
+                listaEstados.Add(row.Cells[1].Value.ToString());
+            }
+
+            foreach (string est in listaEstados)
+            {
+                if (est == "Enviado_Cocina" || est == "Enviado_Mozo" || est == "Rechazado_Mozo" || est == "En_Preparacion_Mozo" || est == "En_Preparacion_Cocinero" || est == "Entregado" || est == "En_Entrega_Mozo" || est == "En_Entrega_Cocinero")
+                {
+                    aux = aux + 1;
+                }
+            }
+            if (aux > 0)
+            {
+                MessageBox.Show("No se puede realizar la operación, todavia hay pedidos en curso");
+            }
+            else
+            {
+                DialogResult Respuesta;
+                Respuesta = MessageBox.Show("¿Quiere continuar con el pago?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (Respuesta == DialogResult.Yes)
+                {
+
+                    oBEComanda.Estado = "Pagado";
+                    oBLComanda.Modificar(oBEComanda);
+
+                    MessageBox.Show("Se ha realizado el pago. Esperamos que haya disfrutado la velada");
+                    Application.Exit();
+                }
+            }
         }
 
         private void Boton_Aceptar_Click(object sender, EventArgs e)
         {
             try
             {
-                item.Estado = "Entregado";
+                item.Estado = "Aceptado";
                 oBLComanda.GestionarPlato(item);
                 ActualizarListaitems(item);
                 CargarGrilla();
@@ -281,6 +314,38 @@ namespace TrabajoFinal
             { throw; }
         }
 
+        private void RecuperarUsuario()
+        {
+            string nombre = TextBox_Nombre.Text;
+            string mail = TextBox_Mail.Text;
+
+            List<BEComanda> listComandas = oBLComanda.ListarTodo();
+
+            foreach (BEComanda coma in listComandas)
+            {
+                if (coma.Cliente.Nombre == nombre && coma.Cliente.EMail == mail && coma.Estado != "Pagado")
+                {
+                    oBEComanda = coma;
+                    oBEComanda = oBLComanda.ListarObjeto(oBEComanda.Codigo);
+                }
+            }
+
+        }
+
+        private void RecuperarPLatos()
+        {
+
+        }
+
+        private void RecuperarBebidas()
+        {
+
+        }
+
+        private void RecuperarExtras()
+        {
+
+        }
 
         private string RecuperarTipoItem(string nombre)
         {
@@ -333,6 +398,7 @@ namespace TrabajoFinal
             {
                 item.Estado = "Cancelado";
                 oBLComanda.GestionarPlato(item);
+                CargarGrilla();
             }
             catch (Exception)
             { throw; }
@@ -350,9 +416,6 @@ namespace TrabajoFinal
             catch (Exception)
             {throw;}
         }
-
-
-
 
         private void CalcularTotal(List<BEItemsSeleccionados> NP)
         {
@@ -454,6 +517,7 @@ namespace TrabajoFinal
             {
                 TextBox_Nombre.Text = Interaction.InputBox("Ingrese su nombre");
                 TextBox_Mail.Text = Interaction.InputBox("Ingrese su mail");
+                RecuperarUsuario();
             }
             catch (Exception)
             { throw; }

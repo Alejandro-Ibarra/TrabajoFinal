@@ -18,13 +18,27 @@ namespace Mapper
                 string Cod = oBEIngrediente.Codigo.ToString();
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
-                var consulta = from Ingrediente in xmlDocument.Descendants("Ingrediente")
-                               where Ingrediente.Attribute("Codigo").Value == Cod
-                               select Ingrediente;
+                var consplatos = from inge in xmlDocument.Descendants("IngredientePlato")
+                                 where inge.Attribute("ID").Value == Cod
+                                 select inge;
 
-                consulta.Remove();
-                xmlDocument.Save("Restaurante.xml");
-                return true;
+                if (!consplatos.Any())
+                {
+                    var consulta = from Ingrediente in xmlDocument.Descendants("Ingrediente")
+                                   where Ingrediente.Attribute("Codigo").Value == Cod
+                                   select Ingrediente;
+
+                    consulta.Remove();
+                    xmlDocument.Save("Restaurante.xml");
+                    return true;
+                }
+                else
+                {return false;}
+
+
+
+                
+                
             }
             catch (System.Xml.XmlException ex)
             { throw ex; }
@@ -133,20 +147,36 @@ namespace Mapper
                 string Codigo = oBEingrediente.Codigo.ToString();
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
-                var consulta = from Ingrediente in xmlDocument.Descendants("Ingrediente")
+                var consplatos = from inge in xmlDocument.Descendants("IngredientePlato")
+                                 where inge.Attribute("ID").Value == Codigo
+                                 select inge;
+
+                if (!consplatos.Any())
+                {
+                    var consulta = from Ingrediente in xmlDocument.Descendants("Ingrediente")
                                where Ingrediente.Attribute("Codigo").Value == Codigo
                                select Ingrediente;
 
-                foreach (XElement EModifcar in consulta)
-                {
-                    EModifcar.Element("Nombre").Value = oBEingrediente.Nombre.ToString().Trim();
-                    EModifcar.Element("Tipo").Value = oBEingrediente.Tipo.ToString().Trim();
-                    EModifcar.Element("Refrigeracion").Value = oBEingrediente.Refrigeracion.ToString().Trim();
-                    EModifcar.Element("Stock").Value = oBEingrediente.Stock.ToString().Trim();
-                    EModifcar.Element("Proveedor").Value = oBEingrediente.Proveedor.ToString().Trim();
+                    foreach (XElement EModifcar in consulta)
+                    {
+                        EModifcar.Element("Nombre").Value = oBEingrediente.Nombre.ToString().Trim();
+                        EModifcar.Element("Tipo").Value = oBEingrediente.Tipo.ToString().Trim();
+                        EModifcar.Element("Refrigeracion").Value = oBEingrediente.Refrigeracion.ToString().Trim();
+                        EModifcar.Element("Stock").Value = oBEingrediente.Stock.ToString().Trim();
+                        EModifcar.Element("Proveedor").Value = oBEingrediente.Proveedor.ToString().Trim();
+                    }
+                    xmlDocument.Save("Restaurante.xml");
+                    return true;
                 }
-                xmlDocument.Save("Restaurante.xml");
-                return true;
+                else
+                { return false; }
+
+
+
+
+
+
+                
             }
             catch (System.Xml.XmlException ex)
             { throw ex; }

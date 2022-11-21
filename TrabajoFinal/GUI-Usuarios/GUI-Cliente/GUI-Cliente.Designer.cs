@@ -43,7 +43,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Boton_Aceptar = new System.Windows.Forms.Button();
             this.Boton_Rechazar = new System.Windows.Forms.Button();
-            this.TextBox_NombreGrilla = new System.Windows.Forms.TextBox();
             this.Boton_Cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_PedidosCliente)).BeginInit();
             this.SuspendLayout();
@@ -106,13 +105,13 @@
             this.Grilla_PedidosCliente.Location = new System.Drawing.Point(37, 177);
             this.Grilla_PedidosCliente.Name = "Grilla_PedidosCliente";
             this.Grilla_PedidosCliente.ReadOnly = true;
-            this.Grilla_PedidosCliente.Size = new System.Drawing.Size(487, 335);
+            this.Grilla_PedidosCliente.Size = new System.Drawing.Size(656, 335);
             this.Grilla_PedidosCliente.TabIndex = 5;
             this.Grilla_PedidosCliente.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_PedidosCliente_MouseClick);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(607, 480);
+            this.textBox1.Location = new System.Drawing.Point(725, 361);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(118, 32);
@@ -121,7 +120,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(604, 452);
+            this.label1.Location = new System.Drawing.Point(722, 333);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 7;
@@ -129,9 +128,9 @@
             // 
             // Boton_Pagar
             // 
-            this.Boton_Pagar.Location = new System.Drawing.Point(731, 489);
+            this.Boton_Pagar.Location = new System.Drawing.Point(725, 464);
             this.Boton_Pagar.Name = "Boton_Pagar";
-            this.Boton_Pagar.Size = new System.Drawing.Size(75, 23);
+            this.Boton_Pagar.Size = new System.Drawing.Size(75, 48);
             this.Boton_Pagar.TabIndex = 8;
             this.Boton_Pagar.Text = "Pagar";
             this.Boton_Pagar.UseVisualStyleBackColor = true;
@@ -173,7 +172,7 @@
             // 
             // Boton_Aceptar
             // 
-            this.Boton_Aceptar.Location = new System.Drawing.Point(543, 320);
+            this.Boton_Aceptar.Location = new System.Drawing.Point(725, 177);
             this.Boton_Aceptar.Name = "Boton_Aceptar";
             this.Boton_Aceptar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Aceptar.TabIndex = 13;
@@ -183,7 +182,7 @@
             // 
             // Boton_Rechazar
             // 
-            this.Boton_Rechazar.Location = new System.Drawing.Point(543, 366);
+            this.Boton_Rechazar.Location = new System.Drawing.Point(725, 223);
             this.Boton_Rechazar.Name = "Boton_Rechazar";
             this.Boton_Rechazar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Rechazar.TabIndex = 14;
@@ -191,16 +190,9 @@
             this.Boton_Rechazar.UseVisualStyleBackColor = true;
             this.Boton_Rechazar.Click += new System.EventHandler(this.Boton_Rechazar_Click);
             // 
-            // TextBox_NombreGrilla
-            // 
-            this.TextBox_NombreGrilla.Location = new System.Drawing.Point(543, 219);
-            this.TextBox_NombreGrilla.Name = "TextBox_NombreGrilla";
-            this.TextBox_NombreGrilla.Size = new System.Drawing.Size(100, 20);
-            this.TextBox_NombreGrilla.TabIndex = 15;
-            // 
             // Boton_Cancelar
             // 
-            this.Boton_Cancelar.Location = new System.Drawing.Point(721, 366);
+            this.Boton_Cancelar.Location = new System.Drawing.Point(725, 273);
             this.Boton_Cancelar.Name = "Boton_Cancelar";
             this.Boton_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Cancelar.TabIndex = 17;
@@ -214,7 +206,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 558);
             this.Controls.Add(this.Boton_Cancelar);
-            this.Controls.Add(this.TextBox_NombreGrilla);
             this.Controls.Add(this.Boton_Rechazar);
             this.Controls.Add(this.Boton_Aceptar);
             this.Controls.Add(this.label3);
@@ -255,7 +246,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Boton_Aceptar;
         private System.Windows.Forms.Button Boton_Rechazar;
-        private System.Windows.Forms.TextBox TextBox_NombreGrilla;
         private System.Windows.Forms.Button Boton_Cancelar;
     }
 }
