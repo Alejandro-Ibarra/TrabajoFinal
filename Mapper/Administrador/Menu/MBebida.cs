@@ -137,22 +137,29 @@ namespace Mapper
 
         public int GenerarCodigo()
         {
-            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-
-            var consulta = (from BK in xmlDocument.Descendants("Bebida")
-                            select new BEBebida
-                            {
-                                Codigo = Convert.ToInt32(BK.Attribute("Codigo").Value.Trim())
-                            }).ToList<BEBebida>();
-            int aux = 0;
-            foreach (BEBebida bebida in consulta)
+            try
             {
-                if (aux < bebida.Codigo)
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta = (from BK in xmlDocument.Descendants("Bebida")
+                                select new BEBebida
+                                {
+                                    Codigo = Convert.ToInt32(BK.Attribute("Codigo").Value.Trim())
+                                }).ToList<BEBebida>();
+                int aux = 0;
+                foreach (BEBebida bebida in consulta)
                 {
-                    aux = bebida.Codigo;
+                    if (aux < bebida.Codigo)
+                    {
+                        aux = bebida.Codigo;
+                    }
                 }
+                return aux + 1;
             }
-            return aux + 1;
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
 

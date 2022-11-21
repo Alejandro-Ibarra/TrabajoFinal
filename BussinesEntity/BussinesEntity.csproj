@@ -54,9 +54,7 @@
     <Compile Include="Administrador\Menu\BEExtras.cs" />
     <Compile Include="Administrador\Menu\BEIngrediente.cs" />
     <Compile Include="Administrador\Salon\BEMesa.cs" />
-    <Compile Include="Contable\BEMetodoPago.cs" />
     <Compile Include="Administrador\Personal\BEMozo.cs" />
-    <Compile Include="Contable\BEPago.cs" />
     <Compile Include="Comanda\BEComandaCocina.cs" />
     <Compile Include="Comanda\BEComandaMozo.cs" />
     <Compile Include="Administrador\Menu\BEPlato.cs" />

@@ -184,27 +184,6 @@ namespace Mapper
         }
 
 
-        public void RecuperarItemsDeComanda(int codigo)
-        {
-            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-            var consultaPlato = from plato in xmlDocument.Descendants("PlatoComandaCocina")
-                                where plato.Element("CodigoComanda").Value == codigo.ToString()
-                                select plato;
-
-            var consultaBebida = from bebida in xmlDocument.Descendants("BebidasComandaMozo")
-                                // where bebida.Element("CodigoComanda").Value == item.CodigoComanda.ToString() && bebida.Element("CodigoPedido").Value == item.CodigoPedido.ToString() && bebida.Element("CodigoItem").Value == item.CodigoItem.ToString()
-                                 select bebida;
-
-            var consultaExtra = from extras in xmlDocument.Descendants("ExtrasComandaMozo")
-                               // where extras.Element("CodigoComanda").Value == item.CodigoComanda.ToString() && extras.Element("CodigoPedido").Value == item.CodigoPedido.ToString() && extras.Element("CodigoItem").Value == item.CodigoItem.ToString()
-                                select extras;
-
-
-
-
-
-        }
-
         public BEComanda ListarObjeto(int Codigo)
         {
 
@@ -394,22 +373,29 @@ namespace Mapper
 
         public int GenerarCodigo()
         {
-            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-
-            var consulta = (from Comanda in xmlDocument.Descendants("Comanda")
-                            select new BEComanda
-                            {
-                                Codigo = Convert.ToInt32(Comanda.Attribute("ID").Value.Trim())
-                            }).ToList<BEComanda>();
-            int aux = 0;
-            foreach (BEComanda comanda in consulta)
+            try
             {
-                if (aux < comanda.Codigo)
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta = (from Comanda in xmlDocument.Descendants("Comanda")
+                                select new BEComanda
+                                {
+                                    Codigo = Convert.ToInt32(Comanda.Attribute("ID").Value.Trim())
+                                }).ToList<BEComanda>();
+                int aux = 0;
+                foreach (BEComanda comanda in consulta)
                 {
-                    aux = comanda.Codigo;
+                    if (aux < comanda.Codigo)
+                    {
+                        aux = comanda.Codigo;
+                    }
                 }
+                return aux + 1;
             }
-            return aux + 1;
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public bool Existe(int ID)

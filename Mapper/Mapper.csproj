@@ -50,15 +50,10 @@
     <Compile Include="Administrador\Menu\MPlato.cs" />
     <Compile Include="Administrador\Personal\MCocinero.cs" />
     <Compile Include="Administrador\Salon\MMesas.cs" />
-    <Compile Include="Comanda\MComandaCocina.cs" />
-    <Compile Include="Comanda\MComandaMozo.cs" />
-    <Compile Include="Contable\MMetodoPago.cs" />
-    <Compile Include="Contable\MPago.cs" />
     <Compile Include="Administrador\Personal\MPersonal.cs" />
     <Compile Include="MBackUp.cs" />
     <Compile Include="Comanda\MComanda.cs" />
     <Compile Include="Administrador\Menu\MItemsSeleccionados.cs" />
-    <Compile Include="Administrador\MCliente.cs" />
     <Compile Include="MLogin.cs" />
     <Compile Include="Administrador\Personal\MMozo.cs" />
     <Compile Include="Administrador\Permisos\MPermisos.cs" />

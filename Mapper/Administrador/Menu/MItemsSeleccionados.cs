@@ -112,35 +112,49 @@ namespace Mapper
 
         public List<BEItemsSeleccionados> RecuperarPlatosMasVendidos()
         {
-            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-
-            var consulta =
-            from platos in xmlDocument.Descendants("PlatoComandaCocina")
-            select new BEItemsSeleccionados
+            try
             {
-                Codigo = Convert.ToInt32(platos.Attribute("Codigo").Value)
-            };
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta =
+                from platos in xmlDocument.Descendants("PlatoComandaCocina")
+                select new BEItemsSeleccionados
+                {
+                    Codigo = Convert.ToInt32(platos.Attribute("Codigo").Value)
+                };
 
 
-            List<BEItemsSeleccionados> ListaItems = consulta.ToList<BEItemsSeleccionados>();
+                List<BEItemsSeleccionados> ListaItems = consulta.ToList<BEItemsSeleccionados>();
 
-            return ListaItems;
+                return ListaItems;
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
 
         public List<BEItemsSeleccionados> RecuperarBebidasMasVendidas()
         {
-            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-
-            var consulta =
-            from bebidas in xmlDocument.Descendants("BebidasComandaMozo")
-            select new BEItemsSeleccionados
+            try
             {
-                Codigo = Convert.ToInt32(bebidas.Attribute("ID").Value)
-            };
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
-            List<BEItemsSeleccionados> ListaItems = consulta.ToList<BEItemsSeleccionados>();
-            return ListaItems;
+                var consulta =
+                from bebidas in xmlDocument.Descendants("BebidasComandaMozo")
+                select new BEItemsSeleccionados
+                {
+                    Codigo = Convert.ToInt32(bebidas.Attribute("ID").Value)
+                };
+
+                List<BEItemsSeleccionados> ListaItems = consulta.ToList<BEItemsSeleccionados>();
+                return ListaItems;
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public bool Modificar(BEItemsSeleccionados oBEItem)

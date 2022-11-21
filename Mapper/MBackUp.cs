@@ -72,22 +72,29 @@ namespace Mapper
 
         public int GenerarCodigo()
         {
-            XDocument xmlDocument = XDocument.Load("BackUps.xml");
-
-            var consulta = (from BK in xmlDocument.Descendants("Backup")
-                           select new SEBackUp 
-                           { 
-                               Codigo = Convert.ToInt32(BK.Attribute("Codigo").Value.Trim())
-                           }).ToList<SEBackUp>();
-            int aux = 0;
-            foreach (SEBackUp backup in consulta)
+            try
             {
-                if (aux < backup.Codigo)
+                XDocument xmlDocument = XDocument.Load("BackUps.xml");
+
+                var consulta = (from BK in xmlDocument.Descendants("Backup")
+                               select new SEBackUp 
+                               { 
+                                   Codigo = Convert.ToInt32(BK.Attribute("Codigo").Value.Trim())
+                               }).ToList<SEBackUp>();
+                int aux = 0;
+                foreach (SEBackUp backup in consulta)
                 {
-                    aux = backup.Codigo;
+                    if (aux < backup.Codigo)
+                    {
+                        aux = backup.Codigo;
+                    }
                 }
+                return aux+1;
             }
-            return aux+1;
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public SEBackUp ListarObjeto(int Dni)

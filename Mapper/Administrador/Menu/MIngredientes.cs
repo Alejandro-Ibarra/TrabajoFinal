@@ -66,22 +66,27 @@ namespace Mapper
 
         public int GenerarCodigo()
         {
-            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-
-            var consulta = (from Ingrediente in xmlDocument.Descendants("Ingrediente")
-                            select new BEIngrediente
-                            {
-                                Codigo = Convert.ToInt32(Ingrediente.Attribute("Codigo").Value.Trim())
-                            }).ToList<BEIngrediente>();
-            int aux = 0;
-            foreach (BEIngrediente Ingrediente in consulta)
+            try
             {
-                if (aux < Ingrediente.Codigo)
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta = (from Ingrediente in xmlDocument.Descendants("Ingrediente")
+                                select new BEIngrediente
+                                {
+                                    Codigo = Convert.ToInt32(Ingrediente.Attribute("Codigo").Value.Trim())
+                                }).ToList<BEIngrediente>();
+                int aux = 0;
+                foreach (BEIngrediente Ingrediente in consulta)
                 {
-                    aux = Ingrediente.Codigo;
+                    if (aux < Ingrediente.Codigo)
+                    {
+                        aux = Ingrediente.Codigo;
+                    }
                 }
+                return aux + 1;
             }
-            return aux + 1;
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public bool Guardar(BEIngrediente oBEingrediente)
@@ -170,13 +175,6 @@ namespace Mapper
                 }
                 else
                 { return false; }
-
-
-
-
-
-
-                
             }
             catch (System.Xml.XmlException ex)
             { throw ex; }

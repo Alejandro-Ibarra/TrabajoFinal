@@ -179,22 +179,29 @@ namespace Mapper
 
         public int GenerarCodigo()
         {
-            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-
-            var consulta = (from plato in xmlDocument.Descendants("Plato")
-                            select new BEPlato
-                            {
-                                Codigo = Convert.ToInt32(plato.Attribute("ID").Value.Trim())
-                            }).ToList<BEPlato>();
-            int aux = 0;
-            foreach (BEPlato Plato in consulta)
+            try
             {
-                if (aux < Plato.Codigo)
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta = (from plato in xmlDocument.Descendants("Plato")
+                                select new BEPlato
+                                {
+                                    Codigo = Convert.ToInt32(plato.Attribute("ID").Value.Trim())
+                                }).ToList<BEPlato>();
+                int aux = 0;
+                foreach (BEPlato Plato in consulta)
                 {
-                    aux = Plato.Codigo;
+                    if (aux < Plato.Codigo)
+                    {
+                        aux = Plato.Codigo;
+                    }
                 }
+                return aux + 1;
             }
-            return aux + 1;
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
     }
 }

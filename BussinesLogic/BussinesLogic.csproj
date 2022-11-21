@@ -54,12 +54,8 @@
     <Compile Include="Administrador\Personal\BLPersonal.cs" />
     <Compile Include="Administrador\Menu\BLItemsSeleccionados.cs" />
     <Compile Include="Comanda\BLComanda.cs" />
-    <Compile Include="Contable\BLMetodoPago.cs" />
     <Compile Include="Administrador\Personal\BLMozo.cs" />
-    <Compile Include="Contable\BLPago.cs" />
     <Compile Include="Cliente\BLClientes.cs" />
-    <Compile Include="Comanda\BLComandaCocina.cs" />
-    <Compile Include="Comanda\BLComandaMozo.cs" />
     <Compile Include="Administrador\Menu\BLPlato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
