@@ -33,22 +33,29 @@ namespace Mapper
 
         public int GenerarCodigo()
         {
-            XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-
-            var consulta = (from Comanda in xmlDocument.Descendants("Evento")
-                            select new BEComanda
-                            {
-                                Codigo = Convert.ToInt32(Comanda.Attribute("ID").Value.Trim())
-                            }).ToList<BEComanda>();
-            int aux = 0;
-            foreach (BEComanda comanda in consulta)
+            try
             {
-                if (aux < comanda.Codigo)
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta = (from Comanda in xmlDocument.Descendants("Evento")
+                                select new BEComanda
+                                {
+                                    Codigo = Convert.ToInt32(Comanda.Attribute("ID").Value.Trim())
+                                }).ToList<BEComanda>();
+                int aux = 0;
+                foreach (BEComanda comanda in consulta)
                 {
-                    aux = comanda.Codigo;
+                    if (aux < comanda.Codigo)
+                    {
+                        aux = comanda.Codigo;
+                    }
                 }
+                return aux + 1;
             }
-            return aux + 1;
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public bool Existe(int ID)
@@ -147,10 +154,16 @@ namespace Mapper
 
         public bool Modificar(BEEvento oBEEventos)
         {
-            Baja(oBEEventos);
-            Guardar(oBEEventos);
-            return true;
-            
+            try
+            {
+                Baja(oBEEventos);
+                Guardar(oBEEventos);
+                return true;
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
     }
 }

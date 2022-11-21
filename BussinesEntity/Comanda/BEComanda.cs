@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BussinesEntity
 {
-    public class BEComanda : BEEntity
+    public class BEComanda : BEItem
     {
         public List<BEComanda> Comandas = new List<BEComanda>();
         public int NroMesa { get; set; }

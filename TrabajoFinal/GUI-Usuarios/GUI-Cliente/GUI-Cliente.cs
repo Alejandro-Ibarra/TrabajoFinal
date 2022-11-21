@@ -30,7 +30,7 @@ namespace TrabajoFinal
             oBLExtras = new BLExtras();
             item = new BEItemsSeleccionados();
             cargarTextbox();
-            CargarComandaPrincipal();
+            RecONuev();
 
 
         }
@@ -314,11 +314,11 @@ namespace TrabajoFinal
             { throw; }
         }
 
-        private void RecuperarUsuario()
+        private bool RecuperarUsuario()
         {
             string nombre = TextBox_Nombre.Text;
             string mail = TextBox_Mail.Text;
-
+            bool aux = false;
             List<BEComanda> listComandas = oBLComanda.ListarTodo();
 
             foreach (BEComanda coma in listComandas)
@@ -327,24 +327,44 @@ namespace TrabajoFinal
                 {
                     oBEComanda = coma;
                     oBEComanda = oBLComanda.ListarObjeto(oBEComanda.Codigo);
+                    aux = true;
                 }
             }
-
+            CargarItems(oBEComanda.Comandas);
+            return aux;
         }
 
-        private void RecuperarPLatos()
+        private void CargarItems(List<BEComanda> comandas)
         {
+            List<BEItemsSeleccionados> lsele = new List<BEItemsSeleccionados>();
+            foreach (BEComanda com in comandas)
+            {
+                nroPedido = nroPedido + 1;
+                foreach (BEComanda com2 in com.Comandas)
+                {
+                    BEItemsSeleccionados itm = new BEItemsSeleccionados();
+                    itm.CodigoComanda = com2.CodigoComanda;
+                    itm.CodigoPedido = com2.CodigoPedido;
+                    itm.CodigoItem = com2.CodigoItem;
+                    itm.Nombre = com2.Nombre;
+                    itm.Estado = com2.Estado;
+                    itm.Precio = com2.MontoTotal;
+                    lsele.Add(itm);
+                    
+                }
+            }
+            CalcularTotal(lsele);
+            textBox1.Text = "$" + MontoTotal.ToString();
+            listaItemsSeleccionados.AddRange(lsele);
 
+            Grilla_PedidosCliente.DataSource = lsele;
         }
 
-        private void RecuperarBebidas()
+        private void RecONuev()
         {
-
-        }
-
-        private void RecuperarExtras()
-        {
-
+            if (RecuperarUsuario()){}
+            else{CargarComandaPrincipal();}
+            
         }
 
         private string RecuperarTipoItem(string nombre)
@@ -408,7 +428,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_PedidosCliente.CurrentRow.DataBoundItem != null)
+                if (Grilla_PedidosCliente.Rows.Count > 0)
                 {
                     item = (BEItemsSeleccionados)Grilla_PedidosCliente.CurrentRow.DataBoundItem;
                 }
@@ -517,7 +537,7 @@ namespace TrabajoFinal
             {
                 TextBox_Nombre.Text = Interaction.InputBox("Ingrese su nombre");
                 TextBox_Mail.Text = Interaction.InputBox("Ingrese su mail");
-                RecuperarUsuario();
+                
             }
             catch (Exception)
             { throw; }
