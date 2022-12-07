@@ -53,5 +53,10 @@ namespace BussinesLogic
         {
             return oMExtras.GenerarCodigo();
         }
+
+        public bool ValidarEliminarExtras(BEExtras oBEExtras)
+        {
+            return oMExtras.ValidarEliminarExtras(oBEExtras);
+        }
     }
 }

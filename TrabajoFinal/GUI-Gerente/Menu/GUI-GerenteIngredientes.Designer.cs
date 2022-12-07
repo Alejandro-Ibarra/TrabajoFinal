@@ -128,9 +128,11 @@ namespace TrabajoFinal
             // 
             // Grilla_Ingredientes
             // 
+            this.Grilla_Ingredientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grilla_Ingredientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_Ingredientes.Location = new System.Drawing.Point(12, 296);
             this.Grilla_Ingredientes.Name = "Grilla_Ingredientes";
+            this.Grilla_Ingredientes.ReadOnly = true;
             this.Grilla_Ingredientes.Size = new System.Drawing.Size(646, 231);
             this.Grilla_Ingredientes.TabIndex = 40;
             this.Grilla_Ingredientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_Ingredientes_MouseClick);
@@ -187,7 +189,7 @@ namespace TrabajoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 542);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.ComboBox_Tipo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -203,6 +205,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.Boton_Baja);
             this.Controls.Add(this.Boton_Alta);
             this.Controls.Add(this.Grilla_Ingredientes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GUI_Gerente_Ingredientes";
             this.Text = "GUI_AdminIngredientes";
             this.Load += new System.EventHandler(this.GUI_AdminIngredientes_Load);

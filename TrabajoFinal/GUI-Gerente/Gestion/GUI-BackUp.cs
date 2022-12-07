@@ -24,12 +24,21 @@ namespace TrabajoFinal
             oSEBackup = new SEBackUp();
             oBEPersonal = new BEPersonal();
             oBLPersonal = new BLPersonal();
+            oBLCocinero = new BLCocinero();
+            oBLMozo = new BLMozo();
+            oBEMozo = new BEMozo();
+            oBECocinero = new BECocinero();
             codigoAdmin = codigo;
         }
         SLBackUp oSLBackup;
         SEBackUp oSEBackup;
         BEPersonal oBEPersonal;
         BLPersonal oBLPersonal;
+        BLMozo oBLMozo;
+        BEMozo oBEMozo;
+        BLCocinero oBLCocinero;
+        BECocinero oBECocinero;
+
         int codigoAdmin;
 
         private void GUI_BackUp_Load(object sender, EventArgs e)
@@ -84,8 +93,33 @@ namespace TrabajoFinal
         {
             try
             {
+                oBECocinero = null;
+                oBEMozo = null;
+                oBEPersonal = null;
+
                 oBEPersonal = oBLPersonal.ListarObjeto(codigoAdmin);
-                return oBEPersonal;
+                oBEMozo = oBLMozo.ListarObjeto(codigoAdmin);
+                oBECocinero = oBLCocinero.ListarObjeto(codigoAdmin);
+                
+                if (oBEPersonal != null)
+                {
+                    return oBEPersonal;
+                }
+                else if (oBEMozo != null)
+                {
+                    return oBEMozo;
+                }
+                else if(oBECocinero != null)
+                {
+                    return oBECocinero;
+                }
+                else
+                {
+                    return null;
+                }
+
+
+                
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
         }
@@ -109,12 +143,12 @@ namespace TrabajoFinal
             {
                 string fechaHora = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
                 SEBackUp BK = new SEBackUp();
-
+                
                 BK.Codigo = Convert.ToInt32(oSLBackup.GenerarCodigo());
                 BK.Tipo = tipo;
                 BK.FechaHora = fechaHora;
                 BK.NombreArchivo = (Convert.ToString(BK.Codigo)) + "-Restaurante-BK-" + BK.FechaHora + ".xml";
-                BK.NombreUsuario = RecuperarUsuario().Nombre;
+                BK.NombreUsuario = RecuperarUsuario().Nombre +" "+ RecuperarUsuario().Apellido;
                 BK.Ruta = Application.StartupPath + @"\Backups\" + BK.NombreArchivo; 
                 return BK;
             }

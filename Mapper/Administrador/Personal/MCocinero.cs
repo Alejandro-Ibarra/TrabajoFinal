@@ -71,14 +71,12 @@ namespace Mapper
                     XDocument xmlDocument = XDocument.Load("Restaurante.xml");
                     xmlDocument.Element("Restaurante").Element("Usuarios").Element("Cocineros").Add(new XElement("Cocinero",
                                                                                         new XAttribute("Codigo", oBECocinero.DNI.ToString().Trim()),
-                                                                                        new XElement("Rol", "Cocinero"),
                                                                                         new XElement("Nombre", oBECocinero.Nombre.Trim()),
                                                                                         new XElement("Apellido", oBECocinero.Apellido.Trim()),
                                                                                         new XElement("RolesAsignados"),
                                                                                         new XElement("Password", oBECocinero.Password.ToString().Trim()),
                                                                                         new XElement("Turno", oBECocinero.Turno.Trim()),
-                                                                                        new XElement("Cantidad_Pedidos", oBECocinero.CantPedidos.ToString().Trim()),
-                                                                                        new XElement("Dni", oBECocinero.DNI.ToString().Trim())));
+                                                                                        new XElement("Cantidad_Pedidos", oBECocinero.CantPedidos.ToString().Trim())));
 
 
                     xmlDocument.Save("Restaurante.xml");

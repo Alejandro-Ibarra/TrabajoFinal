@@ -50,6 +50,28 @@ namespace Mapper
             { throw ex; }
         }
 
+        public bool ValidarEliminarExtras(BEExtras oBEExtras)
+        {
+            try
+            {
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta = from bebida in xmlDocument.Descendants("PedidosRealizadosExtras")
+                               where bebida.Element("ExtrasDeComanda").Element("ExtrasComandaMozo").Attribute("ID").Value.ToString() == Convert.ToString(oBEExtras.Codigo)
+                               select bebida;
+
+                if (consulta.Any())
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
         public int GenerarCodigo()
         {
             try

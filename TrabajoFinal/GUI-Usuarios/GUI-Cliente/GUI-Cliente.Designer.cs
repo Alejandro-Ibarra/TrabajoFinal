@@ -44,6 +44,7 @@
             this.Boton_Aceptar = new System.Windows.Forms.Button();
             this.Boton_Rechazar = new System.Windows.Forms.Button();
             this.Boton_Cancelar = new System.Windows.Forms.Button();
+            this.Boton_CerrarSesion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_PedidosCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,6 +102,7 @@
             // 
             this.Grilla_PedidosCliente.AllowUserToAddRows = false;
             this.Grilla_PedidosCliente.AllowUserToDeleteRows = false;
+            this.Grilla_PedidosCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grilla_PedidosCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_PedidosCliente.Location = new System.Drawing.Point(37, 177);
             this.Grilla_PedidosCliente.Name = "Grilla_PedidosCliente";
@@ -172,6 +174,7 @@
             // 
             // Boton_Aceptar
             // 
+            this.Boton_Aceptar.Enabled = false;
             this.Boton_Aceptar.Location = new System.Drawing.Point(725, 177);
             this.Boton_Aceptar.Name = "Boton_Aceptar";
             this.Boton_Aceptar.Size = new System.Drawing.Size(75, 23);
@@ -182,6 +185,7 @@
             // 
             // Boton_Rechazar
             // 
+            this.Boton_Rechazar.Enabled = false;
             this.Boton_Rechazar.Location = new System.Drawing.Point(725, 223);
             this.Boton_Rechazar.Name = "Boton_Rechazar";
             this.Boton_Rechazar.Size = new System.Drawing.Size(75, 23);
@@ -200,11 +204,22 @@
             this.Boton_Cancelar.UseVisualStyleBackColor = true;
             this.Boton_Cancelar.Click += new System.EventHandler(this.Boton_Cancelar_Click);
             // 
+            // Boton_CerrarSesion
+            // 
+            this.Boton_CerrarSesion.Location = new System.Drawing.Point(701, 40);
+            this.Boton_CerrarSesion.Name = "Boton_CerrarSesion";
+            this.Boton_CerrarSesion.Size = new System.Drawing.Size(99, 23);
+            this.Boton_CerrarSesion.TabIndex = 18;
+            this.Boton_CerrarSesion.Text = "Cerrar sesión";
+            this.Boton_CerrarSesion.UseVisualStyleBackColor = true;
+            this.Boton_CerrarSesion.Click += new System.EventHandler(this.Boton_CerrarSesion_Click);
+            // 
             // GUI_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 558);
+            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.Boton_CerrarSesion);
             this.Controls.Add(this.Boton_Cancelar);
             this.Controls.Add(this.Boton_Rechazar);
             this.Controls.Add(this.Boton_Aceptar);
@@ -221,6 +236,7 @@
             this.Controls.Add(this.Boton_Postre);
             this.Controls.Add(this.Boton_PlatoPrincipal);
             this.Controls.Add(this.Boton_Entrada);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GUI_Cliente";
             this.Text = "GUI_Cliente";
             this.Load += new System.EventHandler(this.GUI_Cliente_Load);
@@ -248,5 +264,6 @@
         private System.Windows.Forms.Button Boton_Aceptar;
         private System.Windows.Forms.Button Boton_Rechazar;
         private System.Windows.Forms.Button Boton_Cancelar;
+        private System.Windows.Forms.Button Boton_CerrarSesion;
     }
 }

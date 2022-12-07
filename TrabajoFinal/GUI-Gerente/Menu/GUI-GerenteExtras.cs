@@ -63,13 +63,25 @@ namespace TrabajoFinal
                 Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (Respuesta == DialogResult.Yes)
                 {
-                    oBLExtras.Baja(oBEExtras);
-                    LimpiarControles();
-                    CargarGrilla();
+                    if (ValidarEliminacion())
+                    {
+                        oBLExtras.Baja(oBEExtras);
+                        LimpiarControles();
+                        CargarGrilla();
+                    }
+                    else
+                    { MessageBox.Show("No se puede eliminar un extra que esté en una comanda"); }
+
+
                 }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
+        }
+
+        private bool ValidarEliminacion()
+        {
+            return oBLExtras.ValidarEliminarExtras(oBEExtras);
         }
 
         private void Boton_Modificar_Click(object sender, EventArgs e)

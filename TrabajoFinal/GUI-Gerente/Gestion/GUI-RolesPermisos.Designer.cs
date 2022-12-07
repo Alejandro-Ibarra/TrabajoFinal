@@ -67,27 +67,33 @@ namespace TrabajoFinal
             // 
             // Grilla_PermisosNoAsignados
             // 
+            this.Grilla_PermisosNoAsignados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grilla_PermisosNoAsignados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_PermisosNoAsignados.Location = new System.Drawing.Point(554, 41);
             this.Grilla_PermisosNoAsignados.Name = "Grilla_PermisosNoAsignados";
+            this.Grilla_PermisosNoAsignados.ReadOnly = true;
             this.Grilla_PermisosNoAsignados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grilla_PermisosNoAsignados.Size = new System.Drawing.Size(205, 293);
             this.Grilla_PermisosNoAsignados.TabIndex = 25;
             // 
             // Grilla_PermisosAsignados
             // 
+            this.Grilla_PermisosAsignados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grilla_PermisosAsignados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_PermisosAsignados.Location = new System.Drawing.Point(275, 41);
             this.Grilla_PermisosAsignados.Name = "Grilla_PermisosAsignados";
+            this.Grilla_PermisosAsignados.ReadOnly = true;
             this.Grilla_PermisosAsignados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grilla_PermisosAsignados.Size = new System.Drawing.Size(195, 293);
             this.Grilla_PermisosAsignados.TabIndex = 24;
             // 
             // Grilla_Roles
             // 
+            this.Grilla_Roles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grilla_Roles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_Roles.Location = new System.Drawing.Point(31, 41);
             this.Grilla_Roles.Name = "Grilla_Roles";
+            this.Grilla_Roles.ReadOnly = true;
             this.Grilla_Roles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grilla_Roles.Size = new System.Drawing.Size(196, 293);
             this.Grilla_Roles.TabIndex = 23;
@@ -168,7 +174,7 @@ namespace TrabajoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 510);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.uC_ValNombApe1);
@@ -182,6 +188,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.Grilla_Roles);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GUI_RolesPermisos";
             this.Text = "GUI_Admin";
             this.Load += new System.EventHandler(this.GUI_Admin_Load);

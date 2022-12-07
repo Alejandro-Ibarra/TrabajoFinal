@@ -72,7 +72,7 @@ namespace TrabajoFinal
                     { MessageBox.Show("Ya existe un cocinero con ese DNI"); }
 
                 }
-                else
+                else if(RadioButton_Mozo.Checked)
                 {
                     if (!oBLMozo.Existe(int.Parse(UC_ValDNI.Text)))
                     {
@@ -86,11 +86,26 @@ namespace TrabajoFinal
                         }
                     }
                 }
+                else
+                {
+                    if (!oBLPersonal.Existe(int.Parse(UC_ValDNI.Text)))
+                    {
+                        if (AsignarGerente())
+                        {
+
+                            oBEPersonal.Turno = AsignarTurno();
+                            oBEPersonal.Password = Encriptacion.Encrypt(textBox_Pass.Text.Trim(), null);
+                            oBLPersonal.Guardar(oBEPersonal);
+                            AsignarAControles(oBEPersonal);
+                        }
+                    }
+                }
                 CargarGrillaUsuarios();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
+
 
         private void Boton_Baja_Click(object sender, EventArgs e)
         {
@@ -193,6 +208,32 @@ namespace TrabajoFinal
             { MessageBox.Show(ex.Message); return false; }
         }
 
+        private bool AsignarGerente()
+        {
+            try
+            {
+                if (UC_ValDNI.validar() && UC_ValDNI.Text != "")
+                {
+                    oBEPersonal.DNI = Convert.ToInt32(UC_ValDNI.Text);
+                    if (UC_ValNomb.validar() && UC_ValNomb.Text != "")
+                    {
+                        oBEPersonal.Nombre = UC_ValNomb.Text;
+                        if (UC_ValApe.validar() && UC_ValApe.Text != "")
+                        {
+                            oBEPersonal.Apellido = UC_ValApe.Text;
+                            return true;
+                        }
+                        else { return false; }
+                    }
+                    else { return false; }
+                }
+                else { return false; }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); return false; }
+        }
+
+
         private string AsignarTurno()
         {
             try
@@ -245,7 +286,7 @@ namespace TrabajoFinal
         {
             try
             {
-                List<BEPersonal> listPersonal = new List<BEPersonal>();
+                List<BEPersonal> listPersonal = oBLPersonal.ListarTodo();
                 List<BECocinero> listCocineros = oBLCocinero.ListarTodo();
                 List<BEMozo> listMozo = oBLMozo.ListarTodo();
 
@@ -306,7 +347,7 @@ namespace TrabajoFinal
             {
                 BECocinero oBECoc = oBLCocinero.ListarObjeto(Personal.DNI);
                 BEMozo oBEMo = oBLMozo.ListarObjeto(Personal.DNI);
-
+                BEPersonal oBEPer = oBLPersonal.ListarObjeto(Personal.DNI);
 
                 if (!(oBECoc is null))
                 {
@@ -321,13 +362,26 @@ namespace TrabajoFinal
                         treeView1.Nodes.Clear();
                     }
                 }
-                else
+                else if(!(oBEMo is null))
                 {
                     Grilla_RolesAsignados.DataSource = oBEMo.Roles;
                     SeleccionarRolesNoAsignados(oBEMo.Roles);
                     if (oBEMo.Roles.Count > 0)
                     {
                         LlenarTreeWiev(oBEMo.Roles);
+                    }
+                    else
+                    {
+                        treeView1.Nodes.Clear();
+                    }
+                }
+                else
+                {
+                    Grilla_RolesAsignados.DataSource = oBEPer.Roles;
+                    SeleccionarRolesNoAsignados(oBEPer.Roles);
+                    if (oBEPer.Roles.Count > 0)
+                    {
+                        LlenarTreeWiev(oBEPer.Roles);
                     }
                     else
                     {

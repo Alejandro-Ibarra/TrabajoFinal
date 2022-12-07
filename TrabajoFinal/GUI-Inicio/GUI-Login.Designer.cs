@@ -60,6 +60,7 @@
             this.TextBox_Pass.Name = "TextBox_Pass";
             this.TextBox_Pass.Size = new System.Drawing.Size(100, 20);
             this.TextBox_Pass.TabIndex = 2;
+            this.TextBox_Pass.UseSystemPasswordChar = true;
             // 
             // Button_Aceptar
             // 
@@ -99,6 +100,7 @@
             this.Controls.Add(this.TextBox_Pass);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GUI_Login";
             this.Text = "GUI_Login";
             this.ResumeLayout(false);

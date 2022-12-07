@@ -53,5 +53,10 @@ namespace BussinesLogic
         {
             return oMBebida.GenerarCodigo();
         }
+
+        public bool ValidarEliminarBebida(BEBebida oBEBebida)
+        {
+            return oMBebida.ValidarEliminarBebida(oBEBebida);
+        }
     }
 }

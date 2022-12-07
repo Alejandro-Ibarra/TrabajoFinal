@@ -32,14 +32,55 @@ namespace Mapper
             { throw ex; }
         }
 
-        public bool Existe(int obj)
+        public bool Existe(int dni)
         {
-            throw new NotImplementedException();
+            try
+            {
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+
+                var consulta = from gerente in xmlDocument.Descendants("Admin")
+                               where gerente.Attribute("Codigo").Value == dni.ToString()
+                               select gerente;
+
+                if (consulta.Any())
+                { return true; }
+                else
+                { return false; }
+
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
-        public bool Guardar(BEPersonal Objeto)
+        public bool Guardar(BEPersonal oBEPersonal)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (Existe(oBEPersonal.DNI) == false)
+                {
+                    XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                    xmlDocument.Element("Restaurante").Element("Usuarios").Element("Gerente").Add(new XElement("Admin",
+                                                                                        new XAttribute("Codigo", oBEPersonal.DNI.ToString().Trim()),
+                                                                                        new XElement("Nombre", oBEPersonal.Nombre.Trim()),
+                                                                                        new XElement("Apellido", oBEPersonal.Apellido.Trim()),
+                                                                                        new XElement("RolesAsignados"),
+                                                                                        new XElement("Password", oBEPersonal.Password.ToString().Trim()),
+                                                                                        new XElement("Turno", oBEPersonal.Turno.Trim())));
+
+
+                    xmlDocument.Save("Restaurante.xml");
+                    return true;
+                }
+                else
+                { return false; }
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public BEPersonal ListarObjeto(int dni)
@@ -84,6 +125,7 @@ namespace Mapper
                                                     ).FirstOrDefault().Element("Descripcion").Value.ToString(),
                                  }).ToList<BERoles>()
                     }).ToList<BEAdmin>();
+
                 BEAdmin oBEAdmin = consulta.FirstOrDefault();
                 List<BERoles> listaRoles = consultaRoles.ToList<BERoles>();
                 List<BERoles> listRolAux = new List<BERoles>();
@@ -215,7 +257,26 @@ namespace Mapper
 
         public List<BEPersonal> ListarTodo()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var consulta =
+                from Gerente in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Gerente").Elements("Admin")
+                select new BEPersonal
+                {
+                    DNI = Convert.ToInt32(Convert.ToString(Gerente.Attribute("Codigo").Value).Trim()),
+                    Nombre = Convert.ToString(Gerente.Element("Nombre").Value).Trim(),
+                    Apellido = Convert.ToString(Gerente.Element("Apellido").Value).Trim(),
+                    Password = Convert.ToString(Gerente.Element("Password").Value).Trim(),
+                    Turno = Convert.ToString(Gerente.Element("Turno").Value).Trim(),
+
+                };
+                List<BEPersonal> ListaGerentes = consulta.ToList<BEPersonal>();
+                return ListaGerentes;
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public bool Modificar(BEPersonal Objeto)

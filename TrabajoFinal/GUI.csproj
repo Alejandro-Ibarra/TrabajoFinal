@@ -108,12 +108,6 @@
     <Compile Include="GUI-Gerente\Menu\GUI-GerentePlatos.Designer.cs">
       <DependentUpon>GUI-GerentePlatos.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Usuarios\GUI-UsrMozo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI-Usuarios\GUI-UsrMozo.Designer.cs">
-      <DependentUpon>GUI-UsrMozo.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionBebidas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,11 +144,11 @@
     <Compile Include="GUI-Inicio\GUI-MenuPrincipal.Designer.cs">
       <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Usuarios\GUI-UsrCocina.cs">
+    <Compile Include="GUI-Usuarios\GUI-Empleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Usuarios\GUI-UsrCocina.Designer.cs">
-      <DependentUpon>GUI-UsrCocina.cs</DependentUpon>
+    <Compile Include="GUI-Usuarios\GUI-Empleado.Designer.cs">
+      <DependentUpon>GUI-Empleado.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionPlatos.cs">
       <SubType>Form</SubType>
@@ -233,11 +227,8 @@
     <EmbeddedResource Include="GUI-Usuarios\GUI-Cliente\GUI-Cliente.resx">
       <DependentUpon>GUI-Cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Usuarios\GUI-UsrMozo.resx">
-      <DependentUpon>GUI-UsrMozo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Usuarios\GUI-UsrCocina.resx">
-      <DependentUpon>GUI-UsrCocina.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-Usuarios\GUI-Empleado.resx">
+      <DependentUpon>GUI-Empleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Usuarios\GUI-Cliente\GUI-SeleccionPlatos.resx">
       <DependentUpon>GUI-SeleccionPlatos.cs</DependentUpon>
@@ -294,6 +285,8 @@
   <ItemGroup>
     <None Include="bin\Debug\Mesas.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="bin\Debug\QR.JPG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

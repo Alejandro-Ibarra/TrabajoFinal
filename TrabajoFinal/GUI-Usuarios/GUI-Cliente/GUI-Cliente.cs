@@ -11,6 +11,7 @@ using BussinesEntity;
 using Abstraction;
 using BussinesLogic;
 using Microsoft.VisualBasic;
+using System.Text.RegularExpressions;
 
 namespace TrabajoFinal
 {
@@ -29,7 +30,7 @@ namespace TrabajoFinal
             oBLBebida = new BLBebida();
             oBLExtras = new BLExtras();
             item = new BEItemsSeleccionados();
-            cargarTextbox();
+            CargarTextbox();
             RecONuev();
 
 
@@ -75,19 +76,22 @@ namespace TrabajoFinal
                 {
                     int codItem = 1;
                     List<BEItemsSeleccionados> listNPAux = new List<BEItemsSeleccionados>();
+                    form.StartPosition = FormStartPosition.CenterScreen;
                     var result = form.ShowDialog();
                     if (result == DialogResult.OK)
                     {
                         List<BEExtras> Extras = form.listaExtrasFinal;
-                        nroPedido = nroPedido + 1;
+                        nroPedido++;
                         foreach (BEExtras ext in Extras)
                         {
-                            BEItemsSeleccionados nombPre = new BEItemsSeleccionados();
-                            nombPre.Nombre = ext.Nombre;
-                            nombPre.CodigoComanda = oBEComanda.Codigo;
-                            nombPre.CodigoPedido = nroPedido;
-                            nombPre.CodigoItem = codItem;
-                            nombPre.Estado = "Enviado_Mozo";
+                            BEItemsSeleccionados nombPre = new BEItemsSeleccionados
+                            {
+                                Nombre = ext.Nombre,
+                                CodigoComanda = oBEComanda.Codigo,
+                                CodigoPedido = nroPedido,
+                                CodigoItem = codItem,
+                                Estado = "Enviado_Mozo"
+                            };
                             ext.CodigoItem = codItem;
                             ext.CodigoPedido = nroPedido;
                             ext.CodigoComanda = oBEComanda.Codigo;
@@ -114,27 +118,30 @@ namespace TrabajoFinal
                     int montoComanda = 1;
                     int codItem = 1;
                     List<BEItemsSeleccionados> listNPAux = new List<BEItemsSeleccionados>();
+                    form.StartPosition = FormStartPosition.CenterScreen;
                     var result = form.ShowDialog();
                     if (result == DialogResult.OK)
                     {
                         List<BEBebida> Bebidas = form.listaBebidasFinal;
-                        nroPedido = nroPedido + 1;
+                        nroPedido++;
                         foreach (BEBebida item in Bebidas)
                         {
-                            BEItemsSeleccionados nombPre = new BEItemsSeleccionados();
-                            nombPre.Nombre = item.Nombre;
-                            nombPre.Precio = item.Precio;
-                            nombPre.CodigoComanda = oBEComanda.Codigo;
-                            nombPre.CodigoPedido = nroPedido;
-                            nombPre.CodigoItem = codItem;
-                            nombPre.Estado = "Enviado_Mozo";
+                            BEItemsSeleccionados nombPre = new BEItemsSeleccionados
+                            {
+                                Nombre = item.Nombre,
+                                Precio = item.Precio,
+                                CodigoComanda = oBEComanda.Codigo,
+                                CodigoPedido = nroPedido,
+                                CodigoItem = codItem,
+                                Estado = "Enviado_Mozo"
+                            };
                             item.CodigoItem = codItem;
                             item.CodigoPedido = nroPedido;
                             item.CodigoComanda = oBEComanda.Codigo;
                             codItem += 1;
 
                             listNPAux.Add(nombPre);
-                            montoComanda = montoComanda + nombPre.Precio;
+                            montoComanda += nombPre.Precio;
                         }
                         CargarComandaMozo(null, Bebidas, montoComanda, nroPedido);
                         listaItemsSeleccionados.AddRange(listNPAux);
@@ -158,24 +165,27 @@ namespace TrabajoFinal
                     int montoComanda = 0;
                     int codItem = 1;
                     List<BEItemsSeleccionados> listNPAux = new List<BEItemsSeleccionados>();
+                    form.StartPosition = FormStartPosition.CenterScreen;
                     var result = form.ShowDialog();
                     if (result == DialogResult.OK)
                     {
                         List<BEPlato> Platos = form.listaPlatosFinal;
-                        nroPedido = nroPedido + 1;
+                        nroPedido++;
                         foreach (BEPlato item in Platos)
                         {
-                            BEItemsSeleccionados nombPre = new BEItemsSeleccionados();
-                            nombPre.Nombre = item.Nombre;
-                            nombPre.Precio = item.Precio;
-                            nombPre.CodigoComanda = oBEComanda.Codigo;
-                            nombPre.CodigoPedido = nroPedido;
-                            nombPre.CodigoItem = codItem;
-                            nombPre.Estado = "Enviado_Cocina";
+                            BEItemsSeleccionados nombPre = new BEItemsSeleccionados
+                            {
+                                Nombre = item.Nombre,
+                                Precio = item.Precio,
+                                CodigoComanda = oBEComanda.Codigo,
+                                CodigoPedido = nroPedido,
+                                CodigoItem = codItem,
+                                Estado = "Enviado_Cocina"
+                            };
                             item.CodigoItem = codItem;
                             item.CodigoPedido = nroPedido;
                             item.CodigoComanda = oBEComanda.Codigo;
-                            montoComanda = montoComanda + nombPre.Precio;
+                            montoComanda += nombPre.Precio;
 
                             codItem += 1;
 
@@ -210,7 +220,7 @@ namespace TrabajoFinal
             {
                 if (est == "Enviado_Cocina" || est == "Enviado_Mozo" || est == "Rechazado_Mozo" || est == "En_Preparacion_Mozo" || est == "En_Preparacion_Cocinero" || est == "Entregado" || est == "En_Entrega_Mozo" || est == "En_Entrega_Cocinero")
                 {
-                    aux = aux + 1;
+                    aux++;
                 }
             }
             if (aux > 0)
@@ -256,23 +266,27 @@ namespace TrabajoFinal
                     item.Estado = "Rechazado";
                     string tipoItem = RecuperarTipoItem(item.Nombre);
 
-                    nroPedido = nroPedido + 1;
+                    nroPedido++;
 
-                    BEItemsSeleccionados nombPre = new BEItemsSeleccionados();
-                    nombPre.Nombre = item.Nombre;
-                    nombPre.CodigoComanda = oBEComanda.Codigo;
-                    nombPre.CodigoPedido = nroPedido;
-                    nombPre.CodigoItem = 1;
-                    nombPre.Estado = "Enviado_Mozo";
+                    BEItemsSeleccionados nombPre = new BEItemsSeleccionados
+                    {
+                        Nombre = item.Nombre,
+                        CodigoComanda = oBEComanda.Codigo,
+                        CodigoPedido = nroPedido,
+                        CodigoItem = 1,
+                        Estado = "Enviado_Mozo"
+                    };
 
                     if (tipoItem == "Plato")
                     {
                         List<BEPlato> lplat = new List<BEPlato>();
-                        BEPlato oBEPlato = new BEPlato();
-                        oBEPlato.Nombre = nombPre.Nombre;
-                        oBEPlato.CodigoComanda = nombPre.CodigoComanda;
-                        oBEPlato.CodigoItem = nombPre.CodigoItem;
-                        oBEPlato.CodigoPedido = nombPre.CodigoPedido;
+                        BEPlato oBEPlato = new BEPlato
+                        {
+                            Nombre = nombPre.Nombre,
+                            CodigoComanda = nombPre.CodigoComanda,
+                            CodigoItem = nombPre.CodigoItem,
+                            CodigoPedido = nombPre.CodigoPedido
+                        };
 
                         lplat.Add(oBEPlato);
                         CargarComandaCocinero(lplat, 0, nroPedido);
@@ -282,11 +296,13 @@ namespace TrabajoFinal
                     else if (tipoItem == "Bebida")
                     {
                         List<BEBebida> listBebida = new List<BEBebida>();
-                        BEBebida oBEBebida = new BEBebida();
-                        oBEBebida.Nombre = nombPre.Nombre;
-                        oBEBebida.CodigoComanda = nombPre.CodigoComanda;
-                        oBEBebida.CodigoItem = nombPre.CodigoItem;
-                        oBEBebida.CodigoPedido = nombPre.CodigoPedido;
+                        BEBebida oBEBebida = new BEBebida
+                        {
+                            Nombre = nombPre.Nombre,
+                            CodigoComanda = nombPre.CodigoComanda,
+                            CodigoItem = nombPre.CodigoItem,
+                            CodigoPedido = nombPre.CodigoPedido
+                        };
 
                         listBebida.Add(oBEBebida);
                         CargarComandaMozo(null, listBebida, 0, nroPedido);
@@ -294,11 +310,13 @@ namespace TrabajoFinal
                     else
                     {
                         List<BEExtras> listExt = new List<BEExtras>();
-                        BEExtras oBEExt = new BEExtras();
-                        oBEExt.Nombre = nombPre.Nombre;
-                        oBEExt.CodigoComanda = nombPre.CodigoComanda;
-                        oBEExt.CodigoItem = nombPre.CodigoItem;
-                        oBEExt.CodigoPedido = nombPre.CodigoPedido;
+                        BEExtras oBEExt = new BEExtras
+                        {
+                            Nombre = nombPre.Nombre,
+                            CodigoComanda = nombPre.CodigoComanda,
+                            CodigoItem = nombPre.CodigoItem,
+                            CodigoPedido = nombPre.CodigoPedido
+                        };
 
                         listExt.Add(oBEExt);
 
@@ -345,16 +363,18 @@ namespace TrabajoFinal
             List<BEItemsSeleccionados> lsele = new List<BEItemsSeleccionados>();
             foreach (BEComanda com in comandas)
             {
-                nroPedido = nroPedido + 1;
+                nroPedido++;
                 foreach (BEComanda com2 in com.Comandas)
                 {
-                    BEItemsSeleccionados itm = new BEItemsSeleccionados();
-                    itm.CodigoComanda = com2.CodigoComanda;
-                    itm.CodigoPedido = com2.CodigoPedido;
-                    itm.CodigoItem = com2.CodigoItem;
-                    itm.Nombre = com2.Nombre;
-                    itm.Estado = com2.Estado;
-                    itm.Precio = com2.MontoTotal;
+                    BEItemsSeleccionados itm = new BEItemsSeleccionados
+                    {
+                        CodigoComanda = com2.CodigoComanda,
+                        CodigoPedido = com2.CodigoPedido,
+                        CodigoItem = com2.CodigoItem,
+                        Nombre = com2.Nombre,
+                        Estado = com2.Estado,
+                        Precio = com2.MontoTotal
+                    };
                     lsele.Add(itm);
                     
                 }
@@ -422,9 +442,15 @@ namespace TrabajoFinal
         {
             try
             {
-                item.Estado = "Cancelado";
-                oBLComanda.GestionarPlato(item);
-                CargarGrilla();
+                if (item.Estado == "Enviado_Mozo" || item.Estado == "Enviado_Cocinero")
+                {
+                    item.Estado = "Cancelado";
+                    oBLComanda.GestionarPlato(item);
+                    CargarGrilla();
+                }
+                else
+                {MessageBox.Show("Solo se pueden cancelar pedidos que aún no se encuentren en preparación"); }
+                
             }
             catch (Exception)
             { throw; }
@@ -438,6 +464,18 @@ namespace TrabajoFinal
                 {
                     item = (BEItemsSeleccionados)Grilla_PedidosCliente.CurrentRow.DataBoundItem;
                 }
+                if (item.Estado == "Entregado")
+                {
+                    Boton_Aceptar.Enabled = true;
+                    Boton_Rechazar.Enabled = true;
+                }
+                else
+                {
+                    Boton_Aceptar.Enabled = false;
+                    Boton_Rechazar.Enabled = false;
+                }
+
+
             }
             catch (Exception)
             {throw;}
@@ -462,13 +500,15 @@ namespace TrabajoFinal
         {
             try
             {
-                BEComandaCocina oBEComandaCocina = new BEComandaCocina();
-                oBEComandaCocina.Codigo = codPedido;
-                oBEComandaCocina.Estado = "Enviado_Cocina";
-                oBEComandaCocina.MontoTotal = montoComanda;
-                oBEComandaCocina.NroMesa = nroMesa;
-                oBEComandaCocina.FechaHora = DateTime.Now;
-                oBEComandaCocina.Plato = platos;
+                BEComandaCocina oBEComandaCocina = new BEComandaCocina
+                {
+                    Codigo = codPedido,
+                    Estado = "Enviado_Cocina",
+                    MontoTotal = montoComanda,
+                    NroMesa = nroMesa,
+                    FechaHora = DateTime.Now,
+                    Plato = platos
+                };
                 oBEComanda.Comandas.Add(oBEComandaCocina);
                 oBLComanda.Guardar(oBEComanda);
             }
@@ -480,13 +520,14 @@ namespace TrabajoFinal
         {
             try
             {
-                BEComandaMozo oBEComandaMozo = new BEComandaMozo();
-
-                oBEComandaMozo.Codigo = codPedido;
-                oBEComandaMozo.Estado = "Enviado_Mozo";
-                oBEComandaMozo.MontoTotal = montoComanda;
-                oBEComandaMozo.NroMesa = nroMesa;
-                oBEComandaMozo.FechaHora = DateTime.Now;    
+                BEComandaMozo oBEComandaMozo = new BEComandaMozo
+                {
+                    Codigo = codPedido,
+                    Estado = "Enviado_Mozo",
+                    MontoTotal = montoComanda,
+                    NroMesa = nroMesa,
+                    FechaHora = DateTime.Now
+                };
                 if (extras != null)
                 {
                     oBEComandaMozo.extras = extras;
@@ -518,9 +559,11 @@ namespace TrabajoFinal
         {
             try
             {
-                BECliente oBECliente = new BECliente();
-                oBECliente.Nombre = TextBox_Nombre.Text;
-                oBECliente.EMail = TextBox_Mail.Text;
+                BECliente oBECliente = new BECliente
+                {
+                    Nombre = TextBox_Nombre.Text,
+                    EMail = TextBox_Mail.Text
+                };
 
                 oBEComanda.Codigo = oBLComanda.GenerarCodigo();
                 oBEComanda.Cliente = oBECliente;
@@ -537,18 +580,35 @@ namespace TrabajoFinal
             Grilla_PedidosCliente.DataSource = listaItemsSeleccionados;
         }
 
-        private void cargarTextbox()
+        private void CargarTextbox()
         {
             try
             {
-                TextBox_Nombre.Text = Interaction.InputBox("Ingrese su nombre");
-                TextBox_Mail.Text = Interaction.InputBox("Ingrese su mail");
+                bool match = false;
+
+                do
+                {
+                    TextBox_Nombre.Text = Interaction.InputBox("Ingrese su nombre");
+                } while (TextBox_Nombre.Text == "");
+
+                
+                do
+                {
+                    TextBox_Mail.Text = Interaction.InputBox("Ingrese su mail");
+
+                    match = Regex.IsMatch(TextBox_Mail.Text, @"^[a-z0-9][-a-z0-9._]+@([-a-z0-9]+.)+[a-z]{2,5}$") && TextBox_Mail.Text != null;
+                } while (match == false || TextBox_Mail.Text == "");
                 
             }
             catch (Exception)
             { throw; }
         }
 
-
+        private void Boton_CerrarSesion_Click(object sender, EventArgs e)
+        {
+            GUI_Inicio oGUI_Inicio = new GUI_Inicio();
+            this.Close();
+            oGUI_Inicio.Show();
+        }
     }
 }

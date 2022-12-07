@@ -269,7 +269,7 @@ namespace TrabajoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 530);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.pictureBox18);
             this.Controls.Add(this.pictureBox15);
@@ -288,6 +288,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GUI_GerenteMesas";
             this.Text = "GUI_GerenteMesas";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

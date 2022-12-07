@@ -50,6 +50,8 @@ namespace Mapper
             { throw ex; }
         }
 
+
+
         public bool Guardar(BEBebida oBEBebida)
         {
             try
@@ -162,6 +164,27 @@ namespace Mapper
             { throw ex; }
         }
 
+        public bool ValidarEliminarBebida(BEBebida oBEBebida)
+        {
+            try
+            {
 
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta = from bebida in xmlDocument.Descendants("PedidosRealizadosBebidas")
+                                where bebida.Element("BebidasDeComanda").Element("BebidasComandaMozo").Attribute("ID").Value.ToString() == Convert.ToString(oBEBebida.Codigo)
+                                select bebida;
+
+                if (consulta.Any())
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+        }
     }
 }

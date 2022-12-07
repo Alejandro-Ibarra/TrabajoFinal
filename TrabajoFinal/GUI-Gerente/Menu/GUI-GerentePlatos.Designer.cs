@@ -106,6 +106,7 @@ namespace TrabajoFinal
             // 
             // DataGridView_TodosIngredientes
             // 
+            this.DataGridView_TodosIngredientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridView_TodosIngredientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView_TodosIngredientes.Location = new System.Drawing.Point(29, 142);
             this.DataGridView_TodosIngredientes.MultiSelect = false;
@@ -119,8 +120,9 @@ namespace TrabajoFinal
             // 
             // DataGridView_SeleccionIngredientes
             // 
+            this.DataGridView_SeleccionIngredientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridView_SeleccionIngredientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridView_SeleccionIngredientes.Location = new System.Drawing.Point(514, 142);
+            this.DataGridView_SeleccionIngredientes.Location = new System.Drawing.Point(523, 142);
             this.DataGridView_SeleccionIngredientes.MultiSelect = false;
             this.DataGridView_SeleccionIngredientes.Name = "DataGridView_SeleccionIngredientes";
             this.DataGridView_SeleccionIngredientes.ReadOnly = true;
@@ -132,9 +134,9 @@ namespace TrabajoFinal
             // 
             // Boton_Guardar
             // 
-            this.Boton_Guardar.Location = new System.Drawing.Point(808, 541);
+            this.Boton_Guardar.Location = new System.Drawing.Point(808, 528);
             this.Boton_Guardar.Name = "Boton_Guardar";
-            this.Boton_Guardar.Size = new System.Drawing.Size(124, 38);
+            this.Boton_Guardar.Size = new System.Drawing.Size(124, 29);
             this.Boton_Guardar.TabIndex = 7;
             this.Boton_Guardar.Text = "Guardar Plato";
             this.Boton_Guardar.UseVisualStyleBackColor = true;
@@ -143,13 +145,14 @@ namespace TrabajoFinal
             // 
             // DataGridView_Platos
             // 
+            this.DataGridView_Platos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridView_Platos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView_Platos.Location = new System.Drawing.Point(29, 372);
             this.DataGridView_Platos.MultiSelect = false;
             this.DataGridView_Platos.Name = "DataGridView_Platos";
             this.DataGridView_Platos.ReadOnly = true;
             this.DataGridView_Platos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridView_Platos.Size = new System.Drawing.Size(425, 193);
+            this.DataGridView_Platos.Size = new System.Drawing.Size(425, 185);
             this.DataGridView_Platos.TabIndex = 9;
             this.DataGridView_Platos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGridView_Platos_MouseClick);
             // 
@@ -258,7 +261,7 @@ namespace TrabajoFinal
             this.TextBox_Resumen.Location = new System.Drawing.Point(467, 415);
             this.TextBox_Resumen.Multiline = true;
             this.TextBox_Resumen.Name = "TextBox_Resumen";
-            this.TextBox_Resumen.Size = new System.Drawing.Size(474, 120);
+            this.TextBox_Resumen.Size = new System.Drawing.Size(474, 107);
             this.TextBox_Resumen.TabIndex = 20;
             this.TextBox_Resumen.Visible = false;
             // 
@@ -286,7 +289,7 @@ namespace TrabajoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 591);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.Boton_EliminarPlato);
             this.Controls.Add(this.Boton_ModificarPlatos);
             this.Controls.Add(this.TextBox_Resumen);
@@ -309,6 +312,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.ComboBox_ClasePlato);
             this.Controls.Add(this.ComboBox_TipoPlato);
             this.Controls.Add(this.Boton_Alta);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GUI_Gerente_Platos";
             this.Text = "GUI_AdminPlatos";
             this.Load += new System.EventHandler(this.GUI_Gerente_Platos_Load);

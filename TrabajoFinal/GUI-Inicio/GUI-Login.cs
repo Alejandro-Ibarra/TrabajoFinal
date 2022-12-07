@@ -65,6 +65,7 @@ namespace TrabajoFinal
                         {
                             GUI_MenuPrincipal oGUI_MenuPrincipal = new GUI_MenuPrincipal(oper);
                             this.Hide();
+                            oGUI_MenuPrincipal.StartPosition = FormStartPosition.CenterScreen;
                             oGUI_MenuPrincipal.Show();
                         }
                         else { MessageBox.Show("Usuario o contraseña incorrectos"); }

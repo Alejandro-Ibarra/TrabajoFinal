@@ -13,13 +13,12 @@ using System.Windows.Forms;
 
 namespace TrabajoFinal
 {
-    public partial class GUI_UsrCocina : Form
+    public partial class GUI_UsrEmpleado : Form
     {
-        public GUI_UsrCocina(BEPersonal Personal)
+        public GUI_UsrEmpleado(BEPersonal Personal)
         {
             InitializeComponent();
             oBEPersonal = Personal;
-            oBLCocinero = new BLCocinero();
 
             oBLItem = new BLItemsSeleccionados();
             oItem = new List<BEItemsSeleccionados>();
@@ -34,7 +33,7 @@ namespace TrabajoFinal
 
         string rol;
         BEPersonal oBEPersonal;
-        BLCocinero oBLCocinero;
+
         List<BEItemsSeleccionados> oItem;
         BLItemsSeleccionados oBLItem;
         BEItemsSeleccionados oBEItem;
@@ -97,11 +96,10 @@ namespace TrabajoFinal
             try
             {
                 if (oBEPersonal is BECocinero)
-                { oBEItem.Estado = "Enviado_Mozo"; }
+                { oBEItem.Estado = "Verificar_Mozo"; }
                 else 
                 { oBEItem.Estado = "Entregado"; }
 
-                oBEItem.Estado = "Entregado";
                 oBLItem.Modificar(oBEItem);
                 CargarGrillaPedidos();
             }
@@ -137,7 +135,6 @@ namespace TrabajoFinal
                         Boton_EnEntrega.Enabled = false;
                         Boton_Entregado.Enabled = false;
                         Boton_Retirado.Enabled = false;
-
                     }
 
                     if (oBEItem.Estado == "Enviado_" + rol)
@@ -199,6 +196,12 @@ namespace TrabajoFinal
             try
             {
                 GridView_Pedidos.DataSource = FiltrarItems();
+                GridView_Pedidos.Columns["Codigo"].Visible = false;
+                GridView_Pedidos.Columns["Precio"].Visible = false;
+                //GridView_Pedidos.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.Fill);
+                //GridView_Pedidos.Columns["CodigoComanda"].Visible = false;
+                //GridView_Pedidos.Columns["CodigoPedido"].Visible = false;
+                //GridView_Pedidos.Columns["CodigoItem"].Visible = false;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

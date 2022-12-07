@@ -134,9 +134,11 @@ namespace TrabajoFinal
             // 
             // Grilla_Ingredientes
             // 
+            this.Grilla_Ingredientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grilla_Ingredientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla_Ingredientes.Location = new System.Drawing.Point(23, 297);
+            this.Grilla_Ingredientes.Location = new System.Drawing.Point(32, 293);
             this.Grilla_Ingredientes.Name = "Grilla_Ingredientes";
+            this.Grilla_Ingredientes.ReadOnly = true;
             this.Grilla_Ingredientes.Size = new System.Drawing.Size(646, 231);
             this.Grilla_Ingredientes.TabIndex = 63;
             this.Grilla_Ingredientes.Click += new System.EventHandler(this.Grilla_Ingredientes_Click);
@@ -153,7 +155,7 @@ namespace TrabajoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 560);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.ComboBox_Tipo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ComboBox_Proveedor);
@@ -166,6 +168,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.Boton_Baja);
             this.Controls.Add(this.Boton_Alta);
             this.Controls.Add(this.Grilla_Ingredientes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GUI_Gerente_Extras";
             this.Text = "GUI_AdminExtras";
             this.Load += new System.EventHandler(this.GUI_AdminExtras_Load);

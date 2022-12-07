@@ -25,17 +25,17 @@ namespace BussinesLogic
 
         public bool Existe(int obj)
         {
-            throw new NotImplementedException();
+            return oMpersonal.Existe(obj);
         }
 
         public bool Guardar(BEPersonal Objeto)
         {
-            throw new NotImplementedException();
+            return oMpersonal.Guardar(Objeto);
         }
 
         public List<BEPersonal> ListarTodo()
         {
-            throw new NotImplementedException();
+            return oMpersonal.ListarTodo();
         }
 
         public bool Modificar(BEPersonal Objeto)

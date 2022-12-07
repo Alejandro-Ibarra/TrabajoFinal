@@ -128,9 +128,11 @@ namespace TrabajoFinal
             // 
             // Grilla_DeClientes
             // 
+            this.Grilla_DeClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grilla_DeClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_DeClientes.Location = new System.Drawing.Point(302, 115);
             this.Grilla_DeClientes.Name = "Grilla_DeClientes";
+            this.Grilla_DeClientes.ReadOnly = true;
             this.Grilla_DeClientes.Size = new System.Drawing.Size(475, 146);
             this.Grilla_DeClientes.TabIndex = 15;
             this.Grilla_DeClientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_DeClientes_MouseClick);
@@ -155,9 +157,11 @@ namespace TrabajoFinal
             // 
             // Grilla_Eventos
             // 
+            this.Grilla_Eventos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grilla_Eventos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_Eventos.Location = new System.Drawing.Point(18, 332);
             this.Grilla_Eventos.Name = "Grilla_Eventos";
+            this.Grilla_Eventos.ReadOnly = true;
             this.Grilla_Eventos.Size = new System.Drawing.Size(456, 192);
             this.Grilla_Eventos.TabIndex = 18;
             this.Grilla_Eventos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_Eventos_MouseClick);
@@ -234,7 +238,7 @@ namespace TrabajoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 578);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.Boton_ModificarEvento);
             this.Controls.Add(this.uC_ValCod2);
             this.Controls.Add(this.label6);
@@ -255,7 +259,9 @@ namespace TrabajoFinal
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ComboBox_Horarios);
             this.Controls.Add(this.Calendario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GUI_Gerente_Eventos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GUI_AdminEventos";
             this.Load += new System.EventHandler(this.GUI_Gerente_Eventos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_DeClientes)).EndInit();

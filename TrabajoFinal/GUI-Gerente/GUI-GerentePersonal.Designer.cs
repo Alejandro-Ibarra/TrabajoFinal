@@ -50,6 +50,7 @@ namespace TrabajoFinal
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.RadioButton_Gerente = new System.Windows.Forms.RadioButton();
             this.RadioButton_Cocinero = new System.Windows.Forms.RadioButton();
             this.RadioButton_Mozo = new System.Windows.Forms.RadioButton();
             this.Boton_MostrarPsw = new System.Windows.Forms.Button();
@@ -110,18 +111,22 @@ namespace TrabajoFinal
             // 
             // Grilla_Usuarios
             // 
+            this.Grilla_Usuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grilla_Usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_Usuarios.Location = new System.Drawing.Point(12, 170);
             this.Grilla_Usuarios.Name = "Grilla_Usuarios";
+            this.Grilla_Usuarios.ReadOnly = true;
             this.Grilla_Usuarios.Size = new System.Drawing.Size(613, 172);
             this.Grilla_Usuarios.TabIndex = 13;
             this.Grilla_Usuarios.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_Usuarios_MouseClick);
             // 
             // Grilla_RolesAsignados
             // 
+            this.Grilla_RolesAsignados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grilla_RolesAsignados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_RolesAsignados.Location = new System.Drawing.Point(12, 371);
             this.Grilla_RolesAsignados.Name = "Grilla_RolesAsignados";
+            this.Grilla_RolesAsignados.ReadOnly = true;
             this.Grilla_RolesAsignados.Size = new System.Drawing.Size(232, 140);
             this.Grilla_RolesAsignados.TabIndex = 14;
             // 
@@ -201,9 +206,11 @@ namespace TrabajoFinal
             // 
             // Grilla_RolesNoAsignados
             // 
+            this.Grilla_RolesNoAsignados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grilla_RolesNoAsignados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_RolesNoAsignados.Location = new System.Drawing.Point(366, 371);
             this.Grilla_RolesNoAsignados.Name = "Grilla_RolesNoAsignados";
+            this.Grilla_RolesNoAsignados.ReadOnly = true;
             this.Grilla_RolesNoAsignados.Size = new System.Drawing.Size(211, 140);
             this.Grilla_RolesNoAsignados.TabIndex = 20;
             // 
@@ -256,14 +263,25 @@ namespace TrabajoFinal
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.RadioButton_Gerente);
             this.groupBox1.Controls.Add(this.RadioButton_Cocinero);
             this.groupBox1.Controls.Add(this.RadioButton_Mozo);
             this.groupBox1.Location = new System.Drawing.Point(379, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(99, 76);
+            this.groupBox1.Size = new System.Drawing.Size(99, 101);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rol";
+            // 
+            // RadioButton_Gerente
+            // 
+            this.RadioButton_Gerente.AutoSize = true;
+            this.RadioButton_Gerente.Location = new System.Drawing.Point(16, 67);
+            this.RadioButton_Gerente.Name = "RadioButton_Gerente";
+            this.RadioButton_Gerente.Size = new System.Drawing.Size(63, 17);
+            this.RadioButton_Gerente.TabIndex = 13;
+            this.RadioButton_Gerente.Text = "Gerente";
+            this.RadioButton_Gerente.UseVisualStyleBackColor = true;
             // 
             // RadioButton_Cocinero
             // 
@@ -289,7 +307,7 @@ namespace TrabajoFinal
             // 
             // Boton_MostrarPsw
             // 
-            this.Boton_MostrarPsw.Location = new System.Drawing.Point(379, 99);
+            this.Boton_MostrarPsw.Location = new System.Drawing.Point(274, 124);
             this.Boton_MostrarPsw.Name = "Boton_MostrarPsw";
             this.Boton_MostrarPsw.Size = new System.Drawing.Size(99, 23);
             this.Boton_MostrarPsw.TabIndex = 31;
@@ -321,7 +339,7 @@ namespace TrabajoFinal
             // treeView1
             // 
             this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView1.Location = new System.Drawing.Point(711, 59);
+            this.treeView1.Location = new System.Drawing.Point(680, 54);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(267, 457);
             this.treeView1.TabIndex = 32;
@@ -330,7 +348,7 @@ namespace TrabajoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1055, 536);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.Boton_MostrarPsw);
             this.Controls.Add(this.groupBox1);
@@ -354,6 +372,7 @@ namespace TrabajoFinal
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UC_ValNomb);
             this.Controls.Add(this.UC_ValApe);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GUI_Gerente_Personal";
             this.Text = "GUI_AdminPersonal";
             this.Load += new System.EventHandler(this.GUI_Administrar_Personal_Load);
@@ -399,5 +418,6 @@ namespace TrabajoFinal
         private System.Windows.Forms.RadioButton RadioButton_Mozo;
         private System.Windows.Forms.Button Boton_MostrarPsw;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.RadioButton RadioButton_Gerente;
     }
 }

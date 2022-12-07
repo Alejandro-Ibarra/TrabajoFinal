@@ -63,13 +63,24 @@ namespace TrabajoFinal
                 Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (Respuesta == DialogResult.Yes)
                 {
-                    oBLBebida.Baja(oBEBebida);
-                    LimpiarControles();
-                    CargarGrilla();
+                    if (ValidarEliminacion())
+                    {
+                        oBLBebida.Baja(oBEBebida);
+                        LimpiarControles();
+                        CargarGrilla();
+                    }
+                    else
+                    {MessageBox.Show("No se puede eliminar una bebida que esta en una comanda");}
+
                 }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
+        }
+
+        private bool ValidarEliminacion()
+        {
+            return oBLBebida.ValidarEliminarBebida(oBEBebida);
         }
 
         private void Boton_Modificar_Click(object sender, EventArgs e)
@@ -129,8 +140,8 @@ namespace TrabajoFinal
             {
                 List<string> ListaMarcas = new List<string>();
                 ListaMarcas.Add("Quilme");
-                ListaMarcas.Add("Sprite");
-                ListaMarcas.Add("Paso de los toros");
+                ListaMarcas.Add("Coca Cola");
+                ListaMarcas.Add("Mirinda");
                 ListaMarcas.Add("7UP");
                 ListaMarcas.Add("Pepsi");
 
