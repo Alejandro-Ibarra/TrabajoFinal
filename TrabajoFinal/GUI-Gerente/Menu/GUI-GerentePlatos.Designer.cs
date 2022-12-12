@@ -115,7 +115,6 @@ namespace TrabajoFinal
             this.DataGridView_TodosIngredientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView_TodosIngredientes.Size = new System.Drawing.Size(425, 193);
             this.DataGridView_TodosIngredientes.TabIndex = 5;
-            this.DataGridView_TodosIngredientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_TodosIngredientes_CellContentClick);
             this.DataGridView_TodosIngredientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGridView_TodosIngredientes_MouseClick);
             // 
             // DataGridView_SeleccionIngredientes

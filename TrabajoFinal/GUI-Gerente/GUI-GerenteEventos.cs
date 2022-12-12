@@ -175,7 +175,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Eventos.Rows.Count > 0)
+                if (Grilla_Eventos.Rows.Count > 0 && Grilla_Eventos.CurrentRow.DataBoundItem != null)
                 {
                     oBEEvento = (BEEvento)Grilla_Eventos.CurrentRow.DataBoundItem;
                     AsignarEventoAControles(oBEEvento);
@@ -189,7 +189,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_DeClientes.Rows.Count > 0)
+                if (Grilla_DeClientes.Rows.Count > 0 && Grilla_DeClientes.CurrentRow.DataBoundItem != null)
                 {
                     oBECliente = (BECliente)Grilla_DeClientes.CurrentRow.DataBoundItem;
                     AsignarClienteAControles(oBECliente);

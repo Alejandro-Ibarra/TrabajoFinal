@@ -123,7 +123,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_Pedidos.Rows.Count > 0)
+                if (GridView_Pedidos.Rows.Count > 0 && GridView_Pedidos.CurrentRow.DataBoundItem != null)
                 {
                     oBEItem = (BEItemsSeleccionados)GridView_Pedidos.CurrentRow.DataBoundItem;
 
@@ -198,10 +198,7 @@ namespace TrabajoFinal
                 GridView_Pedidos.DataSource = FiltrarItems();
                 GridView_Pedidos.Columns["Codigo"].Visible = false;
                 GridView_Pedidos.Columns["Precio"].Visible = false;
-                //GridView_Pedidos.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.Fill);
-                //GridView_Pedidos.Columns["CodigoComanda"].Visible = false;
-                //GridView_Pedidos.Columns["CodigoPedido"].Visible = false;
-                //GridView_Pedidos.Columns["CodigoItem"].Visible = false;
+
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

@@ -91,6 +91,7 @@ namespace TrabajoFinal
                                 CodigoPedido = nroPedido,
                                 CodigoItem = codItem,
                                 Estado = "Enviado_Mozo"
+
                             };
                             ext.CodigoItem = codItem;
                             ext.CodigoPedido = nroPedido;
@@ -180,7 +181,8 @@ namespace TrabajoFinal
                                 CodigoComanda = oBEComanda.Codigo,
                                 CodigoPedido = nroPedido,
                                 CodigoItem = codItem,
-                                Estado = "Enviado_Cocina"
+                                Estado = "Enviado_Cocina",
+                                
                             };
                             item.CodigoItem = codItem;
                             item.CodigoPedido = nroPedido;
@@ -384,6 +386,7 @@ namespace TrabajoFinal
             listaItemsSeleccionados.AddRange(lsele);
 
             Grilla_PedidosCliente.DataSource = lsele;
+            OcultarCampos();
         }
 
         private void RecONuev()
@@ -460,7 +463,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_PedidosCliente.Rows.Count > 0)
+                if (Grilla_PedidosCliente.Rows.Count > 0 && Grilla_PedidosCliente.CurrentRow.DataBoundItem != null)
                 {
                     item = (BEItemsSeleccionados)Grilla_PedidosCliente.CurrentRow.DataBoundItem;
                 }
@@ -474,8 +477,6 @@ namespace TrabajoFinal
                     Boton_Aceptar.Enabled = false;
                     Boton_Rechazar.Enabled = false;
                 }
-
-
             }
             catch (Exception)
             {throw;}
@@ -578,6 +579,7 @@ namespace TrabajoFinal
         {
             Grilla_PedidosCliente.DataSource = null;
             Grilla_PedidosCliente.DataSource = listaItemsSeleccionados;
+            OcultarCampos();
         }
 
         private void CargarTextbox()
@@ -609,6 +611,15 @@ namespace TrabajoFinal
             GUI_Inicio oGUI_Inicio = new GUI_Inicio();
             this.Close();
             oGUI_Inicio.Show();
+        }
+
+        private void OcultarCampos()
+        {
+            Grilla_PedidosCliente.Columns["CodigoComanda"].Visible = false;
+            Grilla_PedidosCliente.Columns["CodigoPedido"].Visible = false;
+            Grilla_PedidosCliente.Columns["CodigoItem"].Visible = false;
+            Grilla_PedidosCliente.Columns["Codigo"].Visible = false;
+            Grilla_PedidosCliente.Columns["Descripcion"].Visible = false;
         }
     }
 }

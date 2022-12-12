@@ -308,7 +308,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Usuarios.Rows.Count > 0)
+                if (Grilla_Usuarios.Rows.Count > 0 && Grilla_Usuarios.CurrentRow.DataBoundItem != null)
                 {
                     BEPersonal Personal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
                     AsignarAControles(Personal);
@@ -511,7 +511,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Usuarios.Rows.Count > 0)
+                if (Grilla_Usuarios.Rows.Count > 0 && Grilla_Usuarios.CurrentRow.DataBoundItem != null)
                 {
                     oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
                     string passEnc = oBLPersonal.RecuperarPass(oBEPersonal.DNI);

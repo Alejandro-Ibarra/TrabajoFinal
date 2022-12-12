@@ -157,7 +157,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Ingredientes.Rows.Count > 0)
+                if (Grilla_Ingredientes.Rows.Count > 0 && Grilla_Ingredientes.CurrentRow.DataBoundItem != null)
                 {
                     oBEIngrediente = (BEIngrediente)Grilla_Ingredientes.CurrentRow.DataBoundItem;
                 AsignarIngredienteAControles(oBEIngrediente);

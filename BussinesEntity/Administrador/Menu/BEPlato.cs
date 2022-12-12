@@ -9,10 +9,9 @@ namespace BussinesEntity
 {
     public class BEPlato : BEItem
     {
-        public string Nombre { get; set; }
+
         public string Tipo { get; set; }
         public string Clase { get; set; }
-        public string Descripcion { get; set; }
         public int Precio { get; set; }
         public bool Activo { get; set; }
         public BEIngrediente IngredientePrincipal { get; set; }

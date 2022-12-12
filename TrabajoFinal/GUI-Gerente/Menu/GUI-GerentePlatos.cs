@@ -202,7 +202,7 @@ namespace TrabajoFinal
         #region DatagridClick
         private void DataGridView_SeleccionIngredientes_MouseClick(object sender, MouseEventArgs e)
         {
-            if (DataGridView_SeleccionIngredientes.Rows.Count > 0)
+            if (DataGridView_SeleccionIngredientes.Rows.Count > 0 && DataGridView_SeleccionIngredientes.CurrentRow.DataBoundItem != null)
             {
                 QuitarIngrediente();
             }
@@ -210,7 +210,7 @@ namespace TrabajoFinal
 
         private void DataGridView_TodosIngredientes_MouseClick(object sender, MouseEventArgs e)
         {
-            if (DataGridView_TodosIngredientes.Rows.Count > 0)
+            if (DataGridView_TodosIngredientes.Rows.Count > 0 && DataGridView_TodosIngredientes.CurrentRow.DataBoundItem != null)
             {
                 AgregarIngrediente();
             }
@@ -218,7 +218,7 @@ namespace TrabajoFinal
 
         private void DataGridView_Platos_MouseClick(object sender, MouseEventArgs e)
         {
-            if (DataGridView_Platos.Rows.Count > 0)
+            if (DataGridView_Platos.Rows.Count > 0 && DataGridView_Platos.CurrentRow.DataBoundItem != null)
             {
                 SeleccionarPlatoGrilla();
             }
@@ -231,7 +231,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_Platos.SelectedRows.Count > 0)
+                if (DataGridView_Platos.SelectedRows.Count > 0 && DataGridView_Platos.CurrentRow.DataBoundItem != null)
                 {
                     int codPlato = ((BEPlato)DataGridView_Platos.CurrentRow.DataBoundItem).Codigo;
                     BEPlato oBEPlatoMod = new BEPlato();
@@ -270,7 +270,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_SeleccionIngredientes.Rows.Count > 0)
+                if (DataGridView_SeleccionIngredientes.Rows.Count > 0 && DataGridView_SeleccionIngredientes.CurrentRow.DataBoundItem != null)
                 {
                     List<BEIngrediente> ingreAux = new List<BEIngrediente>();
 
@@ -302,7 +302,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_TodosIngredientes.Rows.Count > 0)
+                if (DataGridView_TodosIngredientes.Rows.Count > 0 && DataGridView_TodosIngredientes.CurrentRow.DataBoundItem != null)
                 {
                     List<BEIngrediente> ingreAux = new List<BEIngrediente>();
                     int aux = 0;
@@ -410,7 +410,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_SeleccionIngredientes.Rows.Count > 0)
+                if (DataGridView_SeleccionIngredientes.Rows.Count > 0 && DataGridView_SeleccionIngredientes.CurrentRow.DataBoundItem != null)
                 {
                     List<string> ingreAux = new List<string>();
 
@@ -589,9 +589,5 @@ namespace TrabajoFinal
 
         #endregion
 
-        private void DataGridView_TodosIngredientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

@@ -12,6 +12,6 @@ namespace BussinesEntity
         public int CodigoComanda { get; set; }
         public int CodigoPedido { get; set; }
         public int CodigoItem { get; set; }
-
+        public string Descripcion { get; set; }
     }
 }

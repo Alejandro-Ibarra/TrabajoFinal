@@ -40,11 +40,12 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_TodosExtras.Rows.Count > 0)
+                if (GridView_TodosExtras.Rows.Count > 0 && GridView_TodosExtras.CurrentRow.DataBoundItem != null)
                 {
                     listExtrasElegidos.Add((BEExtras)GridView_TodosExtras.CurrentRow.DataBoundItem);
                     GridView_ExtrasSelec.DataSource = null;
                     GridView_ExtrasSelec.DataSource = listExtrasElegidos;
+                    OcultarCamposSelec();
                 }
             }
             catch (Exception ex)
@@ -56,20 +57,22 @@ namespace TrabajoFinal
             try
             {
                 int aux = 0;
-                if (GridView_ExtrasSelec.Rows.Count > 0)
+                if (GridView_ExtrasSelec.Rows.Count > 0 && GridView_ExtrasSelec.CurrentRow.DataBoundItem != null)
                 {
                     List<BEExtras> ingreAux2 = new List<BEExtras>();
                     foreach (BEExtras ing in listExtrasElegidos)
                     {
+
                         if (ing.Nombre != ((BEExtras)GridView_ExtrasSelec.CurrentRow.DataBoundItem).Nombre || aux != 0)
                         {
                             ingreAux2.Add(ing);
                         }
-                        else{aux++;}
+                        else { aux++; }
                     }
                     listExtrasElegidos = ingreAux2;
                     GridView_ExtrasSelec.DataSource = null;
                     GridView_ExtrasSelec.DataSource = listExtrasElegidos;
+                    OcultarCamposSelec();
                 }
             }
             catch (Exception ex)
@@ -93,12 +96,30 @@ namespace TrabajoFinal
             try
             {
                 GridView_TodosExtras.DataSource = oBLExtras.ListarTodo();
+                GridView_TodosExtras.Columns["CodigoComanda"].Visible = false;
+                GridView_TodosExtras.Columns["CodigoPedido"].Visible = false;
+                GridView_TodosExtras.Columns["CodigoItem"].Visible = false;
+                GridView_TodosExtras.Columns["Codigo"].Visible = false;
+                GridView_TodosExtras.Columns["Descripcion"].Visible = false;
+                GridView_TodosExtras.Columns["Stock"].Visible = false;
+                GridView_TodosExtras.Columns["Tipo"].Visible = false;
+                GridView_TodosExtras.Columns["Proveedor"].Visible = false;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
 
-
+        private void OcultarCamposSelec()
+        {
+            GridView_ExtrasSelec.Columns["CodigoComanda"].Visible = false;
+            GridView_ExtrasSelec.Columns["CodigoPedido"].Visible = false;
+            GridView_ExtrasSelec.Columns["CodigoItem"].Visible = false;
+            GridView_ExtrasSelec.Columns["Codigo"].Visible = false;
+            GridView_ExtrasSelec.Columns["Descripcion"].Visible = false;
+            GridView_ExtrasSelec.Columns["Stock"].Visible = false;
+            GridView_ExtrasSelec.Columns["Tipo"].Visible = false;
+            GridView_ExtrasSelec.Columns["Proveedor"].Visible = false;
+        }
     }
 
 }

@@ -67,7 +67,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_BackUps.SelectedRows.Count > 0)
+                if (DataGridView_BackUps.SelectedRows.Count > 0 && DataGridView_BackUps.CurrentRow.DataBoundItem != null)
                 {
                     SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
                     SEBackUp restore = AsignarAObjetoBackup("restore");
@@ -160,7 +160,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_BackUps.SelectedRows.Count > 0)
+                if (DataGridView_BackUps.SelectedRows.Count > 0 && DataGridView_BackUps.CurrentRow.DataBoundItem != null)
                 {
                 SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
                 AsignarAControles(BK);

@@ -198,7 +198,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Bebidas.Rows.Count > 0)
+                if (Grilla_Bebidas.Rows.Count > 0 && Grilla_Bebidas.CurrentRow.DataBoundItem != null)
                 {
                     oBEBebida = (BEBebida)Grilla_Bebidas.CurrentRow.DataBoundItem;
                     AsignarBebidaAControles(oBEBebida);

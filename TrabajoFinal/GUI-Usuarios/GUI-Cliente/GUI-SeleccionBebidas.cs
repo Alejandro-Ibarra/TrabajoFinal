@@ -39,13 +39,14 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_TodosBebidas.Rows.Count > 0)
+                if (GridView_TodosBebidas.Rows.Count > 0 && GridView_TodosBebidas.CurrentRow.DataBoundItem != null)
                 {
 
                     listaBebidasElegidas.Add((BEBebida)GridView_TodosBebidas.CurrentRow.DataBoundItem);
 
                     GridView_BebidasSelec.DataSource = null;
                     GridView_BebidasSelec.DataSource = listaBebidasElegidas;
+                    OcultarCamposSelec();
                 }
             }
             catch (Exception ex)
@@ -58,7 +59,7 @@ namespace TrabajoFinal
             try
             {
                 int aux = 0;
-                if (GridView_BebidasSelec.Rows.Count > 0)
+                if (GridView_BebidasSelec.Rows.Count > 0 && GridView_BebidasSelec.CurrentRow.DataBoundItem != null)
                 {
                     List<BEBebida> ingreAux2 = new List<BEBebida>();
                     foreach (BEBebida ing in listaBebidasElegidas)
@@ -74,6 +75,7 @@ namespace TrabajoFinal
                     listaBebidasElegidas = ingreAux2;
                     GridView_BebidasSelec.DataSource = null;
                     GridView_BebidasSelec.DataSource = listaBebidasElegidas;
+                    OcultarCamposSelec();
                 }
             }
             catch (Exception ex)
@@ -86,7 +88,14 @@ namespace TrabajoFinal
             {
                 
                 GridView_TodosBebidas.DataSource = oBLBebida.ListarTodo();
-    
+                GridView_TodosBebidas.Columns["CodigoComanda"].Visible = false;
+                GridView_TodosBebidas.Columns["CodigoPedido"].Visible = false;
+                GridView_TodosBebidas.Columns["CodigoItem"].Visible = false;
+                GridView_TodosBebidas.Columns["Codigo"].Visible = false;
+                GridView_TodosBebidas.Columns["Descripcion"].Visible = false;
+                GridView_TodosBebidas.Columns["Stock"].Visible = false;
+
+
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -104,6 +113,14 @@ namespace TrabajoFinal
             { MessageBox.Show(ex.Message); }
         }
 
-
+        private void OcultarCamposSelec()
+        {
+            GridView_BebidasSelec.Columns["CodigoComanda"].Visible = false;
+            GridView_BebidasSelec.Columns["CodigoPedido"].Visible = false;
+            GridView_BebidasSelec.Columns["CodigoItem"].Visible = false;
+            GridView_BebidasSelec.Columns["Codigo"].Visible = false;
+            GridView_BebidasSelec.Columns["Descripcion"].Visible = false;
+            GridView_BebidasSelec.Columns["Stock"].Visible = false;
+        }
     }
 }
