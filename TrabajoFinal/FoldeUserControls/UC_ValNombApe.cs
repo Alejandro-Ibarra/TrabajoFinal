@@ -10,7 +10,7 @@ namespace TrabajoFinal
 {
     internal class UC_ValNombApe : TextBox
     {
-        public Boolean validar()
+        public Boolean Validar()
         {
             if (Regex.IsMatch(base.Text, @"^[a-zA-Z ]+$") && base.Text != null)
             {

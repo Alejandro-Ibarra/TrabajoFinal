@@ -70,7 +70,7 @@ namespace TrabajoFinal
                         CargarGrilla();
                     }
                     else
-                    { MessageBox.Show("No se puede eliminar un extra que esté en una comanda"); }
+                    { MessageBox.Show("No se puede eliminar un extra que esté en una comanda, debe desabilitarlo con el boton modificar"); }
 
 
                 }
@@ -105,8 +105,11 @@ namespace TrabajoFinal
         {
             try
             {
-                
-                if (UC_ValNomb.validar())
+
+                if (RadioButton_Activo.Checked){oBEExtras.Activo = true;}
+                else{ oBEExtras.Activo = false;}
+
+                if (UC_ValNomb.Validar())
                 {
                     oBEExtras.Nombre = UC_ValNomb.Text;
 
@@ -135,6 +138,8 @@ namespace TrabajoFinal
                 UC_ValStock.Text = oBEExtras.Stock.ToString();
                 ComboBox_Proveedor.SelectedItem = oBEExtras.Proveedor;
                 ComboBox_Tipo.SelectedItem = oBEExtras.Tipo;
+                if (oBEExtras.Activo == true){ RadioButton_Activo.Checked = true;}
+                else {RadioButton_Inactivo.Checked = true; }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -158,22 +163,11 @@ namespace TrabajoFinal
         {
             try
             {
-                List<string> ListaProveedor = new List<string>();
-                ListaProveedor.Add("Limpieza clean");
-                ListaProveedor.Add("Ledesma");
-                ListaProveedor.Add("Limpieza ramona");
-                ListaProveedor.Add("Bazar chef");
-                ListaProveedor.Add("Chango");
-                ListaProveedor.Add("Blanqueria nona");
-                ListaProveedor.Add("Estela limpieza");
-                ListaProveedor.Add("Distribuidora Pepito");
+                List<string> ListaProveedor = new List<string> { "Limpieza clean", "Ledesma", "Limpieza ramona", "Bazar chef",
+                    "Chango", "Blanqueria nona", "Estela limpieza", "Distribuidora Pepito" };
                 ComboBox_Proveedor.DataSource = ListaProveedor;
 
-                List<string> ListaTipo = new List<string>();
-                ListaTipo.Add("Limpieza");
-                ListaTipo.Add("Bazar");
-                ListaTipo.Add("Blanqueria");
-                ListaTipo.Add("Distribuidora");
+                List<string> ListaTipo = new List<string>{ "Limpieza", "Bazar", "Blanqueria", "Distribuidora" };
                 ComboBox_Tipo.DataSource = ListaTipo;
             }
             catch (Exception ex)
@@ -196,7 +190,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Ingredientes.Rows.Count > 0 && Grilla_Ingredientes.CurrentRow.DataBoundItem != null)
+                if (Grilla_Ingredientes.Rows.Count > 0 && Grilla_Ingredientes.CurrentRow != null)
                 {
                 oBEExtras = (BEExtras)Grilla_Ingredientes.CurrentRow.DataBoundItem;
                 AsignarExtrasAControles(oBEExtras);

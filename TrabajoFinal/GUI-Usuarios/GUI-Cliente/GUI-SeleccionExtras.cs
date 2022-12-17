@@ -20,8 +20,6 @@ namespace TrabajoFinal
             oBLExtras = new BLExtras();
             listExtrasElegidos = new List<BEExtras>();
             CargarGrillaExtras();
-
-
         }
 
         public List<BEExtras> listaExtrasFinal { get; set; }
@@ -40,13 +38,15 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_TodosExtras.Rows.Count > 0 && GridView_TodosExtras.CurrentRow.DataBoundItem != null)
+                if (GridView_TodosExtras.Rows.Count > 0 && GridView_TodosExtras.CurrentRow != null)
                 {
                     listExtrasElegidos.Add((BEExtras)GridView_TodosExtras.CurrentRow.DataBoundItem);
                     GridView_ExtrasSelec.DataSource = null;
                     GridView_ExtrasSelec.DataSource = listExtrasElegidos;
-                    OcultarCamposSelec();
+                    OcultarCamposSelec(GridView_ExtrasSelec);
                 }
+                else
+                { MessageBox.Show("Seleccione un elemento de la lista"); }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message);}
@@ -57,7 +57,7 @@ namespace TrabajoFinal
             try
             {
                 int aux = 0;
-                if (GridView_ExtrasSelec.Rows.Count > 0 && GridView_ExtrasSelec.CurrentRow.DataBoundItem != null)
+                if (GridView_ExtrasSelec.Rows.Count > 0 && GridView_ExtrasSelec.CurrentRow != null)
                 {
                     List<BEExtras> ingreAux2 = new List<BEExtras>();
                     foreach (BEExtras ing in listExtrasElegidos)
@@ -72,7 +72,11 @@ namespace TrabajoFinal
                     listExtrasElegidos = ingreAux2;
                     GridView_ExtrasSelec.DataSource = null;
                     GridView_ExtrasSelec.DataSource = listExtrasElegidos;
-                    OcultarCamposSelec();
+                    OcultarCamposSelec(GridView_ExtrasSelec);
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un elemento a retirar de la lista");
                 }
             }
             catch (Exception ex)
@@ -95,30 +99,35 @@ namespace TrabajoFinal
         {
             try
             {
-                GridView_TodosExtras.DataSource = oBLExtras.ListarTodo();
-                GridView_TodosExtras.Columns["CodigoComanda"].Visible = false;
-                GridView_TodosExtras.Columns["CodigoPedido"].Visible = false;
-                GridView_TodosExtras.Columns["CodigoItem"].Visible = false;
-                GridView_TodosExtras.Columns["Codigo"].Visible = false;
-                GridView_TodosExtras.Columns["Descripcion"].Visible = false;
-                GridView_TodosExtras.Columns["Stock"].Visible = false;
-                GridView_TodosExtras.Columns["Tipo"].Visible = false;
-                GridView_TodosExtras.Columns["Proveedor"].Visible = false;
+                List<BEExtras> listExtras = oBLExtras.ListarTodo();
+                List<BEExtras> listExtrasAux = new List<BEExtras>();
+
+                foreach (BEExtras item in listExtras)
+                {
+                    if (item.Activo == true)
+                    {
+                        listExtrasAux.Add(item);
+                    }
+                }
+
+                GridView_TodosExtras.DataSource = listExtrasAux;
+                OcultarCamposSelec(GridView_TodosExtras);
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
 
-        private void OcultarCamposSelec()
+        private void OcultarCamposSelec(DataGridView dataGrid)
         {
-            GridView_ExtrasSelec.Columns["CodigoComanda"].Visible = false;
-            GridView_ExtrasSelec.Columns["CodigoPedido"].Visible = false;
-            GridView_ExtrasSelec.Columns["CodigoItem"].Visible = false;
-            GridView_ExtrasSelec.Columns["Codigo"].Visible = false;
-            GridView_ExtrasSelec.Columns["Descripcion"].Visible = false;
-            GridView_ExtrasSelec.Columns["Stock"].Visible = false;
-            GridView_ExtrasSelec.Columns["Tipo"].Visible = false;
-            GridView_ExtrasSelec.Columns["Proveedor"].Visible = false;
+            dataGrid.Columns["CodigoComanda"].Visible = false;
+            dataGrid.Columns["CodigoPedido"].Visible = false;
+            dataGrid.Columns["CodigoItem"].Visible = false;
+            dataGrid.Columns["Codigo"].Visible = false;
+            dataGrid.Columns["Descripcion"].Visible = false;
+            dataGrid.Columns["Stock"].Visible = false;
+            dataGrid.Columns["Tipo"].Visible = false;
+            dataGrid.Columns["Proveedor"].Visible = false;
+            dataGrid.Columns["Activo"].Visible = false;
         }
     }
 

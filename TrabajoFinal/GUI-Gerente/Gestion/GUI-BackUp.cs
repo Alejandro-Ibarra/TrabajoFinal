@@ -21,7 +21,6 @@ namespace TrabajoFinal
         {
             InitializeComponent();
             oSLBackup = new SLBackUp();
-            oSEBackup = new SEBackUp();
             oBEPersonal = new BEPersonal();
             oBLPersonal = new BLPersonal();
             oBLCocinero = new BLCocinero();
@@ -31,7 +30,6 @@ namespace TrabajoFinal
             codigoAdmin = codigo;
         }
         SLBackUp oSLBackup;
-        SEBackUp oSEBackup;
         BEPersonal oBEPersonal;
         BLPersonal oBLPersonal;
         BLMozo oBLMozo;
@@ -67,7 +65,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_BackUps.SelectedRows.Count > 0 && DataGridView_BackUps.CurrentRow.DataBoundItem != null)
+                if (DataGridView_BackUps.SelectedRows.Count > 0 && DataGridView_BackUps.CurrentRow != null)
                 {
                     SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
                     SEBackUp restore = AsignarAObjetoBackup("restore");
@@ -75,6 +73,8 @@ namespace TrabajoFinal
                     oSLBackup.HacerRestore(BK, restore);
                     CargarDatagrid();
                 }
+                else
+                { MessageBox.Show("Seleccione un elemento de la lista"); }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
@@ -160,7 +160,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_BackUps.SelectedRows.Count > 0 && DataGridView_BackUps.CurrentRow.DataBoundItem != null)
+                if (DataGridView_BackUps.SelectedRows.Count > 0 && DataGridView_BackUps.CurrentRow != null)
                 {
                 SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
                 AsignarAControles(BK);

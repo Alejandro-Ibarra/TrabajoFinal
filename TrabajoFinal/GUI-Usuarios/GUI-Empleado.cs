@@ -21,7 +21,6 @@ namespace TrabajoFinal
             oBEPersonal = Personal;
 
             oBLItem = new BLItemsSeleccionados();
-            oItem = new List<BEItemsSeleccionados>();
             oBEItem = new BEItemsSeleccionados();
             CargarGrillaPedidos();
 
@@ -34,7 +33,6 @@ namespace TrabajoFinal
         string rol;
         BEPersonal oBEPersonal;
 
-        List<BEItemsSeleccionados> oItem;
         BLItemsSeleccionados oBLItem;
         BEItemsSeleccionados oBEItem;
 
@@ -123,7 +121,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_Pedidos.Rows.Count > 0 && GridView_Pedidos.CurrentRow.DataBoundItem != null)
+                if (GridView_Pedidos.Rows.Count > 0 && GridView_Pedidos.CurrentRow != null)
                 {
                     oBEItem = (BEItemsSeleccionados)GridView_Pedidos.CurrentRow.DataBoundItem;
 

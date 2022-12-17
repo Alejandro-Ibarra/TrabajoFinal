@@ -104,7 +104,10 @@ namespace TrabajoFinal
         {
             try
             {
-                if (UC_ValNomb.validar())
+                if (RadioButton_Activo.Checked){oBEBebida.Activo = true;}
+                else { oBEBebida.Activo = false; }
+
+                if (UC_ValNomb.Validar())
                 {
                     oBEBebida.Nombre = UC_ValNomb.Text;
                     if (UC_ValPrecio.validar())
@@ -138,14 +141,9 @@ namespace TrabajoFinal
         {
             try
             {
-                List<string> ListaMarcas = new List<string>();
-                ListaMarcas.Add("Quilme");
-                ListaMarcas.Add("Coca Cola");
-                ListaMarcas.Add("Mirinda");
-                ListaMarcas.Add("7UP");
-                ListaMarcas.Add("Pepsi");
+                List<string> ListaMarcas = new List<string>{"Quilme", "Coca Cola", "Mirinda", "7UP", "Pepsi" };
 
-            ComboBox_Marca.DataSource = ListaMarcas;
+                ComboBox_Marca.DataSource = ListaMarcas;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -155,11 +153,7 @@ namespace TrabajoFinal
         {
             try
             {
-                List<string> ListaEnvases = new List<string>();
-                ListaEnvases.Add("Vidrio retornable");
-                ListaEnvases.Add("Vidrio No retornable");
-                ListaEnvases.Add("Plastico");
-                ListaEnvases.Add("Plastico No retornable");
+                List<string> ListaEnvases = new List<string> { "Vidrio retornable", "Vidrio No retornable", "Plastico", "Plastico No retornable" };
 
                 ComboBox_Envases.DataSource = ListaEnvases;
             }
@@ -198,7 +192,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Bebidas.Rows.Count > 0 && Grilla_Bebidas.CurrentRow.DataBoundItem != null)
+                if (Grilla_Bebidas.Rows.Count > 0 && Grilla_Bebidas.CurrentRow != null)
                 {
                     oBEBebida = (BEBebida)Grilla_Bebidas.CurrentRow.DataBoundItem;
                     AsignarBebidaAControles(oBEBebida);

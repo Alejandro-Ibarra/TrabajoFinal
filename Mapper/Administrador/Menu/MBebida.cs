@@ -65,6 +65,7 @@ namespace Mapper
                                                                             new XElement("Marca", oBEBebida.Marca.Trim()),
                                                                             new XElement("Graduacion_Alcoholica", oBEBebida.GraduacionAlc.ToString().Trim()),
                                                                             new XElement("Stock", oBEBebida.Stock.ToString().Trim()),
+                                                                            new XElement("Activo", oBEBebida.Activo.ToString().Trim()),
                                                                             new XElement("Precio", oBEBebida.Precio.ToString().Trim())));
 
                 xmlDocument.Save("Restaurante.xml");
@@ -97,6 +98,7 @@ namespace Mapper
                     Marca = Convert.ToString(Bebida.Element("Marca").Value).Trim(),
                     GraduacionAlc = Convert.ToInt32(Convert.ToString(Bebida.Element("Graduacion_Alcoholica").Value).Trim()),
                     Stock = Convert.ToInt32(Convert.ToString(Bebida.Element("Stock").Value).Trim()),
+                    Activo = Convert.ToBoolean(Bebida.Element("Activo").Value),
                     Precio = Convert.ToInt32(Convert.ToString(Bebida.Element("Precio").Value).Trim()),
                 };
                 List<BEBebida> ListaBebidas = consulta.ToList<BEBebida>();
@@ -126,6 +128,7 @@ namespace Mapper
                     EModifcar.Element("Marca").Value = oBEBebida.Marca.ToString().Trim();
                     EModifcar.Element("Graduacion_Alcoholica").Value = oBEBebida.GraduacionAlc.ToString().Trim();
                     EModifcar.Element("Stock").Value = oBEBebida.Stock.ToString().Trim();
+                    EModifcar.Element("Activo").Value = oBEBebida.Activo.ToString().Trim();
                     EModifcar.Element("Precio").Value = oBEBebida.Precio.ToString().Trim();
                 }
                 xmlDocument.Save("Restaurante.xml");
@@ -174,6 +177,11 @@ namespace Mapper
                 var consulta = from bebida in xmlDocument.Descendants("PedidosRealizadosBebidas")
                                 where bebida.Element("BebidasDeComanda").Element("BebidasComandaMozo").Attribute("ID").Value.ToString() == Convert.ToString(oBEBebida.Codigo)
                                 select bebida;
+
+                //var verificar = from Bebida in xmlDocument.Descendants("BebidasComandaMozo")
+                //                where Bebida.Attribute("ID").Value == Cod
+                //                select Bebida;
+
 
                 if (consulta.Any())
                 {

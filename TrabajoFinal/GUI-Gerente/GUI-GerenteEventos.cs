@@ -175,7 +175,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Eventos.Rows.Count > 0 && Grilla_Eventos.CurrentRow.DataBoundItem != null)
+                if (Grilla_Eventos.Rows.Count > 0 && Grilla_Eventos.CurrentRow != null)
                 {
                     oBEEvento = (BEEvento)Grilla_Eventos.CurrentRow.DataBoundItem;
                     AsignarEventoAControles(oBEEvento);
@@ -189,7 +189,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_DeClientes.Rows.Count > 0 && Grilla_DeClientes.CurrentRow.DataBoundItem != null)
+                if (Grilla_DeClientes.Rows.Count > 0 && Grilla_DeClientes.CurrentRow != null)
                 {
                     oBECliente = (BECliente)Grilla_DeClientes.CurrentRow.DataBoundItem;
                     AsignarClienteAControles(oBECliente);
@@ -338,11 +338,7 @@ namespace TrabajoFinal
         {
             try
             {
-                List<string> Horarios = new List<string>();
-                Horarios.Add("12 Hs");
-                Horarios.Add("14 Hs");
-                Horarios.Add("20 Hs");
-                Horarios.Add("22 Hs");
+                List<string> Horarios = new List<string>{"12 Hs", "14 Hs", "20 Hs","22 Hs"};
                 return Horarios;
             }
             catch (Exception ex)

@@ -39,7 +39,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_TodosBebidas.Rows.Count > 0 && GridView_TodosBebidas.CurrentRow.DataBoundItem != null)
+                if (GridView_TodosBebidas.Rows.Count > 0 && GridView_TodosBebidas.CurrentRow != null)
                 {
 
                     listaBebidasElegidas.Add((BEBebida)GridView_TodosBebidas.CurrentRow.DataBoundItem);
@@ -48,6 +48,8 @@ namespace TrabajoFinal
                     GridView_BebidasSelec.DataSource = listaBebidasElegidas;
                     OcultarCamposSelec();
                 }
+                else
+                { MessageBox.Show("Seleccione un elemento de la lista"); }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -59,7 +61,7 @@ namespace TrabajoFinal
             try
             {
                 int aux = 0;
-                if (GridView_BebidasSelec.Rows.Count > 0 && GridView_BebidasSelec.CurrentRow.DataBoundItem != null)
+                if (GridView_BebidasSelec.Rows.Count > 0 && GridView_BebidasSelec.CurrentRow != null)
                 {
                     List<BEBebida> ingreAux2 = new List<BEBebida>();
                     foreach (BEBebida ing in listaBebidasElegidas)
@@ -77,6 +79,8 @@ namespace TrabajoFinal
                     GridView_BebidasSelec.DataSource = listaBebidasElegidas;
                     OcultarCamposSelec();
                 }
+                else
+                { MessageBox.Show("Seleccione un elemento de la lista"); }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -86,15 +90,23 @@ namespace TrabajoFinal
         {
             try
             {
-                
-                GridView_TodosBebidas.DataSource = oBLBebida.ListarTodo();
+                List<BEBebida> listBebidas = oBLBebida.ListarTodo();
+                List<BEBebida> listBebidasAux = new List<BEBebida>();
+                foreach (BEBebida item in listBebidas)
+                {
+                    if (item.Activo == true)
+                    {
+                        listBebidasAux.Add(item);
+                    }
+                }
+
+                GridView_TodosBebidas.DataSource = listBebidasAux;
                 GridView_TodosBebidas.Columns["CodigoComanda"].Visible = false;
                 GridView_TodosBebidas.Columns["CodigoPedido"].Visible = false;
                 GridView_TodosBebidas.Columns["CodigoItem"].Visible = false;
                 GridView_TodosBebidas.Columns["Codigo"].Visible = false;
                 GridView_TodosBebidas.Columns["Descripcion"].Visible = false;
                 GridView_TodosBebidas.Columns["Stock"].Visible = false;
-
 
             }
             catch (Exception ex)

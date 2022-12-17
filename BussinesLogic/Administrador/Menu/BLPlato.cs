@@ -45,7 +45,7 @@ namespace BussinesLogic
 
         public bool Modificar(BEPlato Objeto)
         {
-            throw new NotImplementedException();
+            return oMPlato.Modificar(Objeto);
         }
 
         public int GenerarCodigo()

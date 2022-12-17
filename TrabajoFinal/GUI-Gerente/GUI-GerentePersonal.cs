@@ -165,10 +165,10 @@ namespace TrabajoFinal
                 if (UC_ValDNI.validar())
                 {
                     oBECocinero.DNI = Convert.ToInt32(UC_ValDNI.Text);
-                    if (UC_ValNomb.validar())
+                    if (UC_ValNomb.Validar())
                     {
                         oBECocinero.Nombre = UC_ValNomb.Text;
-                        if (UC_ValApe.validar())
+                        if (UC_ValApe.Validar())
                         {
                             oBECocinero.Apellido = UC_ValApe.Text;
                             return true;
@@ -190,10 +190,10 @@ namespace TrabajoFinal
                 if (UC_ValDNI.validar() && UC_ValDNI.Text != "")
                 {
                     oBEMozo.DNI = Convert.ToInt32(UC_ValDNI.Text);
-                    if (UC_ValNomb.validar() && UC_ValNomb.Text != "")
+                    if (UC_ValNomb.Validar() && UC_ValNomb.Text != "")
                     {
                         oBEMozo.Nombre = UC_ValNomb.Text;
-                        if (UC_ValApe.validar() && UC_ValApe.Text != "")
+                        if (UC_ValApe.Validar() && UC_ValApe.Text != "")
                         {
                             oBEMozo.Apellido = UC_ValApe.Text;
                             return true;
@@ -215,10 +215,10 @@ namespace TrabajoFinal
                 if (UC_ValDNI.validar() && UC_ValDNI.Text != "")
                 {
                     oBEPersonal.DNI = Convert.ToInt32(UC_ValDNI.Text);
-                    if (UC_ValNomb.validar() && UC_ValNomb.Text != "")
+                    if (UC_ValNomb.Validar() && UC_ValNomb.Text != "")
                     {
                         oBEPersonal.Nombre = UC_ValNomb.Text;
-                        if (UC_ValApe.validar() && UC_ValApe.Text != "")
+                        if (UC_ValApe.Validar() && UC_ValApe.Text != "")
                         {
                             oBEPersonal.Apellido = UC_ValApe.Text;
                             return true;
@@ -308,7 +308,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Usuarios.Rows.Count > 0 && Grilla_Usuarios.CurrentRow.DataBoundItem != null)
+                if (Grilla_Usuarios.Rows.Count > 0 && Grilla_Usuarios.CurrentRow != null)
                 {
                     BEPersonal Personal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
                     AsignarAControles(Personal);
@@ -511,13 +511,15 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Usuarios.Rows.Count > 0 && Grilla_Usuarios.CurrentRow.DataBoundItem != null)
+                if (Grilla_Usuarios.Rows.Count > 0 && Grilla_Usuarios.CurrentRow != null)
                 {
                     oBEPersonal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
                     string passEnc = oBLPersonal.RecuperarPass(oBEPersonal.DNI);
                     textBox_Pass.UseSystemPasswordChar = false;
                     textBox_Pass.Text = Encriptacion.Decrypt(passEnc, null);
                 }
+                else
+                { MessageBox.Show("Seleccione un elemento de la lista"); }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

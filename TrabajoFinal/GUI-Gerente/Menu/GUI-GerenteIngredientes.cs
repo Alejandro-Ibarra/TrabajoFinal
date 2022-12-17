@@ -98,7 +98,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (UC_ValNomb.validar())
+                if (UC_ValNomb.Validar())
                 {
                     oBEIngrediente.Nombre = UC_ValNomb.Text;
 
@@ -157,7 +157,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Ingredientes.Rows.Count > 0 && Grilla_Ingredientes.CurrentRow.DataBoundItem != null)
+                if (Grilla_Ingredientes.Rows.Count > 0 && Grilla_Ingredientes.CurrentRow != null)
                 {
                     oBEIngrediente = (BEIngrediente)Grilla_Ingredientes.CurrentRow.DataBoundItem;
                 AsignarIngredienteAControles(oBEIngrediente);
@@ -171,17 +171,10 @@ namespace TrabajoFinal
         {
             try
             {
-                List<string> ListaProveedor = new List<string>();
-                ListaProveedor.Add("Verduleria Amistad");
-                ListaProveedor.Add("Frigorifico Corte");
-                ListaProveedor.Add("La Serenisima");
-                ListaProveedor.Add("Coca Cola");
-                ListaProveedor.Add("Pepsi");
+                List<string> ListaProveedor = new List<string> {"Verduleria Amistad", "Frigorifico Corte", "La Serenisima", "Coca Cola", "Pepsi" };
                 ComboBox_Proveedor.DataSource = ListaProveedor;
 
-                List<string> ListaTipo = new List<string>();
-                ListaTipo.Add("Principal");
-                ListaTipo.Add("Secundario");
+                List<string> ListaTipo = new List<string> { "Principal",  "Secundario" };
                 ComboBox_Tipo.DataSource = ListaTipo;
 
             }

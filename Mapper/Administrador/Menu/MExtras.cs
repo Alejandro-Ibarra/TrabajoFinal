@@ -107,6 +107,7 @@ namespace Mapper
                                                                                 new XAttribute("Codigo", oBEExtras.Codigo.ToString().Trim()),
                                                                                 new XElement("Nombre", oBEExtras.Nombre.Trim()),
                                                                                 new XElement("Tipo", oBEExtras.Tipo.Trim()),
+                                                                                new XElement("Activo", oBEExtras.Activo.ToString().Trim()),
                                                                                 new XElement("Stock", oBEExtras.Stock.ToString().Trim()),
                                                                                 new XElement("Proveedor", oBEExtras.Proveedor.ToString().Trim())));
 
@@ -136,6 +137,7 @@ namespace Mapper
                     Nombre = Convert.ToString(Extras.Element("Nombre").Value).Trim(),
                     Tipo = Convert.ToString(Extras.Element("Tipo").Value).Trim(),
                     Stock = Convert.ToInt32(Convert.ToString(Extras.Element("Stock").Value).Trim()),
+                    Activo = Convert.ToBoolean(Extras.Element("Activo").Value),
                     Proveedor = Convert.ToString(Extras.Element("Proveedor").Value).Trim(),
 
                 };
@@ -164,6 +166,7 @@ namespace Mapper
                     EModifcar.Element("Nombre").Value = oBEExtras.Nombre.ToString().Trim();
                     EModifcar.Element("Tipo").Value = oBEExtras.Tipo.ToString().Trim();
                     EModifcar.Element("Stock").Value = oBEExtras.Stock.ToString().Trim();
+                    EModifcar.Element("Activo").Value = oBEExtras.Activo.ToString().Trim();
                     EModifcar.Element("Proveedor").Value = oBEExtras.Proveedor.ToString().Trim();
                 }
                 xmlDocument.Save("Restaurante.xml");

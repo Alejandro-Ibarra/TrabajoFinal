@@ -91,7 +91,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_TodosIng.Rows.Count > 0 && GridView_TodosIng.CurrentRow.DataBoundItem != null)
+                if (GridView_TodosIng.Rows.Count > 0 && GridView_TodosIng.CurrentRow != null)
                 {
                     int aux = 0;
 
@@ -117,9 +117,9 @@ namespace TrabajoFinal
                     GridView_IngSelec.Columns["Stock"].Visible = false;
                     GridView_IngSelec.Columns["Proveedor"].Visible = false;
                     GridView_IngSelec.Columns["Codigo"].Visible = false;
-
-
-                }    
+                }
+                else
+                { MessageBox.Show("Seleccione un elemento de la lista"); }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -131,13 +131,13 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_IngSelec.Rows.Count > 0 && GridView_IngSelec.CurrentRow.DataBoundItem != null)
+                if (GridView_IngSelec.Rows.Count > 0 && GridView_IngSelec.CurrentRow != null)
                 {
 
                     List<BEIngrediente> ingreAux2 = new List<BEIngrediente>();
                     foreach (BEIngrediente ing in listaIng)
                     {
-                        if (ing.Nombre != ((BEIngrediente)GridView_IngSelec.CurrentRow.DataBoundItem).Nombre && GridView_IngSelec.CurrentRow.DataBoundItem != null)
+                        if (ing.Nombre != ((BEIngrediente)GridView_IngSelec.CurrentRow.DataBoundItem).Nombre && GridView_IngSelec.CurrentRow != null)
                         {
                             ingreAux2.Add(ing);
                         }
@@ -150,6 +150,8 @@ namespace TrabajoFinal
                     GridView_IngSelec.Columns["Proveedor"].Visible = false;
                     GridView_IngSelec.Columns["Codigo"].Visible = false;
                 }
+                else
+                { MessageBox.Show("Seleccione un elemento de la lista"); }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -164,7 +166,7 @@ namespace TrabajoFinal
                 {
                     foreach (BEIngrediente ingre in listaIng)
                     {
-                        if (plato.IngredientePrincipal.Nombre == ingre.Nombre)
+                        if (plato.IngredientePrincipal.Nombre == ingre.Nombre && plato.Activo == true)
                         {
                             platoaxu.Add(plato);
                         }
@@ -181,8 +183,6 @@ namespace TrabajoFinal
                     GridView_TodosPlatos.Columns["IngredientePrincipal"].Visible = false;
                     GridView_TodosPlatos.Columns["Codigo"].Visible = false;
 
-
-
                 }
                 CargarTextBox();
             }
@@ -194,9 +194,9 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_IngSelec.Rows.Count > 0 && GridView_IngSelec.CurrentRow.DataBoundItem != null)
+                if (GridView_IngSelec.Rows.Count > 0 && GridView_IngSelec.CurrentRow != null)
                 {
-                    if (GridView_TodosPlatos.Rows.Count > 0 && GridView_TodosPlatos.CurrentRow.DataBoundItem != null)
+                    if (GridView_TodosPlatos.Rows.Count > 0 && GridView_TodosPlatos.CurrentRow != null)
                     {
                         listaPlatosElegidos.Add((BEPlato)GridView_TodosPlatos.CurrentRow.DataBoundItem);
 
@@ -213,6 +213,8 @@ namespace TrabajoFinal
                         GridView_PlatoSelec.Columns["Tipo"].Visible = false;
                     }
                 }
+                else
+                { MessageBox.Show("Seleccione un elemento de la lista"); }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -222,12 +224,12 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_PlatoSelec.Rows.Count > 0 && GridView_PlatoSelec.CurrentRow.DataBoundItem != null)
+                if (GridView_PlatoSelec.Rows.Count > 0 && GridView_PlatoSelec.CurrentRow != null)
                 {
                     List<BEPlato> platoAux = new List<BEPlato>();
                     foreach (BEPlato plato in listaPlatosElegidos)
                     {
-                        if (plato.Nombre != ((BEPlato)GridView_PlatoSelec.CurrentRow.DataBoundItem).Nombre && GridView_PlatoSelec.CurrentRow.DataBoundItem != null)
+                        if (plato.Nombre != ((BEPlato)GridView_PlatoSelec.CurrentRow.DataBoundItem).Nombre && GridView_PlatoSelec.CurrentRow != null)
                         {
                             platoAux.Add(plato);
                         }
@@ -236,6 +238,8 @@ namespace TrabajoFinal
                     GridView_PlatoSelec.DataSource = null;
                     GridView_PlatoSelec.DataSource = listaPlatosElegidos;
                 }
+                else
+                { MessageBox.Show("Seleccione un elemento de la lista"); }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -260,8 +264,11 @@ namespace TrabajoFinal
 
         private void CargarTextBox()
         {
-            BEPlato auxPlato = (BEPlato)GridView_TodosPlatos.CurrentRow.DataBoundItem;
-            textBox1.Text = auxPlato.Descripcion;
+            if (GridView_TodosPlatos.Rows.Count > 0 && GridView_TodosPlatos.CurrentRow != null)
+            {
+                BEPlato auxPlato = (BEPlato)GridView_TodosPlatos.CurrentRow.DataBoundItem;
+                textBox1.Text = auxPlato.Descripcion;
+            }
         }
     }
 }

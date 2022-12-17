@@ -19,13 +19,29 @@ namespace Mapper
                 string Cod = oBEPlato.Codigo.ToString();
                 XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
-                var consulta = from Ingrediente in xmlDocument.Descendants("Plato")
-                               where Ingrediente.Attribute("ID").Value == Cod
-                               select Ingrediente;
+                var verificar = from Plato in xmlDocument.Descendants("PlatoComandaCocina")
+                               where Plato.Attribute("Codigo").Value == Cod
+                               select Plato;
 
-                consulta.Remove();
-                xmlDocument.Save("Restaurante.xml");
-                return true;
+
+                
+                if (verificar.Any())
+                {
+                    return false;
+                }
+                else
+                {
+                    var consulta = from Plato in xmlDocument.Descendants("Plato")
+                                   where Plato.Attribute("ID").Value == Cod
+                                   select Plato;
+
+                    consulta.Remove();
+                    xmlDocument.Save("Restaurante.xml");
+                    return true;
+                }
+
+
+                
             }
             catch (System.Xml.XmlException ex)
             { throw ex; }
@@ -68,6 +84,7 @@ namespace Mapper
                                                                                 new XElement("TipoPlato", oBEPlato.Tipo.Trim()),
                                                                                 new XElement("Clase", oBEPlato.Clase.Trim()),
                                                                                 new XElement("Descripcion", oBEPlato.Descripcion.Trim()),
+                                                                                new XElement("Activo", oBEPlato.Activo.ToString().Trim()),
                                                                                 new XElement("Precio", Convert.ToString(oBEPlato.Precio).Trim()),
                                                                                 new XElement("IngredientePrincipal",
                                                                                             new XAttribute("ID", oBEPlato.IngredientePrincipal.Codigo.ToString().Trim()),
@@ -108,7 +125,7 @@ namespace Mapper
                     Clase = Convert.ToString(Plato.Element("Clase").Value).Trim(),
                     Descripcion = Convert.ToString(Plato.Element("Descripcion").Value).Trim(),
                     Precio = Convert.ToInt32(Plato.Element("Precio").Value),
-                    //Activo = Convert.ToBoolean(Plato.Element("Activo").Value),
+                    Activo = Convert.ToBoolean(Plato.Element("Activo").Value),
                     IngredientePrincipal = new BEIngrediente
                     {
                         Codigo = Convert.ToInt32(Plato.Element("IngredientePrincipal").Attribute("ID").Value),
@@ -150,9 +167,26 @@ namespace Mapper
             { throw ex; }
         }
 
-        public bool Modificar(BEPlato Objeto)
+        public bool Modificar(BEPlato oBEPlato)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string Codigo = oBEPlato.Codigo.ToString();
+                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                var consulta = from Plato in xmlDocument.Descendants("Plato")
+                               where Plato.Attribute("ID").Value == Codigo
+                               select Plato;
+
+                consulta.Remove();
+                xmlDocument.Save("Restaurante.xml");
+                Guardar(oBEPlato);
+                return true;
+            }
+            catch (System.Xml.XmlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
         }
 
         public bool Existe(BEPlato plato)

@@ -51,6 +51,9 @@ namespace TrabajoFinal
             this.TextBox_Resumen = new System.Windows.Forms.TextBox();
             this.Boton_ModificarPlatos = new System.Windows.Forms.Button();
             this.Boton_EliminarPlato = new System.Windows.Forms.Button();
+            this.RadioButton_Activo = new System.Windows.Forms.RadioButton();
+            this.RadioButton_Inactivo = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_TodosIngredientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_SeleccionIngredientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_Platos)).BeginInit();
@@ -284,11 +287,48 @@ namespace TrabajoFinal
             this.Boton_EliminarPlato.UseVisualStyleBackColor = true;
             this.Boton_EliminarPlato.Click += new System.EventHandler(this.Boton_EliminarPlato_Click);
             // 
+            // RadioButton_Activo
+            // 
+            this.RadioButton_Activo.AutoSize = true;
+            this.RadioButton_Activo.Checked = true;
+            this.RadioButton_Activo.Location = new System.Drawing.Point(582, 528);
+            this.RadioButton_Activo.Name = "RadioButton_Activo";
+            this.RadioButton_Activo.Size = new System.Drawing.Size(55, 17);
+            this.RadioButton_Activo.TabIndex = 23;
+            this.RadioButton_Activo.TabStop = true;
+            this.RadioButton_Activo.Text = "Activo";
+            this.RadioButton_Activo.UseVisualStyleBackColor = true;
+            this.RadioButton_Activo.Visible = false;
+            // 
+            // RadioButton_Inactivo
+            // 
+            this.RadioButton_Inactivo.AutoSize = true;
+            this.RadioButton_Inactivo.Location = new System.Drawing.Point(653, 528);
+            this.RadioButton_Inactivo.Name = "RadioButton_Inactivo";
+            this.RadioButton_Inactivo.Size = new System.Drawing.Size(63, 17);
+            this.RadioButton_Inactivo.TabIndex = 24;
+            this.RadioButton_Inactivo.Text = "Inactivo";
+            this.RadioButton_Inactivo.UseVisualStyleBackColor = true;
+            this.RadioButton_Inactivo.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(475, 530);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Estado del plato";
+            this.label1.Visible = false;
+            // 
             // GUI_Gerente_Platos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.RadioButton_Inactivo);
+            this.Controls.Add(this.RadioButton_Activo);
             this.Controls.Add(this.Boton_EliminarPlato);
             this.Controls.Add(this.Boton_ModificarPlatos);
             this.Controls.Add(this.TextBox_Resumen);
@@ -347,5 +387,8 @@ namespace TrabajoFinal
         private System.Windows.Forms.TextBox TextBox_Resumen;
         private System.Windows.Forms.Button Boton_ModificarPlatos;
         private System.Windows.Forms.Button Boton_EliminarPlato;
+        private System.Windows.Forms.RadioButton RadioButton_Activo;
+        private System.Windows.Forms.RadioButton RadioButton_Inactivo;
+        private System.Windows.Forms.Label label1;
     }
 }

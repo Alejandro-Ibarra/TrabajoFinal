@@ -108,7 +108,7 @@ namespace TrabajoFinal
             // 
             // Boton_Baja
             // 
-            this.Boton_Baja.Location = new System.Drawing.Point(250, 237);
+            this.Boton_Baja.Location = new System.Drawing.Point(247, 237);
             this.Boton_Baja.Name = "Boton_Baja";
             this.Boton_Baja.Size = new System.Drawing.Size(75, 23);
             this.Boton_Baja.TabIndex = 42;

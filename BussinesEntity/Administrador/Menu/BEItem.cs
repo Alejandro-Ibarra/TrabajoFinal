@@ -13,5 +13,6 @@ namespace BussinesEntity
         public int CodigoPedido { get; set; }
         public int CodigoItem { get; set; }
         public string Descripcion { get; set; }
+        public bool Activo { get; set; }
     }
 }

@@ -150,7 +150,7 @@ namespace TrabajoFinal
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(100, 397);
+            this.label5.Location = new System.Drawing.Point(100, 419);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 12;
@@ -159,7 +159,7 @@ namespace TrabajoFinal
             // TextBox_Ruta
             // 
             this.TextBox_Ruta.Enabled = false;
-            this.TextBox_Ruta.Location = new System.Drawing.Point(103, 418);
+            this.TextBox_Ruta.Location = new System.Drawing.Point(103, 440);
             this.TextBox_Ruta.Name = "TextBox_Ruta";
             this.TextBox_Ruta.Size = new System.Drawing.Size(420, 20);
             this.TextBox_Ruta.TabIndex = 11;
@@ -167,7 +167,7 @@ namespace TrabajoFinal
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(566, 397);
+            this.label6.Location = new System.Drawing.Point(566, 419);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 13);
             this.label6.TabIndex = 14;
@@ -176,7 +176,7 @@ namespace TrabajoFinal
             // TextBox_NombArchivo
             // 
             this.TextBox_NombArchivo.Enabled = false;
-            this.TextBox_NombArchivo.Location = new System.Drawing.Point(569, 418);
+            this.TextBox_NombArchivo.Location = new System.Drawing.Point(569, 440);
             this.TextBox_NombArchivo.Name = "TextBox_NombArchivo";
             this.TextBox_NombArchivo.Size = new System.Drawing.Size(231, 20);
             this.TextBox_NombArchivo.TabIndex = 13;
