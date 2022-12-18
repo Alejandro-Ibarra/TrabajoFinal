@@ -54,12 +54,6 @@
     <Compile Include="GUI-Gerente\Gestion\GUI-GerenteMetricas.Designer.cs">
       <DependentUpon>GUI-GerenteMetricas.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Gerente\GUI-GerenteMesas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI-Gerente\GUI-GerenteMesas.Designer.cs">
-      <DependentUpon>GUI-GerenteMesas.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI-Gerente\Gestion\GUI-BackUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,9 +181,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Gerente\GUI-GerenteEventos.resx">
       <DependentUpon>GUI-GerenteEventos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Gerente\GUI-GerenteMesas.resx">
-      <DependentUpon>GUI-GerenteMesas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Gerente\Menu\GUI-GerentePlatos.resx">
       <DependentUpon>GUI-GerentePlatos.cs</DependentUpon>

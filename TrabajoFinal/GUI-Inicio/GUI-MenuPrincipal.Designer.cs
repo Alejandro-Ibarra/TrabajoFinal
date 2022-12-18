@@ -29,186 +29,180 @@ namespace TrabajoFinal
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ToolStrip_Admin = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Personal = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Ingredientes = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Bebidas = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Platos = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Extras = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Evento = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Mesas = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_BackUp = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Roles = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Metricas = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Cocinero = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Mozo = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_CerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_MenuPrincipal));
             this.Panel = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.Toolstrip_Admin = new System.Windows.Forms.ToolStripMenuItem();
+            this.Toolstrip_Personal = new System.Windows.Forms.ToolStripMenuItem();
+            this.Toolstrip_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.Toolstrip_Ingredientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.Toolstrip_Platos = new System.Windows.Forms.ToolStripMenuItem();
+            this.Toolstrip_Bebidas = new System.Windows.Forms.ToolStripMenuItem();
+            this.Toolstrip_Extras = new System.Windows.Forms.ToolStripMenuItem();
+            this.Toolstrip_Eventos = new System.Windows.Forms.ToolStripMenuItem();
+            this.Toolstrip_Backup = new System.Windows.Forms.ToolStripMenuItem();
+            this.Toolstrip_Roles = new System.Windows.Forms.ToolStripMenuItem();
+            this.Toolstrip_Metricas = new System.Windows.Forms.ToolStripMenuItem();
+            this.Toolstrip_Cocinero = new System.Windows.Forms.ToolStripMenuItem();
+            this.Toolstrip_Mozo = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_CerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1000, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // ToolStrip_Admin
-            // 
-            this.ToolStrip_Admin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStrip_Personal,
-            this.ToolStrip_Menu,
-            this.ToolStrip_Evento,
-            this.ToolStrip_Mesas,
-            this.ToolStrip_BackUp,
-            this.ToolStrip_Roles,
-            this.ToolStrip_Metricas});
-            this.ToolStrip_Admin.Name = "ToolStrip_Admin";
-            this.ToolStrip_Admin.Size = new System.Drawing.Size(55, 20);
-            this.ToolStrip_Admin.Text = "Admin";
-            this.ToolStrip_Admin.Visible = false;
-            // 
-            // ToolStrip_Personal
-            // 
-            this.ToolStrip_Personal.Name = "ToolStrip_Personal";
-            this.ToolStrip_Personal.Size = new System.Drawing.Size(158, 22);
-            this.ToolStrip_Personal.Text = "Personal";
-            this.ToolStrip_Personal.Visible = false;
-            this.ToolStrip_Personal.Click += new System.EventHandler(this.ToolStrip_Personal_Click);
-            // 
-            // ToolStrip_Menu
-            // 
-            this.ToolStrip_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStrip_Ingredientes,
-            this.ToolStrip_Bebidas,
-            this.ToolStrip_Platos,
-            this.ToolStrip_Extras});
-            this.ToolStrip_Menu.Name = "ToolStrip_Menu";
-            this.ToolStrip_Menu.Size = new System.Drawing.Size(158, 22);
-            this.ToolStrip_Menu.Text = "Menu";
-            this.ToolStrip_Menu.Visible = false;
-            // 
-            // ToolStrip_Ingredientes
-            // 
-            this.ToolStrip_Ingredientes.Name = "ToolStrip_Ingredientes";
-            this.ToolStrip_Ingredientes.Size = new System.Drawing.Size(139, 22);
-            this.ToolStrip_Ingredientes.Text = "Ingredientes";
-            this.ToolStrip_Ingredientes.Visible = false;
-            this.ToolStrip_Ingredientes.Click += new System.EventHandler(this.ToolStrip_Ingredientes_Click);
-            // 
-            // ToolStrip_Bebidas
-            // 
-            this.ToolStrip_Bebidas.Name = "ToolStrip_Bebidas";
-            this.ToolStrip_Bebidas.Size = new System.Drawing.Size(139, 22);
-            this.ToolStrip_Bebidas.Text = "Bebidas";
-            this.ToolStrip_Bebidas.Visible = false;
-            this.ToolStrip_Bebidas.Click += new System.EventHandler(this.ToolStrip_Bebidas_Click);
-            // 
-            // ToolStrip_Platos
-            // 
-            this.ToolStrip_Platos.Name = "ToolStrip_Platos";
-            this.ToolStrip_Platos.Size = new System.Drawing.Size(139, 22);
-            this.ToolStrip_Platos.Text = "Platos";
-            this.ToolStrip_Platos.Visible = false;
-            this.ToolStrip_Platos.Click += new System.EventHandler(this.ToolStrip_Platos_Click);
-            // 
-            // ToolStrip_Extras
-            // 
-            this.ToolStrip_Extras.Name = "ToolStrip_Extras";
-            this.ToolStrip_Extras.Size = new System.Drawing.Size(139, 22);
-            this.ToolStrip_Extras.Text = "Extras";
-            this.ToolStrip_Extras.Click += new System.EventHandler(this.ToolStrip_Extras_Click);
-            // 
-            // ToolStrip_Evento
-            // 
-            this.ToolStrip_Evento.Name = "ToolStrip_Evento";
-            this.ToolStrip_Evento.Size = new System.Drawing.Size(158, 22);
-            this.ToolStrip_Evento.Text = "Eventos";
-            this.ToolStrip_Evento.Visible = false;
-            this.ToolStrip_Evento.Click += new System.EventHandler(this.ToolStrip_Evento_Click);
-            // 
-            // ToolStrip_Mesas
-            // 
-            this.ToolStrip_Mesas.Name = "ToolStrip_Mesas";
-            this.ToolStrip_Mesas.Size = new System.Drawing.Size(158, 22);
-            this.ToolStrip_Mesas.Text = "Mesas";
-            this.ToolStrip_Mesas.Visible = false;
-            this.ToolStrip_Mesas.Click += new System.EventHandler(this.ToolStrip_Mesas_Click);
-            // 
-            // ToolStrip_BackUp
-            // 
-            this.ToolStrip_BackUp.Name = "ToolStrip_BackUp";
-            this.ToolStrip_BackUp.Size = new System.Drawing.Size(158, 22);
-            this.ToolStrip_BackUp.Text = "BackUp/Restore";
-            this.ToolStrip_BackUp.Click += new System.EventHandler(this.ToolStrip_BackUp_Click);
-            // 
-            // ToolStrip_Roles
-            // 
-            this.ToolStrip_Roles.Name = "ToolStrip_Roles";
-            this.ToolStrip_Roles.Size = new System.Drawing.Size(158, 22);
-            this.ToolStrip_Roles.Text = "Roles/Permisos";
-            this.ToolStrip_Roles.Click += new System.EventHandler(this.ToolStrip_Roles_Click);
-            // 
-            // ToolStrip_Metricas
-            // 
-            this.ToolStrip_Metricas.Name = "ToolStrip_Metricas";
-            this.ToolStrip_Metricas.Size = new System.Drawing.Size(158, 22);
-            this.ToolStrip_Metricas.Text = "Metricas";
-            this.ToolStrip_Metricas.Click += new System.EventHandler(this.ToolStrip_Metricas_Click);
-            // 
-            // ToolStrip_Cocinero
-            // 
-            this.ToolStrip_Cocinero.Name = "ToolStrip_Cocinero";
-            this.ToolStrip_Cocinero.Size = new System.Drawing.Size(67, 20);
-            this.ToolStrip_Cocinero.Text = "Cocinero";
-            this.ToolStrip_Cocinero.Visible = false;
-            this.ToolStrip_Cocinero.Click += new System.EventHandler(this.ToolStrip_Cocinero_Click);
-            // 
-            // ToolStrip_Mozo
-            // 
-            this.ToolStrip_Mozo.Name = "ToolStrip_Mozo";
-            this.ToolStrip_Mozo.Size = new System.Drawing.Size(49, 20);
-            this.ToolStrip_Mozo.Text = "Mozo";
-            this.ToolStrip_Mozo.Visible = false;
-            this.ToolStrip_Mozo.Click += new System.EventHandler(this.ToolStrip_Mozo_Click);
-            // 
-            // ToolStrip_CerrarSesion
-            // 
-            this.ToolStrip_CerrarSesion.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.ToolStrip_CerrarSesion.Name = "ToolStrip_CerrarSesion";
-            this.ToolStrip_CerrarSesion.Size = new System.Drawing.Size(87, 20);
-            this.ToolStrip_CerrarSesion.Text = "Cerrar sesión";
-            this.ToolStrip_CerrarSesion.Click += new System.EventHandler(this.ToolStrip_CerrarSesion_Click);
-            // 
             // Panel
             // 
-            this.Panel.BackColor = System.Drawing.Color.Transparent;
+            this.Panel.BackColor = System.Drawing.SystemColors.Control;
+            this.Panel.BackgroundImage = global::TrabajoFinal.Properties.Resources.BlueShade2;
             this.Panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Panel.Location = new System.Drawing.Point(0, 24);
             this.Panel.Margin = new System.Windows.Forms.Padding(0);
             this.Panel.Name = "Panel";
             this.Panel.Size = new System.Drawing.Size(1000, 600);
             this.Panel.TabIndex = 1;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Toolstrip_Admin,
+            this.Toolstrip_Cocinero,
+            this.Toolstrip_Mozo,
+            this.ToolStrip_CerrarSesion});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1000, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // Toolstrip_Admin
+            // 
+            this.Toolstrip_Admin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Toolstrip_Personal,
+            this.Toolstrip_Menu,
+            this.Toolstrip_Eventos,
+            this.Toolstrip_Backup,
+            this.Toolstrip_Roles,
+            this.Toolstrip_Metricas});
+            this.Toolstrip_Admin.Name = "Toolstrip_Admin";
+            this.Toolstrip_Admin.Size = new System.Drawing.Size(55, 20);
+            this.Toolstrip_Admin.Text = "Admin";
+            this.Toolstrip_Admin.Visible = false;
+            // 
+            // Toolstrip_Personal
+            // 
+            this.Toolstrip_Personal.Name = "Toolstrip_Personal";
+            this.Toolstrip_Personal.Size = new System.Drawing.Size(158, 22);
+            this.Toolstrip_Personal.Text = "Personal";
+            this.Toolstrip_Personal.Click += new System.EventHandler(this.Toolstrip_Personal_Click);
+            // 
+            // Toolstrip_Menu
+            // 
+            this.Toolstrip_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Toolstrip_Ingredientes,
+            this.Toolstrip_Platos,
+            this.Toolstrip_Bebidas,
+            this.Toolstrip_Extras});
+            this.Toolstrip_Menu.Name = "Toolstrip_Menu";
+            this.Toolstrip_Menu.Size = new System.Drawing.Size(158, 22);
+            this.Toolstrip_Menu.Text = "Menu";
+            // 
+            // Toolstrip_Ingredientes
+            // 
+            this.Toolstrip_Ingredientes.Name = "Toolstrip_Ingredientes";
+            this.Toolstrip_Ingredientes.Size = new System.Drawing.Size(139, 22);
+            this.Toolstrip_Ingredientes.Text = "Ingredientes";
+            this.Toolstrip_Ingredientes.Visible = false;
+            this.Toolstrip_Ingredientes.Click += new System.EventHandler(this.Toolstrip_Ingredientes_Click);
+            // 
+            // Toolstrip_Platos
+            // 
+            this.Toolstrip_Platos.Name = "Toolstrip_Platos";
+            this.Toolstrip_Platos.Size = new System.Drawing.Size(139, 22);
+            this.Toolstrip_Platos.Text = "Platos";
+            this.Toolstrip_Platos.Visible = false;
+            this.Toolstrip_Platos.Click += new System.EventHandler(this.Toolstrip_Platos_Click);
+            // 
+            // Toolstrip_Bebidas
+            // 
+            this.Toolstrip_Bebidas.Name = "Toolstrip_Bebidas";
+            this.Toolstrip_Bebidas.Size = new System.Drawing.Size(139, 22);
+            this.Toolstrip_Bebidas.Text = "Bebidas";
+            this.Toolstrip_Bebidas.Visible = false;
+            this.Toolstrip_Bebidas.Click += new System.EventHandler(this.Toolstrip_Bebidas_Click);
+            // 
+            // Toolstrip_Extras
+            // 
+            this.Toolstrip_Extras.Name = "Toolstrip_Extras";
+            this.Toolstrip_Extras.Size = new System.Drawing.Size(139, 22);
+            this.Toolstrip_Extras.Text = "Extras";
+            this.Toolstrip_Extras.Visible = false;
+            this.Toolstrip_Extras.Click += new System.EventHandler(this.Toolstrip_Extras_Click);
+            // 
+            // Toolstrip_Eventos
+            // 
+            this.Toolstrip_Eventos.Name = "Toolstrip_Eventos";
+            this.Toolstrip_Eventos.Size = new System.Drawing.Size(158, 22);
+            this.Toolstrip_Eventos.Text = "Eventos";
+            this.Toolstrip_Eventos.Visible = false;
+            this.Toolstrip_Eventos.Click += new System.EventHandler(this.Toolstrip_Eventos_Click);
+            // 
+            // Toolstrip_Backup
+            // 
+            this.Toolstrip_Backup.Name = "Toolstrip_Backup";
+            this.Toolstrip_Backup.Size = new System.Drawing.Size(158, 22);
+            this.Toolstrip_Backup.Text = "BackUp/Restore";
+            this.Toolstrip_Backup.Click += new System.EventHandler(this.Toolstrip_Backup_Click);
+            // 
+            // Toolstrip_Roles
+            // 
+            this.Toolstrip_Roles.Name = "Toolstrip_Roles";
+            this.Toolstrip_Roles.Size = new System.Drawing.Size(158, 22);
+            this.Toolstrip_Roles.Text = "Roles/Permisos";
+            this.Toolstrip_Roles.Click += new System.EventHandler(this.Toolstrip_Roles_Click);
+            // 
+            // Toolstrip_Metricas
+            // 
+            this.Toolstrip_Metricas.Name = "Toolstrip_Metricas";
+            this.Toolstrip_Metricas.Size = new System.Drawing.Size(158, 22);
+            this.Toolstrip_Metricas.Text = "Metricas";
+            this.Toolstrip_Metricas.Click += new System.EventHandler(this.Toolstrip_Metricas_Click);
+            // 
+            // Toolstrip_Cocinero
+            // 
+            this.Toolstrip_Cocinero.Name = "Toolstrip_Cocinero";
+            this.Toolstrip_Cocinero.Size = new System.Drawing.Size(67, 20);
+            this.Toolstrip_Cocinero.Text = "Cocinero";
+            this.Toolstrip_Cocinero.Visible = false;
+            this.Toolstrip_Cocinero.Click += new System.EventHandler(this.Toolstrip_Cocinero_Click);
+            // 
+            // Toolstrip_Mozo
+            // 
+            this.Toolstrip_Mozo.Name = "Toolstrip_Mozo";
+            this.Toolstrip_Mozo.Size = new System.Drawing.Size(49, 20);
+            this.Toolstrip_Mozo.Text = "Mozo";
+            this.Toolstrip_Mozo.Visible = false;
+            this.Toolstrip_Mozo.Click += new System.EventHandler(this.Toolstrip_Mozo_Click);
+            // 
+            // ToolStrip_CerrarSesion
+            // 
+            this.ToolStrip_CerrarSesion.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.ToolStrip_CerrarSesion.Name = "ToolStrip_CerrarSesion";
+            this.ToolStrip_CerrarSesion.Size = new System.Drawing.Size(87, 20);
+            this.ToolStrip_CerrarSesion.Text = "Cerrar sesion";
+            this.ToolStrip_CerrarSesion.Click += new System.EventHandler(this.ToolStrip_CerrarSesion_Click);
+            // 
             // GUI_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.BackgroundImage = global::TrabajoFinal.Properties.Resources.BlueShade2;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1000, 624);
-            this.Controls.Add(this.Panel);
             this.Controls.Add(this.menuStrip1);
-            this.DoubleBuffered = true;
+            this.Controls.Add(this.Panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MainMenuStrip = this.menuStrip1;
+            this.IsMdiContainer = true;
             this.Name = "GUI_MenuPrincipal";
             this.Text = "GUI_MenuPrincipal";
             this.menuStrip1.ResumeLayout(false);
@@ -220,22 +214,21 @@ namespace TrabajoFinal
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Admin;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Personal;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Menu;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Ingredientes;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Bebidas;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Platos;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Evento;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Mesas;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Cocinero;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Mozo;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_BackUp;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Roles;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_CerrarSesion;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Metricas;
         private System.Windows.Forms.Panel Panel;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Extras;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Admin;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Personal;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Menu;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Ingredientes;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Platos;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Bebidas;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Extras;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Eventos;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Backup;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Roles;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Metricas;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Cocinero;
+        private System.Windows.Forms.ToolStripMenuItem Toolstrip_Mozo;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_CerrarSesion;
     }
 }

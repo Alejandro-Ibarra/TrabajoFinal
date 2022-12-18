@@ -353,6 +353,7 @@
     <ROW Shortcut="TrabajoFinal_15" Directory_="SHORTCUTDIR" Name="TRABA~16|TrabajoFinal" Component_="GUI_PrimaryOutput" Target="[#TrabajoFinal.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
     <ROW Shortcut="TrabajoFinal_16" Directory_="SHORTCUTDIR" Name="TRABA~17|TrabajoFinal" Component_="GUI_PrimaryOutput" Target="[#TrabajoFinal.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
     <ROW Shortcut="TrabajoFinal_17" Directory_="SHORTCUTDIR" Name="TRABA~18|TrabajoFinal" Component_="GUI_PrimaryOutput" Target="[#TrabajoFinal.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="TrabajoFinal_18" Directory_="SHORTCUTDIR" Name="TRABA~19|TrabajoFinal" Component_="GUI_PrimaryOutput" Target="[#TrabajoFinal.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
     <ROW Shortcut="TrabajoFinal_2" Directory_="SHORTCUTDIR" Name="TRABAJ~3|TrabajoFinal" Component_="GUI_PrimaryOutput" Target="[#TrabajoFinal.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
     <ROW Shortcut="TrabajoFinal_3" Directory_="SHORTCUTDIR" Name="TRABAJ~4|TrabajoFinal" Component_="GUI_PrimaryOutput" Target="[#TrabajoFinal.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
     <ROW Shortcut="TrabajoFinal_4" Directory_="SHORTCUTDIR" Name="TRABAJ~5|TrabajoFinal" Component_="GUI_PrimaryOutput" Target="[#TrabajoFinal.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
@@ -396,7 +397,7 @@
     <ROW ProjectId="{cf6288c8-9def-447f-9c28-ec42120b9807}" ProjectName="ServiceLogic" OutputGroup="References" OutputFile="Mapper.dll_2"/>
     <ROW ProjectId="{cf6288c8-9def-447f-9c28-ec42120b9807}" ProjectName="ServiceLogic" OutputGroup="References" OutputFile="ServiceEntity.dll_3"/>
     <ROW ProjectId="{cf6288c8-9def-447f-9c28-ec42120b9807}" ProjectName="ServiceLogic" OutputGroup="SymbolsOutput" OutputFile="ServiceLogic.pdb"/>
-    <ROW ProjectId="{5c647036-6a5a-4e6f-8a2d-132a20749e82}" ProjectName="GUI" OutputGroup="PrimaryOutput" OutputFile="TrabajoFinal.exe" OutputFileShortcut="TrabajoFinal_17"/>
+    <ROW ProjectId="{5c647036-6a5a-4e6f-8a2d-132a20749e82}" ProjectName="GUI" OutputGroup="PrimaryOutput" OutputFile="TrabajoFinal.exe" OutputFileShortcut="TrabajoFinal_18"/>
     <ROW ProjectId="{5c647036-6a5a-4e6f-8a2d-132a20749e82}" ProjectName="GUI" OutputGroup="PrimaryOutput" OutputFile="TrabajoFinal.exe.config"/>
     <ROW ProjectId="{5c647036-6a5a-4e6f-8a2d-132a20749e82}" ProjectName="GUI" OutputGroup="References" OutputFile="Abstraction.dll_6"/>
     <ROW ProjectId="{5c647036-6a5a-4e6f-8a2d-132a20749e82}" ProjectName="GUI" OutputGroup="References" OutputFile="BussinesEntity.dll_5"/>

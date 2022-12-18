@@ -118,19 +118,19 @@ namespace TrabajoFinal
                             tool.Visible = true;
                         }
                     }
-                    foreach (ToolStripMenuItem tool in ToolStrip_Admin.DropDownItems)
+                    foreach (ToolStripMenuItem tool in Toolstrip_Admin.DropDownItems)
                     {
                         if (tool.Name == item.Descripcion)
                         {
-                            ToolStrip_Admin.Visible = true;
+                            Toolstrip_Admin.Visible = true;
                             tool.Visible = true;
                         }
                     }
-                    foreach (ToolStripMenuItem tool in ToolStrip_Menu.DropDownItems)
+                    foreach (ToolStripMenuItem tool in Toolstrip_Menu.DropDownItems)
                     {
                         if (tool.Name == item.Descripcion)
                         {
-                            ToolStrip_Menu.Visible = true;
+                            Toolstrip_Menu.Visible = true;
                             tool.Visible = true;
                         }
                     }
@@ -140,80 +140,73 @@ namespace TrabajoFinal
             { MessageBox.Show(ex.Message);}
         }
 
-        private void ToolStrip_Cocinero_Click(object sender, EventArgs e)
+
+
+        private void Toolstrip_Cocinero_Click(object sender, EventArgs e)
         {
             oGUI_Empleados.Show();
             oGUI_Empleados.BringToFront();
         }
 
-        private void ToolStrip_Mozo_Click(object sender, EventArgs e)
+        private void Toolstrip_Mozo_Click(object sender, EventArgs e)
         {
             oGUI_Empleados.Show();
             oGUI_Empleados.BringToFront();
         }
 
-        private void ToolStrip_Personal_Click(object sender, EventArgs e)
+        private void Toolstrip_Personal_Click(object sender, EventArgs e)
         {
             oGUI_Personal.Show();
-
             oGUI_Personal.BringToFront();
         }
 
-        private void ToolStrip_Ingredientes_Click(object sender, EventArgs e)
+        private void Toolstrip_Ingredientes_Click(object sender, EventArgs e)
         {
             oGUI_Ingredientes.Show();
             oGUI_Ingredientes.BringToFront();
         }
 
-        private void ToolStrip_Bebidas_Click(object sender, EventArgs e)
-        {
-            oGUI_Bebidas.Show();
-            oGUI_Bebidas.BringToFront();
-        }
-
-        private void ToolStrip_Platos_Click(object sender, EventArgs e)
+        private void Toolstrip_Platos_Click(object sender, EventArgs e)
         {
             oGUI_Platos.Show();
             oGUI_Platos.BringToFront();
         }
 
-        private void ToolStrip_Evento_Click(object sender, EventArgs e)
+        private void Toolstrip_Bebidas_Click(object sender, EventArgs e)
         {
-            oGUI_Eventos.Show();
-            oGUI_Eventos.BringToFront();
+            
+            oGUI_Bebidas.Show();
+            oGUI_Bebidas.BringToFront();
         }
 
-        private void ToolStrip_Extras_Click(object sender, EventArgs e)
+        private void Toolstrip_Extras_Click(object sender, EventArgs e)
         {
             oGUI_Extras.Show();
             oGUI_Extras.BringToFront();
         }
 
-        private void ToolStrip_Mesas_Click(object sender, EventArgs e)
+        private void Toolstrip_Eventos_Click(object sender, EventArgs e)
         {
-            oGUI_Mesas.Show();
-            oGUI_Mesas.BringToFront();
+            oGUI_Eventos.Show();
+            oGUI_Eventos.BringToFront();
         }
 
-        private void ToolStrip_BackUp_Click(object sender, EventArgs e)
+        private void Toolstrip_Backup_Click(object sender, EventArgs e)
         {
             oGUI_BackUp.Show();
             oGUI_BackUp.BringToFront();
         }
 
-        private void ToolStrip_Roles_Click(object sender, EventArgs e)
+        private void Toolstrip_Roles_Click(object sender, EventArgs e)
         {
             oGUI_RolesPermisos.Show();
             oGUI_RolesPermisos.BringToFront();
         }
 
-        private void ToolStrip_Metricas_Click(object sender, EventArgs e)
+        private void Toolstrip_Metricas_Click(object sender, EventArgs e)
         {
             oGUI_Metricas.Show();
             oGUI_Metricas.BringToFront();
-            //CerrarForms();
-            //this.Panel.Controls.Add(oGUI_Metricas);
-            //oGUI_Metricas.Show();
         }
 
         private void ToolStrip_CerrarSesion_Click(object sender, EventArgs e)
@@ -223,12 +216,13 @@ namespace TrabajoFinal
             oGUI_Inicio.Show();
         }
 
+
         private void FormsConfig(Form form)
         {
             form.TopLevel = false;
             form.AutoScroll = true;
             form.FormBorderStyle = FormBorderStyle.None;
-           
+
         }
 
         private void CerrarForms()
@@ -238,7 +232,6 @@ namespace TrabajoFinal
                 control.Hide();
             }
         }
-
 
     }
 }
