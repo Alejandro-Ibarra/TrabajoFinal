@@ -107,6 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TrabajoFinal.Properties.Resources.BlueShade2;
             this.ClientSize = new System.Drawing.Size(228, 206);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Button_Cancelar);

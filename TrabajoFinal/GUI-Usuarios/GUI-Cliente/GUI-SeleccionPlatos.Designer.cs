@@ -29,18 +29,19 @@ namespace TrabajoFinal
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_SeleccionPlatos));
             this.GridView_TodosIng = new System.Windows.Forms.DataGridView();
             this.GridView_IngSelec = new System.Windows.Forms.DataGridView();
             this.GridView_PlatoSelec = new System.Windows.Forms.DataGridView();
             this.GridView_TodosPlatos = new System.Windows.Forms.DataGridView();
-            this.Boton_QuitarIng = new System.Windows.Forms.Button();
-            this.Boton_AgregarIng = new System.Windows.Forms.Button();
-            this.Boton_QuitarPlato = new System.Windows.Forms.Button();
-            this.Boton_AgregarPlato = new System.Windows.Forms.Button();
             this.Boton_Sugerir = new System.Windows.Forms.Button();
             this.Boton_ConfirmarPedido = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Boton_QuitarPlato = new System.Windows.Forms.Button();
+            this.Boton_AgregarPlato = new System.Windows.Forms.Button();
+            this.Boton_QuitarIng = new System.Windows.Forms.Button();
+            this.Boton_AgregarIng = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_TodosIng)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_IngSelec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_PlatoSelec)).BeginInit();
@@ -96,46 +97,6 @@ namespace TrabajoFinal
             this.GridView_TodosPlatos.TabIndex = 3;
             this.GridView_TodosPlatos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GridView_TodosPlatos_MouseClick);
             // 
-            // Boton_QuitarIng
-            // 
-            this.Boton_QuitarIng.Location = new System.Drawing.Point(441, 112);
-            this.Boton_QuitarIng.Name = "Boton_QuitarIng";
-            this.Boton_QuitarIng.Size = new System.Drawing.Size(65, 23);
-            this.Boton_QuitarIng.TabIndex = 29;
-            this.Boton_QuitarIng.Text = "Quitar";
-            this.Boton_QuitarIng.UseVisualStyleBackColor = true;
-            this.Boton_QuitarIng.Click += new System.EventHandler(this.Boton_QuitarIng_Click);
-            // 
-            // Boton_AgregarIng
-            // 
-            this.Boton_AgregarIng.Location = new System.Drawing.Point(441, 83);
-            this.Boton_AgregarIng.Name = "Boton_AgregarIng";
-            this.Boton_AgregarIng.Size = new System.Drawing.Size(65, 23);
-            this.Boton_AgregarIng.TabIndex = 28;
-            this.Boton_AgregarIng.Text = "Agregar";
-            this.Boton_AgregarIng.UseVisualStyleBackColor = true;
-            this.Boton_AgregarIng.Click += new System.EventHandler(this.Boton_AgregarIng_Click);
-            // 
-            // Boton_QuitarPlato
-            // 
-            this.Boton_QuitarPlato.Location = new System.Drawing.Point(441, 316);
-            this.Boton_QuitarPlato.Name = "Boton_QuitarPlato";
-            this.Boton_QuitarPlato.Size = new System.Drawing.Size(65, 23);
-            this.Boton_QuitarPlato.TabIndex = 31;
-            this.Boton_QuitarPlato.Text = "Quitar";
-            this.Boton_QuitarPlato.UseVisualStyleBackColor = true;
-            this.Boton_QuitarPlato.Click += new System.EventHandler(this.Boton_QuitarPlato_Click);
-            // 
-            // Boton_AgregarPlato
-            // 
-            this.Boton_AgregarPlato.Location = new System.Drawing.Point(441, 287);
-            this.Boton_AgregarPlato.Name = "Boton_AgregarPlato";
-            this.Boton_AgregarPlato.Size = new System.Drawing.Size(65, 23);
-            this.Boton_AgregarPlato.TabIndex = 30;
-            this.Boton_AgregarPlato.Text = "Agregar";
-            this.Boton_AgregarPlato.UseVisualStyleBackColor = true;
-            this.Boton_AgregarPlato.Click += new System.EventHandler(this.Boton_AgregarPlato_Click);
-            // 
             // Boton_Sugerir
             // 
             this.Boton_Sugerir.Location = new System.Drawing.Point(407, 204);
@@ -173,10 +134,63 @@ namespace TrabajoFinal
             this.label1.TabIndex = 35;
             this.label1.Text = "Descripción";
             // 
+            // Boton_QuitarPlato
+            // 
+            this.Boton_QuitarPlato.BackgroundImage = global::TrabajoFinal.Properties.Resources.Izq;
+            this.Boton_QuitarPlato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Boton_QuitarPlato.Location = new System.Drawing.Point(441, 329);
+            this.Boton_QuitarPlato.Name = "Boton_QuitarPlato";
+            this.Boton_QuitarPlato.Size = new System.Drawing.Size(65, 70);
+            this.Boton_QuitarPlato.TabIndex = 31;
+            this.Boton_QuitarPlato.Text = "Quitar";
+            this.Boton_QuitarPlato.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Boton_QuitarPlato.UseVisualStyleBackColor = true;
+            this.Boton_QuitarPlato.Click += new System.EventHandler(this.Boton_QuitarPlato_Click);
+            // 
+            // Boton_AgregarPlato
+            // 
+            this.Boton_AgregarPlato.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Boton_AgregarPlato.BackgroundImage")));
+            this.Boton_AgregarPlato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Boton_AgregarPlato.Location = new System.Drawing.Point(441, 253);
+            this.Boton_AgregarPlato.Name = "Boton_AgregarPlato";
+            this.Boton_AgregarPlato.Size = new System.Drawing.Size(65, 70);
+            this.Boton_AgregarPlato.TabIndex = 30;
+            this.Boton_AgregarPlato.Text = "Agregar";
+            this.Boton_AgregarPlato.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Boton_AgregarPlato.UseVisualStyleBackColor = true;
+            this.Boton_AgregarPlato.Click += new System.EventHandler(this.Boton_AgregarPlato_Click);
+            // 
+            // Boton_QuitarIng
+            // 
+            this.Boton_QuitarIng.BackgroundImage = global::TrabajoFinal.Properties.Resources.Izq;
+            this.Boton_QuitarIng.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Boton_QuitarIng.Location = new System.Drawing.Point(441, 112);
+            this.Boton_QuitarIng.Name = "Boton_QuitarIng";
+            this.Boton_QuitarIng.Size = new System.Drawing.Size(65, 70);
+            this.Boton_QuitarIng.TabIndex = 29;
+            this.Boton_QuitarIng.Text = "Quitar";
+            this.Boton_QuitarIng.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Boton_QuitarIng.UseVisualStyleBackColor = true;
+            this.Boton_QuitarIng.Click += new System.EventHandler(this.Boton_QuitarIng_Click);
+            // 
+            // Boton_AgregarIng
+            // 
+            this.Boton_AgregarIng.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Boton_AgregarIng.BackgroundImage")));
+            this.Boton_AgregarIng.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Boton_AgregarIng.Location = new System.Drawing.Point(441, 39);
+            this.Boton_AgregarIng.Name = "Boton_AgregarIng";
+            this.Boton_AgregarIng.Size = new System.Drawing.Size(65, 70);
+            this.Boton_AgregarIng.TabIndex = 28;
+            this.Boton_AgregarIng.Text = "Agregar";
+            this.Boton_AgregarIng.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Boton_AgregarIng.UseVisualStyleBackColor = true;
+            this.Boton_AgregarIng.Click += new System.EventHandler(this.Boton_AgregarIng_Click);
+            // 
             // GUI_SeleccionPlatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TrabajoFinal.Properties.Resources.BlueShade2;
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);

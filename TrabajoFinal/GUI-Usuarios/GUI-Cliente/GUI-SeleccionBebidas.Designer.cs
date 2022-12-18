@@ -29,12 +29,13 @@ namespace TrabajoFinal
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_SeleccionBebidas));
             this.Boton_Confirmar = new System.Windows.Forms.Button();
-            this.Boton_QuitarBebida = new System.Windows.Forms.Button();
-            this.Boton_AgregarBebida = new System.Windows.Forms.Button();
             this.GridView_BebidasSelec = new System.Windows.Forms.DataGridView();
             this.GridView_TodosBebidas = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Boton_QuitarBebida = new System.Windows.Forms.Button();
+            this.Boton_AgregarBebida = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_BebidasSelec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_TodosBebidas)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -49,26 +50,6 @@ namespace TrabajoFinal
             this.Boton_Confirmar.Text = "Confirmar Pedido Bebidas";
             this.Boton_Confirmar.UseVisualStyleBackColor = true;
             this.Boton_Confirmar.Click += new System.EventHandler(this.Boton_Confirmar_Click);
-            // 
-            // Boton_QuitarBebida
-            // 
-            this.Boton_QuitarBebida.Location = new System.Drawing.Point(453, 240);
-            this.Boton_QuitarBebida.Name = "Boton_QuitarBebida";
-            this.Boton_QuitarBebida.Size = new System.Drawing.Size(65, 40);
-            this.Boton_QuitarBebida.TabIndex = 38;
-            this.Boton_QuitarBebida.Text = "Quitar Bebida";
-            this.Boton_QuitarBebida.UseVisualStyleBackColor = true;
-            this.Boton_QuitarBebida.Click += new System.EventHandler(this.Boton_QuitarBebida_Click);
-            // 
-            // Boton_AgregarBebida
-            // 
-            this.Boton_AgregarBebida.Location = new System.Drawing.Point(452, 194);
-            this.Boton_AgregarBebida.Name = "Boton_AgregarBebida";
-            this.Boton_AgregarBebida.Size = new System.Drawing.Size(65, 40);
-            this.Boton_AgregarBebida.TabIndex = 37;
-            this.Boton_AgregarBebida.Text = "Agregar Bebida";
-            this.Boton_AgregarBebida.UseVisualStyleBackColor = true;
-            this.Boton_AgregarBebida.Click += new System.EventHandler(this.Boton_AgregarBebida_Click);
             // 
             // GridView_BebidasSelec
             // 
@@ -106,10 +87,39 @@ namespace TrabajoFinal
             this.groupBox1.TabIndex = 40;
             this.groupBox1.TabStop = false;
             // 
+            // Boton_QuitarBebida
+            // 
+            this.Boton_QuitarBebida.BackColor = System.Drawing.SystemColors.Control;
+            this.Boton_QuitarBebida.BackgroundImage = global::TrabajoFinal.Properties.Resources.Izq;
+            this.Boton_QuitarBebida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Boton_QuitarBebida.Location = new System.Drawing.Point(453, 279);
+            this.Boton_QuitarBebida.Name = "Boton_QuitarBebida";
+            this.Boton_QuitarBebida.Size = new System.Drawing.Size(65, 70);
+            this.Boton_QuitarBebida.TabIndex = 38;
+            this.Boton_QuitarBebida.Text = "Quitar Bebida";
+            this.Boton_QuitarBebida.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Boton_QuitarBebida.UseVisualStyleBackColor = false;
+            this.Boton_QuitarBebida.Click += new System.EventHandler(this.Boton_QuitarBebida_Click);
+            // 
+            // Boton_AgregarBebida
+            // 
+            this.Boton_AgregarBebida.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Boton_AgregarBebida.BackgroundImage")));
+            this.Boton_AgregarBebida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Boton_AgregarBebida.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Boton_AgregarBebida.Location = new System.Drawing.Point(453, 186);
+            this.Boton_AgregarBebida.Name = "Boton_AgregarBebida";
+            this.Boton_AgregarBebida.Size = new System.Drawing.Size(65, 70);
+            this.Boton_AgregarBebida.TabIndex = 37;
+            this.Boton_AgregarBebida.Text = "Agregar Bebida";
+            this.Boton_AgregarBebida.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Boton_AgregarBebida.UseVisualStyleBackColor = true;
+            this.Boton_AgregarBebida.Click += new System.EventHandler(this.Boton_AgregarBebida_Click);
+            // 
             // GUI_SeleccionBebidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TrabajoFinal.Properties.Resources.BlueShade2;
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Boton_Confirmar);

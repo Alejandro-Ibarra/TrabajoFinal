@@ -44,13 +44,13 @@ namespace TrabajoFinal
             this.Boton_ModificarInvitados = new System.Windows.Forms.Button();
             this.Boton_GuardarCambiosListaInv = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uC_ValCod1 = new TrabajoFinal.UC_ValCod();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uC_ValNombApe1 = new TrabajoFinal.UC_ValNombApe();
+            this.uC_ValidarMail1 = new TrabajoFinal.UC_ValidarMail();
             this.Boton_ModificarEvento = new System.Windows.Forms.Button();
             this.Boton_AgregarEvento = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.uC_ValNombApe1 = new TrabajoFinal.UC_ValNombApe();
-            this.uC_ValidarMail1 = new TrabajoFinal.UC_ValidarMail();
-            this.uC_ValCod1 = new TrabajoFinal.UC_ValCod();
             this.Boton_Cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_DeClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Eventos)).BeginInit();
@@ -210,6 +210,13 @@ namespace TrabajoFinal
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consulta de disponibilidad";
             // 
+            // uC_ValCod1
+            // 
+            this.uC_ValCod1.Location = new System.Drawing.Point(274, 111);
+            this.uC_ValCod1.Name = "uC_ValCod1";
+            this.uC_ValCod1.Size = new System.Drawing.Size(100, 20);
+            this.uC_ValCod1.TabIndex = 11;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.Boton_GuardarCambiosListaInv);
@@ -226,6 +233,20 @@ namespace TrabajoFinal
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Invitados";
+            // 
+            // uC_ValNombApe1
+            // 
+            this.uC_ValNombApe1.Location = new System.Drawing.Point(9, 36);
+            this.uC_ValNombApe1.Name = "uC_ValNombApe1";
+            this.uC_ValNombApe1.Size = new System.Drawing.Size(218, 20);
+            this.uC_ValNombApe1.TabIndex = 13;
+            // 
+            // uC_ValidarMail1
+            // 
+            this.uC_ValidarMail1.Location = new System.Drawing.Point(241, 36);
+            this.uC_ValidarMail1.Name = "uC_ValidarMail1";
+            this.uC_ValidarMail1.Size = new System.Drawing.Size(272, 20);
+            this.uC_ValidarMail1.TabIndex = 12;
             // 
             // Boton_ModificarEvento
             // 
@@ -259,27 +280,6 @@ namespace TrabajoFinal
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Acciones";
             // 
-            // uC_ValNombApe1
-            // 
-            this.uC_ValNombApe1.Location = new System.Drawing.Point(9, 36);
-            this.uC_ValNombApe1.Name = "uC_ValNombApe1";
-            this.uC_ValNombApe1.Size = new System.Drawing.Size(218, 20);
-            this.uC_ValNombApe1.TabIndex = 13;
-            // 
-            // uC_ValidarMail1
-            // 
-            this.uC_ValidarMail1.Location = new System.Drawing.Point(241, 36);
-            this.uC_ValidarMail1.Name = "uC_ValidarMail1";
-            this.uC_ValidarMail1.Size = new System.Drawing.Size(272, 20);
-            this.uC_ValidarMail1.TabIndex = 12;
-            // 
-            // uC_ValCod1
-            // 
-            this.uC_ValCod1.Location = new System.Drawing.Point(274, 111);
-            this.uC_ValCod1.Name = "uC_ValCod1";
-            this.uC_ValCod1.Size = new System.Drawing.Size(100, 20);
-            this.uC_ValCod1.TabIndex = 11;
-            // 
             // Boton_Cancelar
             // 
             this.Boton_Cancelar.Location = new System.Drawing.Point(468, 507);
@@ -294,6 +294,7 @@ namespace TrabajoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TrabajoFinal.Properties.Resources.BlueShade2;
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.Boton_Cancelar);
             this.Controls.Add(this.groupBox3);

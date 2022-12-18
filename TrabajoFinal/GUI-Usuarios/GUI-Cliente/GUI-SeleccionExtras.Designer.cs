@@ -29,36 +29,17 @@ namespace TrabajoFinal
         /// </summary>
         private void InitializeComponent()
         {
-            this.Boton_QuitarIng = new System.Windows.Forms.Button();
-            this.Boton_AgregarExtra = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_SeleccionExtras));
             this.GridView_ExtrasSelec = new System.Windows.Forms.DataGridView();
             this.GridView_TodosExtras = new System.Windows.Forms.DataGridView();
             this.Boton_Confirmar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Boton_QuitarIng = new System.Windows.Forms.Button();
+            this.Boton_AgregarExtra = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_ExtrasSelec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridView_TodosExtras)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Boton_QuitarIng
-            // 
-            this.Boton_QuitarIng.Location = new System.Drawing.Point(450, 238);
-            this.Boton_QuitarIng.Name = "Boton_QuitarIng";
-            this.Boton_QuitarIng.Size = new System.Drawing.Size(65, 40);
-            this.Boton_QuitarIng.TabIndex = 33;
-            this.Boton_QuitarIng.Text = "Quitar Extra";
-            this.Boton_QuitarIng.UseVisualStyleBackColor = true;
-            this.Boton_QuitarIng.Click += new System.EventHandler(this.Boton_QuitarExtras_Click);
-            // 
-            // Boton_AgregarExtra
-            // 
-            this.Boton_AgregarExtra.Location = new System.Drawing.Point(450, 193);
-            this.Boton_AgregarExtra.Name = "Boton_AgregarExtra";
-            this.Boton_AgregarExtra.Size = new System.Drawing.Size(65, 40);
-            this.Boton_AgregarExtra.TabIndex = 32;
-            this.Boton_AgregarExtra.Text = "Agregar Extra";
-            this.Boton_AgregarExtra.UseVisualStyleBackColor = true;
-            this.Boton_AgregarExtra.Click += new System.EventHandler(this.Boton_AgregarExtra_Click);
             // 
             // GridView_ExtrasSelec
             // 
@@ -107,10 +88,37 @@ namespace TrabajoFinal
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
             // 
+            // Boton_QuitarIng
+            // 
+            this.Boton_QuitarIng.BackgroundImage = global::TrabajoFinal.Properties.Resources.Izq;
+            this.Boton_QuitarIng.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Boton_QuitarIng.Location = new System.Drawing.Point(450, 303);
+            this.Boton_QuitarIng.Name = "Boton_QuitarIng";
+            this.Boton_QuitarIng.Size = new System.Drawing.Size(65, 70);
+            this.Boton_QuitarIng.TabIndex = 33;
+            this.Boton_QuitarIng.Text = "Quitar Extra";
+            this.Boton_QuitarIng.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Boton_QuitarIng.UseVisualStyleBackColor = true;
+            this.Boton_QuitarIng.Click += new System.EventHandler(this.Boton_QuitarExtras_Click);
+            // 
+            // Boton_AgregarExtra
+            // 
+            this.Boton_AgregarExtra.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Boton_AgregarExtra.BackgroundImage")));
+            this.Boton_AgregarExtra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Boton_AgregarExtra.Location = new System.Drawing.Point(450, 193);
+            this.Boton_AgregarExtra.Name = "Boton_AgregarExtra";
+            this.Boton_AgregarExtra.Size = new System.Drawing.Size(65, 70);
+            this.Boton_AgregarExtra.TabIndex = 32;
+            this.Boton_AgregarExtra.Text = "Agregar Extra";
+            this.Boton_AgregarExtra.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Boton_AgregarExtra.UseVisualStyleBackColor = true;
+            this.Boton_AgregarExtra.Click += new System.EventHandler(this.Boton_AgregarExtra_Click);
+            // 
             // GUI_SeleccionExtras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TrabajoFinal.Properties.Resources.BlueShade2;
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Boton_Confirmar);

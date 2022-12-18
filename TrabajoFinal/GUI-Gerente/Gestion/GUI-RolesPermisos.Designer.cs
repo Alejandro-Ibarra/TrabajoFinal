@@ -29,14 +29,13 @@ namespace TrabajoFinal
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_RolesPermisos));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Grilla_PermisosNoAsignados = new System.Windows.Forms.DataGridView();
             this.Grilla_PermisosAsignados = new System.Windows.Forms.DataGridView();
             this.Grilla_Roles = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.Boton_CrearRol = new System.Windows.Forms.Button();
             this.uC_ValCod1 = new TrabajoFinal.UC_ValCod();
             this.uC_ValNombApe1 = new TrabajoFinal.UC_ValNombApe();
@@ -44,6 +43,8 @@ namespace TrabajoFinal
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_PermisosNoAsignados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_PermisosAsignados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Roles)).BeginInit();
@@ -111,29 +112,6 @@ namespace TrabajoFinal
             this.label3.Size = new System.Drawing.Size(118, 13);
             this.label3.TabIndex = 28;
             this.label3.Text = "Permisos No Asignados";
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(299, 337);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 107);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Quitar Permisos";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(299, 220);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 86);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Agregar Permisos";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Boton_CrearRol
             // 
@@ -209,10 +187,37 @@ namespace TrabajoFinal
             this.groupBox2.Text = "Permisos del Rol";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // button2
+            // 
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Location = new System.Drawing.Point(299, 266);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(65, 70);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "Quitar Permisos";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::TrabajoFinal.Properties.Resources.Izq;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(299, 174);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(65, 70);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Agregar Permisos";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // GUI_RolesPermisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TrabajoFinal.Properties.Resources.BlueShade2;
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
