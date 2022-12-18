@@ -115,12 +115,13 @@ namespace TrabajoFinal
             // 
             // Boton_CrearRol
             // 
+            this.Boton_CrearRol.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_CrearRol.Location = new System.Drawing.Point(146, 44);
             this.Boton_CrearRol.Name = "Boton_CrearRol";
             this.Boton_CrearRol.Size = new System.Drawing.Size(69, 64);
             this.Boton_CrearRol.TabIndex = 29;
             this.Boton_CrearRol.Text = "Crear Nuevo Rol";
-            this.Boton_CrearRol.UseVisualStyleBackColor = true;
+            this.Boton_CrearRol.UseVisualStyleBackColor = false;
             this.Boton_CrearRol.Click += new System.EventHandler(this.Boton_CrearRol_Click);
             // 
             // uC_ValCod1

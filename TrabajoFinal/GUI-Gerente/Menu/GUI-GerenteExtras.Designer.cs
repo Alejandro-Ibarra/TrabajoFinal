@@ -112,32 +112,35 @@ namespace TrabajoFinal
             // 
             // Boton_Modificar
             // 
+            this.Boton_Modificar.BackColor = System.Drawing.Color.Linen;
             this.Boton_Modificar.Location = new System.Drawing.Point(21, 102);
             this.Boton_Modificar.Name = "Boton_Modificar";
             this.Boton_Modificar.Size = new System.Drawing.Size(75, 34);
             this.Boton_Modificar.TabIndex = 66;
             this.Boton_Modificar.Text = "Modificar";
-            this.Boton_Modificar.UseVisualStyleBackColor = true;
+            this.Boton_Modificar.UseVisualStyleBackColor = false;
             this.Boton_Modificar.Click += new System.EventHandler(this.Boton_Modificar_Click);
             // 
             // Boton_Baja
             // 
+            this.Boton_Baja.BackColor = System.Drawing.Color.LightYellow;
             this.Boton_Baja.Location = new System.Drawing.Point(21, 60);
             this.Boton_Baja.Name = "Boton_Baja";
             this.Boton_Baja.Size = new System.Drawing.Size(75, 34);
             this.Boton_Baja.TabIndex = 65;
             this.Boton_Baja.Text = "Eliminar";
-            this.Boton_Baja.UseVisualStyleBackColor = true;
+            this.Boton_Baja.UseVisualStyleBackColor = false;
             this.Boton_Baja.Click += new System.EventHandler(this.Boton_Baja_Click);
             // 
             // Boton_Alta
             // 
+            this.Boton_Alta.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_Alta.Location = new System.Drawing.Point(21, 19);
             this.Boton_Alta.Name = "Boton_Alta";
             this.Boton_Alta.Size = new System.Drawing.Size(75, 34);
             this.Boton_Alta.TabIndex = 64;
             this.Boton_Alta.Text = "Agregar";
-            this.Boton_Alta.UseVisualStyleBackColor = true;
+            this.Boton_Alta.UseVisualStyleBackColor = false;
             this.Boton_Alta.Click += new System.EventHandler(this.Boton_Alta_Click);
             // 
             // Grilla_Ingredientes
@@ -195,6 +198,7 @@ namespace TrabajoFinal
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(174)))), ((int)(((byte)(228)))));
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Controls.Add(this.ComboBox_Tipo);
             this.groupBox2.Controls.Add(this.label4);
@@ -213,6 +217,7 @@ namespace TrabajoFinal
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(174)))), ((int)(((byte)(228)))));
             this.groupBox3.Controls.Add(this.Boton_Modificar);
             this.groupBox3.Controls.Add(this.Boton_Baja);
             this.groupBox3.Controls.Add(this.Boton_Alta);

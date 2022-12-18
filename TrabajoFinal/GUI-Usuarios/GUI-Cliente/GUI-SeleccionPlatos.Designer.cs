@@ -99,22 +99,24 @@ namespace TrabajoFinal
             // 
             // Boton_Sugerir
             // 
+            this.Boton_Sugerir.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_Sugerir.Location = new System.Drawing.Point(407, 204);
             this.Boton_Sugerir.Name = "Boton_Sugerir";
             this.Boton_Sugerir.Size = new System.Drawing.Size(146, 23);
             this.Boton_Sugerir.TabIndex = 32;
             this.Boton_Sugerir.Text = "Sugerir";
-            this.Boton_Sugerir.UseVisualStyleBackColor = true;
+            this.Boton_Sugerir.UseVisualStyleBackColor = false;
             this.Boton_Sugerir.Click += new System.EventHandler(this.Boton_Sugerir_Click);
             // 
             // Boton_ConfirmarPedido
             // 
+            this.Boton_ConfirmarPedido.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_ConfirmarPedido.Location = new System.Drawing.Point(596, 462);
             this.Boton_ConfirmarPedido.Name = "Boton_ConfirmarPedido";
             this.Boton_ConfirmarPedido.Size = new System.Drawing.Size(82, 65);
             this.Boton_ConfirmarPedido.TabIndex = 33;
             this.Boton_ConfirmarPedido.Text = "Confirmar pedido";
-            this.Boton_ConfirmarPedido.UseVisualStyleBackColor = true;
+            this.Boton_ConfirmarPedido.UseVisualStyleBackColor = false;
             this.Boton_ConfirmarPedido.Click += new System.EventHandler(this.Boton_ConfirmarPedido_Click);
             // 
             // textBox1

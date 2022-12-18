@@ -64,12 +64,13 @@ namespace TrabajoFinal
             // 
             // Boton_Alta
             // 
+            this.Boton_Alta.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_Alta.Location = new System.Drawing.Point(20, 23);
             this.Boton_Alta.Name = "Boton_Alta";
             this.Boton_Alta.Size = new System.Drawing.Size(70, 35);
             this.Boton_Alta.TabIndex = 0;
             this.Boton_Alta.Text = "Agregar";
-            this.Boton_Alta.UseVisualStyleBackColor = true;
+            this.Boton_Alta.UseVisualStyleBackColor = false;
             this.Boton_Alta.Click += new System.EventHandler(this.Boton_Alta_Click);
             // 
             // ComboBox_TipoPlato
@@ -93,6 +94,8 @@ namespace TrabajoFinal
             // Label_TipoPlato
             // 
             this.Label_TipoPlato.AutoSize = true;
+            this.Label_TipoPlato.BackColor = System.Drawing.Color.Transparent;
+            this.Label_TipoPlato.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Label_TipoPlato.Location = new System.Drawing.Point(20, 237);
             this.Label_TipoPlato.Name = "Label_TipoPlato";
             this.Label_TipoPlato.Size = new System.Drawing.Size(69, 13);
@@ -103,6 +106,8 @@ namespace TrabajoFinal
             // Label_ClasePlato
             // 
             this.Label_ClasePlato.AutoSize = true;
+            this.Label_ClasePlato.BackColor = System.Drawing.Color.Transparent;
+            this.Label_ClasePlato.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Label_ClasePlato.Location = new System.Drawing.Point(232, 237);
             this.Label_ClasePlato.Name = "Label_ClasePlato";
             this.Label_ClasePlato.Size = new System.Drawing.Size(74, 13);
@@ -140,18 +145,21 @@ namespace TrabajoFinal
             // 
             // Boton_Guardar
             // 
+            this.Boton_Guardar.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_Guardar.Location = new System.Drawing.Point(769, 502);
             this.Boton_Guardar.Name = "Boton_Guardar";
             this.Boton_Guardar.Size = new System.Drawing.Size(88, 47);
             this.Boton_Guardar.TabIndex = 7;
             this.Boton_Guardar.Text = "Confirmar datos del plato";
-            this.Boton_Guardar.UseVisualStyleBackColor = true;
+            this.Boton_Guardar.UseVisualStyleBackColor = false;
             this.Boton_Guardar.Visible = false;
             this.Boton_Guardar.Click += new System.EventHandler(this.Button_Guardar_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(24, 294);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
@@ -162,6 +170,8 @@ namespace TrabajoFinal
             // label_GrillaSeleccionados
             // 
             this.label_GrillaSeleccionados.AutoSize = true;
+            this.label_GrillaSeleccionados.BackColor = System.Drawing.Color.Transparent;
+            this.label_GrillaSeleccionados.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label_GrillaSeleccionados.Location = new System.Drawing.Point(300, 293);
             this.label_GrillaSeleccionados.Name = "label_GrillaSeleccionados";
             this.label_GrillaSeleccionados.Size = new System.Drawing.Size(136, 13);
@@ -254,22 +264,24 @@ namespace TrabajoFinal
             // 
             // Boton_ModificarPlatos
             // 
+            this.Boton_ModificarPlatos.BackColor = System.Drawing.Color.LightYellow;
             this.Boton_ModificarPlatos.Location = new System.Drawing.Point(22, 64);
             this.Boton_ModificarPlatos.Name = "Boton_ModificarPlatos";
             this.Boton_ModificarPlatos.Size = new System.Drawing.Size(68, 34);
             this.Boton_ModificarPlatos.TabIndex = 21;
             this.Boton_ModificarPlatos.Text = "Modificar";
-            this.Boton_ModificarPlatos.UseVisualStyleBackColor = true;
+            this.Boton_ModificarPlatos.UseVisualStyleBackColor = false;
             this.Boton_ModificarPlatos.Click += new System.EventHandler(this.Boton_ModificarPlatos_Click);
             // 
             // Boton_EliminarPlato
             // 
+            this.Boton_EliminarPlato.BackColor = System.Drawing.Color.Linen;
             this.Boton_EliminarPlato.Location = new System.Drawing.Point(22, 104);
             this.Boton_EliminarPlato.Name = "Boton_EliminarPlato";
             this.Boton_EliminarPlato.Size = new System.Drawing.Size(69, 34);
             this.Boton_EliminarPlato.TabIndex = 22;
             this.Boton_EliminarPlato.Text = "Eliminar";
-            this.Boton_EliminarPlato.UseVisualStyleBackColor = true;
+            this.Boton_EliminarPlato.UseVisualStyleBackColor = false;
             this.Boton_EliminarPlato.Click += new System.EventHandler(this.Boton_EliminarPlato_Click);
             // 
             // RadioButton_Activo
@@ -311,6 +323,7 @@ namespace TrabajoFinal
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(174)))), ((int)(((byte)(228)))));
             this.groupBox1.Controls.Add(this.RadioButton_Inactivo);
             this.groupBox1.Controls.Add(this.RadioButton_Activo);
             this.groupBox1.Location = new System.Drawing.Point(784, 255);
@@ -323,6 +336,7 @@ namespace TrabajoFinal
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(174)))), ((int)(((byte)(228)))));
             this.groupBox2.Controls.Add(this.Boton_EliminarPlato);
             this.groupBox2.Controls.Add(this.Boton_ModificarPlatos);
             this.groupBox2.Controls.Add(this.Boton_Alta);
@@ -335,12 +349,13 @@ namespace TrabajoFinal
             // 
             // Boton_Cancelar
             // 
+            this.Boton_Cancelar.BackColor = System.Drawing.Color.Linen;
             this.Boton_Cancelar.Location = new System.Drawing.Point(867, 502);
             this.Boton_Cancelar.Name = "Boton_Cancelar";
             this.Boton_Cancelar.Size = new System.Drawing.Size(88, 47);
             this.Boton_Cancelar.TabIndex = 28;
             this.Boton_Cancelar.Text = "Cancelar";
-            this.Boton_Cancelar.UseVisualStyleBackColor = true;
+            this.Boton_Cancelar.UseVisualStyleBackColor = false;
             this.Boton_Cancelar.Visible = false;
             this.Boton_Cancelar.Click += new System.EventHandler(this.Boton_Cancelar_Click);
             // 

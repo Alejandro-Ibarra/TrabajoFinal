@@ -77,6 +77,7 @@ namespace TrabajoFinal
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.Boton_QuitarBebida);
             this.groupBox1.Controls.Add(this.Boton_AgregarBebida);
             this.groupBox1.Controls.Add(this.GridView_BebidasSelec);

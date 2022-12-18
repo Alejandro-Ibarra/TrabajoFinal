@@ -104,32 +104,35 @@ namespace TrabajoFinal
             // 
             // Boton_AgregarInvitados
             // 
+            this.Boton_AgregarInvitados.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_AgregarInvitados.Location = new System.Drawing.Point(118, 67);
             this.Boton_AgregarInvitados.Name = "Boton_AgregarInvitados";
             this.Boton_AgregarInvitados.Size = new System.Drawing.Size(109, 24);
             this.Boton_AgregarInvitados.TabIndex = 9;
             this.Boton_AgregarInvitados.Text = "Agregar Invitados";
-            this.Boton_AgregarInvitados.UseVisualStyleBackColor = true;
+            this.Boton_AgregarInvitados.UseVisualStyleBackColor = false;
             this.Boton_AgregarInvitados.Click += new System.EventHandler(this.Boton_AgregarInvitados_Click);
             // 
             // Boton_VerificarDisp
             // 
+            this.Boton_VerificarDisp.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_VerificarDisp.Location = new System.Drawing.Point(274, 151);
             this.Boton_VerificarDisp.Name = "Boton_VerificarDisp";
             this.Boton_VerificarDisp.Size = new System.Drawing.Size(119, 39);
             this.Boton_VerificarDisp.TabIndex = 10;
             this.Boton_VerificarDisp.Text = "Verificar disponibilidad";
-            this.Boton_VerificarDisp.UseVisualStyleBackColor = true;
+            this.Boton_VerificarDisp.UseVisualStyleBackColor = false;
             this.Boton_VerificarDisp.Click += new System.EventHandler(this.Boton_VerificarDisp_Click);
             // 
             // Boton_ConfirmarEvento
             // 
+            this.Boton_ConfirmarEvento.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_ConfirmarEvento.Location = new System.Drawing.Point(874, 507);
             this.Boton_ConfirmarEvento.Name = "Boton_ConfirmarEvento";
             this.Boton_ConfirmarEvento.Size = new System.Drawing.Size(98, 42);
             this.Boton_ConfirmarEvento.TabIndex = 14;
             this.Boton_ConfirmarEvento.Text = "Confirmar evento";
-            this.Boton_ConfirmarEvento.UseVisualStyleBackColor = true;
+            this.Boton_ConfirmarEvento.UseVisualStyleBackColor = false;
             this.Boton_ConfirmarEvento.Click += new System.EventHandler(this.Boton_ConfirmarEvento_Click);
             // 
             // Grilla_DeClientes
@@ -166,37 +169,41 @@ namespace TrabajoFinal
             // 
             // Boton_EliminarEvento
             // 
+            this.Boton_EliminarEvento.BackColor = System.Drawing.Color.Linen;
             this.Boton_EliminarEvento.Location = new System.Drawing.Point(11, 117);
             this.Boton_EliminarEvento.Name = "Boton_EliminarEvento";
             this.Boton_EliminarEvento.Size = new System.Drawing.Size(96, 42);
             this.Boton_EliminarEvento.TabIndex = 19;
             this.Boton_EliminarEvento.Text = "Eliminar";
-            this.Boton_EliminarEvento.UseVisualStyleBackColor = true;
+            this.Boton_EliminarEvento.UseVisualStyleBackColor = false;
             this.Boton_EliminarEvento.Click += new System.EventHandler(this.Boton_EliminarEvento_Click);
             // 
             // Boton_ModificarInvitados
             // 
+            this.Boton_ModificarInvitados.BackColor = System.Drawing.Color.LightYellow;
             this.Boton_ModificarInvitados.Location = new System.Drawing.Point(241, 67);
             this.Boton_ModificarInvitados.Name = "Boton_ModificarInvitados";
             this.Boton_ModificarInvitados.Size = new System.Drawing.Size(107, 24);
             this.Boton_ModificarInvitados.TabIndex = 20;
             this.Boton_ModificarInvitados.Text = "Modificar Invitados";
-            this.Boton_ModificarInvitados.UseVisualStyleBackColor = true;
+            this.Boton_ModificarInvitados.UseVisualStyleBackColor = false;
             this.Boton_ModificarInvitados.Click += new System.EventHandler(this.Boton_ModificarInvitados_Click);
             // 
             // Boton_GuardarCambiosListaInv
             // 
+            this.Boton_GuardarCambiosListaInv.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_GuardarCambiosListaInv.Enabled = false;
             this.Boton_GuardarCambiosListaInv.Location = new System.Drawing.Point(9, 238);
             this.Boton_GuardarCambiosListaInv.Name = "Boton_GuardarCambiosListaInv";
             this.Boton_GuardarCambiosListaInv.Size = new System.Drawing.Size(121, 36);
             this.Boton_GuardarCambiosListaInv.TabIndex = 23;
             this.Boton_GuardarCambiosListaInv.Text = "Guardar cambios en lista de invitados";
-            this.Boton_GuardarCambiosListaInv.UseVisualStyleBackColor = true;
+            this.Boton_GuardarCambiosListaInv.UseVisualStyleBackColor = false;
             this.Boton_GuardarCambiosListaInv.Click += new System.EventHandler(this.Boton_GuardarCambiosListaInv_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(174)))), ((int)(((byte)(228)))));
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.uC_ValCod1);
             this.groupBox1.Controls.Add(this.Boton_VerificarDisp);
@@ -219,6 +226,7 @@ namespace TrabajoFinal
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(174)))), ((int)(((byte)(228)))));
             this.groupBox2.Controls.Add(this.Boton_GuardarCambiosListaInv);
             this.groupBox2.Controls.Add(this.Boton_ModificarInvitados);
             this.groupBox2.Controls.Add(this.Grilla_DeClientes);
@@ -250,26 +258,29 @@ namespace TrabajoFinal
             // 
             // Boton_ModificarEvento
             // 
+            this.Boton_ModificarEvento.BackColor = System.Drawing.Color.LightYellow;
             this.Boton_ModificarEvento.Location = new System.Drawing.Point(11, 69);
             this.Boton_ModificarEvento.Name = "Boton_ModificarEvento";
             this.Boton_ModificarEvento.Size = new System.Drawing.Size(96, 42);
             this.Boton_ModificarEvento.TabIndex = 26;
             this.Boton_ModificarEvento.Text = "Modificar";
-            this.Boton_ModificarEvento.UseVisualStyleBackColor = true;
+            this.Boton_ModificarEvento.UseVisualStyleBackColor = false;
             this.Boton_ModificarEvento.Click += new System.EventHandler(this.Boton_ModificarEvento_Click);
             // 
             // Boton_AgregarEvento
             // 
+            this.Boton_AgregarEvento.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_AgregarEvento.Location = new System.Drawing.Point(11, 21);
             this.Boton_AgregarEvento.Name = "Boton_AgregarEvento";
             this.Boton_AgregarEvento.Size = new System.Drawing.Size(96, 42);
             this.Boton_AgregarEvento.TabIndex = 27;
             this.Boton_AgregarEvento.Text = "Agregar";
-            this.Boton_AgregarEvento.UseVisualStyleBackColor = true;
+            this.Boton_AgregarEvento.UseVisualStyleBackColor = false;
             this.Boton_AgregarEvento.Click += new System.EventHandler(this.Boton_AgregarEvento_Click);
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(174)))), ((int)(((byte)(228)))));
             this.groupBox3.Controls.Add(this.Boton_AgregarEvento);
             this.groupBox3.Controls.Add(this.Boton_ModificarEvento);
             this.groupBox3.Controls.Add(this.Boton_EliminarEvento);
@@ -282,12 +293,13 @@ namespace TrabajoFinal
             // 
             // Boton_Cancelar
             // 
+            this.Boton_Cancelar.BackColor = System.Drawing.Color.Linen;
             this.Boton_Cancelar.Location = new System.Drawing.Point(468, 507);
             this.Boton_Cancelar.Name = "Boton_Cancelar";
             this.Boton_Cancelar.Size = new System.Drawing.Size(98, 42);
             this.Boton_Cancelar.TabIndex = 29;
             this.Boton_Cancelar.Text = "Cancelar";
-            this.Boton_Cancelar.UseVisualStyleBackColor = true;
+            this.Boton_Cancelar.UseVisualStyleBackColor = false;
             this.Boton_Cancelar.Click += new System.EventHandler(this.Boton_Cancelar_Click);
             // 
             // GUI_Gerente_Eventos

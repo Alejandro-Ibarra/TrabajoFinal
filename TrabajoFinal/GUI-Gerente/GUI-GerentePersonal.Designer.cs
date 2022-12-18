@@ -137,32 +137,35 @@ namespace TrabajoFinal
             // 
             // Boton_Alta
             // 
+            this.Boton_Alta.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_Alta.Location = new System.Drawing.Point(13, 21);
             this.Boton_Alta.Name = "Boton_Alta";
             this.Boton_Alta.Size = new System.Drawing.Size(75, 37);
             this.Boton_Alta.TabIndex = 15;
             this.Boton_Alta.Text = "Agregar";
-            this.Boton_Alta.UseVisualStyleBackColor = true;
+            this.Boton_Alta.UseVisualStyleBackColor = false;
             this.Boton_Alta.Click += new System.EventHandler(this.Boton_Alta_Click);
             // 
             // Boton_Baja
             // 
+            this.Boton_Baja.BackColor = System.Drawing.Color.Linen;
             this.Boton_Baja.Location = new System.Drawing.Point(13, 105);
             this.Boton_Baja.Name = "Boton_Baja";
             this.Boton_Baja.Size = new System.Drawing.Size(75, 35);
             this.Boton_Baja.TabIndex = 16;
             this.Boton_Baja.Text = "Eliminar";
-            this.Boton_Baja.UseVisualStyleBackColor = true;
+            this.Boton_Baja.UseVisualStyleBackColor = false;
             this.Boton_Baja.Click += new System.EventHandler(this.Boton_Baja_Click);
             // 
             // Boton_Modificar
             // 
+            this.Boton_Modificar.BackColor = System.Drawing.Color.LightYellow;
             this.Boton_Modificar.Location = new System.Drawing.Point(13, 64);
             this.Boton_Modificar.Name = "Boton_Modificar";
             this.Boton_Modificar.Size = new System.Drawing.Size(75, 35);
             this.Boton_Modificar.TabIndex = 17;
             this.Boton_Modificar.Text = "Modificar";
-            this.Boton_Modificar.UseVisualStyleBackColor = true;
+            this.Boton_Modificar.UseVisualStyleBackColor = false;
             this.Boton_Modificar.Click += new System.EventHandler(this.Boton_Modificar_Click);
             // 
             // GroupBox_Turno
@@ -221,22 +224,24 @@ namespace TrabajoFinal
             // 
             // Boton_Agregar
             // 
+            this.Boton_Agregar.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_Agregar.Location = new System.Drawing.Point(265, 70);
             this.Boton_Agregar.Name = "Boton_Agregar";
             this.Boton_Agregar.Size = new System.Drawing.Size(65, 36);
             this.Boton_Agregar.TabIndex = 21;
             this.Boton_Agregar.Text = "Agregar Roles";
-            this.Boton_Agregar.UseVisualStyleBackColor = true;
+            this.Boton_Agregar.UseVisualStyleBackColor = false;
             this.Boton_Agregar.Click += new System.EventHandler(this.Boton_Agregar_Click);
             // 
             // Boton_Quitar
             // 
+            this.Boton_Quitar.BackColor = System.Drawing.Color.Linen;
             this.Boton_Quitar.Location = new System.Drawing.Point(265, 112);
             this.Boton_Quitar.Name = "Boton_Quitar";
             this.Boton_Quitar.Size = new System.Drawing.Size(65, 36);
             this.Boton_Quitar.TabIndex = 22;
             this.Boton_Quitar.Text = "Quitar Roles";
-            this.Boton_Quitar.UseVisualStyleBackColor = true;
+            this.Boton_Quitar.UseVisualStyleBackColor = false;
             this.Boton_Quitar.Click += new System.EventHandler(this.Boton_Quitar_Click);
             // 
             // label6
@@ -342,6 +347,7 @@ namespace TrabajoFinal
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(174)))), ((int)(((byte)(228)))));
             this.groupBox2.Controls.Add(this.Boton_Modificar);
             this.groupBox2.Controls.Add(this.Boton_Baja);
             this.groupBox2.Controls.Add(this.Boton_Alta);
@@ -354,6 +360,7 @@ namespace TrabajoFinal
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(174)))), ((int)(((byte)(228)))));
             this.groupBox3.Controls.Add(this.Boton_MostrarPsw);
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.GroupBox_Turno);
@@ -374,6 +381,7 @@ namespace TrabajoFinal
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(174)))), ((int)(((byte)(228)))));
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.Boton_Quitar);

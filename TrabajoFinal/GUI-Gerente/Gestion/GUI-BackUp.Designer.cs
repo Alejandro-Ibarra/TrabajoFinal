@@ -65,22 +65,24 @@ namespace TrabajoFinal
             // 
             // Boton_BackUp
             // 
+            this.Boton_BackUp.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_BackUp.Location = new System.Drawing.Point(14, 29);
             this.Boton_BackUp.Name = "Boton_BackUp";
             this.Boton_BackUp.Size = new System.Drawing.Size(90, 53);
             this.Boton_BackUp.TabIndex = 1;
             this.Boton_BackUp.Text = "Hacer Backup";
-            this.Boton_BackUp.UseVisualStyleBackColor = true;
+            this.Boton_BackUp.UseVisualStyleBackColor = false;
             this.Boton_BackUp.Click += new System.EventHandler(this.Boton_BackUp_Click);
             // 
             // Boton_Restore
             // 
+            this.Boton_Restore.BackColor = System.Drawing.Color.Linen;
             this.Boton_Restore.Location = new System.Drawing.Point(14, 94);
             this.Boton_Restore.Name = "Boton_Restore";
             this.Boton_Restore.Size = new System.Drawing.Size(90, 53);
             this.Boton_Restore.TabIndex = 2;
             this.Boton_Restore.Text = "Recuperar Backup Seleccionado";
-            this.Boton_Restore.UseVisualStyleBackColor = true;
+            this.Boton_Restore.UseVisualStyleBackColor = false;
             this.Boton_Restore.Click += new System.EventHandler(this.Boton_Restore_Click);
             // 
             // TextBox_Usuario
