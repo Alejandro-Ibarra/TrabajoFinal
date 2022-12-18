@@ -1,0 +1,84 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">All</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>baf57857-4cb9-47cc-ad94-155497ff2539</ProjectGuid>
+    <OutputType>msi</OutputType>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>Restoapp.aip</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <IsWindowsApplication>True</IsWindowsApplication>
+    <AssemblyName>Restoapp</AssemblyName>
+    <Name>Restoapp</Name>
+    <RootNamespace>Restoapp</RootNamespace>
+    <LoadFromTemplate>
+    </LoadFromTemplate>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'DefaultBuild' ">
+    <OutputPath>C:\Users\ibarr\Desktop\Trabajo final\Instalador</OutputPath>
+    <PackageName>Restoapp2</PackageName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Restoapp.aip">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Abstraction\Abstraction.csproj">
+      <Name>Abstraction</Name>
+      <Project>{09535fe8-59c7-4c1c-8f37-c269810ff089}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput;References;ContentOutput;DocumentationOutput;LocalizedResourcesOutput;SymbolsOutput;ComTypeLibraryOutput</OutputsToImport>
+    </ProjectReference>
+    <ProjectReference Include="..\BussinesEntity\BussinesEntity.csproj">
+      <Name>BussinesEntity</Name>
+      <Project>{1953b4e7-abe1-4bb3-8d4e-a6a7705d01d1}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput;References;ContentOutput;DocumentationOutput;LocalizedResourcesOutput;SymbolsOutput;ComTypeLibraryOutput</OutputsToImport>
+    </ProjectReference>
+    <ProjectReference Include="..\BussinesLogic\BussinesLogic.csproj">
+      <Name>BussinesLogic</Name>
+      <Project>{e8d5943b-3c20-4100-8d83-2c4b6ccb963f}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput;References;ContentOutput;DocumentationOutput;LocalizedResourcesOutput;SymbolsOutput;ComTypeLibraryOutput</OutputsToImport>
+    </ProjectReference>
+    <ProjectReference Include="..\Mapper\Mapper.csproj">
+      <Name>Mapper</Name>
+      <Project>{f173db1f-a5d4-4921-a0f3-22f4ea0e8ac8}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput;References;ContentOutput;DocumentationOutput;LocalizedResourcesOutput;SymbolsOutput;ComTypeLibraryOutput</OutputsToImport>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceEntity\ServiceEntity.csproj">
+      <Name>ServiceEntity</Name>
+      <Project>{a03d6db3-743b-413f-8d2e-1ffab00675bd}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput;References;ContentOutput;DocumentationOutput;LocalizedResourcesOutput;SymbolsOutput;ComTypeLibraryOutput</OutputsToImport>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceLogic\ServiceLogic.csproj">
+      <Name>ServiceLogic</Name>
+      <Project>{cf6288c8-9def-447f-9c28-ec42120b9807}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput;References;ContentOutput;DocumentationOutput;LocalizedResourcesOutput;SymbolsOutput;ComTypeLibraryOutput</OutputsToImport>
+    </ProjectReference>
+    <ProjectReference Include="..\TrabajoFinal\GUI.csproj">
+      <Name>GUI</Name>
+      <Project>{5c647036-6a5a-4e6f-8a2d-132a20749e82}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput;References;ContentOutput;DocumentationOutput;LocalizedResourcesOutput;SymbolsOutput;ComTypeLibraryOutput</OutputsToImport>
+    </ProjectReference>
+  </ItemGroup>
+  <Target Name="Build">
+    <Error Text="This project requires Advanced Installer tool. Please download it from https://www.advancedinstaller.com/download.html" />
+  </Target>
+  <Target Name="Rebuild">
+    <Error Text="This project requires Advanced Installer tool. Please download it from https://www.advancedinstaller.com/download.html" />
+  </Target>
+  <Target Name="Clean">
+  </Target>
+  <Target Name="ResolveAssemblyReferences">
+  </Target>
+  <Import Condition="'$(AdvancedInstallerMSBuildTargets)' != ''" Project="$(AdvancedInstallerMSBuildTargets)\AdvInstExtTasks.Targets" />
+  <Import Condition="('$(AdvancedInstallerMSBuildTargets)' == '') And (Exists('$(MSBuildExtensionsPath32)\Caphyon\Advanced Installer\AdvInstExtTasks.Targets'))" Project="$(MSBuildExtensionsPath32)\Caphyon\Advanced Installer\AdvInstExtTasks.Targets" />
+</Project>

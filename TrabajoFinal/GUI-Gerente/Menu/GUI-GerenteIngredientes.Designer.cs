@@ -41,24 +41,29 @@ namespace TrabajoFinal
             this.Grilla_Ingredientes = new System.Windows.Forms.DataGridView();
             this.RadioButton_Si = new System.Windows.Forms.RadioButton();
             this.RadioButton_No = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
             this.ComboBox_Tipo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Ingredientes)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // ComboBox_Proveedor
             // 
             this.ComboBox_Proveedor.FormattingEnabled = true;
-            this.ComboBox_Proveedor.Location = new System.Drawing.Point(66, 165);
+            this.ComboBox_Proveedor.Location = new System.Drawing.Point(281, 40);
             this.ComboBox_Proveedor.Name = "ComboBox_Proveedor";
-            this.ComboBox_Proveedor.Size = new System.Drawing.Size(121, 21);
+            this.ComboBox_Proveedor.Size = new System.Drawing.Size(183, 21);
             this.ComboBox_Proveedor.TabIndex = 55;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(63, 133);
+            this.label6.Location = new System.Drawing.Point(278, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 54;
@@ -66,7 +71,7 @@ namespace TrabajoFinal
             // 
             // UC_ValStock
             // 
-            this.UC_ValStock.Location = new System.Drawing.Point(204, 80);
+            this.UC_ValStock.Location = new System.Drawing.Point(212, 92);
             this.UC_ValStock.Name = "UC_ValStock";
             this.UC_ValStock.Size = new System.Drawing.Size(100, 20);
             this.UC_ValStock.TabIndex = 49;
@@ -74,7 +79,7 @@ namespace TrabajoFinal
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(201, 48);
+            this.label1.Location = new System.Drawing.Point(209, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 46;
@@ -83,7 +88,7 @@ namespace TrabajoFinal
             // Nombre
             // 
             this.Nombre.AutoSize = true;
-            this.Nombre.Location = new System.Drawing.Point(66, 49);
+            this.Nombre.Location = new System.Drawing.Point(4, 23);
             this.Nombre.Name = "Nombre";
             this.Nombre.Size = new System.Drawing.Size(44, 13);
             this.Nombre.TabIndex = 45;
@@ -91,16 +96,16 @@ namespace TrabajoFinal
             // 
             // UC_ValNomb
             // 
-            this.UC_ValNomb.Location = new System.Drawing.Point(69, 81);
+            this.UC_ValNomb.Location = new System.Drawing.Point(7, 41);
             this.UC_ValNomb.Name = "UC_ValNomb";
-            this.UC_ValNomb.Size = new System.Drawing.Size(100, 20);
+            this.UC_ValNomb.Size = new System.Drawing.Size(243, 20);
             this.UC_ValNomb.TabIndex = 44;
             // 
             // Boton_Modificar
             // 
-            this.Boton_Modificar.Location = new System.Drawing.Point(397, 237);
+            this.Boton_Modificar.Location = new System.Drawing.Point(19, 108);
             this.Boton_Modificar.Name = "Boton_Modificar";
-            this.Boton_Modificar.Size = new System.Drawing.Size(75, 23);
+            this.Boton_Modificar.Size = new System.Drawing.Size(75, 36);
             this.Boton_Modificar.TabIndex = 43;
             this.Boton_Modificar.Text = "Modificar";
             this.Boton_Modificar.UseVisualStyleBackColor = true;
@@ -108,21 +113,21 @@ namespace TrabajoFinal
             // 
             // Boton_Baja
             // 
-            this.Boton_Baja.Location = new System.Drawing.Point(247, 237);
+            this.Boton_Baja.Location = new System.Drawing.Point(19, 65);
             this.Boton_Baja.Name = "Boton_Baja";
-            this.Boton_Baja.Size = new System.Drawing.Size(75, 23);
+            this.Boton_Baja.Size = new System.Drawing.Size(75, 36);
             this.Boton_Baja.TabIndex = 42;
-            this.Boton_Baja.Text = "Baja";
+            this.Boton_Baja.Text = "Eliminar";
             this.Boton_Baja.UseVisualStyleBackColor = true;
             this.Boton_Baja.Click += new System.EventHandler(this.Boton_Baja_Click);
             // 
             // Boton_Alta
             // 
-            this.Boton_Alta.Location = new System.Drawing.Point(66, 237);
+            this.Boton_Alta.Location = new System.Drawing.Point(19, 21);
             this.Boton_Alta.Name = "Boton_Alta";
-            this.Boton_Alta.Size = new System.Drawing.Size(75, 23);
+            this.Boton_Alta.Size = new System.Drawing.Size(75, 36);
             this.Boton_Alta.TabIndex = 41;
-            this.Boton_Alta.Text = "Alta";
+            this.Boton_Alta.Text = "Agregar";
             this.Boton_Alta.UseVisualStyleBackColor = true;
             this.Boton_Alta.Click += new System.EventHandler(this.Boton_Alta_Click);
             // 
@@ -130,10 +135,10 @@ namespace TrabajoFinal
             // 
             this.Grilla_Ingredientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grilla_Ingredientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla_Ingredientes.Location = new System.Drawing.Point(12, 296);
+            this.Grilla_Ingredientes.Location = new System.Drawing.Point(12, 23);
             this.Grilla_Ingredientes.Name = "Grilla_Ingredientes";
             this.Grilla_Ingredientes.ReadOnly = true;
-            this.Grilla_Ingredientes.Size = new System.Drawing.Size(646, 231);
+            this.Grilla_Ingredientes.Size = new System.Drawing.Size(948, 287);
             this.Grilla_Ingredientes.TabIndex = 40;
             this.Grilla_Ingredientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_Ingredientes_MouseClick);
             // 
@@ -141,7 +146,7 @@ namespace TrabajoFinal
             // 
             this.RadioButton_Si.AutoSize = true;
             this.RadioButton_Si.Checked = true;
-            this.RadioButton_Si.Location = new System.Drawing.Point(357, 165);
+            this.RadioButton_Si.Location = new System.Drawing.Point(13, 19);
             this.RadioButton_Si.Name = "RadioButton_Si";
             this.RadioButton_Si.Size = new System.Drawing.Size(34, 17);
             this.RadioButton_Si.TabIndex = 58;
@@ -152,66 +157,90 @@ namespace TrabajoFinal
             // RadioButton_No
             // 
             this.RadioButton_No.AutoSize = true;
-            this.RadioButton_No.Location = new System.Drawing.Point(397, 165);
+            this.RadioButton_No.Location = new System.Drawing.Point(13, 43);
             this.RadioButton_No.Name = "RadioButton_No";
             this.RadioButton_No.Size = new System.Drawing.Size(41, 17);
             this.RadioButton_No.TabIndex = 59;
             this.RadioButton_No.Text = "NO";
             this.RadioButton_No.UseVisualStyleBackColor = true;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(354, 134);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
-            this.label3.TabIndex = 60;
-            this.label3.Text = "Refrigeracion";
-            // 
             // ComboBox_Tipo
             // 
             this.ComboBox_Tipo.FormattingEnabled = true;
-            this.ComboBox_Tipo.Location = new System.Drawing.Point(222, 165);
+            this.ComboBox_Tipo.Location = new System.Drawing.Point(7, 94);
             this.ComboBox_Tipo.Name = "ComboBox_Tipo";
-            this.ComboBox_Tipo.Size = new System.Drawing.Size(121, 21);
+            this.ComboBox_Tipo.Size = new System.Drawing.Size(167, 21);
             this.ComboBox_Tipo.TabIndex = 62;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(219, 133);
+            this.label4.Location = new System.Drawing.Point(4, 76);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 61;
             this.label4.Text = "Tipo";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.RadioButton_No);
+            this.groupBox1.Controls.Add(this.RadioButton_Si);
+            this.groupBox1.Location = new System.Drawing.Point(354, 76);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(93, 66);
+            this.groupBox1.TabIndex = 63;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Refrigeración";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.groupBox1);
+            this.groupBox2.Controls.Add(this.ComboBox_Tipo);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.ComboBox_Proveedor);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.UC_ValStock);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.Nombre);
+            this.groupBox2.Controls.Add(this.UC_ValNomb);
+            this.groupBox2.Location = new System.Drawing.Point(26, 371);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(476, 156);
+            this.groupBox2.TabIndex = 64;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Datos del Ingrediente";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.Boton_Modificar);
+            this.groupBox3.Controls.Add(this.Boton_Baja);
+            this.groupBox3.Controls.Add(this.Boton_Alta);
+            this.groupBox3.Location = new System.Drawing.Point(533, 371);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(114, 156);
+            this.groupBox3.TabIndex = 65;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Acciones";
             // 
             // GUI_Gerente_Ingredientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
-            this.Controls.Add(this.ComboBox_Tipo);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.RadioButton_No);
-            this.Controls.Add(this.RadioButton_Si);
-            this.Controls.Add(this.ComboBox_Proveedor);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.UC_ValStock);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Nombre);
-            this.Controls.Add(this.UC_ValNomb);
-            this.Controls.Add(this.Boton_Modificar);
-            this.Controls.Add(this.Boton_Baja);
-            this.Controls.Add(this.Boton_Alta);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.Grilla_Ingredientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GUI_Gerente_Ingredientes";
             this.Text = "GUI_AdminIngredientes";
             this.Load += new System.EventHandler(this.GUI_AdminIngredientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Ingredientes)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -228,8 +257,10 @@ namespace TrabajoFinal
         private System.Windows.Forms.DataGridView Grilla_Ingredientes;
         private System.Windows.Forms.RadioButton RadioButton_Si;
         private System.Windows.Forms.RadioButton RadioButton_No;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox ComboBox_Tipo;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

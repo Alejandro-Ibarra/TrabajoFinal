@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace Mapper
@@ -16,7 +17,10 @@ namespace Mapper
             try
             {
                 string Cod = oBEBebida.Codigo.ToString();
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = from Bebida in xmlDocument.Descendants("Bebida")
                                where Bebida.Attribute("Codigo").Value == Cod
@@ -56,8 +60,10 @@ namespace Mapper
         {
             try
             {
-                
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
                 xmlDocument.Element("Restaurante").Element("Bebidas").Add(new XElement("Bebida",
                                                                             new XAttribute("Codigo", oBEBebida.Codigo.ToString().Trim()),
                                                                             new XElement("Nombre", oBEBebida.Nombre.Trim()),
@@ -88,8 +94,12 @@ namespace Mapper
         {
             try
             {
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
+
                 var consulta =
-                from Bebida in XElement.Load("Restaurante.xml").Elements("Bebidas").Elements("Bebida")
+                from Bebida in xmlDocument.Descendants("Bebida")
                 select new BEBebida
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(Bebida.Attribute("Codigo").Value).Trim()),
@@ -115,7 +125,10 @@ namespace Mapper
             try
             {
                 string Codigo = oBEBebida.Codigo.ToString();
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = from Bebida in xmlDocument.Descendants("Bebida")
                                where Bebida.Attribute("Codigo").Value == Codigo
@@ -144,7 +157,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = (from BK in xmlDocument.Descendants("Bebida")
                                 select new BEBebida
@@ -172,7 +187,9 @@ namespace Mapper
             try
             {
 
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = from bebida in xmlDocument.Descendants("PedidosRealizadosBebidas")
                                 where bebida.Element("BebidasDeComanda").Element("BebidasComandaMozo").Attribute("ID").Value.ToString() == Convert.ToString(oBEBebida.Codigo)

@@ -36,8 +36,8 @@ namespace TrabajoFinal
             this.ToolStrip_Ingredientes = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_Bebidas = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_Platos = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStrip_Evento = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_Extras = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStrip_Evento = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_Mesas = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_BackUp = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_Roles = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +51,7 @@ namespace TrabajoFinal
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStrip_Admin,
             this.ToolStrip_Cocinero,
@@ -68,7 +69,6 @@ namespace TrabajoFinal
             this.ToolStrip_Personal,
             this.ToolStrip_Menu,
             this.ToolStrip_Evento,
-            this.ToolStrip_Extras,
             this.ToolStrip_Mesas,
             this.ToolStrip_BackUp,
             this.ToolStrip_Roles,
@@ -91,7 +91,8 @@ namespace TrabajoFinal
             this.ToolStrip_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStrip_Ingredientes,
             this.ToolStrip_Bebidas,
-            this.ToolStrip_Platos});
+            this.ToolStrip_Platos,
+            this.ToolStrip_Extras});
             this.ToolStrip_Menu.Name = "ToolStrip_Menu";
             this.ToolStrip_Menu.Size = new System.Drawing.Size(158, 22);
             this.ToolStrip_Menu.Text = "Menu";
@@ -121,6 +122,13 @@ namespace TrabajoFinal
             this.ToolStrip_Platos.Visible = false;
             this.ToolStrip_Platos.Click += new System.EventHandler(this.ToolStrip_Platos_Click);
             // 
+            // ToolStrip_Extras
+            // 
+            this.ToolStrip_Extras.Name = "ToolStrip_Extras";
+            this.ToolStrip_Extras.Size = new System.Drawing.Size(139, 22);
+            this.ToolStrip_Extras.Text = "Extras";
+            this.ToolStrip_Extras.Click += new System.EventHandler(this.ToolStrip_Extras_Click);
+            // 
             // ToolStrip_Evento
             // 
             this.ToolStrip_Evento.Name = "ToolStrip_Evento";
@@ -128,14 +136,6 @@ namespace TrabajoFinal
             this.ToolStrip_Evento.Text = "Eventos";
             this.ToolStrip_Evento.Visible = false;
             this.ToolStrip_Evento.Click += new System.EventHandler(this.ToolStrip_Evento_Click);
-            // 
-            // ToolStrip_Extras
-            // 
-            this.ToolStrip_Extras.Name = "ToolStrip_Extras";
-            this.ToolStrip_Extras.Size = new System.Drawing.Size(158, 22);
-            this.ToolStrip_Extras.Text = "Extras";
-            this.ToolStrip_Extras.Visible = false;
-            this.ToolStrip_Extras.Click += new System.EventHandler(this.ToolStrip_Extras_Click);
             // 
             // ToolStrip_Mesas
             // 
@@ -192,6 +192,8 @@ namespace TrabajoFinal
             // 
             // Panel
             // 
+            this.Panel.BackColor = System.Drawing.Color.Transparent;
+            this.Panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel.Location = new System.Drawing.Point(0, 24);
             this.Panel.Margin = new System.Windows.Forms.Padding(0);
@@ -203,9 +205,12 @@ namespace TrabajoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1000, 624);
             this.Controls.Add(this.Panel);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "GUI_MenuPrincipal";
@@ -227,7 +232,6 @@ namespace TrabajoFinal
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_Bebidas;
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_Platos;
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_Evento;
-        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Extras;
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_Mesas;
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_Cocinero;
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_Mozo;
@@ -236,5 +240,6 @@ namespace TrabajoFinal
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_CerrarSesion;
         private System.Windows.Forms.ToolStripMenuItem ToolStrip_Metricas;
         private System.Windows.Forms.Panel Panel;
+        private System.Windows.Forms.ToolStripMenuItem ToolStrip_Extras;
     }
 }

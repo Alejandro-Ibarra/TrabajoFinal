@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace Mapper
@@ -16,7 +17,9 @@ namespace Mapper
             try
             {
                 string Cod = oBEIngrediente.Codigo.ToString();
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consplatos = from inge in xmlDocument.Descendants("IngredientePlato")
                                  where inge.Attribute("ID").Value == Cod
@@ -68,7 +71,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = (from Ingrediente in xmlDocument.Descendants("Ingrediente")
                                 select new BEIngrediente
@@ -94,7 +99,9 @@ namespace Mapper
             try
             {
 
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
                 xmlDocument.Element("Restaurante").Element("Ingredientes").Add(new XElement("Ingrediente",
                                                                                     new XAttribute("Codigo", oBEingrediente.Codigo.ToString().Trim()),
                                                                                     new XElement("Nombre", oBEingrediente.Nombre.Trim()),
@@ -123,8 +130,11 @@ namespace Mapper
         {
             try
             {
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
                 var consulta =
-                from Ingrediente in XElement.Load("Restaurante.xml").Elements("Ingredientes").Elements("Ingrediente")
+                from Ingrediente in xmlDocument.Descendants("Ingrediente")
                 select new BEIngrediente
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(Ingrediente.Attribute("Codigo").Value).Trim()),
@@ -150,7 +160,9 @@ namespace Mapper
             try
             {
                 string Codigo = oBEingrediente.Codigo.ToString();
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consplatos = from inge in xmlDocument.Descendants("IngredientePlato")
                                  where inge.Attribute("ID").Value == Codigo

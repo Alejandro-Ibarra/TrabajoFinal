@@ -24,7 +24,9 @@ namespace Mapper
 
             try
             {
-                XDocument xmlDocument = XDocument.Load("BackUps.xml");
+                string archbackup = Application.StartupPath + @"\BackUps.xml";
+                XDocument xmlDocument = XDocument.Load(archbackup);
+
                 xmlDocument.Element("Backups").Add(new XElement("Backup",
                                                     new XAttribute("Codigo", oSEBackup.Codigo.ToString().Trim()),
                                                     new XElement("NombreArchivo", oSEBackup.NombreArchivo.Trim()),
@@ -74,7 +76,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("BackUps.xml");
+                string restaurante = Application.StartupPath + @"\BackUps.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = (from BK in xmlDocument.Descendants("Backup")
                                select new SEBackUp 
@@ -106,8 +110,10 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("BackUps.xml");
- 
+                string restaurante = Application.StartupPath + @"\BackUps.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
+
                 var consulta =
                 from Backups in xmlDocument.Elements("Backups").Elements("Backup")
                 select new SEBackUp

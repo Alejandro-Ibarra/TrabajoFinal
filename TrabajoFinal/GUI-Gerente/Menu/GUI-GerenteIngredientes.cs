@@ -25,10 +25,11 @@ namespace TrabajoFinal
 
         private void GUI_AdminIngredientes_Load(object sender, EventArgs e)
         {
-            CargarCombobox();
-            CargarGrilla();
             Grilla_Ingredientes.MultiSelect = false;
             Grilla_Ingredientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            CargarCombobox();
+            CargarGrilla();
+            
         }
 
         private void Boton_Alta_Click(object sender, EventArgs e)
@@ -187,6 +188,7 @@ namespace TrabajoFinal
             {
                 Grilla_Ingredientes.DataSource = null;
                 Grilla_Ingredientes.DataSource = oBLIngrediente.ListarTodo();
+                Grilla_Ingredientes.ClearSelection();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

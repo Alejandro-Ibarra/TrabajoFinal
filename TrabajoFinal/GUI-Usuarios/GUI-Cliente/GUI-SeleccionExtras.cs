@@ -43,6 +43,7 @@ namespace TrabajoFinal
                     listExtrasElegidos.Add((BEExtras)GridView_TodosExtras.CurrentRow.DataBoundItem);
                     GridView_ExtrasSelec.DataSource = null;
                     GridView_ExtrasSelec.DataSource = listExtrasElegidos;
+                    GridView_ExtrasSelec.ClearSelection();
                     OcultarCamposSelec(GridView_ExtrasSelec);
                 }
                 else
@@ -72,6 +73,7 @@ namespace TrabajoFinal
                     listExtrasElegidos = ingreAux2;
                     GridView_ExtrasSelec.DataSource = null;
                     GridView_ExtrasSelec.DataSource = listExtrasElegidos;
+                    GridView_ExtrasSelec.ClearSelection();
                     OcultarCamposSelec(GridView_ExtrasSelec);
                 }
                 else
@@ -111,6 +113,7 @@ namespace TrabajoFinal
                 }
 
                 GridView_TodosExtras.DataSource = listExtrasAux;
+                GridView_TodosExtras.ClearSelection();
                 OcultarCamposSelec(GridView_TodosExtras);
             }
             catch (Exception ex)

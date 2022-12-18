@@ -141,7 +141,7 @@ namespace TrabajoFinal
         {
             try
             {
-                List<string> ListaMarcas = new List<string>{"Quilme", "Coca Cola", "Mirinda", "7UP", "Pepsi" };
+                List<string> ListaMarcas = new List<string>{"Coca-Cola","Paso de los toros","Mirinda","7UP","Pepsi","Villavicencio","Aquarius", "Quilmes","Salentein","Luiggi Bosca"};
 
                 ComboBox_Marca.DataSource = ListaMarcas;
             }
@@ -153,7 +153,7 @@ namespace TrabajoFinal
         {
             try
             {
-                List<string> ListaEnvases = new List<string> { "Vidrio retornable", "Vidrio No retornable", "Plastico", "Plastico No retornable" };
+                List<string> ListaEnvases = new List<string> {"Vidrio retornable","Vidrio No retornable","Plastico retornable","Plastico No retornable"};
 
                 ComboBox_Envases.DataSource = ListaEnvases;
             }
@@ -183,6 +183,8 @@ namespace TrabajoFinal
             {
                 Grilla_Bebidas.DataSource = null;
                 Grilla_Bebidas.DataSource = oBLBebida.ListarTodo();
+                Grilla_Bebidas.ClearSelection();
+                OcultarCampos();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -214,6 +216,23 @@ namespace TrabajoFinal
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
+        private void OcultarCampos()
+        {
+            Grilla_Bebidas.Columns["CodigoComanda"].Visible = false;
+            Grilla_Bebidas.Columns["CodigoPedido"].Visible = false;
+            Grilla_Bebidas.Columns["CodigoItem"].Visible = false;
+            Grilla_Bebidas.Columns["Codigo"].Visible = false;
+            Grilla_Bebidas.Columns["Descripcion"].Visible = false;
+        }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

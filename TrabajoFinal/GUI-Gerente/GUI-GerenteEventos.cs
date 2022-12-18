@@ -26,6 +26,10 @@ namespace TrabajoFinal
             oBECliente = new BECliente();
             CargarGrillaClientes();
             CargarGrillaEventos();
+            HabilitarControlesFecha(false);
+            HabilitarControlesInvitados(false);
+            Boton_ConfirmarEvento.Enabled = false;
+            Boton_Cancelar.Enabled = false;
         }
 
         BECliente oBECliente;
@@ -42,17 +46,107 @@ namespace TrabajoFinal
             Grilla_DeClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
+        private void Boton_AgregarEvento_Click(object sender, EventArgs e)
+        {
+            oBEEvento = new BEEvento();
+            LimpiarControles();
+            HabilitarControlesFecha(true);
+            Grilla_Eventos.Enabled = false;
+            HabilitarBotonesABM(false);
+            Boton_Cancelar.Enabled = true;
+            Calendario.SetDate(DateTime.Now);
+
+        }
+
+        private void Boton_EliminarEvento_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Grilla_Eventos.Rows.Count > 0 && Grilla_Eventos.CurrentRow != null)
+                {
+                    
+                    if (DateTime.Parse(oBEEvento.Fecha) > DateTime.Now)
+                    {
+                        DialogResult Respuesta;
+                        Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (Respuesta == DialogResult.Yes)
+                        {
+                            oBLEvento.Baja(oBEEvento);
+                            LimpiarControles();
+                            CargarGrillaEventos();
+                            CargarGrillaClientes();
+                            oBEEvento = new BEEvento();
+                        }
+                    }
+                    else
+                    { MessageBox.Show("No se pueden eliminar eventos pasados o cuya fecha de inicio sea menor a 48 Hs"); }
+                }
+                else
+                { MessageBox.Show("Seleccione un evento de la lista"); }
+
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+        }
+
+
+        private void Boton_ModificarEvento_Click(object sender, EventArgs e)
+        {
+            DateTime FechaCancelaciones = DateTime.Now;
+            FechaCancelaciones = FechaCancelaciones.AddHours(+12);
+
+            if (DateTime.Parse(oBEEvento.Fecha) > FechaCancelaciones)
+            {
+                HabilitarControlesInvitados(true);
+
+                Boton_GuardarCambiosListaInv.Enabled = true;
+                Grilla_Eventos.Enabled = false;
+                HabilitarBotonesABM(false);
+                Boton_Cancelar.Enabled = true;
+                oBEEvento = new BEEvento();
+            }
+            else
+            { MessageBox.Show("No se pueden Modificar eventos pasados o cuya fecha de inicio sea menor a 12 Hs"); }
+
+        }
+
+
+
         private void Boton_VerificarDisp_Click(object sender, EventArgs e)
         {
             try
             {
-                if (VerificarDisponibilidad())
+                if (Calendario.SelectionRange.Start != null && ComboBox_Horarios.SelectedItem != null && uC_ValCod1.Text != null)
                 {
-                    MessageBox.Show("No se puede tomar reserva ese dia y hora");
+                    CargarDatosFechaEvento();
+
+                    if (VerificarDisponibilidad())
+                    {
+                        MessageBox.Show("No se puede tomar reserva ese dia y hora");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se puede tomar reserva ese dia y hora");
+                        DialogResult Respuesta;
+                        Respuesta = MessageBox.Show("¿Desea continuar con el alta?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (Respuesta == DialogResult.Yes)
+                        {
+                            HabilitarControlesFecha(false);
+                            HabilitarControlesInvitados(true);
+                            Boton_ConfirmarEvento.Enabled = true;
+                        }
+                        else
+                        {
+                            LimpiarControles();
+                            HabilitarControlesFecha(false);
+                            HabilitarControlesInvitados(false);
+                        }
+                        
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Se puede tomar reserva ese dia y hora");
+                    MessageBox.Show("Debe ingresar fecha, hora y cantidad de invitados");
                 }
             }
             catch (Exception ex)
@@ -63,27 +157,27 @@ namespace TrabajoFinal
         {
             try
             {
-                CargarDatosEvento();
+                CargarDatosInvitadosEvento();
+                oBLEvento.Guardar(oBEEvento);
+                LimpiarControles();
+                CargarGrillaEventos();
+                Grilla_Eventos.Enabled = true;
+                HabilitarBotonesABM(true);
+                HabilitarControlesInvitados(false);
 
-                if (ConfirmarCantUsuarios())
-                {
-                    if (VerificarDisponibilidad())
-                    {
-                        MessageBox.Show("No se puede tomar reserva ese dia y hora");
-                    }
-                    else
-                    {
-                        oBLEvento.Guardar(oBEEvento);
-                        LimpiarControles();
-                        CargarGrillaEventos();
-                    }
-                }
-                else { MessageBox.Show("Verifique la cantidad de usuarios"); }
-                }
+            }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
+        private void Boton_Cancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarControles();
+            HabilitarBotonesABM(true);
+            HabilitarControlesFecha(false);
+            HabilitarControlesInvitados(false);
+            Grilla_Eventos.Enabled = true;
 
+        }
         private void Boton_AgregarInvitados_Click(object sender, EventArgs e)
         {
             try
@@ -130,40 +224,23 @@ namespace TrabajoFinal
             { MessageBox.Show(ex.Message); }
         }
 
-        private void Boton_EliminarEvento_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (DateTime.Parse(oBEEvento.Fecha) > DateTime.Now)
-                {
-                    DialogResult Respuesta;
-                    Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (Respuesta == DialogResult.Yes)
-                    {
-                        oBLEvento.Baja(oBEEvento);
-                        LimpiarControles();
-                        CargarGrillaEventos();
-                        CargarGrillaClientes();
-                    }
-                }
-                else
-                {MessageBox.Show("No se pueden eliminar eventos pasados");}
-            }
-            catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
-        }
 
-        private void Boton_ModificarEvento_Click(object sender, EventArgs e)
+        private void Boton_GuardarCambiosListaInv_Click(object sender, EventArgs e)
         {
             try
             {
+                CargarDatosFechaEvento();
+                oBEEvento.ListaClientes = listaClientes;
                 if (ConfirmarCantUsuarios())
                 {
-                    oBEEvento.ListaClientes = listaClientes;
+                    
                     oBLEvento.Modificar(oBEEvento);
                     LimpiarControles();
                     CargarGrillaEventos();
-
+                    HabilitarControlesInvitados(false);
+                    Boton_GuardarCambiosListaInv.Visible = false;
+                    HabilitarBotonesABM(true);
+                    Grilla_Eventos.Enabled = true;
                 }
                 else { MessageBox.Show("Verifique la cantidad de usuarios"); }
             }
@@ -179,11 +256,14 @@ namespace TrabajoFinal
                 {
                     oBEEvento = (BEEvento)Grilla_Eventos.CurrentRow.DataBoundItem;
                     AsignarEventoAControles(oBEEvento);
+                    
                 }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
+
+
 
         private void Grilla_DeClientes_MouseClick(object sender, MouseEventArgs e)
         {
@@ -234,7 +314,6 @@ namespace TrabajoFinal
                         if (evento.Fecha == Calendario.SelectionRange.Start.ToShortDateString() && evento.Hora == ComboBox_Horarios.Text.ToString())
                         {
                             cantPer = cantPer + evento.CantPersonas;
-
                         }
                     }
                     cantPer = cantPer + Convert.ToInt32(uC_ValCod1.Text);
@@ -256,7 +335,7 @@ namespace TrabajoFinal
             { MessageBox.Show(ex.Message); return false; }
         }
 
-        private void CargarDatosEvento()
+        private void CargarDatosFechaEvento()
         {
             try
             {
@@ -266,14 +345,29 @@ namespace TrabajoFinal
                     oBEEvento.CantPersonas = Convert.ToInt32(uC_ValCod1.Text);
                     oBEEvento.Fecha = Calendario.SelectionRange.Start.ToShortDateString();
                     oBEEvento.Hora = ComboBox_Horarios.Text.ToString();
-                    oBEEvento.ListaClientes = listaClientes;
-                   
                 }
                 else{ MessageBox.Show("Verifique que los datos ingresados sean correctos"); }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message);}
         }
+        private void CargarDatosInvitadosEvento()
+        {
+            try
+            {
+                if (uC_ValCod1.validar() && Convert.ToInt32(uC_ValCod1.Text) > 0 && Convert.ToInt32(uC_ValCod1.Text) < 50)
+                {
+                    
+                    oBEEvento.ListaClientes = listaClientes;
+
+                }
+                else { MessageBox.Show("Verifique que los datos ingresados sean correctos"); }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+        }
+
+
 
         private void CargarClientes()
         {
@@ -308,6 +402,7 @@ namespace TrabajoFinal
                     listAux.Add(item);
                 }
                 Grilla_DeClientes.DataSource = listAux;
+                Grilla_DeClientes.ClearSelection();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -319,6 +414,7 @@ namespace TrabajoFinal
             try
             {
                 Grilla_Eventos.DataSource = oBLEvento.ListarTodo();
+                Grilla_Eventos.ClearSelection();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -348,7 +444,6 @@ namespace TrabajoFinal
 
         private void AsignarClienteAControles(BECliente oBEcli)
         {
-            uC_ValCod2.Text = oBEcli.Codigo.ToString();
             uC_ValNombApe1.Text = oBEcli.Nombre;
             uC_ValidarMail1.Text = oBEcli.EMail;
         }
@@ -389,10 +484,36 @@ namespace TrabajoFinal
         {
             listaClientes.Clear();
             uC_ValCod1.Clear();
-            uC_ValCod2.Clear();
             uC_ValidarMail1.Clear();
             uC_ValNombApe1.Clear();
             Grilla_DeClientes.DataSource = null;
+        }
+
+        private void HabilitarControlesFecha(bool valor)
+        {
+            ComboBox_Horarios.Enabled = valor;
+            Boton_VerificarDisp.Enabled = valor;
+            uC_ValCod1.Enabled = valor;
+            Calendario.Enabled = valor;
+        }
+
+        private void HabilitarControlesInvitados(bool valor)
+        {
+
+            uC_ValidarMail1.Enabled = valor;
+            uC_ValNombApe1.Enabled = valor;
+            Boton_AgregarInvitados.Enabled = valor;
+            Boton_ModificarInvitados.Enabled = valor;
+            Grilla_DeClientes.Enabled = valor;
+
+
+        }
+
+        private void HabilitarBotonesABM(bool valor)
+        {
+            Boton_ModificarEvento.Enabled = valor;
+            Boton_EliminarEvento.Enabled = valor;
+            Boton_AgregarEvento.Enabled = valor;
         }
 
 

@@ -48,7 +48,9 @@ namespace TrabajoFinal
         {
             try
             {
+                
                 ActivarDisponibilidadControles(true);
+                BotonesAbmDisp(false);
                 oBEplato.Nombre = Interaction.InputBox("Ingrese el nombre del plato");
                 oBEplato.Descripcion = Interaction.InputBox("Ingrese una descripcion para el plato");
                 if (oBEplato.Nombre == "" || oBEplato.Descripcion == "")
@@ -57,7 +59,8 @@ namespace TrabajoFinal
                 }
                 else
                 {
-                    Boton_Alta.Enabled = false;
+                   
+                    Boton_Cancelar.Visible = true;
                     oBEplato.Codigo = oBLPlato.GenerarCodigo();
                     SeleccionarTipoPlato();
                 }
@@ -96,10 +99,18 @@ namespace TrabajoFinal
         {
             try
             {
-                ActivarVisibilidadControles(true);
-                ActivarDisponibilidadControles(true);
-                SeleccionarPlatoGrilla();
-                CargarComboIngredientePrincipal();
+                if (DataGridView_Platos.Rows.Count > 0 && DataGridView_Platos.CurrentRow != null)
+                {
+                    
+                    ActivarVisibilidadControles(true);
+                    ActivarDisponibilidadControles(true);
+                    SeleccionarPlatoGrilla();
+                    CargarComboIngredientePrincipal();
+                    CargarGrillasModificacion();
+                    OcultarColumnasGrillas(DataGridView_TodosIngredientes);
+                    OcultarColumnasGrillas(DataGridView_SeleccionIngredientes);
+                    BotonesAbmDisp(false);
+                }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -138,22 +149,39 @@ namespace TrabajoFinal
                 label_GrillaSeleccionados.Visible = true;
                 DataGridView_SeleccionIngredientes.Enabled = true;
                 Boton_ConfirmarIngredientes.Visible = true;
-                DataGridView_TodosIngredientes.DataSource = oBLIngrediente.ListarTodo();
+                DataGridView_TodosIngredientes.Visible = true;
+                label3.Visible = true;
+
+
+                List<BEIngrediente> todoIng = oBLIngrediente.ListarTodo();
+                DataGridView_TodosIngredientes.DataSource = todoIng;
+                OcultarColumnasGrillas(DataGridView_TodosIngredientes);
+                OcultarColumnasGrillas(DataGridView_SeleccionIngredientes);
+
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
 
+
         private void Boton_ConfirmarIngredientes_Click(object sender, EventArgs e)
         {
             try
             {
-                DataGridView_TodosIngredientes.Enabled = false;
-                DataGridView_SeleccionIngredientes.Enabled = false;
-                Boton_ConfirmalIngPrincipal.Visible = true;
-                ComboBox_IngredientePrincipal.Visible = true;
-                MessageBox.Show("Seleccione el ingrediente principal de la lista y presione el boton \" Confirmar ingrediente principal\"");
-                CargarComboIngredientePrincipal();
+                if (DataGridView_SeleccionIngredientes.Rows.Count > 0)
+                {
+
+                    DataGridView_TodosIngredientes.Enabled = false;
+                    DataGridView_SeleccionIngredientes.Enabled = false;
+                    Boton_ConfirmalIngPrincipal.Visible = true;
+                    ComboBox_IngredientePrincipal.Visible = true;
+                    MessageBox.Show("Seleccione el ingrediente principal de la lista y presione el boton \" Confirmar ingrediente principal\"");
+                    CargarComboIngredientePrincipal();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar almenos dos ingrediente de la lista");
+                }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -179,7 +207,7 @@ namespace TrabajoFinal
             ValidarPrecio();
             RadioButton_Activo.Visible = true;
             RadioButton_Inactivo.Visible = true;
-            label1.Visible = true;
+            groupBox1.Visible = true;
         }
 
         private void Button_Guardar_Click(object sender, EventArgs e)
@@ -205,6 +233,12 @@ namespace TrabajoFinal
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
+
+        private void Boton_Cancelar_Click(object sender, EventArgs e)
+        {
+            ConfiguracionDeControles();
+        }
+
         #endregion
 
         #region DatagridClick
@@ -252,8 +286,13 @@ namespace TrabajoFinal
                         }
                     }
                     oBEplato = oBEPlatoMod;
-                    CargarGrillasModificacion();
                     AsignarAControles(oBEplato);
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un plato a modificar");
+                    ConfiguracionDeControles();
                 }
             }
             catch (Exception ex)
@@ -300,6 +339,8 @@ namespace TrabajoFinal
                     oBEplato.ListaIngredientes = ingreAux2;
                     DataGridView_SeleccionIngredientes.DataSource = null;
                     DataGridView_SeleccionIngredientes.DataSource = oBEplato.ListaIngredientes;
+                    OcultarColumnasGrillas(DataGridView_SeleccionIngredientes);
+                    OcultarColumnasGrillas(DataGridView_TodosIngredientes);
                 }
             }
             catch (Exception ex)
@@ -339,8 +380,10 @@ namespace TrabajoFinal
                         MessageBox.Show("El ingrediente ya se encuentra en el plato");
                     }
                 
-                DataGridView_SeleccionIngredientes.DataSource = null;
-                DataGridView_SeleccionIngredientes.DataSource = oBEplato.ListaIngredientes;
+                    DataGridView_SeleccionIngredientes.DataSource = null;
+                    DataGridView_SeleccionIngredientes.DataSource = oBEplato.ListaIngredientes;
+                    OcultarColumnasGrillas(DataGridView_SeleccionIngredientes);
+                    OcultarColumnasGrillas(DataGridView_TodosIngredientes);
                 }
             }
             catch (Exception ex)
@@ -439,6 +482,8 @@ namespace TrabajoFinal
             try
             {
                 DataGridView_Platos.DataSource = oBLPlato.ListarTodo();
+                OcultarCampos();
+                DataGridView_Platos.ClearSelection();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -482,6 +527,7 @@ namespace TrabajoFinal
             try
             {
                 DataGridView_TodosIngredientes.DataSource = oBLIngrediente.ListarTodo();
+                DataGridView_TodosIngredientes.ClearSelection();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message);}
@@ -532,7 +578,9 @@ namespace TrabajoFinal
                 DataGridView_SeleccionIngredientes.Visible = valor;
                 RadioButton_Activo.Visible = valor;
                 RadioButton_Inactivo.Visible = valor;
-                label1.Visible = valor;
+                DataGridView_TodosIngredientes.Visible = valor;
+                label3.Visible = valor;
+                Boton_Cancelar.Visible = valor;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -545,6 +593,8 @@ namespace TrabajoFinal
                 DataGridView_TodosIngredientes.Enabled = dispo;
                 DataGridView_SeleccionIngredientes.Enabled = dispo;
                 Boton_Alta.Enabled = dispo;
+                Boton_ModificarPlatos.Enabled = dispo;
+                Boton_EliminarPlato.Enabled = dispo;
                 ComboBox_TipoPlato.Enabled = dispo;
                 Boton_ContinuarTipoPlato.Enabled = dispo;
                 ComboBox_ClasePlato.Enabled = dispo;
@@ -572,11 +622,12 @@ namespace TrabajoFinal
 
         private void ConfiguracionDeControles()
         {
+            
             ActivarVisibilidadControles(false);
             LimpiarTextboxYGrilla();
             ActivarDisponibilidadControles(false);
-            Boton_Alta.Enabled = true;
             CargarGrillaPlatos();
+            BotonesAbmDisp(true);
         }
 
 
@@ -606,6 +657,39 @@ namespace TrabajoFinal
 
 
         #endregion
+
+        private void OcultarColumnasGrillas(DataGridView dataGrid)
+        {
+            if (dataGrid.Rows.Count > 0 && dataGrid.CurrentRow != null)
+            {
+                dataGrid.Columns["Tipo"].Visible = false;
+                dataGrid.Columns["Stock"].Visible = false;
+                dataGrid.Columns["Codigo"].Visible = false;
+                //dataGrid.Columns["Tipo"].Visible = false;
+            }
+        }
+
+        private void OcultarCampos()
+        {
+            DataGridView_Platos.Columns["CodigoComanda"].Visible = false;
+            DataGridView_Platos.Columns["CodigoPedido"].Visible = false;
+            DataGridView_Platos.Columns["CodigoItem"].Visible = false;
+            DataGridView_Platos.Columns["Codigo"].Visible = false;
+            DataGridView_Platos.Columns["IngredientePrincipal"].Visible = false;
+        }
+
+        private void TextBox_Resumen_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BotonesAbmDisp(bool estado)
+        {
+            Boton_Alta.Enabled = estado;
+            Boton_ModificarPlatos.Enabled = estado;
+            Boton_EliminarPlato.Enabled = estado;
+        }
+
 
     }
 }

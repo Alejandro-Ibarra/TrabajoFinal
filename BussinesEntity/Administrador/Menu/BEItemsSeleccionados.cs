@@ -10,6 +10,7 @@ namespace BussinesEntity
     {
         public int Precio { get; set; }
         public string Estado { get; set; }
+        public int Mesa { get; set; }
 
         public BEItemsSeleccionados()
         {

@@ -194,9 +194,8 @@ namespace TrabajoFinal
             try
             {
                 GridView_Pedidos.DataSource = FiltrarItems();
-                GridView_Pedidos.Columns["Codigo"].Visible = false;
-                GridView_Pedidos.Columns["Precio"].Visible = false;
-
+                GridView_Pedidos.ClearSelection();
+                OcultarCampos();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -233,7 +232,13 @@ namespace TrabajoFinal
             { MessageBox.Show(ex.Message); return null; }
 
         }
-
+        private void OcultarCampos()
+        {
+            GridView_Pedidos.Columns["Descripcion"].Visible = false;
+            GridView_Pedidos.Columns["Activo"].Visible = false;
+            GridView_Pedidos.Columns["Codigo"].Visible = false;
+            GridView_Pedidos.Columns["Precio"].Visible = false;
+        }
 
     }
 }

@@ -3,6 +3,7 @@ using BussinesEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace Mapper
@@ -15,7 +16,9 @@ namespace Mapper
             try
             {
                 string Cod = oBEEvento.Codigo.ToString();
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = from Evento in xmlDocument.Descendants("Evento")
                                where Evento.Attribute("ID").Value == Cod
@@ -35,7 +38,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = (from Comanda in xmlDocument.Descendants("Evento")
                                 select new BEComanda
@@ -62,7 +67,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
 
                 var consulta = from evento in xmlDocument.Descendants("Evento")
@@ -97,7 +104,9 @@ namespace Mapper
                     }
 
 
-                    XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                    string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                    XDocument xmlDocument = XDocument.Load(restaurante);
+
                     xmlDocument.Element("Restaurante").Element("Eventos").Add(new XElement("Evento",
                                                                                 new XAttribute("ID", oBEEvento.Codigo.ToString().Trim()),
                                                                                 new XElement("CantidadPersonas", oBEEvento.CantPersonas.ToString().Trim()),
@@ -125,8 +134,12 @@ namespace Mapper
         {
             try
             {
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
+
                 var consulta =
-                from Evento in XElement.Load("Restaurante.xml").Elements("Eventos").Elements("Evento")
+                from Evento in xmlDocument.Descendants("Evento")
                 select new BEEvento
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(Evento.Attribute("ID").Value)),

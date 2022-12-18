@@ -3,6 +3,7 @@ using BussinesEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace Mapper
@@ -33,14 +34,16 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consultaBebida =
                 from PBebidas in xmlDocument.Descendants("BebidasComandaMozo")
                 select new BEItemsSeleccionados
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(PBebidas.Attribute("ID").Value).Trim()),
-                    Nombre = (from Bebida in XElement.Load("Restaurante.xml").Elements("Bebidas").Elements("Bebida")
+                    Nombre = (from Bebida in xmlDocument.Descendants("Bebida")
                               where Convert.ToInt32(Convert.ToString(Bebida.Attribute("Codigo").Value).Trim()) == Convert.ToInt32(Convert.ToString(PBebidas.Attribute("ID").Value).Trim())
                                  select new BEBebida
                                  {
@@ -51,7 +54,7 @@ namespace Mapper
                     Estado = Convert.ToString(PBebidas.Element("Estado").Value).Trim(),
                     CodigoItem = Convert.ToInt32(PBebidas.Element("CodigoItem").Value),
                     CodigoPedido = Convert.ToInt32(PBebidas.Element("CodigoPedido").Value),
-                    CodigoComanda = Convert.ToInt32(PBebidas.Element("CodigoComanda").Value)
+                    CodigoComanda = Convert.ToInt32(PBebidas.Element("CodigoComanda").Value),
                 };
 
                 var consultaPlatos =
@@ -59,7 +62,7 @@ namespace Mapper
                 select new BEItemsSeleccionados
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(PBPlatos.Attribute("Codigo").Value).Trim()),
-                    Nombre = (from plato in XElement.Load("Restaurante.xml").Elements("Platos").Elements("Plato")
+                    Nombre = (from plato in xmlDocument.Descendants("Plato")
                               where Convert.ToInt32(Convert.ToString(plato.Attribute("ID").Value).Trim()) == Convert.ToInt32(Convert.ToString(PBPlatos.Attribute("Codigo").Value).Trim())
                               select new BEPlato
                               {
@@ -70,16 +73,15 @@ namespace Mapper
                     Estado = Convert.ToString(PBPlatos.Element("Estado").Value).Trim(),
                     CodigoItem = Convert.ToInt32(PBPlatos.Element("CodigoItem").Value),
                     CodigoPedido = Convert.ToInt32(PBPlatos.Element("CodigoPedido").Value),
-                    CodigoComanda = Convert.ToInt32(PBPlatos.Element("CodigoComanda").Value)
+                    CodigoComanda = Convert.ToInt32(PBPlatos.Element("CodigoComanda").Value),
                 };
-
 
                 var consultaExtras =
                 from PBExtras in xmlDocument.Descendants("ExtrasComandaMozo")
                 select new BEItemsSeleccionados
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(PBExtras.Attribute("ID").Value).Trim()),
-                    Nombre = (from extras in XElement.Load("Restaurante.xml").Elements("Extras").Elements("Extra")
+                    Nombre = (from extras in xmlDocument.Descendants("Extra")
                               where Convert.ToInt32(Convert.ToString(extras.Attribute("Codigo").Value).Trim()) == Convert.ToInt32(Convert.ToString(PBExtras.Attribute("ID").Value).Trim())
                               select new BEPlato
                               {
@@ -90,7 +92,9 @@ namespace Mapper
                     Estado = Convert.ToString(PBExtras.Element("Estado").Value).Trim(),
                     CodigoItem = Convert.ToInt32(PBExtras.Element("CodigoItem").Value),
                     CodigoPedido = Convert.ToInt32(PBExtras.Element("CodigoPedido").Value),
-                    CodigoComanda = Convert.ToInt32(PBExtras.Element("CodigoComanda").Value)
+                    CodigoComanda = Convert.ToInt32(PBExtras.Element("CodigoComanda").Value),
+                    
+                    
                 };
 
 
@@ -98,6 +102,17 @@ namespace Mapper
                 ListaItems.AddRange(consultaBebida.ToList());
                 ListaItems.AddRange(consultaPlatos.ToList());
                 ListaItems.AddRange(consultaExtras.ToList());
+
+                foreach (BEItemsSeleccionados item in ListaItems)
+                {
+
+                    var auxNum = from Comanda in xmlDocument.Descendants("Comanda")
+                                 where item.CodigoComanda == Convert.ToInt32(Comanda.Attribute("ID").Value.ToString())
+                                 select Comanda.Element("Mesa").Value.ToString();
+
+                    item.Mesa = Convert.ToInt32(auxNum.FirstOrDefault());
+
+                }
 
                 return ListaItems;
             }
@@ -114,7 +129,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta =
                 from platos in xmlDocument.Descendants("PlatoComandaCocina")
@@ -139,7 +156,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta =
                 from bebidas in xmlDocument.Descendants("BebidasComandaMozo")
@@ -165,7 +184,9 @@ namespace Mapper
                 string CodigoPedido = oBEItem.CodigoPedido.ToString();
                 string CodigoComanda = oBEItem.CodigoComanda.ToString();
 
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var comanda = from com in xmlDocument.Descendants("Comanda")
                               where com.Attribute("ID").Value.ToString() == oBEItem.CodigoComanda.ToString()

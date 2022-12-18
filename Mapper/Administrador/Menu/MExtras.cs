@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace Mapper
@@ -16,7 +17,9 @@ namespace Mapper
             try
             {
                 string Cod = oBEExtras.Codigo.ToString();
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = from Extras in xmlDocument.Descendants("Extra")
                                where Extras.Attribute("Codigo").Value == Cod
@@ -54,7 +57,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = from bebida in xmlDocument.Descendants("PedidosRealizadosExtras")
                                where bebida.Element("ExtrasDeComanda").Element("ExtrasComandaMozo").Attribute("ID").Value.ToString() == Convert.ToString(oBEExtras.Codigo)
@@ -76,7 +81,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = (from Extras in xmlDocument.Descendants("Extra")
                                 select new BEExtras
@@ -102,7 +109,9 @@ namespace Mapper
             try
             {
 
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
                 xmlDocument.Element("Restaurante").Element("Extras").Add(new XElement("Extra",
                                                                                 new XAttribute("Codigo", oBEExtras.Codigo.ToString().Trim()),
                                                                                 new XElement("Nombre", oBEExtras.Nombre.Trim()),
@@ -129,8 +138,11 @@ namespace Mapper
         {
             try
             {
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
                 var consulta =
-                from Extras in XElement.Load("Restaurante.xml").Elements("Extras").Elements("Extra")
+                from Extras in xmlDocument.Descendants("Extra")
                 select new BEExtras
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(Extras.Attribute("Codigo").Value).Trim()),
@@ -155,7 +167,9 @@ namespace Mapper
             try
             {
                 string Codigo = oBEExtras.Codigo.ToString();
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = from Extra in xmlDocument.Descendants("Extra")
                                where Extra.Attribute("Codigo").Value == Codigo

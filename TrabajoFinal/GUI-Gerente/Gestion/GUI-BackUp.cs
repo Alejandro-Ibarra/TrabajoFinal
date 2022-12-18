@@ -67,11 +67,19 @@ namespace TrabajoFinal
             {
                 if (DataGridView_BackUps.SelectedRows.Count > 0 && DataGridView_BackUps.CurrentRow != null)
                 {
+
                     SEBackUp BK = (SEBackUp)DataGridView_BackUps.CurrentRow.DataBoundItem;
                     SEBackUp restore = AsignarAObjetoBackup("restore");
-
-                    oSLBackup.HacerRestore(BK, restore);
-                    CargarDatagrid();
+                    if (BK.Ruta == "")
+                    {
+                        MessageBox.Show("Debe seleccionar un BackUp para hacer restore");
+                    }
+                    else
+                    {
+                        oSLBackup.HacerRestore(BK, restore);
+                        CargarDatagrid();
+                    }
+                    
                 }
                 else
                 { MessageBox.Show("Seleccione un elemento de la lista"); }
@@ -85,6 +93,7 @@ namespace TrabajoFinal
             try
             {
                 DataGridView_BackUps.DataSource = oSLBackup.ListarTodo();
+                DataGridView_BackUps.ClearSelection();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message);}
         }

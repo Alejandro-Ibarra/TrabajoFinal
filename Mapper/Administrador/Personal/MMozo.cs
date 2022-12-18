@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace Mapper
@@ -17,7 +18,9 @@ namespace Mapper
             {
                 if (Existe(oBEMozo.DNI) == false)
                 {
-                    XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                    string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                    XDocument xmlDocument = XDocument.Load(restaurante);
+
                     xmlDocument.Element("Restaurante").Element("Usuarios").Element("Mozos").Add(new XElement("Mozo",
                                                                                         new XAttribute("Codigo", oBEMozo.DNI.ToString().Trim()),
                                                                                         new XElement("Nombre", oBEMozo.Nombre.Trim()),
@@ -46,7 +49,9 @@ namespace Mapper
             try
             {
                 string dni = oBEMozo.DNI.ToString();
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = from mozo in xmlDocument.Descendants("Mozo")
                                where Convert.ToString(mozo.Attribute("Codigo").Value) == dni.ToString()
@@ -73,7 +78,9 @@ namespace Mapper
             try
             {
                 string Cod = oBEMozo.DNI.ToString();
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = from Mozo in xmlDocument.Descendants("Mozo")
                                where Mozo.Attribute("Codigo").Value == Cod
@@ -93,7 +100,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
 
                 var consulta = from Mozo in xmlDocument.Descendants("Mozo")
@@ -117,10 +126,12 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consultaRoles =
-                from rol in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                from rol in xmlDocument.Descendants("Rol")
                 select new BERoles
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value).Trim()),
@@ -129,7 +140,7 @@ namespace Mapper
                                 select new BEPermisos
                                 {
                                     Codigo = Convert.ToInt32(permisos.Attribute("ID").Value.Trim()),
-                                    Descripcion = (from desc in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
+                                    Descripcion = (from desc in xmlDocument.Descendants("Permiso")
                                                    where (string)desc.Attribute("ID") == (string)permisos.Attribute("ID")
                                                    select desc
                                                         ).FirstOrDefault().Element("Descripcion").Value.ToString()
@@ -137,7 +148,7 @@ namespace Mapper
                 };
                 
                 var consultaMozo = 
-                    (from Mozo in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Mozos").Elements("Mozo")
+                    (from Mozo in xmlDocument.Descendants("Mozo")
                     where Mozo.Attribute("Codigo").Value.ToString() == dni.ToString()
                     select new BEMozo
                     {
@@ -151,7 +162,7 @@ namespace Mapper
                                  select new BERoles    
                                  {
                                      Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value.Trim())),
-                                     Descripcion = (from rDesc in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                                     Descripcion = (from rDesc in xmlDocument.Descendants("Rol")
                                                     where (string)rDesc.Attribute("ID") == (string)rol.Attribute("ID")
                                                     select rDesc
                                                     ).FirstOrDefault().Element("Descripcion").Value.ToString(),
@@ -197,8 +208,11 @@ namespace Mapper
         {
             try
             {
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
                 var consulta =
-                from Mozo in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Mozos").Elements("Mozo")
+                from Mozo in xmlDocument.Descendants("Mozo")
                 select new BEMozo
                 {
                     DNI = Convert.ToInt32(Convert.ToString(Mozo.Attribute("Codigo").Value).Trim()),

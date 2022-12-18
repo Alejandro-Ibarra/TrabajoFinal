@@ -111,6 +111,7 @@ namespace TrabajoFinal
             {
                 Grilla_Roles.DataSource = null;
                 Grilla_Roles.DataSource = oBLRoles.ListarTodo();
+                Grilla_Roles.ClearSelection();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -136,8 +137,10 @@ namespace TrabajoFinal
                 listPermisosNo = PermNoAsig(listPermisos);
                 Grilla_PermisosAsignados.DataSource = null;
                 Grilla_PermisosAsignados.DataSource = listPermisos;
+                Grilla_PermisosAsignados.ClearSelection();
                 Grilla_PermisosNoAsignados.DataSource = null;
                 Grilla_PermisosNoAsignados.DataSource = listPermisosNo;
+                Grilla_PermisosNoAsignados.ClearSelection();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -183,5 +186,9 @@ namespace TrabajoFinal
             { MessageBox.Show(ex.Message); }
         }
 
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

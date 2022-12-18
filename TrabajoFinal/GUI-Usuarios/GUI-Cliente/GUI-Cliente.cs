@@ -568,6 +568,7 @@ namespace TrabajoFinal
 
                 oBEComanda.Codigo = oBLComanda.GenerarCodigo();
                 oBEComanda.Cliente = oBECliente;
+                oBEComanda.NroMesa = nroMesa;
 
                 oBLComanda.Guardar(oBEComanda);
             }
@@ -579,6 +580,7 @@ namespace TrabajoFinal
         {
             Grilla_PedidosCliente.DataSource = null;
             Grilla_PedidosCliente.DataSource = listaItemsSeleccionados;
+            Grilla_PedidosCliente.ClearSelection();
             OcultarCampos();
         }
 

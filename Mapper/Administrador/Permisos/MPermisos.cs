@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Abstraction;
 using BussinesEntity;
 using System.Xml.Linq;
+using System.Windows.Forms;
 
 namespace Mapper
 {
@@ -30,8 +31,11 @@ namespace Mapper
         {
             try
             {
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
                 var consulta =
-                from Permisos in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
+                from Permisos in xmlDocument.Descendants("Permiso")
                 select new BEPermisos
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(Permisos.Attribute("ID").Value).Trim()),

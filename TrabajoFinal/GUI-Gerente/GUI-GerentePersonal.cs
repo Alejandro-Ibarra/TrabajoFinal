@@ -299,6 +299,9 @@ namespace TrabajoFinal
                     listPersonal.Add((BEMozo)mozo);
                 }
                 Grilla_Usuarios.DataSource = listPersonal;
+                Grilla_Usuarios.ClearSelection();
+                Grilla_Usuarios.Columns["Codigo"].Visible = false;
+
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

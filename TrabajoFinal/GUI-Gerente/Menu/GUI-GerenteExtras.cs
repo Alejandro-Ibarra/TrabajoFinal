@@ -163,11 +163,11 @@ namespace TrabajoFinal
         {
             try
             {
-                List<string> ListaProveedor = new List<string> { "Limpieza clean", "Ledesma", "Limpieza ramona", "Bazar chef",
-                    "Chango", "Blanqueria nona", "Estela limpieza", "Distribuidora Pepito" };
+                List<string> ListaProveedor = new List<string> {"Limpieza clean","Ledesma","Limpieza ramona","Bazar chef",
+                    "ChangoMas","Blanqueria nona","Estela limpieza","Distribuidora Pepito","Panderia San Jose","Papelera Papelito"};
                 ComboBox_Proveedor.DataSource = ListaProveedor;
 
-                List<string> ListaTipo = new List<string>{ "Limpieza", "Bazar", "Blanqueria", "Distribuidora" };
+                List<string> ListaTipo = new List<string>{"Limpieza","Bazar","Blanqueria","Distribuidora","Panaderia","Papeleria"};
                 ComboBox_Tipo.DataSource = ListaTipo;
             }
             catch (Exception ex)
@@ -181,6 +181,8 @@ namespace TrabajoFinal
             {
                 Grilla_Ingredientes.DataSource = null;
                 Grilla_Ingredientes.DataSource = oBLExtras.ListarTodo();
+                Grilla_Ingredientes.ClearSelection();
+                OcultarCampos();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -198,6 +200,15 @@ namespace TrabajoFinal
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
+        }
+
+        private void OcultarCampos()
+        {
+            Grilla_Ingredientes.Columns["CodigoComanda"].Visible = false;
+            Grilla_Ingredientes.Columns["CodigoPedido"].Visible = false;
+            Grilla_Ingredientes.Columns["CodigoItem"].Visible = false;
+            Grilla_Ingredientes.Columns["Codigo"].Visible = false;
+            Grilla_Ingredientes.Columns["Descripcion"].Visible = false;
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace Mapper
@@ -17,7 +18,9 @@ namespace Mapper
             try
             {
                 string Cod = oBEPlato.Codigo.ToString();
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var verificar = from Plato in xmlDocument.Descendants("PlatoComandaCocina")
                                where Plato.Attribute("Codigo").Value == Cod
@@ -77,7 +80,9 @@ namespace Mapper
                     }
 
 
-                    XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                    string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                    XDocument xmlDocument = XDocument.Load(restaurante);
+
                     xmlDocument.Element("Restaurante").Element("Platos").Add(new XElement("Plato",
                                                                                 new XAttribute("ID", oBEPlato.Codigo.ToString().Trim()),
                                                                                 new XElement("Nombre", oBEPlato.Nombre.Trim()),
@@ -115,8 +120,13 @@ namespace Mapper
         {
             try
             {
+                
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
+
                 var consulta =
-                from Plato in XElement.Load("Restaurante.xml").Elements("Platos").Elements("Plato")
+                from Plato in xmlDocument.Descendants("Plato")
                 select new BEPlato
                 {
                     Codigo = Convert.ToInt32(Convert.ToString(Plato.Attribute("ID").Value)),
@@ -172,7 +182,9 @@ namespace Mapper
             try
             {
                 string Codigo = oBEPlato.Codigo.ToString();
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = from Plato in xmlDocument.Descendants("Plato")
                                where Plato.Attribute("ID").Value == Codigo
@@ -193,7 +205,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
 
                 var consulta = from Plato in xmlDocument.Descendants("Plato")
@@ -215,7 +229,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = (from plato in xmlDocument.Descendants("Plato")
                                 select new BEPlato

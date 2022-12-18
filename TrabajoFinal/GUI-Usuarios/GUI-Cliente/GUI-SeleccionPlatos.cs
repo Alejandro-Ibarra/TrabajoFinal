@@ -77,6 +77,7 @@ namespace TrabajoFinal
                 }
                 var lIngreAux = lIngrediente.GroupBy(x => x.Nombre).Select(x => x.First()).ToList();
                 GridView_TodosIng.DataSource = lIngreAux;
+                GridView_TodosIng.ClearSelection();
                 GridView_TodosIng.Columns["Refrigeracion"].Visible = false;
                 GridView_TodosIng.Columns["Stock"].Visible = false;
                 GridView_TodosIng.Columns["Proveedor"].Visible = false;
@@ -113,6 +114,7 @@ namespace TrabajoFinal
 
                     GridView_IngSelec.DataSource = null;
                     GridView_IngSelec.DataSource = listaIng;
+                    GridView_IngSelec.ClearSelection();
                     GridView_IngSelec.Columns["Refrigeracion"].Visible = false;
                     GridView_IngSelec.Columns["Stock"].Visible = false;
                     GridView_IngSelec.Columns["Proveedor"].Visible = false;
@@ -145,6 +147,7 @@ namespace TrabajoFinal
                     listaIng = ingreAux2;
                     GridView_IngSelec.DataSource = null;
                     GridView_IngSelec.DataSource = listaIng;
+                    GridView_IngSelec.ClearSelection();
                     GridView_IngSelec.Columns["Refrigeracion"].Visible = false;
                     GridView_IngSelec.Columns["Stock"].Visible = false;
                     GridView_IngSelec.Columns["Proveedor"].Visible = false;
@@ -202,6 +205,7 @@ namespace TrabajoFinal
 
                         GridView_PlatoSelec.DataSource = null;
                         GridView_PlatoSelec.DataSource = listaPlatosElegidos;
+                        GridView_PlatoSelec.ClearSelection();
                         GridView_PlatoSelec.Columns["CodigoComanda"].Visible = false;
                         GridView_PlatoSelec.Columns["CodigoPedido"].Visible = false;
                         GridView_PlatoSelec.Columns["CodigoItem"].Visible = false;
@@ -237,6 +241,7 @@ namespace TrabajoFinal
                     listaPlatosElegidos = platoAux;
                     GridView_PlatoSelec.DataSource = null;
                     GridView_PlatoSelec.DataSource = listaPlatosElegidos;
+                    GridView_PlatoSelec.ClearSelection();
                 }
                 else
                 { MessageBox.Show("Seleccione un elemento de la lista"); }

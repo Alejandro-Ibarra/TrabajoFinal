@@ -46,6 +46,7 @@ namespace TrabajoFinal
 
                     GridView_BebidasSelec.DataSource = null;
                     GridView_BebidasSelec.DataSource = listaBebidasElegidas;
+                    GridView_BebidasSelec.ClearSelection();
                     OcultarCamposSelec();
                 }
                 else
@@ -77,6 +78,7 @@ namespace TrabajoFinal
                     listaBebidasElegidas = ingreAux2;
                     GridView_BebidasSelec.DataSource = null;
                     GridView_BebidasSelec.DataSource = listaBebidasElegidas;
+                    GridView_BebidasSelec.ClearSelection();
                     OcultarCamposSelec();
                 }
                 else
@@ -101,6 +103,7 @@ namespace TrabajoFinal
                 }
 
                 GridView_TodosBebidas.DataSource = listBebidasAux;
+                GridView_TodosBebidas.ClearSelection();
                 GridView_TodosBebidas.Columns["CodigoComanda"].Visible = false;
                 GridView_TodosBebidas.Columns["CodigoPedido"].Visible = false;
                 GridView_TodosBebidas.Columns["CodigoItem"].Visible = false;

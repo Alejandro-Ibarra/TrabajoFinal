@@ -231,8 +231,6 @@ namespace TrabajoFinal
            
         }
 
-
-
         private void CerrarForms()
         {
             foreach (Form control in this.Panel.Controls)
@@ -240,5 +238,7 @@ namespace TrabajoFinal
                 control.Hide();
             }
         }
+
+
     }
 }

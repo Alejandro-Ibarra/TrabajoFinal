@@ -7,6 +7,7 @@ using Abstraction;
 using BussinesEntity;
 using System.Xml.Linq;
 using System.Data.Linq.SqlClient;
+using System.Windows.Forms;
 
 namespace Mapper
 {
@@ -16,7 +17,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = xmlDocument.Descendants()
                     .Where(x => (string)x.Attribute("Codigo") == Convert.ToString(oBEPersonal.DNI))
@@ -36,7 +39,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
 
                 var consulta = from gerente in xmlDocument.Descendants("Admin")
@@ -61,7 +66,9 @@ namespace Mapper
             {
                 if (Existe(oBEPersonal.DNI) == false)
                 {
-                    XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                    string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                    XDocument xmlDocument = XDocument.Load(restaurante);
+
                     xmlDocument.Element("Restaurante").Element("Usuarios").Element("Gerente").Add(new XElement("Admin",
                                                                                         new XAttribute("Codigo", oBEPersonal.DNI.ToString().Trim()),
                                                                                         new XElement("Nombre", oBEPersonal.Nombre.Trim()),
@@ -87,10 +94,12 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consultaRoles =
-                    from rol in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                    from rol in xmlDocument.Descendants("Rol")
                     select new BERoles
                     {
                         Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value).Trim()),
@@ -99,7 +108,7 @@ namespace Mapper
                                     select new BEPermisos
                                     {
                                         Codigo = Convert.ToInt32(permisos.Attribute("ID").Value.Trim()),
-                                        Descripcion = (from desc in XElement.Load("Restaurante.xml").Elements("Permisos").Elements("Permiso")
+                                        Descripcion = (from desc in xmlDocument.Descendants("Permiso")
                                                        where (string)desc.Attribute("ID") == (string)permisos.Attribute("ID")
                                                        select desc
                                                             ).FirstOrDefault().Element("Descripcion").Value.ToString()
@@ -107,7 +116,7 @@ namespace Mapper
                     };
 
                 var consulta =
-                    (from Admin in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Gerente").Elements("Admin")
+                    (from Admin in xmlDocument.Descendants("Admin")
                     where Admin.Attribute("Codigo").Value == dni.ToString()
                     select new BEAdmin
                     {
@@ -119,7 +128,7 @@ namespace Mapper
                                  select new BERoles
                                  {
                                     Codigo = Convert.ToInt32(Convert.ToString(rol.Attribute("ID").Value.Trim())),
-                                     Descripcion = (from rDesc in XElement.Load("Restaurante.xml").Elements("Roles").Elements("Rol")
+                                     Descripcion = (from rDesc in xmlDocument.Descendants("Rol")
                                                     where (string)rDesc.Attribute("ID") == (string)rol.Attribute("ID")
                                                     select rDesc
                                                     ).FirstOrDefault().Element("Descripcion").Value.ToString(),
@@ -156,14 +165,14 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
-                
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
 
                 var consulta = xmlDocument.Descendants()
                     .Where(x => (string)x.Attribute("Codigo") == Convert.ToString(pass))
                     .FirstOrDefault();
 
-               string password =  consulta.Element("Password").Value.ToString();
+               string password = consulta.Element("Password").Value.ToString();
 
                 return password;
 
@@ -178,7 +187,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = xmlDocument.Descendants()
                     .Where(x => (string)x.Attribute("Codigo") == Convert.ToString(oBEPersonal.DNI))
@@ -201,7 +212,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = xmlDocument.Descendants()
                     .Where(x => (string)x.Attribute("Codigo") == Convert.ToString(oBEPersonal.DNI))
@@ -223,7 +236,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = xmlDocument.Descendants()
                     .Where(x => (string)x.Attribute("Codigo") == dni.ToString())
@@ -259,8 +274,11 @@ namespace Mapper
         {
             try
             {
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
                 var consulta =
-                from Gerente in XElement.Load("Restaurante.xml").Elements("Usuarios").Elements("Gerente").Elements("Admin")
+                from Gerente in xmlDocument.Descendants("Admin")
                 select new BEPersonal
                 {
                     DNI = Convert.ToInt32(Convert.ToString(Gerente.Attribute("Codigo").Value).Trim()),

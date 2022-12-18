@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 
@@ -23,7 +24,11 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
+
                 if (Existe(oBEcomanda.Codigo) == false && oBEcomanda.Comandas.Count == 0)
                 {
                     
@@ -140,7 +145,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
                 var consultaPlato = from plato in xmlDocument.Descendants("PlatoComandaCocina")
                                      where plato.Element("CodigoComanda").Value == item.CodigoComanda.ToString() && plato.Element("CodigoPedido").Value == item.CodigoPedido.ToString() && plato.Element("CodigoItem").Value == item.CodigoItem.ToString()
                                     select plato;
@@ -189,8 +196,10 @@ namespace Mapper
 
             try
             {
+                
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
 
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
 
 
                 var pedidosCocina = (from com in xmlDocument.Descendants("PedidosRealizadosCocina")
@@ -292,7 +301,7 @@ namespace Mapper
                 }
 
                 var consulta =
-                            from comanda in XElement.Load("Restaurante.xml").Elements("Comandas").Elements("Comanda")
+                            from comanda in xmlDocument.Descendants("Comanda")
                             where comanda.Attribute("ID").Value == Codigo.ToString()
                             select new BEComanda
                             {
@@ -323,8 +332,13 @@ namespace Mapper
         {
             try
             {
+                
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
+
                 var consulta =
-                            from comanda in XElement.Load("Restaurante.xml").Elements("Comandas").Elements("Comanda")
+                            from comanda in xmlDocument.Descendants("Comanda")
                             select new BEComanda
                             {
                                 Codigo = Convert.ToInt32(Convert.ToString(comanda.Attribute("ID").Value).Trim()),
@@ -351,7 +365,11 @@ namespace Mapper
             try
             {
                 string Codigo = oBEComanda.Codigo.ToString();
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+
+                
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = from comanda in xmlDocument.Descendants("Comanda")
                                where comanda.Attribute("ID").Value == Codigo
@@ -375,7 +393,10 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
+
 
                 var consulta = (from Comanda in xmlDocument.Descendants("Comanda")
                                 select new BEComanda
@@ -402,7 +423,9 @@ namespace Mapper
         {
             try
             {
-                XDocument xmlDocument = XDocument.Load("Restaurante.xml");
+                
+                string restaurante = Application.StartupPath + @"\Restaurante.xml";
+                XDocument xmlDocument = XDocument.Load(restaurante);
 
 
                 var consulta = from comanda in xmlDocument.Descendants("Comanda")
