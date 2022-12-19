@@ -41,7 +41,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_TodosBebidas.Rows.Count > 0 && GridView_TodosBebidas.CurrentRow != null)
+                if (GridView_TodosBebidas.Rows.Count > 0 && GridView_TodosBebidas.CurrentRow != null && GridView_TodosBebidas.SelectedRows.Count > 0)
                 {
 
                     listaBebidasElegidas.Add((BEBebida)GridView_TodosBebidas.CurrentRow.DataBoundItem);
@@ -64,7 +64,7 @@ namespace TrabajoFinal
             try
             {
                 int aux = 0;
-                if (GridView_BebidasSelec.Rows.Count > 0 && GridView_BebidasSelec.CurrentRow != null)
+                if (GridView_BebidasSelec.Rows.Count > 0 && GridView_BebidasSelec.CurrentRow != null && GridView_BebidasSelec.SelectedRows.Count > 0)
                 {
                     List<BEBebida> ingreAux2 = new List<BEBebida>();
                     foreach (BEBebida ing in listaBebidasElegidas)

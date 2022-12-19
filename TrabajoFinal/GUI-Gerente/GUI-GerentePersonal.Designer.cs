@@ -311,12 +311,13 @@ namespace TrabajoFinal
             // 
             // Boton_MostrarPsw
             // 
+            this.Boton_MostrarPsw.BackColor = System.Drawing.Color.AliceBlue;
             this.Boton_MostrarPsw.Location = new System.Drawing.Point(9, 120);
             this.Boton_MostrarPsw.Name = "Boton_MostrarPsw";
             this.Boton_MostrarPsw.Size = new System.Drawing.Size(114, 23);
             this.Boton_MostrarPsw.TabIndex = 31;
             this.Boton_MostrarPsw.Text = "Mostrar contraseña";
-            this.Boton_MostrarPsw.UseVisualStyleBackColor = true;
+            this.Boton_MostrarPsw.UseVisualStyleBackColor = false;
             this.Boton_MostrarPsw.Click += new System.EventHandler(this.Boton_MostrarPsw_Click);
             // 
             // UC_ValDNI

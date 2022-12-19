@@ -41,19 +41,18 @@ namespace TrabajoFinal
             this.label5 = new System.Windows.Forms.Label();
             this.ComboBox_Marca = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.UC_ValPrecio = new TrabajoFinal.UC_ValCod();
-            this.UC_ValStock = new TrabajoFinal.UC_ValCod();
-            this.UC_ValGraduacion = new TrabajoFinal.UC_ValCod();
-            this.UC_ValNomb = new TrabajoFinal.UC_ValNombApe();
             this.RadioButton_Activo = new System.Windows.Forms.RadioButton();
             this.RadioButton_Inactivo = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Boton_Cancelar = new System.Windows.Forms.Button();
+            this.Boton_ConfDatBebidas = new System.Windows.Forms.Button();
+            this.UC_ValPrecio = new TrabajoFinal.UC_ValCod();
+            this.UC_ValStock = new TrabajoFinal.UC_ValCod();
+            this.UC_ValGraduacion = new TrabajoFinal.UC_ValCod();
+            this.UC_ValNomb = new TrabajoFinal.UC_ValNombApe();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Bebidas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -141,10 +140,10 @@ namespace TrabajoFinal
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 31;
             this.label4.Text = "Precio";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // ComboBox_Envases
             // 
+            this.ComboBox_Envases.Enabled = false;
             this.ComboBox_Envases.FormattingEnabled = true;
             this.ComboBox_Envases.Location = new System.Drawing.Point(256, 45);
             this.ComboBox_Envases.Name = "ComboBox_Envases";
@@ -162,6 +161,7 @@ namespace TrabajoFinal
             // 
             // ComboBox_Marca
             // 
+            this.ComboBox_Marca.Enabled = false;
             this.ComboBox_Marca.FormattingEnabled = true;
             this.ComboBox_Marca.Location = new System.Drawing.Point(496, 45);
             this.ComboBox_Marca.Name = "ComboBox_Marca";
@@ -177,38 +177,11 @@ namespace TrabajoFinal
             this.label6.TabIndex = 36;
             this.label6.Text = "Marca";
             // 
-            // UC_ValPrecio
-            // 
-            this.UC_ValPrecio.Location = new System.Drawing.Point(331, 109);
-            this.UC_ValPrecio.Name = "UC_ValPrecio";
-            this.UC_ValPrecio.Size = new System.Drawing.Size(100, 20);
-            this.UC_ValPrecio.TabIndex = 32;
-            // 
-            // UC_ValStock
-            // 
-            this.UC_ValStock.Location = new System.Drawing.Point(177, 109);
-            this.UC_ValStock.Name = "UC_ValStock";
-            this.UC_ValStock.Size = new System.Drawing.Size(100, 20);
-            this.UC_ValStock.TabIndex = 30;
-            // 
-            // UC_ValGraduacion
-            // 
-            this.UC_ValGraduacion.Location = new System.Drawing.Point(11, 109);
-            this.UC_ValGraduacion.Name = "UC_ValGraduacion";
-            this.UC_ValGraduacion.Size = new System.Drawing.Size(82, 20);
-            this.UC_ValGraduacion.TabIndex = 29;
-            // 
-            // UC_ValNomb
-            // 
-            this.UC_ValNomb.Location = new System.Drawing.Point(11, 45);
-            this.UC_ValNomb.Name = "UC_ValNomb";
-            this.UC_ValNomb.Size = new System.Drawing.Size(211, 20);
-            this.UC_ValNomb.TabIndex = 21;
-            // 
             // RadioButton_Activo
             // 
             this.RadioButton_Activo.AutoSize = true;
             this.RadioButton_Activo.Checked = true;
+            this.RadioButton_Activo.Enabled = false;
             this.RadioButton_Activo.Location = new System.Drawing.Point(13, 10);
             this.RadioButton_Activo.Name = "RadioButton_Activo";
             this.RadioButton_Activo.Size = new System.Drawing.Size(55, 17);
@@ -220,6 +193,7 @@ namespace TrabajoFinal
             // RadioButton_Inactivo
             // 
             this.RadioButton_Inactivo.AutoSize = true;
+            this.RadioButton_Inactivo.Enabled = false;
             this.RadioButton_Inactivo.Location = new System.Drawing.Point(13, 39);
             this.RadioButton_Inactivo.Name = "RadioButton_Inactivo";
             this.RadioButton_Inactivo.Size = new System.Drawing.Size(63, 17);
@@ -251,7 +225,6 @@ namespace TrabajoFinal
             this.groupBox1.TabIndex = 40;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de las bebidas";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox2
             // 
@@ -286,27 +259,61 @@ namespace TrabajoFinal
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Acciones";
             // 
-            // button2
+            // Boton_Cancelar
             // 
-            this.button2.BackColor = System.Drawing.Color.Linen;
-            this.button2.Location = new System.Drawing.Point(698, 484);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 34);
-            this.button2.TabIndex = 88;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Boton_Cancelar.BackColor = System.Drawing.Color.Linen;
+            this.Boton_Cancelar.Enabled = false;
+            this.Boton_Cancelar.Location = new System.Drawing.Point(698, 484);
+            this.Boton_Cancelar.Name = "Boton_Cancelar";
+            this.Boton_Cancelar.Size = new System.Drawing.Size(75, 34);
+            this.Boton_Cancelar.TabIndex = 88;
+            this.Boton_Cancelar.Text = "Cancelar";
+            this.Boton_Cancelar.UseVisualStyleBackColor = false;
+            this.Boton_Cancelar.Click += new System.EventHandler(this.Boton_Cancelar_Click);
             // 
-            // button1
+            // Boton_ConfDatBebidas
             // 
-            this.button1.BackColor = System.Drawing.Color.Honeydew;
-            this.button1.Location = new System.Drawing.Point(698, 424);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 50);
-            this.button1.TabIndex = 87;
-            this.button1.Text = "Confirmar datos de la bebida";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Boton_ConfDatBebidas.BackColor = System.Drawing.Color.Honeydew;
+            this.Boton_ConfDatBebidas.Enabled = false;
+            this.Boton_ConfDatBebidas.Location = new System.Drawing.Point(698, 424);
+            this.Boton_ConfDatBebidas.Name = "Boton_ConfDatBebidas";
+            this.Boton_ConfDatBebidas.Size = new System.Drawing.Size(75, 50);
+            this.Boton_ConfDatBebidas.TabIndex = 87;
+            this.Boton_ConfDatBebidas.Text = "Confirmar datos de la bebida";
+            this.Boton_ConfDatBebidas.UseVisualStyleBackColor = false;
+            this.Boton_ConfDatBebidas.Click += new System.EventHandler(this.Boton_ConfDatBebidas_Click);
+            // 
+            // UC_ValPrecio
+            // 
+            this.UC_ValPrecio.Enabled = false;
+            this.UC_ValPrecio.Location = new System.Drawing.Point(331, 109);
+            this.UC_ValPrecio.Name = "UC_ValPrecio";
+            this.UC_ValPrecio.Size = new System.Drawing.Size(100, 20);
+            this.UC_ValPrecio.TabIndex = 32;
+            // 
+            // UC_ValStock
+            // 
+            this.UC_ValStock.Enabled = false;
+            this.UC_ValStock.Location = new System.Drawing.Point(177, 109);
+            this.UC_ValStock.Name = "UC_ValStock";
+            this.UC_ValStock.Size = new System.Drawing.Size(100, 20);
+            this.UC_ValStock.TabIndex = 30;
+            // 
+            // UC_ValGraduacion
+            // 
+            this.UC_ValGraduacion.Enabled = false;
+            this.UC_ValGraduacion.Location = new System.Drawing.Point(11, 109);
+            this.UC_ValGraduacion.Name = "UC_ValGraduacion";
+            this.UC_ValGraduacion.Size = new System.Drawing.Size(82, 20);
+            this.UC_ValGraduacion.TabIndex = 29;
+            // 
+            // UC_ValNomb
+            // 
+            this.UC_ValNomb.Enabled = false;
+            this.UC_ValNomb.Location = new System.Drawing.Point(11, 45);
+            this.UC_ValNomb.Name = "UC_ValNomb";
+            this.UC_ValNomb.Size = new System.Drawing.Size(211, 20);
+            this.UC_ValNomb.TabIndex = 21;
             // 
             // GUI_Gerente_Bebidas
             // 
@@ -316,8 +323,8 @@ namespace TrabajoFinal
             this.BackgroundImage = global::TrabajoFinal.Properties.Resources.BlueShade2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(984, 561);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Boton_Cancelar);
+            this.Controls.Add(this.Boton_ConfDatBebidas);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Grilla_Bebidas);
@@ -357,11 +364,10 @@ namespace TrabajoFinal
         private System.Windows.Forms.RadioButton RadioButton_Activo;
         private System.Windows.Forms.RadioButton RadioButton_Inactivo;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Boton_Cancelar;
+        private System.Windows.Forms.Button Boton_ConfDatBebidas;
     }
 }

@@ -193,7 +193,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Ingredientes.Rows.Count > 0 && Grilla_Ingredientes.CurrentRow != null)
+                if (Grilla_Ingredientes.Rows.Count > 0 && Grilla_Ingredientes.CurrentRow != null && Grilla_Ingredientes.SelectedRows.Count > 0)
                 {
                 oBEExtras = (BEExtras)Grilla_Ingredientes.CurrentRow.DataBoundItem;
                 AsignarExtrasAControles(oBEExtras);

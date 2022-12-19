@@ -183,56 +183,61 @@ namespace TrabajoFinal
             // 
             // Boton_ConfirmarPrecio
             // 
+            this.Boton_ConfirmarPrecio.BackColor = System.Drawing.Color.AliceBlue;
             this.Boton_ConfirmarPrecio.Location = new System.Drawing.Point(597, 281);
             this.Boton_ConfirmarPrecio.Name = "Boton_ConfirmarPrecio";
             this.Boton_ConfirmarPrecio.Size = new System.Drawing.Size(120, 23);
             this.Boton_ConfirmarPrecio.TabIndex = 13;
             this.Boton_ConfirmarPrecio.Text = "Confirmar Precio";
-            this.Boton_ConfirmarPrecio.UseVisualStyleBackColor = true;
+            this.Boton_ConfirmarPrecio.UseVisualStyleBackColor = false;
             this.Boton_ConfirmarPrecio.Visible = false;
             this.Boton_ConfirmarPrecio.Click += new System.EventHandler(this.Boton_ConfirmarPrecio_Click);
             // 
             // Boton_ContinuarTipoPlato
             // 
+            this.Boton_ContinuarTipoPlato.BackColor = System.Drawing.Color.AliceBlue;
             this.Boton_ContinuarTipoPlato.Location = new System.Drawing.Point(150, 253);
             this.Boton_ContinuarTipoPlato.Name = "Boton_ContinuarTipoPlato";
             this.Boton_ContinuarTipoPlato.Size = new System.Drawing.Size(62, 23);
             this.Boton_ContinuarTipoPlato.TabIndex = 14;
             this.Boton_ContinuarTipoPlato.Text = "Continuar";
-            this.Boton_ContinuarTipoPlato.UseVisualStyleBackColor = true;
+            this.Boton_ContinuarTipoPlato.UseVisualStyleBackColor = false;
             this.Boton_ContinuarTipoPlato.Visible = false;
             this.Boton_ContinuarTipoPlato.Click += new System.EventHandler(this.Boton_ContinuarTipoPlato_Click);
             // 
             // Boton_ContinuarClasePlato
             // 
+            this.Boton_ContinuarClasePlato.BackColor = System.Drawing.Color.AliceBlue;
             this.Boton_ContinuarClasePlato.Location = new System.Drawing.Point(362, 251);
             this.Boton_ContinuarClasePlato.Name = "Boton_ContinuarClasePlato";
             this.Boton_ContinuarClasePlato.Size = new System.Drawing.Size(62, 23);
             this.Boton_ContinuarClasePlato.TabIndex = 15;
             this.Boton_ContinuarClasePlato.Text = "Continuar";
-            this.Boton_ContinuarClasePlato.UseVisualStyleBackColor = true;
+            this.Boton_ContinuarClasePlato.UseVisualStyleBackColor = false;
             this.Boton_ContinuarClasePlato.Visible = false;
             this.Boton_ContinuarClasePlato.Click += new System.EventHandler(this.Boton_ContinuarClasePlato_Click);
             // 
             // Boton_ConfirmalIngPrincipal
             // 
+            this.Boton_ConfirmalIngPrincipal.BackColor = System.Drawing.Color.AliceBlue;
             this.Boton_ConfirmalIngPrincipal.Location = new System.Drawing.Point(597, 253);
             this.Boton_ConfirmalIngPrincipal.Name = "Boton_ConfirmalIngPrincipal";
             this.Boton_ConfirmalIngPrincipal.Size = new System.Drawing.Size(157, 23);
             this.Boton_ConfirmalIngPrincipal.TabIndex = 16;
             this.Boton_ConfirmalIngPrincipal.Text = "Confirmar ingrediente principal";
-            this.Boton_ConfirmalIngPrincipal.UseVisualStyleBackColor = true;
+            this.Boton_ConfirmalIngPrincipal.UseVisualStyleBackColor = false;
             this.Boton_ConfirmalIngPrincipal.Visible = false;
             this.Boton_ConfirmalIngPrincipal.Click += new System.EventHandler(this.Boton_ConfirmalIngPrincipal_Click);
             // 
             // Boton_ConfirmarIngredientes
             // 
+            this.Boton_ConfirmarIngredientes.BackColor = System.Drawing.Color.AliceBlue;
             this.Boton_ConfirmarIngredientes.Location = new System.Drawing.Point(390, 526);
             this.Boton_ConfirmarIngredientes.Name = "Boton_ConfirmarIngredientes";
             this.Boton_ConfirmarIngredientes.Size = new System.Drawing.Size(120, 23);
             this.Boton_ConfirmarIngredientes.TabIndex = 17;
             this.Boton_ConfirmarIngredientes.Text = "Confirmar Ingredientes";
-            this.Boton_ConfirmarIngredientes.UseVisualStyleBackColor = true;
+            this.Boton_ConfirmarIngredientes.UseVisualStyleBackColor = false;
             this.Boton_ConfirmarIngredientes.Visible = false;
             this.Boton_ConfirmarIngredientes.Click += new System.EventHandler(this.Boton_ConfirmarIngredientes_Click);
             // 

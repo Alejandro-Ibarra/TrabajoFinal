@@ -243,7 +243,7 @@ namespace TrabajoFinal
         #region DatagridClick
         private void DataGridView_SeleccionIngredientes_MouseClick(object sender, MouseEventArgs e)
         {
-            if (DataGridView_SeleccionIngredientes.Rows.Count > 0 && DataGridView_SeleccionIngredientes.CurrentRow != null)
+            if (DataGridView_SeleccionIngredientes.Rows.Count > 0 && DataGridView_SeleccionIngredientes.CurrentRow != null && DataGridView_SeleccionIngredientes.SelectedRows.Count > 0)
             {
                 QuitarIngrediente();
             }
@@ -251,7 +251,7 @@ namespace TrabajoFinal
 
         private void DataGridView_TodosIngredientes_MouseClick(object sender, MouseEventArgs e)
         {
-            if (DataGridView_TodosIngredientes.Rows.Count > 0 && DataGridView_TodosIngredientes.CurrentRow != null)
+            if (DataGridView_TodosIngredientes.Rows.Count > 0 && DataGridView_TodosIngredientes.CurrentRow != null && DataGridView_TodosIngredientes.SelectedRows.Count > 0)
             {
                 AgregarIngrediente();
             }
@@ -259,7 +259,7 @@ namespace TrabajoFinal
 
         private void DataGridView_Platos_MouseClick(object sender, MouseEventArgs e)
         {
-            if (DataGridView_Platos.Rows.Count > 0 && DataGridView_Platos.CurrentRow != null)
+            if (DataGridView_Platos.Rows.Count > 0 && DataGridView_Platos.CurrentRow != null && DataGridView_Platos.SelectedRows.Count > 0)
             {
                 SeleccionarPlatoGrilla();
             }
@@ -272,7 +272,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_Platos.SelectedRows.Count > 0 && DataGridView_Platos.CurrentRow != null)
+                if (DataGridView_Platos.SelectedRows.Count > 0 && DataGridView_Platos.CurrentRow != null && DataGridView_Platos.SelectedRows.Count > 0)
                 {
                     int codPlato = ((BEPlato)DataGridView_Platos.CurrentRow.DataBoundItem).Codigo;
                     BEPlato oBEPlatoMod = new BEPlato();
@@ -316,7 +316,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_SeleccionIngredientes.Rows.Count > 0 && DataGridView_SeleccionIngredientes.CurrentRow != null)
+                if (DataGridView_SeleccionIngredientes.Rows.Count > 0 && DataGridView_SeleccionIngredientes.CurrentRow != null && DataGridView_SeleccionIngredientes.SelectedRows.Count > 0)
                 {
                     List<BEIngrediente> ingreAux = new List<BEIngrediente>();
 
@@ -350,7 +350,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_TodosIngredientes.Rows.Count > 0 && DataGridView_TodosIngredientes.CurrentRow != null)
+                if (DataGridView_TodosIngredientes.Rows.Count > 0 && DataGridView_TodosIngredientes.CurrentRow != null && DataGridView_TodosIngredientes.SelectedRows.Count > 0)
                 {
                     List<BEIngrediente> ingreAux = new List<BEIngrediente>();
                     int aux = 0;
@@ -460,7 +460,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_SeleccionIngredientes.Rows.Count > 0 && DataGridView_SeleccionIngredientes.CurrentRow != null)
+                if (DataGridView_SeleccionIngredientes.Rows.Count > 0 && DataGridView_SeleccionIngredientes.CurrentRow != null && DataGridView_SeleccionIngredientes.SelectedRows.Count > 0)
                 {
                     List<string> ingreAux = new List<string>();
 
@@ -660,7 +660,7 @@ namespace TrabajoFinal
 
         private void OcultarColumnasGrillas(DataGridView dataGrid)
         {
-            if (dataGrid.Rows.Count > 0 && dataGrid.CurrentRow != null)
+            if (dataGrid.Rows.Count > 0 && dataGrid.CurrentRow != null && dataGrid.SelectedRows.Count > 0)
             {
                 dataGrid.Columns["Tipo"].Visible = false;
                 dataGrid.Columns["Stock"].Visible = false;

@@ -80,7 +80,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_PermisosAsignados.SelectedRows.Count > 0 && Grilla_PermisosAsignados.CurrentRow != null)
+                if (Grilla_PermisosAsignados.SelectedRows.Count > 0 && Grilla_PermisosAsignados.CurrentRow != null && Grilla_PermisosAsignados.SelectedRows.Count > 0)
                 {
                     int aux = 0;
                     int aux2 = 0;
@@ -108,7 +108,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_PermisosNoAsignados.SelectedRows.Count > 0 && Grilla_PermisosNoAsignados.CurrentRow != null)
+                if (Grilla_PermisosNoAsignados.SelectedRows.Count > 0 && Grilla_PermisosNoAsignados.CurrentRow != null && Grilla_PermisosNoAsignados.SelectedRows.Count > 0)
                 {
                     oBEPermisos = (BEPermisos)Grilla_PermisosNoAsignados.CurrentRow.DataBoundItem;
                     oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;
@@ -191,7 +191,7 @@ namespace TrabajoFinal
             try
             {
 
-                if (Grilla_Roles.Rows.Count > 0 && Grilla_Roles.CurrentRow != null)
+                if (Grilla_Roles.Rows.Count > 0 && Grilla_Roles.CurrentRow != null && Grilla_Roles.SelectedRows.Count > 0)
                 {
 
                     oBERoles = (BERoles)Grilla_Roles.CurrentRow.DataBoundItem;

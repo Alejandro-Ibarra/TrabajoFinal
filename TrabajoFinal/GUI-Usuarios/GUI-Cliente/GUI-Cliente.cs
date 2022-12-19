@@ -464,7 +464,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_PedidosCliente.Rows.Count > 0 && Grilla_PedidosCliente.CurrentRow != null)
+                if (Grilla_PedidosCliente.Rows.Count > 0 && Grilla_PedidosCliente.CurrentRow != null && Grilla_PedidosCliente.SelectedRows.Count > 0)
                 {
                     item = (BEItemsSeleccionados)Grilla_PedidosCliente.CurrentRow.DataBoundItem;
                 }

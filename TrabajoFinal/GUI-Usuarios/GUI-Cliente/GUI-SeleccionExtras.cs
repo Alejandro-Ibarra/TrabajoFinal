@@ -41,7 +41,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_TodosExtras.Rows.Count > 0 && GridView_TodosExtras.CurrentRow != null)
+                if (GridView_TodosExtras.Rows.Count > 0 && GridView_TodosExtras.CurrentRow != null && GridView_TodosExtras.SelectedRows.Count > 0)
                 {
                     listExtrasElegidos.Add((BEExtras)GridView_TodosExtras.CurrentRow.DataBoundItem);
                     GridView_ExtrasSelec.DataSource = null;
@@ -61,7 +61,7 @@ namespace TrabajoFinal
             try
             {
                 int aux = 0;
-                if (GridView_ExtrasSelec.Rows.Count > 0 && GridView_ExtrasSelec.CurrentRow != null)
+                if (GridView_ExtrasSelec.Rows.Count > 0 && GridView_ExtrasSelec.CurrentRow != null && GridView_ExtrasSelec.SelectedRows.Count > 0)
                 {
                     List<BEExtras> ingreAux2 = new List<BEExtras>();
                     foreach (BEExtras ing in listExtrasElegidos)

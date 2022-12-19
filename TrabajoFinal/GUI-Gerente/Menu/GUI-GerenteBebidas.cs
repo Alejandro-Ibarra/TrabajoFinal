@@ -37,20 +37,10 @@ namespace TrabajoFinal
         {
             try
             {
-                if (AsignarBebida())
-                {
-                    if (oBLBebida.Existe(oBEBebida))
-                    {
-                        oBEBebida.Codigo = oBLBebida.GenerarCodigo();
-                        oBLBebida.Guardar(oBEBebida);
-                        CargarGrilla();
-                    }
-                    else
-                    { MessageBox.Show("La bebida ingresada ya existe"); }
-                }
-                else
-                { MessageBox.Show("Ingrese los datos de forma correcta"); }
-
+                HabilitarControlesBebida(true);
+                HabilitarBotonesABM(false);
+                LimpiarControles();
+                Grilla_Bebidas.Enabled = false;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -60,19 +50,29 @@ namespace TrabajoFinal
         {
             try
             {
-                DialogResult Respuesta;
-                Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (Respuesta == DialogResult.Yes)
+                if (Grilla_Bebidas.Rows.Count > 0 && Grilla_Bebidas.CurrentRow != null && Grilla_Bebidas.SelectedRows.Count > 0)
                 {
-                    if (ValidarEliminacion())
+                    Grilla_Bebidas.Enabled = false;
+                    DialogResult Respuesta;
+                    Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (Respuesta == DialogResult.Yes)
                     {
-                        oBLBebida.Baja(oBEBebida);
-                        LimpiarControles();
-                        CargarGrilla();
-                    }
-                    else
-                    {MessageBox.Show("No se puede eliminar una bebida que esta en una comanda");}
+                        if (ValidarEliminacion())
+                        {
+                            oBLBebida.Baja(oBEBebida);
+                            LimpiarControles();
+                            CargarGrilla();
 
+                            Grilla_Bebidas.Enabled = true;
+                        }
+                        else
+                        {MessageBox.Show("No se puede eliminar una bebida que esta en una comanda");}
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una bebida a eliminar");
                 }
             }
             catch (Exception ex)
@@ -88,17 +88,54 @@ namespace TrabajoFinal
         {
             try
             {
-                if (AsignarBebida())
+                if (Grilla_Bebidas.Rows.Count > 0 && Grilla_Bebidas.CurrentRow != null && Grilla_Bebidas.SelectedRows.Count > 0)
                 {
-                    oBLBebida.Modificar(oBEBebida);
-                    AsignarBebidaAControles(oBEBebida);
-                    CargarGrilla();
+                    HabilitarControlesBebida(true);
+                    HabilitarBotonesABM(false);
+                    Grilla_Bebidas.Enabled = false;
                 }
                 else
-                { MessageBox.Show("Ingrese los datos de forma correcta"); }
+                {
+                    MessageBox.Show("Seleccione una bebida a modificar");
+                }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
+        }
+
+        private void Boton_ConfDatBebidas_Click(object sender, EventArgs e)
+        {
+            if (AsignarBebida())
+            {
+                if (oBLBebida.Existe(oBEBebida))
+                {
+                    oBEBebida.Codigo = oBLBebida.GenerarCodigo();
+                    oBLBebida.Guardar(oBEBebida);
+                    CargarGrilla();
+                    Grilla_Bebidas.Enabled = true;
+
+                }
+                else
+                {
+                    oBLBebida.Modificar(oBEBebida);
+                    CargarGrilla();
+                    Grilla_Bebidas.Enabled = true;
+                    
+                }
+                HabilitarControlesBebida(false);
+                HabilitarBotonesABM(true);
+            }
+            else
+            { MessageBox.Show("Ingrese los datos de forma correcta"); }
+        }
+
+        private void Boton_Cancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarControles();
+            CargarGrilla();
+            HabilitarControlesBebida(false);
+            HabilitarBotonesABM(true);
+            Grilla_Bebidas.Enabled = true;
         }
 
         private bool AsignarBebida()
@@ -195,7 +232,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Bebidas.Rows.Count > 0 && Grilla_Bebidas.CurrentRow != null)
+                if (Grilla_Bebidas.Rows.Count > 0 && Grilla_Bebidas.CurrentRow != null && Grilla_Bebidas.SelectedRows.Count > 0)
                 {
                     oBEBebida = (BEBebida)Grilla_Bebidas.CurrentRow.DataBoundItem;
                     AsignarBebidaAControles(oBEBebida);
@@ -209,10 +246,12 @@ namespace TrabajoFinal
         {
             try
             {
-                foreach (TextBox oTextbox in this.Controls.OfType<TextBox>())
-                {
-                    oTextbox.Text = null;
-                }
+                UC_ValNomb.Text = null;
+                UC_ValGraduacion.Text = null;
+                UC_ValStock.Text = null;
+                UC_ValPrecio.Text = null;
+                ComboBox_Envases.SelectedItem = null;
+                ComboBox_Marca.SelectedItem = null;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -226,24 +265,27 @@ namespace TrabajoFinal
             Grilla_Bebidas.Columns["Descripcion"].Visible = false;
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void HabilitarControlesBebida(bool valor)
         {
 
+            UC_ValNomb.Enabled = valor;
+            ComboBox_Envases.Enabled = valor;
+            ComboBox_Marca.Enabled = valor;
+            UC_ValGraduacion.Enabled = valor;
+            UC_ValStock.Enabled = valor;
+            UC_ValPrecio.Enabled = valor;
+            RadioButton_Activo.Enabled = valor;
+            RadioButton_Inactivo.Enabled = valor;
+            Boton_ConfDatBebidas.Enabled = valor;
+            Boton_Cancelar.Enabled = valor;
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void HabilitarBotonesABM(bool valor)
         {
-
+            Boton_Alta.Enabled = valor;
+            Boton_Modificar.Enabled = valor;
+            Boton_Baja.Enabled = valor;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

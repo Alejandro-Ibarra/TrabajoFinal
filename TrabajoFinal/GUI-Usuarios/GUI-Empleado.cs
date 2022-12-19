@@ -124,7 +124,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_Pedidos.Rows.Count > 0 && GridView_Pedidos.CurrentRow != null)
+                if (GridView_Pedidos.Rows.Count > 0 && GridView_Pedidos.CurrentRow != null  && GridView_Pedidos.SelectedRows.Count > 0)
                 {
                     oBEItem = (BEItemsSeleccionados)GridView_Pedidos.CurrentRow.DataBoundItem;
 

@@ -95,7 +95,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_TodosIng.Rows.Count > 0 && GridView_TodosIng.CurrentRow != null)
+                if (GridView_TodosIng.Rows.Count > 0 && GridView_TodosIng.CurrentRow != null && GridView_TodosIng.SelectedRows.Count > 0)
                 {
                     int aux = 0;
 
@@ -136,13 +136,13 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_IngSelec.Rows.Count > 0 && GridView_IngSelec.CurrentRow != null)
+                if (GridView_IngSelec.Rows.Count > 0 && GridView_IngSelec.CurrentRow != null && GridView_IngSelec.SelectedRows.Count > 0)
                 {
 
                     List<BEIngrediente> ingreAux2 = new List<BEIngrediente>();
                     foreach (BEIngrediente ing in listaIng)
                     {
-                        if (ing.Nombre != ((BEIngrediente)GridView_IngSelec.CurrentRow.DataBoundItem).Nombre && GridView_IngSelec.CurrentRow != null)
+                        if (ing.Nombre != ((BEIngrediente)GridView_IngSelec.CurrentRow.DataBoundItem).Nombre)
                         {
                             ingreAux2.Add(ing);
                         }
@@ -200,9 +200,9 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_IngSelec.Rows.Count > 0 && GridView_IngSelec.CurrentRow != null)
+                if (GridView_IngSelec.Rows.Count > 0 && GridView_IngSelec.CurrentRow != null && GridView_IngSelec.SelectedRows.Count > 0)
                 {
-                    if (GridView_TodosPlatos.Rows.Count > 0 && GridView_TodosPlatos.CurrentRow != null)
+                    if (GridView_TodosPlatos.Rows.Count > 0 && GridView_TodosPlatos.CurrentRow != null && GridView_TodosPlatos.SelectedRows.Count > 0)
                     {
                         listaPlatosElegidos.Add((BEPlato)GridView_TodosPlatos.CurrentRow.DataBoundItem);
 
@@ -231,12 +231,12 @@ namespace TrabajoFinal
         {
             try
             {
-                if (GridView_PlatoSelec.Rows.Count > 0 && GridView_PlatoSelec.CurrentRow != null)
+                if (GridView_PlatoSelec.Rows.Count > 0 && GridView_PlatoSelec.CurrentRow != null && GridView_PlatoSelec.SelectedRows.Count > 0)
                 {
                     List<BEPlato> platoAux = new List<BEPlato>();
                     foreach (BEPlato plato in listaPlatosElegidos)
                     {
-                        if (plato.Nombre != ((BEPlato)GridView_PlatoSelec.CurrentRow.DataBoundItem).Nombre && GridView_PlatoSelec.CurrentRow != null)
+                        if (plato.Nombre != ((BEPlato)GridView_PlatoSelec.CurrentRow.DataBoundItem).Nombre)
                         {
                             platoAux.Add(plato);
                         }
@@ -272,7 +272,7 @@ namespace TrabajoFinal
 
         private void CargarTextBox()
         {
-            if (GridView_TodosPlatos.Rows.Count > 0 && GridView_TodosPlatos.CurrentRow != null)
+            if (GridView_TodosPlatos.Rows.Count > 0 && GridView_TodosPlatos.CurrentRow != null && GridView_TodosPlatos.SelectedRows.Count > 0)
             {
                 BEPlato auxPlato = (BEPlato)GridView_TodosPlatos.CurrentRow.DataBoundItem;
                 textBox1.Text = auxPlato.Descripcion;

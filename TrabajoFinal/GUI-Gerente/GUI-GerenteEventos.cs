@@ -64,7 +64,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Eventos.Rows.Count > 0 && Grilla_Eventos.CurrentRow != null)
+                if (Grilla_Eventos.Rows.Count > 0 && Grilla_Eventos.CurrentRow != null && Grilla_Eventos.SelectedRows.Count > 0)
                 {
                     
                     if (DateTime.Parse(oBEEvento.Fecha) > DateTime.Now)
@@ -94,7 +94,7 @@ namespace TrabajoFinal
 
         private void Boton_ModificarEvento_Click(object sender, EventArgs e)
         {
-            if (Grilla_DeClientes.Rows.Count > 0 && Grilla_DeClientes.CurrentRow != null)
+            if (Grilla_DeClientes.Rows.Count > 0 && Grilla_DeClientes.CurrentRow != null && Grilla_DeClientes.SelectedRows.Count > 0)
             {
                 DateTime FechaCancelaciones = DateTime.Now;
                 FechaCancelaciones = FechaCancelaciones.AddHours(+12);
@@ -256,7 +256,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_Eventos.Rows.Count > 0 && Grilla_Eventos.CurrentRow != null)
+                if (Grilla_Eventos.Rows.Count > 0 && Grilla_Eventos.CurrentRow != null && Grilla_Eventos.SelectedRows.Count > 0)
                 {
                     oBEEvento = (BEEvento)Grilla_Eventos.CurrentRow.DataBoundItem;
                     AsignarEventoAControles(oBEEvento);
@@ -273,7 +273,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (Grilla_DeClientes.Rows.Count > 0 && Grilla_DeClientes.CurrentRow != null)
+                if (Grilla_DeClientes.Rows.Count > 0 && Grilla_DeClientes.CurrentRow != null && Grilla_DeClientes.SelectedRows.Count > 0)
                 {
                     oBECliente = (BECliente)Grilla_DeClientes.CurrentRow.DataBoundItem;
                     AsignarClienteAControles(oBECliente);
