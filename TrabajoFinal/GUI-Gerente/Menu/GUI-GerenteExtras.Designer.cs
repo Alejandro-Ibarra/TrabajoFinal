@@ -46,6 +46,8 @@ namespace TrabajoFinal
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Ingredientes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -112,8 +114,8 @@ namespace TrabajoFinal
             // 
             // Boton_Modificar
             // 
-            this.Boton_Modificar.BackColor = System.Drawing.Color.Linen;
-            this.Boton_Modificar.Location = new System.Drawing.Point(21, 102);
+            this.Boton_Modificar.BackColor = System.Drawing.Color.LightYellow;
+            this.Boton_Modificar.Location = new System.Drawing.Point(21, 59);
             this.Boton_Modificar.Name = "Boton_Modificar";
             this.Boton_Modificar.Size = new System.Drawing.Size(75, 34);
             this.Boton_Modificar.TabIndex = 66;
@@ -123,8 +125,8 @@ namespace TrabajoFinal
             // 
             // Boton_Baja
             // 
-            this.Boton_Baja.BackColor = System.Drawing.Color.LightYellow;
-            this.Boton_Baja.Location = new System.Drawing.Point(21, 60);
+            this.Boton_Baja.BackColor = System.Drawing.Color.Linen;
+            this.Boton_Baja.Location = new System.Drawing.Point(21, 99);
             this.Boton_Baja.Name = "Boton_Baja";
             this.Boton_Baja.Size = new System.Drawing.Size(75, 34);
             this.Boton_Baja.TabIndex = 65;
@@ -151,7 +153,8 @@ namespace TrabajoFinal
             this.Grilla_Ingredientes.Location = new System.Drawing.Point(21, 30);
             this.Grilla_Ingredientes.Name = "Grilla_Ingredientes";
             this.Grilla_Ingredientes.ReadOnly = true;
-            this.Grilla_Ingredientes.Size = new System.Drawing.Size(938, 324);
+            this.Grilla_Ingredientes.RowHeadersVisible = false;
+            this.Grilla_Ingredientes.Size = new System.Drawing.Size(814, 324);
             this.Grilla_Ingredientes.TabIndex = 63;
             this.Grilla_Ingredientes.Click += new System.EventHandler(this.Grilla_Ingredientes_Click);
             // 
@@ -221,12 +224,32 @@ namespace TrabajoFinal
             this.groupBox3.Controls.Add(this.Boton_Modificar);
             this.groupBox3.Controls.Add(this.Boton_Baja);
             this.groupBox3.Controls.Add(this.Boton_Alta);
-            this.groupBox3.Location = new System.Drawing.Point(578, 389);
+            this.groupBox3.Location = new System.Drawing.Point(856, 120);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(116, 150);
             this.groupBox3.TabIndex = 84;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Acciones";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Honeydew;
+            this.button1.Location = new System.Drawing.Point(566, 414);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 50);
+            this.button1.TabIndex = 85;
+            this.button1.Text = "Confirmar datos del extra";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Linen;
+            this.button2.Location = new System.Drawing.Point(566, 474);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 34);
+            this.button2.TabIndex = 86;
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // GUI_Gerente_Extras
             // 
@@ -234,6 +257,8 @@ namespace TrabajoFinal
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TrabajoFinal.Properties.Resources.BlueShade2;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.Grilla_Ingredientes);
@@ -269,5 +294,7 @@ namespace TrabajoFinal
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -142,6 +142,7 @@ namespace TrabajoFinal
             this.Grilla_DeClientes.Location = new System.Drawing.Point(9, 97);
             this.Grilla_DeClientes.Name = "Grilla_DeClientes";
             this.Grilla_DeClientes.ReadOnly = true;
+            this.Grilla_DeClientes.RowHeadersVisible = false;
             this.Grilla_DeClientes.Size = new System.Drawing.Size(504, 135);
             this.Grilla_DeClientes.TabIndex = 15;
             this.Grilla_DeClientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_DeClientes_MouseClick);
@@ -163,6 +164,7 @@ namespace TrabajoFinal
             this.Grilla_Eventos.MultiSelect = false;
             this.Grilla_Eventos.Name = "Grilla_Eventos";
             this.Grilla_Eventos.ReadOnly = true;
+            this.Grilla_Eventos.RowHeadersVisible = false;
             this.Grilla_Eventos.Size = new System.Drawing.Size(411, 537);
             this.Grilla_Eventos.TabIndex = 18;
             this.Grilla_Eventos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_Eventos_MouseClick);

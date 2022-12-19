@@ -121,6 +121,7 @@ namespace TrabajoFinal
             this.Grilla_Usuarios.Location = new System.Drawing.Point(12, 12);
             this.Grilla_Usuarios.Name = "Grilla_Usuarios";
             this.Grilla_Usuarios.ReadOnly = true;
+            this.Grilla_Usuarios.RowHeadersVisible = false;
             this.Grilla_Usuarios.Size = new System.Drawing.Size(613, 166);
             this.Grilla_Usuarios.TabIndex = 13;
             this.Grilla_Usuarios.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Grilla_Usuarios_MouseClick);
@@ -132,6 +133,7 @@ namespace TrabajoFinal
             this.Grilla_RolesAsignados.Location = new System.Drawing.Point(11, 39);
             this.Grilla_RolesAsignados.Name = "Grilla_RolesAsignados";
             this.Grilla_RolesAsignados.ReadOnly = true;
+            this.Grilla_RolesAsignados.RowHeadersVisible = false;
             this.Grilla_RolesAsignados.Size = new System.Drawing.Size(232, 140);
             this.Grilla_RolesAsignados.TabIndex = 14;
             // 
@@ -219,6 +221,7 @@ namespace TrabajoFinal
             this.Grilla_RolesNoAsignados.Location = new System.Drawing.Point(353, 39);
             this.Grilla_RolesNoAsignados.Name = "Grilla_RolesNoAsignados";
             this.Grilla_RolesNoAsignados.ReadOnly = true;
+            this.Grilla_RolesNoAsignados.RowHeadersVisible = false;
             this.Grilla_RolesNoAsignados.Size = new System.Drawing.Size(218, 140);
             this.Grilla_RolesNoAsignados.TabIndex = 20;
             // 

@@ -47,6 +47,7 @@ namespace TrabajoFinal
                 RecuperarUsuario();
                 DataGridView_BackUps.MultiSelect = false;
                 DataGridView_BackUps.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                DataGridView_BackUps.ClearSelection();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

@@ -145,8 +145,8 @@ namespace Mapper
                     Proveedor = Convert.ToString(Ingrediente.Element("Proveedor").Value).Trim(),
 
                 };
-                List<BEIngrediente> ListaBebidas = consulta.ToList<BEIngrediente>();
-                return ListaBebidas;
+                List<BEIngrediente> ListaIngredientes = consulta.ToList<BEIngrediente>();
+                return ListaIngredientes;
             }
             catch (System.Xml.XmlException ex)
             { throw ex; }

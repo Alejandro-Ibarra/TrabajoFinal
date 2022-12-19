@@ -29,7 +29,7 @@ namespace TrabajoFinal
             Grilla_Ingredientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             CargarCombobox();
             CargarGrilla();
-            
+            Grilla_Ingredientes.ClearSelection();
         }
 
         private void Boton_Alta_Click(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace TrabajoFinal
                         AsignarIngredienteAControles(oBEIngrediente);
                         CargarGrilla();
                     }
-                    else { MessageBox.Show("No se puede dar de baja un ingrediente que se encuentre en un plato"); }
+                    else { MessageBox.Show("No se puede modificar un ingrediente que se encuentre en un plato"); }
                 }
                 else
                 { MessageBox.Show("Ingrese los datos de forma correcta"); }

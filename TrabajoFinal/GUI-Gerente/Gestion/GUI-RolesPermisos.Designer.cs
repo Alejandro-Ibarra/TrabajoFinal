@@ -55,6 +55,8 @@ namespace TrabajoFinal
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(18, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
@@ -77,6 +79,7 @@ namespace TrabajoFinal
             this.Grilla_PermisosNoAsignados.Location = new System.Drawing.Point(372, 38);
             this.Grilla_PermisosNoAsignados.Name = "Grilla_PermisosNoAsignados";
             this.Grilla_PermisosNoAsignados.ReadOnly = true;
+            this.Grilla_PermisosNoAsignados.RowHeadersVisible = false;
             this.Grilla_PermisosNoAsignados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grilla_PermisosNoAsignados.Size = new System.Drawing.Size(280, 476);
             this.Grilla_PermisosNoAsignados.TabIndex = 25;
@@ -88,6 +91,7 @@ namespace TrabajoFinal
             this.Grilla_PermisosAsignados.Location = new System.Drawing.Point(13, 38);
             this.Grilla_PermisosAsignados.Name = "Grilla_PermisosAsignados";
             this.Grilla_PermisosAsignados.ReadOnly = true;
+            this.Grilla_PermisosAsignados.RowHeadersVisible = false;
             this.Grilla_PermisosAsignados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grilla_PermisosAsignados.Size = new System.Drawing.Size(280, 476);
             this.Grilla_PermisosAsignados.TabIndex = 24;
@@ -99,6 +103,7 @@ namespace TrabajoFinal
             this.Grilla_Roles.Location = new System.Drawing.Point(21, 41);
             this.Grilla_Roles.Name = "Grilla_Roles";
             this.Grilla_Roles.ReadOnly = true;
+            this.Grilla_Roles.RowHeadersVisible = false;
             this.Grilla_Roles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grilla_Roles.Size = new System.Drawing.Size(243, 356);
             this.Grilla_Roles.TabIndex = 23;

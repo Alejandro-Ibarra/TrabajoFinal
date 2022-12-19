@@ -245,7 +245,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="obj\App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Abstraction\Abstraction.csproj">
@@ -280,19 +280,10 @@
     <None Include="bin\Debug\QR.JPG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\BlueShade.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\BlueShade2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FlechaIzq.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\flecha.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\flechaIzq.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\QR.JPG" />
@@ -305,6 +296,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Izq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\BackUps.xml" />
+    <Content Include="Resources\Restaurante.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -40,7 +40,9 @@ namespace TrabajoFinal
             DataGridView_TodosIngredientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DataGridView_Platos.MultiSelect = false;
             DataGridView_Platos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
+            DataGridView_Platos.ClearSelection();
+            DataGridView_SeleccionIngredientes.ClearSelection();
+            DataGridView_TodosIngredientes.ClearSelection();
         }
 
         #region BotonesPrincipales
@@ -51,20 +53,16 @@ namespace TrabajoFinal
                 
                 ActivarDisponibilidadControles(true);
                 BotonesAbmDisp(false);
-                oBEplato.Nombre = Interaction.InputBox("Ingrese el nombre del plato");
-                oBEplato.Descripcion = Interaction.InputBox("Ingrese una descripcion para el plato");
-                if (oBEplato.Nombre == "" || oBEplato.Descripcion == "")
+
+                while (oBEplato.Nombre == "" || oBEplato.Descripcion == "" || oBEplato.Nombre == null || oBEplato.Descripcion == null)
                 {
                     MessageBox.Show("Ingrese nombre y descripción");
+                    oBEplato.Nombre = Interaction.InputBox("Ingrese el nombre del plato");
+                    oBEplato.Descripcion = Interaction.InputBox("Ingrese una descripcion para el plato");
                 }
-                else
-                {
-                   
-                    Boton_Cancelar.Visible = true;
-                    oBEplato.Codigo = oBLPlato.GenerarCodigo();
-                    SeleccionarTipoPlato();
-                }
-                
+                Boton_Cancelar.Visible = true;
+                oBEplato.Codigo = oBLPlato.GenerarCodigo();
+                SeleccionarTipoPlato();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -99,7 +97,7 @@ namespace TrabajoFinal
         {
             try
             {
-                if (DataGridView_Platos.Rows.Count > 0 && DataGridView_Platos.CurrentRow != null)
+                if (DataGridView_Platos.Rows.Count > 0 && DataGridView_Platos.SelectedRows.Count > 0)
                 {
                     
                     ActivarVisibilidadControles(true);
@@ -157,6 +155,7 @@ namespace TrabajoFinal
                 DataGridView_TodosIngredientes.DataSource = todoIng;
                 OcultarColumnasGrillas(DataGridView_TodosIngredientes);
                 OcultarColumnasGrillas(DataGridView_SeleccionIngredientes);
+                DataGridView_TodosIngredientes.ClearSelection();
 
             }
             catch (Exception ex)
@@ -175,12 +174,12 @@ namespace TrabajoFinal
                     DataGridView_SeleccionIngredientes.Enabled = false;
                     Boton_ConfirmalIngPrincipal.Visible = true;
                     ComboBox_IngredientePrincipal.Visible = true;
-                    MessageBox.Show("Seleccione el ingrediente principal de la lista y presione el boton \" Confirmar ingrediente principal\"");
+                    MessageBox.Show("Seleccione el ingrediente principal de la lista y presione el boton \"Confirmar ingrediente principal\"");
                     CargarComboIngredientePrincipal();
                 }
                 else
                 {
-                    MessageBox.Show("Debe seleccionar almenos dos ingrediente de la lista");
+                    MessageBox.Show("Debe seleccionar al menos un ingrediente de la lista");
                 }
             }
             catch (Exception ex)
@@ -196,7 +195,7 @@ namespace TrabajoFinal
                 Boton_ConfirmalIngPrincipal.Enabled = false;
                 TextBox_Precio.Visible = true;
                 Boton_ConfirmarPrecio.Visible = true;
-                MessageBox.Show("Ingrese el precio del plato y presione el boton \" Confirmar precio\"");
+                MessageBox.Show("Ingrese el precio del plato y presione el boton \"Confirmar precio\"");
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -581,6 +580,7 @@ namespace TrabajoFinal
                 DataGridView_TodosIngredientes.Visible = valor;
                 label3.Visible = valor;
                 Boton_Cancelar.Visible = valor;
+                groupBox1.Visible = valor;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -643,7 +643,7 @@ namespace TrabajoFinal
                 if (Regex.IsMatch(precio, @"^[0-9]") && base.Text != null)
                 {
                     oBEplato.Precio = Convert.ToInt32(precio);
-                    MessageBox.Show("Verifique los datos ingresados son correctos y precione el boton guardar");
+                    MessageBox.Show("Verifique los datos ingresados son correctos y precione el boton \"Confirmar datos del plato\"");
                     ConfirmarPlato();
                 }
                 else

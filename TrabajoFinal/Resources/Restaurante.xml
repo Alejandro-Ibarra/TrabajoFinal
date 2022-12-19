@@ -1,0 +1,1270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Restaurante>
+  <Bebidas>
+    <Bebida Codigo="3">
+      <Nombre>Sprite</Nombre>
+      <Envase>Vidrio retornable</Envase>
+      <Marca>Sprite</Marca>
+      <Graduacion_Alcoholica>0</Graduacion_Alcoholica>
+      <Stock>1000</Stock>
+      <Precio>250</Precio>
+      <Activo>true</Activo>
+    </Bebida>
+    <Bebida Codigo="4">
+      <Nombre>Mirinda</Nombre>
+      <Envase>Vidrio retornable</Envase>
+      <Marca>Pepsi</Marca>
+      <Graduacion_Alcoholica>0</Graduacion_Alcoholica>
+      <Stock>1000</Stock>
+      <Precio>250</Precio>
+      <Activo>true</Activo>
+    </Bebida>
+    <Bebida Codigo="5">
+      <Nombre>coca</Nombre>
+      <Envase>Vidrio retornable</Envase>
+      <Marca>Coca Cola</Marca>
+      <Graduacion_Alcoholica>0</Graduacion_Alcoholica>
+      <Stock>100</Stock>
+      <Precio>200</Precio>
+      <Activo>true</Activo>
+    </Bebida>
+    <Bebida Codigo="6">
+      <Nombre>Agua</Nombre>
+      <Envase>Vidrio retornable</Envase>
+      <Marca>Coca Cola</Marca>
+      <Graduacion_Alcoholica>0</Graduacion_Alcoholica>
+      <Stock>123</Stock>
+      <Activo>False</Activo>
+      <Precio>250</Precio>
+    </Bebida>
+    <Bebida Codigo="7">
+      <Nombre>Agua con gas</Nombre>
+      <Envase>Vidrio retornable</Envase>
+      <Marca>Coca Cola</Marca>
+      <Graduacion_Alcoholica>0</Graduacion_Alcoholica>
+      <Stock>22</Stock>
+      <Activo>True</Activo>
+      <Precio>250</Precio>
+    </Bebida>
+  </Bebidas>
+  <Ingredientes>
+    <Ingrediente Codigo="1">
+      <Nombre>Tomate</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>30</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="3">
+      <Nombre>Lechuga</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>40</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="8">
+      <Nombre>Zanahoria</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>7</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="10">
+      <Nombre>Cabutia</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>20</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="11">
+      <Nombre>Calabaza</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>10</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="12">
+      <Nombre>Papa</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="14">
+      <Nombre>Cebolla</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="15">
+      <Nombre>Morron Rojo</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>10</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="16">
+      <Nombre>Morron Amarillo</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>10</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="17">
+      <Nombre>Morron Verde</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>10</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="19">
+      <Nombre>Zuccini</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>25</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="21">
+      <Nombre>Huevos</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="22">
+      <Nombre>Espinaca</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="23">
+      <Nombre>Ojo de bife</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Frigorifico Corte</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="24">
+      <Nombre>Pechuga de pollo</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Frigorifico Corte</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="25">
+      <Nombre>Bife de chorizo</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Frigorifico Corte</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="26">
+      <Nombre>Milanesa de carne</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Frigorifico Corte</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="27">
+      <Nombre>Milanesa de pollo</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Frigorifico Corte</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="28">
+      <Nombre>Pata de cordero</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Frigorifico Corte</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="29">
+      <Nombre>Osobuco</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Frigorifico Corte</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="30">
+      <Nombre>Lomo</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Frigorifico Corte</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="31">
+      <Nombre>Crema</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>La Serenisima</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="32">
+      <Nombre>Leche</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>La Serenisima</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="33">
+      <Nombre>Queso rallado</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>La Serenisima</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="34">
+      <Nombre>Muzarella</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>La Serenisima</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="35">
+      <Nombre>Burrata</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>La Serenisima</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="36">
+      <Nombre>Albaca</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>10</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="37">
+      <Nombre>Naranja</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="38">
+      <Nombre>Pomelo</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="39">
+      <Nombre>Limon</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="40">
+      <Nombre>Durazno</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="41">
+      <Nombre>Banana</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="42">
+      <Nombre>Manzana</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="43">
+      <Nombre>Kiwi</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="44">
+      <Nombre>Frutillas</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="45">
+      <Nombre>Lima</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>1000</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="46">
+      <Nombre>Ajo</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>False</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Verduleria Amistad</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="47">
+      <Nombre>Pata muslo Pollo</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Frigorifico Corte</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="48">
+      <Nombre>Flat Iron</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Frigorifico Corte</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="49">
+      <Nombre>Bife angosto</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>100</Stock>
+      <Proveedor>Frigorifico Corte</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="50">
+      <Nombre>Yougurt natural</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>50</Stock>
+      <Proveedor>La Serenisima</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="51">
+      <Nombre>Manteca</Nombre>
+      <Tipo>Secundario</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>500</Stock>
+      <Proveedor>La Serenisima</Proveedor>
+    </Ingrediente>
+    <Ingrediente Codigo="52">
+      <Nombre>TBone</Nombre>
+      <Tipo>Principal</Tipo>
+      <Refrigeracion>True</Refrigeracion>
+      <Stock>23</Stock>
+      <Proveedor>Frigorifico Corte</Proveedor>
+    </Ingrediente>
+  </Ingredientes>
+  <Extras>
+    <Extra Codigo="6">
+      <Nombre>Pan blanco</Nombre>
+      <Tipo>Distribuidora</Tipo>
+      <Stock>100</Stock>
+      <Proveedor>Chango</Proveedor>
+      <Activo>true</Activo>
+    </Extra>
+    <Extra Codigo="7">
+      <Nombre>Sevilletas</Nombre>
+      <Tipo>Blanqueria</Tipo>
+      <Stock>120</Stock>
+      <Proveedor>Blanqueria nona</Proveedor>
+      <Activo>True</Activo>
+    </Extra>
+    <Extra Codigo="8">
+      <Nombre>Aceite</Nombre>
+      <Tipo>Distribuidora</Tipo>
+      <Stock>50</Stock>
+      <Proveedor>Chango</Proveedor>
+      <Activo>False</Activo>
+    </Extra>
+    <Extra Codigo="10">
+      <Nombre>Tenedor y cuchillo</Nombre>
+      <Tipo>Bazar</Tipo>
+      <Activo>True</Activo>
+      <Stock>50</Stock>
+      <Proveedor>Bazar chef</Proveedor>
+    </Extra>
+  </Extras>
+  <Platos>
+    <Plato ID="5">
+      <Nombre>Pechuga grill con pure mixto</Nombre>
+      <TipoPlato>Principal</TipoPlato>
+      <Clase>Celiaco</Clase>
+      <Descripcion>Pechuga de pollo grillada con pure de papa y calabaza</Descripcion>
+      <Precio>2500</Precio>
+      <Activo>true</Activo>
+      <IngredientePrincipal ID="24">
+        <Nombre>Pechuga de pollo</Nombre>
+        <Tipo>Principal</Tipo>
+        <Refrigeracion>True</Refrigeracion>
+        <Stock>100</Stock>
+        <Proveedor>Frigorifico Corte</Proveedor>
+      </IngredientePrincipal>
+      <IngredientesPlato>
+        <IngredientePlato ID="11">
+          <Nombre>Calabaza</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>10</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="12">
+          <Nombre>Papa</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>100</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="24">
+          <Nombre>Pechuga de pollo</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>True</Refrigeracion>
+          <Stock>100</Stock>
+          <Proveedor>Frigorifico Corte</Proveedor>
+        </IngredientePlato>
+      </IngredientesPlato>
+    </Plato>
+    <Plato ID="7">
+      <Nombre>Espinacas gratinadas</Nombre>
+      <TipoPlato>Entrada</TipoPlato>
+      <Clase>Estandar</Clase>
+      <Descripcion>Espinaca con crema y queso gratinadas</Descripcion>
+      <Precio>600</Precio>
+      <Activo>false</Activo>
+      <IngredientePrincipal ID="22">
+        <Nombre>Espinaca</Nombre>
+        <Tipo>Principal</Tipo>
+        <Refrigeracion>False</Refrigeracion>
+        <Stock>100</Stock>
+        <Proveedor>Verduleria Amistad</Proveedor>
+      </IngredientePrincipal>
+      <IngredientesPlato>
+        <IngredientePlato ID="33">
+          <Nombre>Queso rallado</Nombre>
+          <Tipo>Secundario</Tipo>
+          <Refrigeracion>True</Refrigeracion>
+          <Stock>1000</Stock>
+          <Proveedor>La Serenisima</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="31">
+          <Nombre>Crema</Nombre>
+          <Tipo>Secundario</Tipo>
+          <Refrigeracion>True</Refrigeracion>
+          <Stock>1000</Stock>
+          <Proveedor>La Serenisima</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="22">
+          <Nombre>Espinaca</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>100</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+      </IngredientesPlato>
+    </Plato>
+    <Plato ID="8">
+      <Nombre>Ensalada de verdes</Nombre>
+      <TipoPlato>Entrada</TipoPlato>
+      <Clase>Vegano</Clase>
+      <Descripcion>Ensalada de lechuga y espinaca</Descripcion>
+      <Precio>700</Precio>
+      <Activo>true</Activo>
+      <IngredientePrincipal ID="3">
+        <Nombre>Lechuga</Nombre>
+        <Tipo>Principal</Tipo>
+        <Refrigeracion>False</Refrigeracion>
+        <Stock>40</Stock>
+        <Proveedor>Verduleria Amistad</Proveedor>
+      </IngredientePrincipal>
+      <IngredientesPlato>
+        <IngredientePlato ID="3">
+          <Nombre>Lechuga</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>40</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="22">
+          <Nombre>Espinaca</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>100</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+      </IngredientesPlato>
+    </Plato>
+    <Plato ID="10">
+      <Nombre>Flan con crema</Nombre>
+      <TipoPlato>Postre</TipoPlato>
+      <Clase>Estandar</Clase>
+      <Descripcion>Flan casero con un copo de crema batida</Descripcion>
+      <Precio>1150</Precio>
+      <Activo>true</Activo>
+      <IngredientePrincipal ID="21">
+        <Nombre>Huevos</Nombre>
+        <Tipo>Principal</Tipo>
+        <Refrigeracion>False</Refrigeracion>
+        <Stock>1000</Stock>
+        <Proveedor>Verduleria Amistad</Proveedor>
+      </IngredientePrincipal>
+      <IngredientesPlato>
+        <IngredientePlato ID="31">
+          <Nombre>Crema</Nombre>
+          <Tipo>Secundario</Tipo>
+          <Refrigeracion>True</Refrigeracion>
+          <Stock>1000</Stock>
+          <Proveedor>La Serenisima</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="21">
+          <Nombre>Huevos</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>1000</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="32">
+          <Nombre>Leche</Nombre>
+          <Tipo>Secundario</Tipo>
+          <Refrigeracion>True</Refrigeracion>
+          <Stock>1000</Stock>
+          <Proveedor>La Serenisima</Proveedor>
+        </IngredientePlato>
+      </IngredientesPlato>
+    </Plato>
+    <Plato ID="3">
+      <Nombre>Bife con ensalada clasica</Nombre>
+      <TipoPlato>Principal</TipoPlato>
+      <Clase>Celiaco</Clase>
+      <Descripcion>Bife con ensalda de lechuga y tomate</Descripcion>
+      <Activo>True</Activo>
+      <Precio>1500</Precio>
+      <IngredientePrincipal ID="1">
+        <Nombre>Tomate</Nombre>
+        <Tipo>Principal</Tipo>
+        <Refrigeracion>False</Refrigeracion>
+        <Stock>30</Stock>
+        <Proveedor>Verduleria Amistad</Proveedor>
+      </IngredientePrincipal>
+      <IngredientesPlato>
+        <IngredientePlato ID="1">
+          <Nombre>Tomate</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>30</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="3">
+          <Nombre>Lechuga</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>40</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="25">
+          <Nombre>Bife de chorizo</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>True</Refrigeracion>
+          <Stock>100</Stock>
+          <Proveedor>Frigorifico Corte</Proveedor>
+        </IngredientePlato>
+      </IngredientesPlato>
+    </Plato>
+    <Plato ID="1">
+      <Nombre>Burrata con espinaca y tomates</Nombre>
+      <TipoPlato>Entrada</TipoPlato>
+      <Clase>Celiaco</Clase>
+      <Descripcion>Burrata con espinaca y tomates frescos</Descripcion>
+      <Activo>True</Activo>
+      <Precio>1500</Precio>
+      <IngredientePrincipal ID="1">
+        <Nombre>Tomate</Nombre>
+        <Tipo>Principal</Tipo>
+        <Refrigeracion>False</Refrigeracion>
+        <Stock>30</Stock>
+        <Proveedor>Verduleria Amistad</Proveedor>
+      </IngredientePrincipal>
+      <IngredientesPlato>
+        <IngredientePlato ID="1">
+          <Nombre>Tomate</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>30</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="35">
+          <Nombre>Burrata</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>True</Refrigeracion>
+          <Stock>1000</Stock>
+          <Proveedor>La Serenisima</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="22">
+          <Nombre>Espinaca</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>100</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+      </IngredientesPlato>
+    </Plato>
+    <Plato ID="11">
+      <Nombre>Brownie</Nombre>
+      <TipoPlato>Postre</TipoPlato>
+      <Clase>Estandar</Clase>
+      <Descripcion>Brownie</Descripcion>
+      <Activo>True</Activo>
+      <Precio>1200</Precio>
+      <IngredientePrincipal ID="31">
+        <Nombre>Crema</Nombre>
+        <Tipo>Secundario</Tipo>
+        <Refrigeracion>True</Refrigeracion>
+        <Stock>1000</Stock>
+        <Proveedor>La Serenisima</Proveedor>
+      </IngredientePrincipal>
+      <IngredientesPlato>
+        <IngredientePlato ID="32">
+          <Nombre>Leche</Nombre>
+          <Tipo>Secundario</Tipo>
+          <Refrigeracion>True</Refrigeracion>
+          <Stock>1000</Stock>
+          <Proveedor>La Serenisima</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="31">
+          <Nombre>Crema</Nombre>
+          <Tipo>Secundario</Tipo>
+          <Refrigeracion>True</Refrigeracion>
+          <Stock>1000</Stock>
+          <Proveedor>La Serenisima</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="21">
+          <Nombre>Huevos</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>1000</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+      </IngredientesPlato>
+    </Plato>
+    <Plato ID="2">
+      <Nombre>Bife con pure mixto</Nombre>
+      <TipoPlato>Principal</TipoPlato>
+      <Clase>Celiaco</Clase>
+      <Descripcion>Bife con pure de papas y calabaza</Descripcion>
+      <Activo>True</Activo>
+      <Precio>3000</Precio>
+      <IngredientePrincipal ID="11">
+        <Nombre>Calabaza</Nombre>
+        <Tipo>Principal</Tipo>
+        <Refrigeracion>False</Refrigeracion>
+        <Stock>10</Stock>
+        <Proveedor>Verduleria Amistad</Proveedor>
+      </IngredientePrincipal>
+      <IngredientesPlato>
+        <IngredientePlato ID="11">
+          <Nombre>Calabaza</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>10</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="12">
+          <Nombre>Papa</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>100</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="25">
+          <Nombre>Bife de chorizo</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>True</Refrigeracion>
+          <Stock>100</Stock>
+          <Proveedor>Frigorifico Corte</Proveedor>
+        </IngredientePlato>
+      </IngredientesPlato>
+    </Plato>
+    <Plato ID="9">
+      <Nombre>Cabutia gratinado</Nombre>
+      <TipoPlato>Entrada</TipoPlato>
+      <Clase>Vegetariano</Clase>
+      <Descripcion>Trozos de cabutia gratinados con queso vegetariano</Descripcion>
+      <Activo>False</Activo>
+      <Precio>850</Precio>
+      <IngredientePrincipal ID="10">
+        <Nombre>Cabutia</Nombre>
+        <Tipo>Principal</Tipo>
+        <Refrigeracion>False</Refrigeracion>
+        <Stock>20</Stock>
+        <Proveedor>Verduleria Amistad</Proveedor>
+      </IngredientePrincipal>
+      <IngredientesPlato>
+        <IngredientePlato ID="10">
+          <Nombre>Cabutia</Nombre>
+          <Tipo>Principal</Tipo>
+          <Refrigeracion>False</Refrigeracion>
+          <Stock>20</Stock>
+          <Proveedor>Verduleria Amistad</Proveedor>
+        </IngredientePlato>
+        <IngredientePlato ID="33">
+          <Nombre>Queso rallado</Nombre>
+          <Tipo>Secundario</Tipo>
+          <Refrigeracion>True</Refrigeracion>
+          <Stock>1000</Stock>
+          <Proveedor>La Serenisima</Proveedor>
+        </IngredientePlato>
+      </IngredientesPlato>
+    </Plato>
+  </Platos>
+  <Comandas>
+    <Comanda ID="1">
+      <Mesa>12</Mesa>
+      <EstadoPrincipal>En curso</EstadoPrincipal>
+      <Cliente>
+        <Nombre>juan</Nombre>
+        <Mail>juan@juan.com</Mail>
+      </Cliente>
+      <PedidosRealizadosCocina ID="1">
+        <Estado>Enviado_Cocina</Estado>
+        <FechaHoraPedido>6/12/2022 16:42:00</FechaHoraPedido>
+        <MontoTotal>2200</MontoTotal>
+        <PlatosDeComanda>
+          <PlatoComandaCocina Codigo="1">
+            <Estado>Enviado_Mozo</Estado>
+            <CodigoComanda>1</CodigoComanda>
+            <CodigoPedido>1</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+          </PlatoComandaCocina>
+          <PlatoComandaCocina Codigo="8">
+            <Estado>Cancelado</Estado>
+            <CodigoComanda>1</CodigoComanda>
+            <CodigoPedido>1</CodigoPedido>
+            <CodigoItem>2</CodigoItem>
+          </PlatoComandaCocina>
+        </PlatosDeComanda>
+      </PedidosRealizadosCocina>
+      <PedidosRealizadosCocina ID="2">
+        <Estado>Enviado_Cocina</Estado>
+        <FechaHoraPedido>6/12/2022 16:42:16</FechaHoraPedido>
+        <MontoTotal>5500</MontoTotal>
+        <PlatosDeComanda>
+          <PlatoComandaCocina Codigo="2">
+            <Estado>En_Preparacion_Cocinero</Estado>
+            <CodigoComanda>1</CodigoComanda>
+            <CodigoPedido>2</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+          </PlatoComandaCocina>
+        </PlatosDeComanda>
+      </PedidosRealizadosCocina>
+      <PedidosRealizadosBebidas ID="3">
+        <Estado>Enviado_Mozo</Estado>
+        <FechaHoraPedido>6/12/2022 16:42:23</FechaHoraPedido>
+        <MontoTotal>451</MontoTotal>
+        <BebidasDeComanda>
+          <BebidasComandaMozo ID="3">
+            <Estado>Enviado_Mozo</Estado>
+            <CodigoComanda>1</CodigoComanda>
+            <CodigoPedido>3</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+          </BebidasComandaMozo>
+          <BebidasComandaMozo ID="5">
+            <Estado>En_Preparacion_Mozo</Estado>
+            <CodigoComanda>1</CodigoComanda>
+            <CodigoPedido>3</CodigoPedido>
+            <CodigoItem>2</CodigoItem>
+          </BebidasComandaMozo>
+        </BebidasDeComanda>
+      </PedidosRealizadosBebidas>
+      <PedidosRealizadosExtras ID="4">
+        <Estado>Enviado_Mozo</Estado>
+        <FechaHoraPedido>6/12/2022 16:42:27</FechaHoraPedido>
+        <MontoTotal>0</MontoTotal>
+        <ExtrasDeComanda>
+          <ExtrasComandaMozo ID="7">
+            <CodigoComanda>1</CodigoComanda>
+            <CodigoPedido>4</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+            <Estado>Entregado</Estado>
+          </ExtrasComandaMozo>
+          <ExtrasComandaMozo ID="8">
+            <CodigoComanda>1</CodigoComanda>
+            <CodigoPedido>4</CodigoPedido>
+            <CodigoItem>2</CodigoItem>
+            <Estado>En_Entrega_Mozo</Estado>
+          </ExtrasComandaMozo>
+        </ExtrasDeComanda>
+      </PedidosRealizadosExtras>
+      <PedidosRealizadosCocina ID="4">
+        <Estado>Enviado_Cocina</Estado>
+        <FechaHoraPedido>13/12/2022 17:40:29</FechaHoraPedido>
+        <MontoTotal>1150</MontoTotal>
+        <PlatosDeComanda>
+          <PlatoComandaCocina Codigo="11">
+            <Estado>Enviado_Cocinero</Estado>
+            <CodigoComanda>1</CodigoComanda>
+            <CodigoPedido>4</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+          </PlatoComandaCocina>
+        </PlatosDeComanda>
+      </PedidosRealizadosCocina>
+      <PedidosRealizadosBebidas ID="6">
+        <Estado>Enviado_Mozo</Estado>
+        <FechaHoraPedido>17/12/2022 15:55:51</FechaHoraPedido>
+        <MontoTotal>251</MontoTotal>
+        <BebidasDeComanda>
+          <BebidasComandaMozo ID="3">
+            <Estado>En_Entrega_Cocinero</Estado>
+            <CodigoComanda>1</CodigoComanda>
+            <CodigoPedido>5</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+          </BebidasComandaMozo>
+        </BebidasDeComanda>
+      </PedidosRealizadosBebidas>
+      <PedidosRealizadosCocina ID="6">
+        <Estado>Enviado_Cocina</Estado>
+        <FechaHoraPedido>17/12/2022 15:55:57</FechaHoraPedido>
+        <MontoTotal>700</MontoTotal>
+        <PlatosDeComanda>
+          <PlatoComandaCocina Codigo="8">
+            <Estado>En_Entrega_Cocinero</Estado>
+            <CodigoComanda>1</CodigoComanda>
+            <CodigoPedido>6</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+          </PlatoComandaCocina>
+        </PlatosDeComanda>
+      </PedidosRealizadosCocina>
+      <PedidosRealizadosCocina ID="7">
+        <Estado>Enviado_Cocina</Estado>
+        <FechaHoraPedido>17/12/2022 16:41:07</FechaHoraPedido>
+        <MontoTotal>700</MontoTotal>
+        <PlatosDeComanda>
+          <PlatoComandaCocina Codigo="8">
+            <Estado>En_Preparacion_Cocinero</Estado>
+            <CodigoComanda>1</CodigoComanda>
+            <CodigoPedido>7</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+          </PlatoComandaCocina>
+        </PlatosDeComanda>
+      </PedidosRealizadosCocina>
+    </Comanda>
+    <Comanda ID="2">
+      <Mesa>8</Mesa>
+      <EstadoPrincipal>En curso</EstadoPrincipal>
+      <Cliente>
+        <Nombre>jorge</Nombre>
+        <Mail>jorge@jorge.com</Mail>
+      </Cliente>
+      <PedidosRealizadosCocina ID="1">
+        <Estado>Enviado_Cocina</Estado>
+        <FechaHoraPedido>6/12/2022 17:08:08</FechaHoraPedido>
+        <MontoTotal>1300</MontoTotal>
+        <PlatosDeComanda>
+          <PlatoComandaCocina Codigo="7">
+            <Estado>Enviado_Cocinero</Estado>
+            <CodigoComanda>2</CodigoComanda>
+            <CodigoPedido>1</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+          </PlatoComandaCocina>
+          <PlatoComandaCocina Codigo="8">
+            <Estado>Enviado_Cocinero</Estado>
+            <CodigoComanda>2</CodigoComanda>
+            <CodigoPedido>1</CodigoPedido>
+            <CodigoItem>2</CodigoItem>
+          </PlatoComandaCocina>
+        </PlatosDeComanda>
+      </PedidosRealizadosCocina>
+      <PedidosRealizadosCocina ID="2">
+        <Estado>Enviado_Cocina</Estado>
+        <FechaHoraPedido>6/12/2022 17:08:13</FechaHoraPedido>
+        <MontoTotal>3000</MontoTotal>
+        <PlatosDeComanda>
+          <PlatoComandaCocina Codigo="2">
+            <Estado>Enviado_Cocinero</Estado>
+            <CodigoComanda>2</CodigoComanda>
+            <CodigoPedido>2</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+          </PlatoComandaCocina>
+        </PlatosDeComanda>
+      </PedidosRealizadosCocina>
+      <PedidosRealizadosExtras ID="3">
+        <Estado>Enviado_Mozo</Estado>
+        <FechaHoraPedido>6/12/2022 17:08:17</FechaHoraPedido>
+        <MontoTotal>0</MontoTotal>
+        <ExtrasDeComanda>
+          <ExtrasComandaMozo ID="7">
+            <CodigoComanda>2</CodigoComanda>
+            <CodigoPedido>3</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+            <Estado>Enviado_Mozo</Estado>
+          </ExtrasComandaMozo>
+          <ExtrasComandaMozo ID="8">
+            <CodigoComanda>2</CodigoComanda>
+            <CodigoPedido>3</CodigoPedido>
+            <CodigoItem>2</CodigoItem>
+            <Estado>Enviado_Mozo</Estado>
+          </ExtrasComandaMozo>
+        </ExtrasDeComanda>
+      </PedidosRealizadosExtras>
+      <PedidosRealizadosBebidas ID="4">
+        <Estado>Enviado_Mozo</Estado>
+        <FechaHoraPedido>6/12/2022 17:08:20</FechaHoraPedido>
+        <MontoTotal>251</MontoTotal>
+        <BebidasDeComanda>
+          <BebidasComandaMozo ID="4">
+            <Estado>Enviado_Mozo</Estado>
+            <CodigoComanda>2</CodigoComanda>
+            <CodigoPedido>4</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+          </BebidasComandaMozo>
+        </BebidasDeComanda>
+      </PedidosRealizadosBebidas>
+    </Comanda>
+    <Comanda ID="3">
+      <Mesa>0</Mesa>
+      <EstadoPrincipal>En curso</EstadoPrincipal>
+      <Cliente>
+        <Nombre>juan</Nombre>
+        <Mail>juanb@juan.com</Mail>
+      </Cliente>
+    </Comanda>
+    <Comanda ID="4">
+      <Mesa>4</Mesa>
+      <EstadoPrincipal>En curso</EstadoPrincipal>
+      <Cliente>
+        <Nombre>pepe</Nombre>
+        <Mail>pepe@pepe.com</Mail>
+      </Cliente>
+      <PedidosRealizadosCocina ID="1">
+        <Estado>Enviado_Cocina</Estado>
+        <FechaHoraPedido>17/12/2022 18:01:30</FechaHoraPedido>
+        <MontoTotal>1500</MontoTotal>
+        <PlatosDeComanda>
+          <PlatoComandaCocina Codigo="1">
+            <Estado>Enviado_Cocinero</Estado>
+            <CodigoComanda>4</CodigoComanda>
+            <CodigoPedido>1</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+          </PlatoComandaCocina>
+        </PlatosDeComanda>
+      </PedidosRealizadosCocina>
+    </Comanda>
+    <Comanda ID="5">
+      <Mesa>10</Mesa>
+      <EstadoPrincipal>En curso</EstadoPrincipal>
+      <Cliente>
+        <Nombre>pepito</Nombre>
+        <Mail>pepi@pepi.com</Mail>
+      </Cliente>
+      <PedidosRealizadosBebidas ID="1">
+        <Estado>Enviado_Mozo</Estado>
+        <FechaHoraPedido>17/12/2022 18:03:04</FechaHoraPedido>
+        <MontoTotal>201</MontoTotal>
+        <BebidasDeComanda>
+          <BebidasComandaMozo ID="5">
+            <Estado>Enviado_Mozo</Estado>
+            <CodigoComanda>5</CodigoComanda>
+            <CodigoPedido>1</CodigoPedido>
+            <CodigoItem>1</CodigoItem>
+          </BebidasComandaMozo>
+        </BebidasDeComanda>
+      </PedidosRealizadosBebidas>
+    </Comanda>
+  </Comandas>
+  <Usuarios>
+    <Cocineros>
+      <Cocinero Codigo="22222222">
+        <RolesAsignados>
+          <RolAsignado ID="7777" />
+        </RolesAsignados>
+        <Nombre>Pedro</Nombre>
+        <Apellido>Rodriguez</Apellido>
+        <Password>w6WPGOMFw5tEco5beDsHGw==</Password>
+        <Turno>Mañana</Turno>
+        <Cantidad_Pedidos>0</Cantidad_Pedidos>
+      </Cocinero>
+    </Cocineros>
+    <Mozos>
+      <Mozo Codigo="33333333">
+        <RolesAsignados>
+          <RolAsignado ID="8888" />
+        </RolesAsignados>
+        <Nombre>Juan</Nombre>
+        <Apellido>gomez</Apellido>
+        <Password>w6WPGOMFw5tEco5beDsHGw==</Password>
+        <Turno>Noche</Turno>
+        <Ranking>0</Ranking>
+      </Mozo>
+      <Mozo Codigo="54363442">
+        <Nombre>Tomas</Nombre>
+        <Apellido>Lopez</Apellido>
+        <RolesAsignados>
+          <RolAsignado ID="8888" />
+        </RolesAsignados>
+        <Password>gD7X1Ba9QvSVEjXGc2MiuA==</Password>
+        <Turno>Mañana</Turno>
+        <Ranking>0</Ranking>
+      </Mozo>
+    </Mozos>
+    <Gerente>
+      <Admin Codigo="11111111">
+        <RolesAsignados>
+          <RolAsignado ID="9999" />
+          <RolAsignado ID="8888" />
+          <RolAsignado ID="7777" />
+        </RolesAsignados>
+        <Nombre>admin</Nombre>
+        <Apellido>admin</Apellido>
+        <Turno>Tarde</Turno>
+        <Password>w6WPGOMFw5tEco5beDsHGw==</Password>
+      </Admin>
+    </Gerente>
+  </Usuarios>
+  <Roles>
+    <Rol ID="9999">
+      <Descripcion>Admin</Descripcion>
+      <Permisos>
+        <PermisoAsignado ID="4" />
+        <PermisoAsignado ID="7" />
+        <PermisoAsignado ID="3" />
+        <PermisoAsignado ID="14" />
+        <PermisoAsignado ID="5" />
+        <PermisoAsignado ID="6" />
+        <PermisoAsignado ID="8" />
+        <PermisoAsignado ID="9" />
+        <PermisoAsignado ID="10" />
+        <PermisoAsignado ID="11" />
+        <PermisoAsignado ID="12" />
+        <PermisoAsignado ID="13" />
+      </Permisos>
+    </Rol>
+    <Rol ID="8888">
+      <Descripcion>Mozo</Descripcion>
+      <Permisos>
+        <PermisoAsignado ID="1" />
+      </Permisos>
+    </Rol>
+    <Rol ID="7777">
+      <Descripcion>Cocinero</Descripcion>
+      <Permisos>
+        <PermisoAsignado ID="2" />
+      </Permisos>
+    </Rol>
+    <Rol ID="3333">
+      <Descripcion>Encargado</Descripcion>
+      <Permisos>
+        <PermisoAsignado ID="1" />
+        <PermisoAsignado ID="2" />
+      </Permisos>
+    </Rol>
+  </Roles>
+  <Permisos>
+    <Permiso ID="1">
+      <Descripcion>Toolstrip_Mozo</Descripcion>
+    </Permiso>
+    <Permiso ID="2">
+      <Descripcion>Toolstrip_Cocinero</Descripcion>
+    </Permiso>
+    <Permiso ID="3">
+      <Descripcion>Toolstrip_Admin</Descripcion>
+    </Permiso>
+    <Permiso ID="4">
+      <Descripcion>Toolstrip_Personal</Descripcion>
+    </Permiso>
+    <Permiso ID="5">
+      <Descripcion>Toolstrip_Menu</Descripcion>
+    </Permiso>
+    <Permiso ID="6">
+      <Descripcion>Toolstrip_Ingredientes</Descripcion>
+    </Permiso>
+    <Permiso ID="7">
+      <Descripcion>Toolstrip_Bebidas</Descripcion>
+    </Permiso>
+    <Permiso ID="8">
+      <Descripcion>Toolstrip_Platos</Descripcion>
+    </Permiso>
+    <Permiso ID="9">
+      <Descripcion>Toolstrip_Eventos</Descripcion>
+    </Permiso>
+    <Permiso ID="10">
+      <Descripcion>Toolstrip_Extras</Descripcion>
+    </Permiso>
+    <Permiso ID="11">
+      <Descripcion>ToolStrip_Mesas</Descripcion>
+    </Permiso>
+    <Permiso ID="12">
+      <Descripcion>Toolstrip_Backup</Descripcion>
+    </Permiso>
+    <Permiso ID="13">
+      <Descripcion>Toolstrip_Roles</Descripcion>
+    </Permiso>
+    <Permiso ID="14">
+      <Descripcion>Toolstrip_Metricas</Descripcion>
+    </Permiso>
+  </Permisos>
+  <Eventos>
+    <Evento ID="3">
+      <CantidadPersonas>3</CantidadPersonas>
+      <Fecha>24/11/2022</Fecha>
+      <Hora>14 Hs</Hora>
+      <Clientes>
+        <ClienteEvento ID="0">
+          <Nombre>ale</Nombre>
+          <Mail>ale@asf.com</Mail>
+        </ClienteEvento>
+      </Clientes>
+    </Evento>
+    <Evento ID="4">
+      <CantidadPersonas>4</CantidadPersonas>
+      <Fecha>25/11/2022</Fecha>
+      <Hora>20 Hs</Hora>
+      <Clientes>
+        <ClienteEvento ID="0">
+          <Nombre>drgdddddd</Nombre>
+          <Mail>dgr@lñaalalalala</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="1">
+          <Nombre>drg</Nombre>
+          <Mail>dgrasdfasf@aaaaaaaaa.com</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="2">
+          <Nombre>drgaw</Nombre>
+          <Mail>dgrasfawf.comawd</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="3">
+          <Nombre>aaaaaaaaa</Nombre>
+          <Mail>dgraaaaaa@aaaaaaaa</Mail>
+        </ClienteEvento>
+      </Clientes>
+    </Evento>
+    <Evento ID="5">
+      <CantidadPersonas>4</CantidadPersonas>
+      <Fecha>23/11/2022</Fecha>
+      <Hora>14 Hs</Hora>
+      <Clientes>
+        <ClienteEvento ID="0">
+          <Nombre>asdas</Nombre>
+          <Mail>asdasd@asd.com</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="1">
+          <Nombre>asdasasdas</Nombre>
+          <Mail>aasdasd@asd.com</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="2">
+          <Nombre>asdassdas</Nombre>
+          <Mail>aasdasd@asd.com</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="3">
+          <Nombre>asdassdas</Nombre>
+          <Mail>aaferfgrsdasd@asd.com</Mail>
+        </ClienteEvento>
+      </Clientes>
+    </Evento>
+    <Evento ID="6">
+      <CantidadPersonas>2</CantidadPersonas>
+      <Fecha>18/12/2022</Fecha>
+      <Hora>14 Hs</Hora>
+      <Clientes>
+        <ClienteEvento ID="0">
+          <Nombre>aes</Nombre>
+          <Mail>sefq@ad.com</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="1">
+          <Nombre>aes2</Nombre>
+          <Mail>sefq2@ad.com</Mail>
+        </ClienteEvento>
+      </Clientes>
+    </Evento>
+    <Evento ID="2">
+      <CantidadPersonas>4</CantidadPersonas>
+      <Fecha>25/11/2022</Fecha>
+      <Hora>12 Hs</Hora>
+      <Clientes>
+        <ClienteEvento ID="0">
+          <Nombre>zsc</Nombre>
+          <Mail>dgr</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="1">
+          <Nombre>zcsscss</Nombre>
+          <Mail>dgr</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="2">
+          <Nombre>zcs</Nombre>
+          <Mail>dgr</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="3">
+          <Nombre>drg</Nombre>
+          <Mail>dgr</Mail>
+        </ClienteEvento>
+      </Clientes>
+    </Evento>
+    <Evento ID="7">
+      <CantidadPersonas>3</CantidadPersonas>
+      <Fecha>22/12/2022</Fecha>
+      <Hora>20 Hs</Hora>
+      <Clientes>
+        <ClienteEvento ID="0">
+          <Nombre>juan</Nombre>
+          <Mail>juan@juan.com</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="1">
+          <Nombre>juan2</Nombre>
+          <Mail>juan2@juan.com</Mail>
+        </ClienteEvento>
+      </Clientes>
+    </Evento>
+    <Evento ID="8">
+      <CantidadPersonas>3</CantidadPersonas>
+      <Fecha>29/12/2022</Fecha>
+      <Hora>12 Hs</Hora>
+      <Clientes>
+        <ClienteEvento ID="0">
+          <Nombre>juan</Nombre>
+          <Mail>juan@juan.com</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="1">
+          <Nombre>juan3</Nombre>
+          <Mail>juan3@juan.com</Mail>
+        </ClienteEvento>
+      </Clientes>
+    </Evento>
+    <Evento ID="9">
+      <CantidadPersonas>5</CantidadPersonas>
+      <Fecha>30/12/2022</Fecha>
+      <Hora>12 Hs</Hora>
+      <Clientes>
+        <ClienteEvento ID="0">
+          <Nombre>asd</Nombre>
+          <Mail>asd@asd.com</Mail>
+        </ClienteEvento>
+      </Clientes>
+    </Evento>
+    <Evento ID="10">
+      <CantidadPersonas>3</CantidadPersonas>
+      <Fecha>29/12/2022</Fecha>
+      <Hora>12 Hs</Hora>
+      <Clientes>
+        <ClienteEvento ID="0">
+          <Nombre>juan</Nombre>
+          <Mail>juan@juan.com</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="1">
+          <Nombre>juan32</Nombre>
+          <Mail>juan32@juan.com</Mail>
+        </ClienteEvento>
+      </Clientes>
+    </Evento>
+    <Evento ID="11">
+      <CantidadPersonas>3</CantidadPersonas>
+      <Fecha>29/12/2022</Fecha>
+      <Hora>12 Hs</Hora>
+      <Clientes>
+        <ClienteEvento ID="0">
+          <Nombre>juan</Nombre>
+          <Mail>juan@juan.com</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="1">
+          <Nombre>juan3</Nombre>
+          <Mail>juan2@juan.com</Mail>
+        </ClienteEvento>
+        <ClienteEvento ID="2">
+          <Nombre>juan3</Nombre>
+          <Mail>juan2222@juan.com</Mail>
+        </ClienteEvento>
+      </Clientes>
+    </Evento>
+  </Eventos>
+</Restaurante>

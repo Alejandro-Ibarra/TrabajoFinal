@@ -32,11 +32,24 @@ namespace TrabajoFinal
 
         private void Boton_CrearRol_Click(object sender, EventArgs e)
         {
-            oBERoles.Codigo = Convert.ToInt32(uC_ValCod1.Text);
-            oBERoles.Descripcion = uC_ValNombApe1.Text;
-            oBERoles.Permisos = null;
-            oBLRoles.Guardar(oBERoles);
-            CargarGrillaRoles();
+            try
+            {
+                if (uC_ValCod1.Text == "" || uC_ValNombApe1.Text == "")
+                {
+                    MessageBox.Show("Complete los campos");
+                }
+                else
+                {
+                    oBERoles.Codigo = Convert.ToInt32(uC_ValCod1.Text);
+                    oBERoles.Descripcion = uC_ValNombApe1.Text;
+                    oBERoles.Permisos = null;
+                    oBLRoles.Guardar(oBERoles);
+                    CargarGrillaRoles();
+                }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+
         }
 
         private void GUI_Admin_Load(object sender, EventArgs e)
@@ -47,6 +60,9 @@ namespace TrabajoFinal
             Grilla_PermisosNoAsignados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Grilla_PermisosAsignados.MultiSelect = false;
             Grilla_PermisosAsignados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Grilla_Roles.ClearSelection();
+            Grilla_PermisosNoAsignados.ClearSelection();
+            Grilla_PermisosAsignados.ClearSelection();
 
         }
 

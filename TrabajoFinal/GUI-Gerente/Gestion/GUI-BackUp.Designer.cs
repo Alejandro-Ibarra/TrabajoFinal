@@ -58,6 +58,7 @@ namespace TrabajoFinal
             this.DataGridView_BackUps.Location = new System.Drawing.Point(12, 12);
             this.DataGridView_BackUps.Name = "DataGridView_BackUps";
             this.DataGridView_BackUps.ReadOnly = true;
+            this.DataGridView_BackUps.RowHeadersVisible = false;
             this.DataGridView_BackUps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView_BackUps.Size = new System.Drawing.Size(943, 329);
             this.DataGridView_BackUps.TabIndex = 0;

@@ -50,6 +50,7 @@ namespace TrabajoFinal
             this.GridView_ExtrasSelec.Location = new System.Drawing.Point(539, 17);
             this.GridView_ExtrasSelec.Name = "GridView_ExtrasSelec";
             this.GridView_ExtrasSelec.ReadOnly = true;
+            this.GridView_ExtrasSelec.RowHeadersVisible = false;
             this.GridView_ExtrasSelec.Size = new System.Drawing.Size(420, 450);
             this.GridView_ExtrasSelec.TabIndex = 31;
             // 
@@ -62,17 +63,19 @@ namespace TrabajoFinal
             this.GridView_TodosExtras.Location = new System.Drawing.Point(10, 17);
             this.GridView_TodosExtras.Name = "GridView_TodosExtras";
             this.GridView_TodosExtras.ReadOnly = true;
+            this.GridView_TodosExtras.RowHeadersVisible = false;
             this.GridView_TodosExtras.Size = new System.Drawing.Size(420, 450);
             this.GridView_TodosExtras.TabIndex = 30;
             // 
             // Boton_Confirmar
             // 
+            this.Boton_Confirmar.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_Confirmar.Location = new System.Drawing.Point(854, 502);
             this.Boton_Confirmar.Name = "Boton_Confirmar";
             this.Boton_Confirmar.Size = new System.Drawing.Size(110, 50);
             this.Boton_Confirmar.TabIndex = 34;
             this.Boton_Confirmar.Text = "Confirmar Pedido Extras";
-            this.Boton_Confirmar.UseVisualStyleBackColor = true;
+            this.Boton_Confirmar.UseVisualStyleBackColor = false;
             this.Boton_Confirmar.Click += new System.EventHandler(this.Boton_Confirmar_Click);
             // 
             // groupBox1

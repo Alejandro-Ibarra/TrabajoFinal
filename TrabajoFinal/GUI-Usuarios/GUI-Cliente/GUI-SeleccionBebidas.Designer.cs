@@ -43,12 +43,13 @@ namespace TrabajoFinal
             // 
             // Boton_Confirmar
             // 
+            this.Boton_Confirmar.BackColor = System.Drawing.Color.Honeydew;
             this.Boton_Confirmar.Location = new System.Drawing.Point(851, 500);
             this.Boton_Confirmar.Name = "Boton_Confirmar";
             this.Boton_Confirmar.Size = new System.Drawing.Size(110, 50);
             this.Boton_Confirmar.TabIndex = 39;
             this.Boton_Confirmar.Text = "Confirmar Pedido Bebidas";
-            this.Boton_Confirmar.UseVisualStyleBackColor = true;
+            this.Boton_Confirmar.UseVisualStyleBackColor = false;
             this.Boton_Confirmar.Click += new System.EventHandler(this.Boton_Confirmar_Click);
             // 
             // GridView_BebidasSelec
@@ -60,6 +61,7 @@ namespace TrabajoFinal
             this.GridView_BebidasSelec.Location = new System.Drawing.Point(539, 17);
             this.GridView_BebidasSelec.Name = "GridView_BebidasSelec";
             this.GridView_BebidasSelec.ReadOnly = true;
+            this.GridView_BebidasSelec.RowHeadersVisible = false;
             this.GridView_BebidasSelec.Size = new System.Drawing.Size(420, 450);
             this.GridView_BebidasSelec.TabIndex = 36;
             // 
@@ -72,6 +74,7 @@ namespace TrabajoFinal
             this.GridView_TodosBebidas.Location = new System.Drawing.Point(11, 17);
             this.GridView_TodosBebidas.Name = "GridView_TodosBebidas";
             this.GridView_TodosBebidas.ReadOnly = true;
+            this.GridView_TodosBebidas.RowHeadersVisible = false;
             this.GridView_TodosBebidas.Size = new System.Drawing.Size(420, 450);
             this.GridView_TodosBebidas.TabIndex = 35;
             // 

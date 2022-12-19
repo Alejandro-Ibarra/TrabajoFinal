@@ -32,6 +32,9 @@ namespace TrabajoFinal
             GridView_TodosExtras.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             GridView_ExtrasSelec.MultiSelect = false;
             GridView_ExtrasSelec.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            GridView_TodosExtras.ClearSelection();
+            GridView_ExtrasSelec.ClearSelection();
+
         }
 
         private void Boton_AgregarExtra_Click(object sender, EventArgs e)
@@ -43,8 +46,8 @@ namespace TrabajoFinal
                     listExtrasElegidos.Add((BEExtras)GridView_TodosExtras.CurrentRow.DataBoundItem);
                     GridView_ExtrasSelec.DataSource = null;
                     GridView_ExtrasSelec.DataSource = listExtrasElegidos;
-                    GridView_ExtrasSelec.ClearSelection();
                     OcultarCamposSelec(GridView_ExtrasSelec);
+                    GridView_ExtrasSelec.ClearSelection();
                 }
                 else
                 { MessageBox.Show("Seleccione un elemento de la lista"); }
@@ -73,8 +76,8 @@ namespace TrabajoFinal
                     listExtrasElegidos = ingreAux2;
                     GridView_ExtrasSelec.DataSource = null;
                     GridView_ExtrasSelec.DataSource = listExtrasElegidos;
-                    GridView_ExtrasSelec.ClearSelection();
                     OcultarCamposSelec(GridView_ExtrasSelec);
+                    GridView_ExtrasSelec.ClearSelection();
                 }
                 else
                 {
@@ -113,8 +116,8 @@ namespace TrabajoFinal
                 }
 
                 GridView_TodosExtras.DataSource = listExtrasAux;
-                GridView_TodosExtras.ClearSelection();
                 OcultarCamposSelec(GridView_TodosExtras);
+                GridView_TodosExtras.ClearSelection();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

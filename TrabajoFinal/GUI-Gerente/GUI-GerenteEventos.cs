@@ -44,6 +44,8 @@ namespace TrabajoFinal
             Grilla_Eventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Grilla_DeClientes.MultiSelect = false;
             Grilla_DeClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Grilla_DeClientes.ClearSelection();
+            Grilla_Eventos.ClearSelection();
         }
 
         private void Boton_AgregarEvento_Click(object sender, EventArgs e)
@@ -92,22 +94,24 @@ namespace TrabajoFinal
 
         private void Boton_ModificarEvento_Click(object sender, EventArgs e)
         {
-            DateTime FechaCancelaciones = DateTime.Now;
-            FechaCancelaciones = FechaCancelaciones.AddHours(+12);
-
-            if (DateTime.Parse(oBEEvento.Fecha) > FechaCancelaciones)
+            if (Grilla_DeClientes.Rows.Count > 0 && Grilla_DeClientes.CurrentRow != null)
             {
-                HabilitarControlesInvitados(true);
+                DateTime FechaCancelaciones = DateTime.Now;
+                FechaCancelaciones = FechaCancelaciones.AddHours(+12);
 
-                Boton_GuardarCambiosListaInv.Enabled = true;
-                Grilla_Eventos.Enabled = false;
-                HabilitarBotonesABM(false);
-                Boton_Cancelar.Enabled = true;
-                oBEEvento = new BEEvento();
+                if (DateTime.Parse(oBEEvento.Fecha) > FechaCancelaciones)
+                {
+                    HabilitarControlesInvitados(true);
+
+                    Boton_GuardarCambiosListaInv.Enabled = true;
+                    Grilla_Eventos.Enabled = false;
+                    HabilitarBotonesABM(false);
+                    Boton_Cancelar.Enabled = true;
+                    oBEEvento = new BEEvento();
+                }
+                else
+                { MessageBox.Show("No se pueden Modificar eventos pasados o cuya fecha de inicio sea menor a 12 Hs"); }
             }
-            else
-            { MessageBox.Show("No se pueden Modificar eventos pasados o cuya fecha de inicio sea menor a 12 Hs"); }
-
         }
 
 
@@ -402,6 +406,7 @@ namespace TrabajoFinal
                     listAux.Add(item);
                 }
                 Grilla_DeClientes.DataSource = listAux;
+                Grilla_DeClientes.Columns["Codigo"].Visible = false;
                 Grilla_DeClientes.ClearSelection();
             }
             catch (Exception ex)

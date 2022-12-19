@@ -47,6 +47,9 @@ namespace TrabajoFinal
             Grilla_RolesNoAsignados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Grilla_RolesAsignados.MultiSelect = false;
             Grilla_RolesAsignados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Grilla_Usuarios.ClearSelection();
+            Grilla_RolesNoAsignados.ClearSelection();
+            Grilla_RolesAsignados.ClearSelection();
         }
 
         private void Boton_Alta_Click(object sender, EventArgs e)
@@ -115,11 +118,12 @@ namespace TrabajoFinal
                 Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (Respuesta == DialogResult.Yes)
                 {
-                        AsignarCocinero();
+                    if (AsignarCocinero())
+                    {
                         oBLPersonal.Baja(oBECocinero);
                         LimpiarControles();
-
-                    CargarGrillaUsuarios();
+                        CargarGrillaUsuarios();
+                    }
                 }
             }
             catch (Exception ex)
@@ -299,9 +303,8 @@ namespace TrabajoFinal
                     listPersonal.Add((BEMozo)mozo);
                 }
                 Grilla_Usuarios.DataSource = listPersonal;
-                Grilla_Usuarios.ClearSelection();
                 Grilla_Usuarios.Columns["Codigo"].Visible = false;
-
+                Grilla_Usuarios.ClearSelection();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -439,6 +442,7 @@ namespace TrabajoFinal
                 var treeNodes = new List<TreeNode>();
                 var childNodes = new List<TreeNode>();
                 string rolAux = null;
+
                 foreach (BERoles obj in listRoles)
                 {
 
@@ -459,7 +463,7 @@ namespace TrabajoFinal
                             childNodes = new List<TreeNode>();
                         }
                         childNodes.Add(new TreeNode(obj.Descripcion));
-                        RolActual = obj.Codigo.ToString() + " " + obj.Descripcion.ToString();
+                        rolAux = obj.Codigo.ToString() + " " + obj.Descripcion;
                     }
                 }
                 if (childNodes.Count > 0)

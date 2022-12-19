@@ -33,6 +33,8 @@ namespace TrabajoFinal
             GridView_TodosBebidas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             GridView_BebidasSelec.MultiSelect = false;
             GridView_BebidasSelec.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            GridView_TodosBebidas.ClearSelection();
+            GridView_BebidasSelec.ClearSelection();
         }
 
         private void Boton_AgregarBebida_Click(object sender, EventArgs e)
@@ -46,8 +48,8 @@ namespace TrabajoFinal
 
                     GridView_BebidasSelec.DataSource = null;
                     GridView_BebidasSelec.DataSource = listaBebidasElegidas;
-                    GridView_BebidasSelec.ClearSelection();
                     OcultarCamposSelec();
+                    GridView_BebidasSelec.ClearSelection();
                 }
                 else
                 { MessageBox.Show("Seleccione un elemento de la lista"); }
@@ -78,8 +80,8 @@ namespace TrabajoFinal
                     listaBebidasElegidas = ingreAux2;
                     GridView_BebidasSelec.DataSource = null;
                     GridView_BebidasSelec.DataSource = listaBebidasElegidas;
-                    GridView_BebidasSelec.ClearSelection();
                     OcultarCamposSelec();
+                    GridView_BebidasSelec.ClearSelection();
                 }
                 else
                 { MessageBox.Show("Seleccione un elemento de la lista"); }
@@ -103,14 +105,13 @@ namespace TrabajoFinal
                 }
 
                 GridView_TodosBebidas.DataSource = listBebidasAux;
-                GridView_TodosBebidas.ClearSelection();
                 GridView_TodosBebidas.Columns["CodigoComanda"].Visible = false;
                 GridView_TodosBebidas.Columns["CodigoPedido"].Visible = false;
                 GridView_TodosBebidas.Columns["CodigoItem"].Visible = false;
                 GridView_TodosBebidas.Columns["Codigo"].Visible = false;
                 GridView_TodosBebidas.Columns["Descripcion"].Visible = false;
                 GridView_TodosBebidas.Columns["Stock"].Visible = false;
-
+                GridView_TodosBebidas.ClearSelection();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

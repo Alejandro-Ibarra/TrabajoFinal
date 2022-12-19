@@ -40,6 +40,7 @@ namespace TrabajoFinal
         {
             GridView_Pedidos.MultiSelect = false;
             GridView_Pedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            GridView_Pedidos.ClearSelection();
         }
 
         private void Boton_VerificacionPlato_Click(object sender, EventArgs e)
@@ -69,9 +70,11 @@ namespace TrabajoFinal
         {
             try
             {
-                oBEItem.Estado = "En_Preparacion_" + rol;
-                oBLItem.Modificar(oBEItem);
-                CargarGrillaPedidos();
+
+                    oBEItem.Estado = "En_Preparacion_" + rol;
+                    oBLItem.Modificar(oBEItem);
+                    CargarGrillaPedidos();
+
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message);}
@@ -144,12 +147,21 @@ namespace TrabajoFinal
                         Boton_Retirado.Enabled = false;
                     }
 
-                    if (oBEItem.Estado == "En_Preparacion_" + rol)
+                    if (oBEItem.Estado == "En_Preparacion_" + rol && rol == "Mozo")
                     {
                         Boton_VerificacionPlato.Enabled = false;
                         Boton_EnPreparacion.Enabled = false;
                         Boton_EnEntrega.Enabled = true;
                         Boton_Entregado.Enabled = false;
+                        Boton_Retirado.Enabled = false;
+                    }
+
+                    if (oBEItem.Estado == "En_Preparacion_" + rol && rol == "Cocinero")
+                    {
+                        Boton_VerificacionPlato.Enabled = false;
+                        Boton_EnPreparacion.Enabled = false;
+                        Boton_EnEntrega.Enabled = false;
+                        Boton_Entregado.Enabled = true;
                         Boton_Retirado.Enabled = false;
                     }
 
@@ -183,6 +195,7 @@ namespace TrabajoFinal
                 {
                     Boton_Retirado.Visible = false;
                     Boton_VerificacionPlato.Visible = false;
+                    Boton_EnEntrega.Visible = false;
                 }
             }
             catch (Exception ex)
@@ -194,8 +207,8 @@ namespace TrabajoFinal
             try
             {
                 GridView_Pedidos.DataSource = FiltrarItems();
-                GridView_Pedidos.ClearSelection();
                 OcultarCampos();
+                GridView_Pedidos.ClearSelection();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

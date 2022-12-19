@@ -30,6 +30,7 @@ namespace TrabajoFinal
             CargarGrilla();
             Grilla_Bebidas.MultiSelect = false;
             Grilla_Bebidas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Grilla_Bebidas.ClearSelection();
         }
 
         private void Boton_Alta_Click(object sender, EventArgs e)
@@ -183,8 +184,8 @@ namespace TrabajoFinal
             {
                 Grilla_Bebidas.DataSource = null;
                 Grilla_Bebidas.DataSource = oBLBebida.ListarTodo();
-                Grilla_Bebidas.ClearSelection();
                 OcultarCampos();
+                Grilla_Bebidas.ClearSelection();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -231,6 +232,16 @@ namespace TrabajoFinal
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

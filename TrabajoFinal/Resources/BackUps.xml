@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Backups>
+  <Backup Codigo="1">
+    <NombreArchivo>1-Restaurante-BK-2022-12-17-17-12-12.xml</NombreArchivo>
+    <Tipo>BackUp</Tipo>
+    <Ruta>C:\Users\ibarr\Desktop\Trabajo final\Instalador\TrabajoFinal\TrabajoFinal\bin\Debug\Backups\1-Restaurante-BK-2022-12-17-17-12-12.xml</Ruta>
+    <NombreUsuario>admin admin</NombreUsuario>
+    <FechaHora>2022-12-17-17-12-12</FechaHora>
+  </Backup>
+  <Backup Codigo="2">
+    <NombreArchivo>2-Restaurante-BK-2022-12-17-17-12-14.xml</NombreArchivo>
+    <Tipo>BackUp</Tipo>
+    <Ruta>C:\Users\ibarr\Desktop\Trabajo final\Instalador\TrabajoFinal\TrabajoFinal\bin\Debug\Backups\2-Restaurante-BK-2022-12-17-17-12-14.xml</Ruta>
+    <NombreUsuario>admin admin</NombreUsuario>
+    <FechaHora>2022-12-17-17-12-14</FechaHora>
+  </Backup>
+  <Backup Codigo="3">
+    <NombreArchivo>3-Restaurante-BK-2022-12-17-17-14-24.xml</NombreArchivo>
+    <Tipo>BackUp</Tipo>
+    <Ruta>C:\Users\ibarr\Desktop\Trabajo final\Instalador\TrabajoFinal\TrabajoFinal\bin\Debug\Backups\3-Restaurante-BK-2022-12-17-17-14-24.xml</Ruta>
+    <NombreUsuario>admin admin</NombreUsuario>
+    <FechaHora>2022-12-17-17-14-24</FechaHora>
+  </Backup>
+  <Backup Codigo="4">
+    <NombreArchivo>4-Restaurante-BK-2022-12-17-17-16-11.xml</NombreArchivo>
+    <Tipo>restore</Tipo>
+    <Ruta></Ruta>
+    <NombreUsuario>admin admin</NombreUsuario>
+    <FechaHora>2022-12-17-17-16-11</FechaHora>
+  </Backup>
+  <Backup Codigo="5">
+    <NombreArchivo>5-Restaurante-BK-2022-12-17-17-16-17.xml</NombreArchivo>
+    <Tipo>BackUp</Tipo>
+    <Ruta>C:\Users\ibarr\Desktop\Trabajo final\Instalador\TrabajoFinal\TrabajoFinal\bin\Debug\Backups\5-Restaurante-BK-2022-12-17-17-16-17.xml</Ruta>
+    <NombreUsuario>admin admin</NombreUsuario>
+    <FechaHora>2022-12-17-17-16-17</FechaHora>
+  </Backup>
+  <Backup Codigo="6">
+    <NombreArchivo>6-Restaurante-BK-2022-12-17-17-16-25.xml</NombreArchivo>
+    <Tipo>BackUp</Tipo>
+    <Ruta>C:\Users\ibarr\Desktop\Trabajo final\Instalador\TrabajoFinal\TrabajoFinal\bin\Debug\Backups\6-Restaurante-BK-2022-12-17-17-16-25.xml</Ruta>
+    <NombreUsuario>admin admin</NombreUsuario>
+    <FechaHora>2022-12-17-17-16-25</FechaHora>
+  </Backup>
+  <Backup Codigo="7">
+    <NombreArchivo>7-Restaurante-BK-2022-12-17-17-16-47.xml</NombreArchivo>
+    <Tipo>BackUp</Tipo>
+    <Ruta>C:\Users\ibarr\Desktop\Trabajo final\Instalador\TrabajoFinal\TrabajoFinal\bin\Debug\Backups\7-Restaurante-BK-2022-12-17-17-16-47.xml</Ruta>
+    <NombreUsuario>admin admin</NombreUsuario>
+    <FechaHora>2022-12-17-17-16-47</FechaHora>
+  </Backup>
+  <Backup Codigo="8">
+    <NombreArchivo>8-Restaurante-BK-2022-12-17-17-16-52.xml</NombreArchivo>
+    <Tipo>restore</Tipo>
+    <Ruta></Ruta>
+    <NombreUsuario>admin admin</NombreUsuario>
+    <FechaHora>2022-12-17-17-16-52</FechaHora>
+  </Backup>
+  <Backup Codigo="9">
+    <NombreArchivo>9-Restaurante-BK-2022-12-17-17-19-39.xml</NombreArchivo>
+    <Tipo>restore</Tipo>
+    <Ruta></Ruta>
+    <NombreUsuario>admin admin</NombreUsuario>
+    <FechaHora>2022-12-17-17-19-39</FechaHora>
+  </Backup>
+</Backups>

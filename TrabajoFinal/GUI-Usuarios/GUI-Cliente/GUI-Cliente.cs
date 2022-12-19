@@ -51,6 +51,7 @@ namespace TrabajoFinal
         {
             Grilla_PedidosCliente.MultiSelect = false;
             Grilla_PedidosCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Grilla_PedidosCliente.ClearSelection();
         }
 
         private void Boton_Entrada_Click(object sender, EventArgs e)
@@ -580,8 +581,8 @@ namespace TrabajoFinal
         {
             Grilla_PedidosCliente.DataSource = null;
             Grilla_PedidosCliente.DataSource = listaItemsSeleccionados;
-            Grilla_PedidosCliente.ClearSelection();
             OcultarCampos();
+            Grilla_PedidosCliente.ClearSelection();
         }
 
         private void CargarTextbox()

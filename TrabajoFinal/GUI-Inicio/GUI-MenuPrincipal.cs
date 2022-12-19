@@ -52,10 +52,6 @@ namespace TrabajoFinal
             FormsConfig(oGUI_Extras);
             this.Panel.Controls.Add(oGUI_Extras);
 
-            oGUI_Mesas = new GUI_GerenteMesas();
-            FormsConfig(oGUI_Mesas);
-            this.Panel.Controls.Add(oGUI_Mesas);
-
             oGUI_BackUp = new GUI_BackUp(oBePersonal.Codigo);
             FormsConfig(oGUI_BackUp);
             this.Panel.Controls.Add(oGUI_BackUp);
@@ -79,7 +75,6 @@ namespace TrabajoFinal
         GUI_Gerente_Platos oGUI_Platos;
         GUI_Gerente_Eventos oGUI_Eventos;
         GUI_Gerente_Extras oGUI_Extras;
-        GUI_GerenteMesas oGUI_Mesas;
         GUI_BackUp oGUI_BackUp;
         GUI_RolesPermisos oGUI_RolesPermisos;
         GUI_Gerente_Metricas oGUI_Metricas;

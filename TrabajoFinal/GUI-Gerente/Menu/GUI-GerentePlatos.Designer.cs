@@ -123,6 +123,7 @@ namespace TrabajoFinal
             this.DataGridView_TodosIngredientes.MultiSelect = false;
             this.DataGridView_TodosIngredientes.Name = "DataGridView_TodosIngredientes";
             this.DataGridView_TodosIngredientes.ReadOnly = true;
+            this.DataGridView_TodosIngredientes.RowHeadersVisible = false;
             this.DataGridView_TodosIngredientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView_TodosIngredientes.Size = new System.Drawing.Size(225, 185);
             this.DataGridView_TodosIngredientes.TabIndex = 5;
@@ -137,6 +138,7 @@ namespace TrabajoFinal
             this.DataGridView_SeleccionIngredientes.MultiSelect = false;
             this.DataGridView_SeleccionIngredientes.Name = "DataGridView_SeleccionIngredientes";
             this.DataGridView_SeleccionIngredientes.ReadOnly = true;
+            this.DataGridView_SeleccionIngredientes.RowHeadersVisible = false;
             this.DataGridView_SeleccionIngredientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView_SeleccionIngredientes.Size = new System.Drawing.Size(211, 193);
             this.DataGridView_SeleccionIngredientes.TabIndex = 6;
@@ -312,10 +314,12 @@ namespace TrabajoFinal
             // 
             this.DataGridView_Platos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridView_Platos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView_Platos.Cursor = System.Windows.Forms.Cursors.Default;
             this.DataGridView_Platos.Location = new System.Drawing.Point(12, 21);
             this.DataGridView_Platos.MultiSelect = false;
             this.DataGridView_Platos.Name = "DataGridView_Platos";
             this.DataGridView_Platos.ReadOnly = true;
+            this.DataGridView_Platos.RowHeadersVisible = false;
             this.DataGridView_Platos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView_Platos.Size = new System.Drawing.Size(826, 177);
             this.DataGridView_Platos.TabIndex = 9;
