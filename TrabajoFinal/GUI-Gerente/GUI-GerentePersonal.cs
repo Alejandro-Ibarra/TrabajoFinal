@@ -104,6 +104,7 @@ namespace TrabajoFinal
                     }
                 }
                 CargarGrillaUsuarios();
+                LimpiarControles();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -114,15 +115,29 @@ namespace TrabajoFinal
         {
             try
             {
-                DialogResult Respuesta;
-                Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (Respuesta == DialogResult.Yes)
+                if (Grilla_Usuarios.Rows.Count > 0 && Grilla_Usuarios.CurrentRow != null && Grilla_Usuarios.SelectedRows.Count > 0)
                 {
-                    if (AsignarCocinero())
+                    if (true)
                     {
-                        oBLPersonal.Baja(oBECocinero);
-                        LimpiarControles();
-                        CargarGrillaUsuarios();
+                        DialogResult Respuesta;
+                        Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (Respuesta == DialogResult.Yes)
+                        {
+                            if (AsignarCocinero())
+                            {
+                                if (oBECocinero.DNI != 11111111)
+                                {
+                                    oBLPersonal.Baja(oBECocinero);
+                                    LimpiarControles();
+                                    CargarGrillaUsuarios();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se puede eliminar el usuario admin");
+                                }
+                                
+                            }
+                        }
                     }
                 }
             }
@@ -134,29 +149,45 @@ namespace TrabajoFinal
         {
             try
             {
-                if (RadioButton_Cocinero.Checked)
+                if (Grilla_Usuarios.Rows.Count > 0 && Grilla_Usuarios.CurrentRow != null && Grilla_Usuarios.SelectedRows.Count > 0)
                 {
-                    if (AsignarCocinero())
+
+                    if (RadioButton_Cocinero.Checked)
                     {
-                        oBECocinero.Turno = AsignarTurno();
-                        oBLCocinero.Modificar(oBECocinero);
-                        AsignarAControles(oBECocinero);
+                        if (AsignarCocinero())
+                        {
+                            oBECocinero.Turno = AsignarTurno();
+                            oBLCocinero.Modificar(oBECocinero);
+                            AsignarAControles(oBECocinero);
+                        }
+                        else
+                        { MessageBox.Show("Ingrese los datos de forma correcta"); }
+                    }
+                    else if (RadioButton_Mozo.Checked)
+                    {
+                        if (AsignarMozo())
+                        {
+                            oBEMozo.Turno = AsignarTurno();
+                            oBLMozo.Modificar(oBEMozo);
+                            AsignarAControles(oBEMozo);
+                        }
+                        else
+                        { MessageBox.Show("Ingrese los datos de forma correcta"); }
                     }
                     else
-                    { MessageBox.Show("Ingrese los datos de forma correcta"); }
-                }
-                else
-                {
-                    if (AsignarMozo())
                     {
-                        oBEMozo.Turno = AsignarTurno();
-                        oBLMozo.Modificar(oBEMozo);
-                        AsignarAControles(oBEMozo);
+                        if (AsignarGerente())
+                        {
+                            oBEPersonal.Turno = AsignarTurno();
+                            oBLPersonal.Modificar(oBEPersonal);
+                            AsignarAControles(oBEPersonal);
+                        }
+                        else
+                        { MessageBox.Show("Ingrese los datos de forma correcta"); }
                     }
-                    else
-                    { MessageBox.Show("Ingrese los datos de forma correcta"); }
+                    CargarGrillaUsuarios();
+                    LimpiarControles();
                 }
-                CargarGrillaUsuarios();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -265,8 +296,16 @@ namespace TrabajoFinal
                 else if (oBEpersonal.Turno == "Tarde") { RadioButton_Tarde.Checked = true;}
                 else { RadioButton_Noche.Checked = true;}
 
-                if (oBEPersonal is BECocinero) { RadioButton_Cocinero.Checked = true; }
-                else { RadioButton_Mozo.Checked = true; }
+                if (oBEpersonal is BECocinero) { RadioButton_Cocinero.Checked = true; }
+                else if (oBEpersonal is BEMozo)
+                {
+                    RadioButton_Mozo.Checked = true;
+                }
+                else
+                {
+                    RadioButton_Gerente.Checked = true;
+                }
+
 
             }
             catch (Exception ex)
@@ -277,10 +316,12 @@ namespace TrabajoFinal
         {
             try
             {
-                foreach (TextBox oTextbox in this.Controls.OfType<TextBox>())
-                {
-                    oTextbox.Text = null;
-                }
+                UC_ValNomb.Text = null;
+                UC_ValDNI.Text = null;
+                UC_ValApe.Text = null;
+                textBox_Pass.Text = null;
+                RadioButton_Mañana.Checked = true;
+                RadioButton_Mozo.Checked = true;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -318,7 +359,7 @@ namespace TrabajoFinal
                 {
                     BEPersonal Personal = (BEPersonal)Grilla_Usuarios.CurrentRow.DataBoundItem;
                     AsignarAControles(Personal);
-                    RecuperarPuesto(Personal.DNI);
+                    //RecuperarPuesto(Personal.DNI);
                     LlenarRolesGrillasTree(Personal);
 
                     textBox_Pass.UseSystemPasswordChar = true;

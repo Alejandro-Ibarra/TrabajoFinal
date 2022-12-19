@@ -41,7 +41,7 @@ namespace TrabajoFinal
                 HabilitarBotonesABM(false);
                 HabilitarControlesBebida(true);
                 LimpiarControles();
-                Grilla_Ingredientes.Enabled = true;
+                Grilla_Ingredientes.Enabled = false;
 
             }
             catch (Exception ex)
@@ -52,17 +52,29 @@ namespace TrabajoFinal
         {
             try
             {
-                DialogResult Respuesta;
-                Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (Respuesta == DialogResult.Yes)
+                if (Grilla_Ingredientes.Rows.Count > 0 && Grilla_Ingredientes.CurrentRow != null && Grilla_Ingredientes.SelectedRows.Count > 0)
                 {
-                    if (oBLIngrediente.Baja(oBEIngrediente))
+                    DialogResult Respuesta;
+                    Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (Respuesta == DialogResult.Yes)
                     {
-                        LimpiarControles();
-                        CargarGrilla();
+                        if (oBLIngrediente.Baja(oBEIngrediente))
+                        {
+                            LimpiarControles();
+                            CargarGrilla();
+                        }
+                        else {MessageBox.Show("No se puede dar de baja un ingrediente que se encuentre en un plato");}
                     }
-                    else {MessageBox.Show("No se puede dar de baja un ingrediente que se encuentre en un plato");}
                 }
+                else
+                {
+                    MessageBox.Show("Seleccione una bebida a eliminar");
+                }
+
+
+
+
+
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -159,7 +171,6 @@ namespace TrabajoFinal
                 UC_ValStock.Text = oBEIngrediente.Stock.ToString();
                 ComboBox_Proveedor.SelectedItem = oBEIngrediente.Proveedor;
                 ComboBox_Tipo.SelectedItem = oBEIngrediente.Tipo;
-
                 if (oBEIngrediente.Refrigeracion == true){ RadioButton_Si.Checked = true;}
                 else
                 { RadioButton_No.Checked = true;}
@@ -201,7 +212,7 @@ namespace TrabajoFinal
         {
             try
             {
-                List<string> ListaProveedor = new List<string> {"Verduleria Amistad", "Frigorifico Corte", "La Serenisima", "Coca Cola", "Pepsi" };
+                List<string> ListaProveedor = new List<string> {"Verduleria Amistad","Frigorifico Corte","La Serenisima","Coca Cola","Pepsi","Carrefour","Coto","Ledesma","Arcor"};
                 ComboBox_Proveedor.DataSource = ListaProveedor;
 
                 List<string> ListaTipo = new List<string> { "Principal",  "Secundario" };

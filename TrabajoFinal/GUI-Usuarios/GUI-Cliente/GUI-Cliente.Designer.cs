@@ -71,7 +71,7 @@
             // 
             // Boton_PlatoPrincipal
             // 
-            this.Boton_PlatoPrincipal.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Boton_PlatoPrincipal.BackColor = System.Drawing.Color.AliceBlue;
             this.Boton_PlatoPrincipal.Location = new System.Drawing.Point(106, 14);
             this.Boton_PlatoPrincipal.Name = "Boton_PlatoPrincipal";
             this.Boton_PlatoPrincipal.Size = new System.Drawing.Size(93, 38);

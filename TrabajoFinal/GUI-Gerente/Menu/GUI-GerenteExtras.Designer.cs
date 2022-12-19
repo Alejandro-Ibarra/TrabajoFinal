@@ -39,16 +39,16 @@ namespace TrabajoFinal
             this.Boton_Modificar = new System.Windows.Forms.Button();
             this.Boton_Baja = new System.Windows.Forms.Button();
             this.Boton_Alta = new System.Windows.Forms.Button();
-            this.Grilla_Ingredientes = new System.Windows.Forms.DataGridView();
+            this.Grilla_Extras = new System.Windows.Forms.DataGridView();
             this.ComboBox_Tipo = new System.Windows.Forms.ComboBox();
             this.RadioButton_Inactivo = new System.Windows.Forms.RadioButton();
             this.RadioButton_Activo = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla_Ingredientes)).BeginInit();
+            this.Boton_ConfirmarExtra = new System.Windows.Forms.Button();
+            this.Boton_Cancelar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla_Extras)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -145,18 +145,18 @@ namespace TrabajoFinal
             this.Boton_Alta.UseVisualStyleBackColor = false;
             this.Boton_Alta.Click += new System.EventHandler(this.Boton_Alta_Click);
             // 
-            // Grilla_Ingredientes
+            // Grilla_Extras
             // 
-            this.Grilla_Ingredientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Grilla_Ingredientes.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.Grilla_Ingredientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla_Ingredientes.Location = new System.Drawing.Point(21, 30);
-            this.Grilla_Ingredientes.Name = "Grilla_Ingredientes";
-            this.Grilla_Ingredientes.ReadOnly = true;
-            this.Grilla_Ingredientes.RowHeadersVisible = false;
-            this.Grilla_Ingredientes.Size = new System.Drawing.Size(814, 324);
-            this.Grilla_Ingredientes.TabIndex = 63;
-            this.Grilla_Ingredientes.Click += new System.EventHandler(this.Grilla_Ingredientes_Click);
+            this.Grilla_Extras.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Grilla_Extras.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.Grilla_Extras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla_Extras.Location = new System.Drawing.Point(21, 30);
+            this.Grilla_Extras.Name = "Grilla_Extras";
+            this.Grilla_Extras.ReadOnly = true;
+            this.Grilla_Extras.RowHeadersVisible = false;
+            this.Grilla_Extras.Size = new System.Drawing.Size(814, 324);
+            this.Grilla_Extras.TabIndex = 63;
+            this.Grilla_Extras.Click += new System.EventHandler(this.Grilla_Ingredientes_Click);
             // 
             // ComboBox_Tipo
             // 
@@ -231,25 +231,27 @@ namespace TrabajoFinal
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Acciones";
             // 
-            // button1
+            // Boton_ConfirmarExtra
             // 
-            this.button1.BackColor = System.Drawing.Color.Honeydew;
-            this.button1.Location = new System.Drawing.Point(566, 414);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 50);
-            this.button1.TabIndex = 85;
-            this.button1.Text = "Confirmar datos del extra";
-            this.button1.UseVisualStyleBackColor = false;
+            this.Boton_ConfirmarExtra.BackColor = System.Drawing.Color.Honeydew;
+            this.Boton_ConfirmarExtra.Location = new System.Drawing.Point(566, 414);
+            this.Boton_ConfirmarExtra.Name = "Boton_ConfirmarExtra";
+            this.Boton_ConfirmarExtra.Size = new System.Drawing.Size(75, 50);
+            this.Boton_ConfirmarExtra.TabIndex = 85;
+            this.Boton_ConfirmarExtra.Text = "Confirmar datos del extra";
+            this.Boton_ConfirmarExtra.UseVisualStyleBackColor = false;
+            this.Boton_ConfirmarExtra.Click += new System.EventHandler(this.Boton_ConfirmarExtra_Click);
             // 
-            // button2
+            // Boton_Cancelar
             // 
-            this.button2.BackColor = System.Drawing.Color.Linen;
-            this.button2.Location = new System.Drawing.Point(566, 474);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 34);
-            this.button2.TabIndex = 86;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.Boton_Cancelar.BackColor = System.Drawing.Color.Linen;
+            this.Boton_Cancelar.Location = new System.Drawing.Point(566, 474);
+            this.Boton_Cancelar.Name = "Boton_Cancelar";
+            this.Boton_Cancelar.Size = new System.Drawing.Size(75, 34);
+            this.Boton_Cancelar.TabIndex = 86;
+            this.Boton_Cancelar.Text = "Cancelar";
+            this.Boton_Cancelar.UseVisualStyleBackColor = false;
+            this.Boton_Cancelar.Click += new System.EventHandler(this.Boton_Cancelar_Click);
             // 
             // GUI_Gerente_Extras
             // 
@@ -257,16 +259,16 @@ namespace TrabajoFinal
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TrabajoFinal.Properties.Resources.BlueShade2;
             this.ClientSize = new System.Drawing.Size(984, 561);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Boton_Cancelar);
+            this.Controls.Add(this.Boton_ConfirmarExtra);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.Grilla_Ingredientes);
+            this.Controls.Add(this.Grilla_Extras);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GUI_Gerente_Extras";
             this.Text = "GUI_AdminExtras";
             this.Load += new System.EventHandler(this.GUI_AdminExtras_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla_Ingredientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grilla_Extras)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -287,14 +289,14 @@ namespace TrabajoFinal
         private System.Windows.Forms.Button Boton_Modificar;
         private System.Windows.Forms.Button Boton_Baja;
         private System.Windows.Forms.Button Boton_Alta;
-        private System.Windows.Forms.DataGridView Grilla_Ingredientes;
+        private System.Windows.Forms.DataGridView Grilla_Extras;
         private System.Windows.Forms.ComboBox ComboBox_Tipo;
         private System.Windows.Forms.RadioButton RadioButton_Inactivo;
         private System.Windows.Forms.RadioButton RadioButton_Activo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Boton_ConfirmarExtra;
+        private System.Windows.Forms.Button Boton_Cancelar;
     }
 }
